@@ -87,6 +87,10 @@ alias txk='tmux kill-session -t $1'
 alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
+# dotfiles git alias
+
+alias dgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+
 #fasd alias
 alias v='fasd $1 -e vim'
 alias o='fasd $1 -e mimeo'
