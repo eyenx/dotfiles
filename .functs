@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 aurd(){
 	[[ -z $@ ]] && echo -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
 	pkg=$1
