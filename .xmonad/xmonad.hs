@@ -12,6 +12,7 @@ import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+
 -- preferred applications
 -- shortcuts
 
@@ -36,25 +37,24 @@ myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart"
 myRest="/usr/bin/xmonad --restart"
 
--- Whether focus follows the mouse pointer.
+-- get focus on mouse 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
--- Width of the window border in pixels.
+
+-- border
 myBorderWidth   = 1
--- My Meta Keys
+
+-- my metas
 myModMask       = mod1Mask
-mySup = mod4Mask
+
 -- my workspaces
 myWorkspaces    = ["web","media","vm","code" ] 
 
--- Border colors for unfocused and focused windows, respectively.
---
+-- border colors
 myNormalBorderColor  = "#707070"
 myFocusedBorderColor = "#1793d0"
 
-------------------------------------------------------------------------
--- Key bindings. Add, modify or remove key bindings here.
---
+--key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -69,97 +69,87 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,xK_c),
 	kill)
 
-     -- Rotate through the available layout algorithms
+     -- rotate through layouts
     , ((modm,xK_space),
 	sendMessage NextLayout)
 
-    --  Reset the layouts on the current workspace to default
+    -- reset to default layout
     , ((modm .|. shiftMask,xK_space),
 	setLayout $ XMonad.layoutHook conf)
 
-    -- Resize viewed windows to the correct size
+    -- resize windows to predefined size
     , ((modm,xK_n),
 	refresh)
 
-    -- Move focus to the next window
+    -- focus next window
     , ((modm,xK_Tab),
 	windows W.focusDown)
 
-    -- Move focus to the next window
+    -- focus next window
     , ((modm,xK_j),
 	windows W.focusDown)
 
-    -- Move focus to the previous window
+    -- focus prev window
     , ((modm,xK_k),
 	windows W.focusUp  )
 
-    -- Move focus to the master window
+    -- focus master window
     , ((modm,xK_m),
 	windows W.focusMaster  )
 
-    -- Swap the focused window and the master window
+    -- swap master
     , ((modm,xK_Return),
 	windows W.swapMaster)
 
-    -- Swap the focused window with the next window
+    -- swap current window with next
     , ((modm .|. shiftMask, xK_j),
 	windows W.swapDown)
 
-    -- Swap the focused window with the previous window
+    -- swap current window with prev
     , ((modm .|. shiftMask,xK_k),
 	windows W.swapUp    )
 
-    -- Shrink the master area
+    -- shrink master area
     , ((modm,xK_h),
 	sendMessage Shrink)
 
-    -- Expand the master area
+    -- expand master area
     , ((modm,xK_l),
 	sendMessage Expand)
 
-    -- Push window back into tiling
+    -- push window into tiling
     , ((modm,xK_t),
 	withFocused $ windows . W.sink)
-    -- Fullscreen window
---    , ((modm,xK_f),
---	sendMessage $ JumpToLayout "Full")
 
-    -- Increment the number of windows in the master area
+    -- number of windows in master area +1
     , ((modm,xK_comma),
 	sendMessage (IncMasterN 1))
 
-    -- Deincrement the number of windows in the master area
+    -- number of windows in master area -1
     , ((modm,xK_period),
 	sendMessage (IncMasterN (-1)))
 
-    -- Quit xmonad
+    -- quit xmonad
     , ((modm .|. shiftMask, xK_q     ),
 	io (exitWith ExitSuccess))
 
-    -- Restart xmonad
+    -- restart xmonad
     , ((modm .|. shiftMask, xK_r    ),
 	spawn myRecomp)
+
+    -- restart w/o recompile
     , ((modm, xK_r ), 
 	spawn myRest)
     ]
     ++
 
-    --
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
+    -- mod-[1..9], go to workspace n
+    -- mod-shift-[1..9], send window to workspace n
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
-
-
-------------------------------------------------------------------------
--- Mouse bindings: default actions bound to mouse events
---
+-- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -172,95 +162,42 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-button3, Set the window to floating mode and resize by dragging
     , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
                                        >> windows W.shiftMaster))
-
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
-------------------------------------------------------------------------
--- Layouts:
-
--- You can specify and transform your layouts by modifying these values.
--- If you change layout bindings be sure to use 'mod-shift-space' after
--- restarting (with 'mod-q') to reset your layout state to the new
--- defaults, as xmonad preserves your old layout settings by default.
---
--- The available layouts.  Note that each layout is separated by |||,
--- which denotes layout choice.
---
+--layouts
 myLayout = tile ||| mtile ||| full
   where
-	-- tiling profiles
+     -- tiling profiles
      rt = ResizableTall nmaster delta ratio []
      tile   = renamed [Replace "[]="] $ smartBorders rt
      mtile   = renamed [Replace "M[]="] $ smartBorders $ Mirror rt
      full   = renamed [Replace "[]"] $ noBorders Full
 
-     -- The default number of windows in the master pane
+     -- default #windows in master
      nmaster = 1
 
-     -- Default proportion of screen occupied by master pane
+     -- proportion size of master
      ratio   = 6/10
 
-     -- Percent of screen to increment by when resizing panes
+     -- incrementation on resizing
      delta   = 2/100
      
 
-------------------------------------------------------------------------
--- Window rules:
-
--- Execute arbitrary actions and WindowSet manipulations when managing
--- a new window. You can use this to, for example, always float a
--- particular program, or have a client always appear on a particular
--- workspace.
---
--- To find the property name associated with a program, use
--- > xprop | grep WM_CLASS
--- and click on the client you're interested in.
---
--- To match on the WM_NAME, you can use 'title' in the same way that
--- 'className' and 'resource' are used below.
---
+--rules
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
-------------------------------------------------------------------------
--- Event handling
-
--- * EwmhDesktops users should change this to ewmhDesktopsEventHook
---
--- Defines a custom handler function for X Events. The function should
--- return (All True) if the default handler is to be run afterwards. To
--- combine event hooks use mappend or mconcat from Data.Monoid.
---
+-- event handling
 myEventHook = mempty
 
-------------------------------------------------------------------------
--- Status bars and logging
-
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
+-- statusbar / logging
 myLogHook = return ()
 
-------------------------------------------------------------------------
--- Startup hook
-
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
---
--- By default, do nothing.
+-- startup
 myStartupHook = return ()
-
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
-
--- Run xmonad with the settings you specify. No need to modify this.
---
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConf
 
 -- launch xmobar
 myBar = "/usr/bin/xmobar"
@@ -278,12 +215,10 @@ myPP = xmobarPP {
 }
 -- key bind
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
+
+-- main function
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConf
+-- my config
 myConf = defaultConfig {
       -- simple stuff
         terminal           = myTerm,
