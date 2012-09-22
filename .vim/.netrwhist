@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/eye/.irssi'
-let g:netrw_dirhist_2='/home/eye/.irssi/scripts'
-let g:netrw_dirhist_3='/home/eye/.irssi'
-let g:netrw_dirhist_4='/home/eye/.irssi/scripts'
-let g:netrw_dirhist_5='/home/eye/.irssi'
-let g:netrw_dirhist_6='/home/eye/.pentadactyl'
-let g:netrw_dirhist_7='/media/exthome/dev/imgur.gal'
