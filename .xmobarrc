@@ -1,0 +1,25 @@
+Config {
+	font = "xft:zekton-7"
+	, bgColor= "#1c1d1f"
+	, fgColor= "#b0b0b0"
+	, position = Top
+	, border = NoBorder
+	, borderColor = "#000000"
+	, lowerOnStart = True
+	, commands = [
+		Run Uptime ["-t","<days>d <hours>h <minutes>m"] 10
+		, Run Com "~/.conky/weather.sh" [] "weather" 900
+		, Run Com "~/.conky/gm.sh" [] "chkgm" 300
+		, Run Com "~/.conky/pacstat" [] "pacstat" 900
+		, Run Com "~/.conky/publicip.sh" [] "pubip" 7200
+		, Run Com "~/.conky/locip.sh" [] "locip" 7200 
+		, Run Memory ["-t","<usedratio>%","-H","60","-h","#e04614"] 10
+		, Run Swap ["-t","<usedratio>%","-H","1","-h","#e04614"] 10
+		, Run MultiCpu ["-t","<total0>% <total1>% <total2>% <total3>%","-H","80","-h","#e04614"] 10
+		, Run Network "eth0" ["-t","on <dev>: <rx> kbs - <tx> kbs","-H","10000","-h","#e04614"] 10 
+		, Run Date "%a %_d %b %H:%M" "date" 10
+		, Run StdinReader
+	]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = "%StdinReader% }{ gmail <fc=#707070>%chkgm%</fc> <fc=#505050>/</fc> pacman <fc=#707070>%pacstat%</fc> <fc=#505050>/</fc> weather <fc=#707070>%weather%</fc> <fc=#505050>/</fc> uptime <fc=#707070>%uptime%</fc> <fc=#505050>/</fc> net <fc=#707070>%eth0%</fc> <fc=#505050>/</fc> locip <fc=#707070>%locip%</fc> <fc=#505050>/</fc> pubip <fc=#707070>%pubip%</fc><fc=#505050>/</fc> cpu <fc=#707070>%multicpu%</fc> <fc=#505050>/</fc> ram <fc=#707070>%memory%</fc> <fc=#505050>/</fc> swap <fc=#707070>%swap%</fc> <fc=#505050>/</fc>  %date%"}

@@ -1,0 +1,80 @@
+! ----------------------------------------------------------------------------
+! ! file:     ~/.Xdefaults
+! ! vim:enc=utf8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! ----------------------------------------------------------------------------
+
+! terminal colors ------------------------------------------------------------
+*background: #1c1d1f
+*foreground: #b0b0b0
+! Special Orange
+URxvt*color0:#1c1d1f
+URxvt*color1:#FF0000
+URxvt*color2:#00FF00
+URxvt*color3:#FFFF00
+URxvt*color4:#085dad
+URxvt*color5:#FF00FF
+URxvt*color6:#00FFFF
+URxvt*color7:#B0B0B0
+URxvt*color8:#1793D0
+URxvt*color9:#AA0000
+URxvt*color10:#00AA00
+URxvt*color11:#b0b0b0
+URxvt*color12:#6599FF
+URxvt*color13:#AA00AA
+URxvt*color14:#00AAAA
+URxvt*color15:#b0b0b0
+! other urxvt options
+URxvt.perl-ext: default,url-select
+!,tabbed
+URxvt*internalBorder:0
+URxvt.urgentOnBell: true
+!URxvt*tabbed.tabbar-bg:0
+!URxvt*tabbed.tabbar-fg:8
+!URxvt*tabbed.tab-bg:0
+!URxvt*tabbed.tab-fg:8
+URxvt*keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/firefox -new-tab
+URxvt.url-select.underline: false
+URxvt*matcher.button: 1
+URxvt.font:xft:monospace:size=8
+! URxvt.font:-*-courier-medium-r-normal-*-12-*-*-*-*-*-iso8859-1
+URxvt*letterSpace: -1
+URxvt.saveLines:10000
+URxvt.iconFile:/home/eye/.icons/ACYLBlue/scalable/apps/terminal.svg
+URxvt.geometry:70x35
+URxvt.scrollBar: off
+URxvt*cursorUnderline: 1
+URxvt*underlineColor: #1793D0
+
+! Xcursor -------------------------------------------------------------------
+
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 16
+
+
+! xscreensaver --------------------------------------------------------------
+!font settings
+xscreensaver.Dialog.headingFont: xft:zekton:size=7
+xscreensaver.Dialog.bodyFont: xft:zekton:size=7
+xscreensaver.Dialog.labelFont: xft:zekton:size=7
+xscreensaver.Dialog.unameFont: xft:zekton:size=7
+xscreensaver.Dialog.buttonFont: xft:zekton:size=7
+xscreensaver.Dialog.dateFont: xft:zekton:size=7
+xscreensaver.passwd.passwdFont: xft:zekton:size=7
+!general dialog box
+xscreensaver.Dialog.foreground: #b0b0b0
+xscreensaver.Dialog.background: #1c1d1f
+xscreensaver.Dialog.topShadowColor: #1c1d1f
+xscreensaver.Dialog.bottomShadowColor: #1c1d1f
+xscreensaver.Dialog.Button.foreground:  #b0b0b0
+xscreensaver.Dialog.Button.background:  #1c1d1f
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #b0b0b0
+xscreensaver.Dialog.text.background: #1c1d1f
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    0
+xscreensaver.passwd.thermometer.foreground: #1c1d1f
+xscreensaver.passwd.thermometer.background: #1c1d1f
+xscreensaver.passwd.thermometer.width: 0
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y

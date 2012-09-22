@@ -1,0 +1,18 @@
+# Write your default config options here!
+
+
+[default]
+
+#vo=x11
+vo=gl
+#vo=xv
+zoom=1
+ao=pulse
+#cache=524288
+#cache=262144
+cache=131072
+dvd-device=/dev/sr0
+heartbeat-cmd="xautolock -disable;xautolock -enable"
+
+[gnome-mplayer]
+msglevel=all=5

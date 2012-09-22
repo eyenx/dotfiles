@@ -1,0 +1,162 @@
+#!/bin/bash
+aurd(){
+	[[ -z $@ ]] && echo -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
+	pkg=$1
+	url="http://aur.archlinux.org/packages/"
+	build="/tmp/aurd/"
+	[[ -d $build ]] || mkdir -pv $build
+	cd $build
+	curl "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
+	cd ${build}${pkg}
+}
+mymem() {
+ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g
+}
+cpssh() {
+	[[ -z $@ ]] && echo -e "copy file to rhost over ssh tunnel\nusage: cpssh <rhost> <lfile> [rfile]" && return 1
+	_s="ssh -e none"
+	rh=$1
+	lf=$2
+	rf=${3:-$2}
+	cat $lf | eval $_s $rh cat > $rf
+}
+sshtun() {
+	[[ -z $@ ]] && echo -e "create an local ssh tunnel from your machine to another one\nusage: sshtun <rhost> <rport> [locport]" && return 1
+	rh=$1
+	rp=$2
+	lp=${3:-28112}
+	lh="localhost"
+	_cmd="ssh -f -g -N -L"
+	eval $_cmd $lp:$lh:$rp $rh
+}
+calc() { 
+	par=$*
+	echo -e "$par ="
+	calc=$(awk "BEGIN{ print $par }") 
+    	echo $calc
+}
+qload() {
+	uptime|sed 's/.*rage:\ \(.*\)/load:\ \1/'|sed 's/,//g'
+}
+
+wiki() {
+	[[ -z $@ ]] && echo -e "dig wiki +short txt through console\nusage: wiki <string>" && return 1
+	str=$(echo $@|sed 's, ,_,g'); dig +short txt ${str}.wp.dg.cx
+}
+
+gsay() {
+	[[ -z $@ ]] && echo -e "download and play google translate phrase\nusage: gsay [lang] <text>" && return 1
+	lang=${1}
+	shift
+	text=$@
+	text=${text//\ /\+}
+	mplayer "http://translate.google.com/translate_tts?tl=$lang&q=$text"}
+	
+chkhp()	{
+	[[ -z $@ ]] && echo -e "check if homepage is up or down with downforeveryoneorjustme.com\nusage: chkhp <url>" && return 1
+	url=$1
+	wget -qO - "http://downforeveryoneorjustme.com/$url" | sed '/just you/!d;s/.*<a href[^>]*>//g;s/<[^>]*>//g'
+}
+
+trnsl() {
+	[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <fromlang> <tolang> <text>" && return 1
+	tgl=$2
+	fgl=$1
+	shift
+	shift
+	text=$@
+	text=${@//\ /\+}
+	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=$fgl&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
+}
+
+dwnlft() {
+	[[ -z $@ ]] && echo -e "download a specific filetype from the whole homepage\nusage: dwnlft <filetype> <url>" && return 1
+	flt=$1
+	url=$2
+	wget -erobots=off -U "Mozilla/5.0" -H -r -l1 -w5 -t1 -N --random-wait -P/tmp/hpdwn -nd -np -A.$1 $url
+}
+expurl() {
+	[[ -z $@ ]] && echo -e "expand a url like is.gd or goo.gl\nusage: expurl <url>" && return 1
+	url=$1
+	curl -sIL $url &>/dev/null|egrep "^Location"
+}
+bmi() {
+	[[ -z $@ ]] && echo -e "calculate the body mass index\nusage: bmi <weight kg> <height in cm>" && return 1
+	wgh=$1
+	hgh=$2
+	bmi=$(echo "$wgh/($hgh/100*$hgh/100)"|bc -l)
+	if [[ $bmi -ge 18 ]] && [[ $bmi -le 25 ]]; then
+		res="normal"
+	elif [[ $bmi -lt 18 ]]; then
+		res="underweight"
+	elif [[ $bmi -gt 25 ]]; then
+		res="overweight"	
+	fi
+	printf "Your BMI is %.2f.\nYou are in the %s range.\n" $bmi $res
+}
+bak() {
+	[[ -z $@ ]] && echo -e "backup file with date\nusage: bak <filename>" && return 1
+	fl=$1
+	date=$(date +%Y%m%d)
+	cp $1{,.$date.bak}
+}
+mpyt() {
+	[[ -z $@ ]] && echo -e "stream yt videos in full quality directly into mplayer\nusage: mpyt <yturl>" && return 1
+	url=$1
+	ck="/tmp/.mpyt"
+	mplayer -cache-min 1 -cookies -cookies-file $ck eval $(youtube-dl -g --max-quality 37 --cookies $ck $url)
+}
+tyurl() {
+	[[ -z $@ ]] && echo -e "tinyurl a url\nusage: tyurl <url>" && return 1
+	longurl=$1
+	shrturl=$(curl -s "http://tinyurl.com/create.php?url=$longurl" | sed -n 's/^copy.*\(http\:\/\/tinyurl\.com\/[a-z0-9]*\).*/\1/p')
+	echo -e "here you go, it was xclipped...\n\n---------------------------\n$shrturl\n---------------------------"
+	echo "$shrturl" | xclip -i -se c
+}
+cdup() {
+	[[ -z $@ ]] && echo -e "cd out of directory quicker\nusage: cdup <#ofdirs>" && return 1
+	local x="";
+	for i in $(seq $1)
+	do
+	x="$x../"
+	done
+	cd $x
+}
+
+title() {
+	[ "$DISABLE_AUTO_TITLE" != "true" ] || return
+	if [[ "$TERM" = xterm* ]] || [[ $TERM = rxvt* ]] || [[ "$TERM_PROGRAM" = "iTerm.app" ]] || [[ -n "$TMUX" ]]
+	then
+		print -Pn "\e]2;$2:q\a"
+		print -Pn "\e]1;$1:q\a"
+	elif [[ "$TERM" = screen* ]]
+	then
+		print -Pn "\ek$1:q\e\\"
+fi
+}
+randwp() {
+	[[ -n $@ ]] && echo -e "change wallpaper randomly\nusage: randwp" && return 1
+	wpfl=$(find ~/img/wallpapers/wallbase -iname "wallbase*jpg" -type f|sort -R|head -1)
+	feh --bg-scale --no-fehbg $wpfl
+}
+
+clntrnsl() { 
+	tors=$(expr `transmission-remote -l | wc -l` - 1)
+	tors2=$(expr $tors - 1)
+	transmission-remote -l | head -$tors | tail -$tors2 | while read LINE; do
+	if [[ `echo $LINE | awk '{print $2}'` == "100%" ]]; then
+		transmission-remote -t `echo $LINE | awk '{print $1}'` -r
+	fi
+	done
+}
+u1sdprg() {
+	[[ -n $@ ]] && echo -e "get ubuntuone transferprogress" && return 1
+	writ=0;
+	tot=0;
+	for num in $(u1sdtool --current-transfers | grep written | awk '{print $3}'); do writ=$(expr $writ + $num); done 2>/dev/null
+		for num in $(u1sdtool --current-transfers | grep deflated | awk '{print $3}'); do tot=$(expr $tot + $num); done 2>/dev/null
+	res=$(expr $writ \* 100 / $tot) 2>/dev/null
+	[[ -z $res ]] && echo "No Transactions.." && return 1
+	echo Progress: ${res}\%
+	echo $(expr $writ / 1024 / 1024) Mb of $(expr $tot / 1024 / 1024) Mb written
+}
