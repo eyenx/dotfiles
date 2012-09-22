@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-different configuration files - xmonad / conky / xmobar / tmux
+different dotfiles of my homedir- xmonad / conky / xmobar / tmux
