@@ -23,7 +23,6 @@ myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 myRandWp = "wpfl=$(find ~/img/wallpapers/wallbase -iname 'wallbase*jpg' -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
 myPentaMouse = "~/bin/pentadactyt yt"
-myChngConky = "[[ $(grep '## FULL ##' ~/.xmonad/conkyrc-xmobar) ]] && ln -fs ~/.xmonad/conkyrc-xmobar_empty ~/.xmonad/conkyrc-xmobar || ln -fs ~/.xmonad/conkyrc-xmobar_full ~/.xmonad/conkyrc-xmobar; killall -SIGUSR1 conky"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot /tmp/screenshot_%H%M%S_%Y%m%d.png"
 myScrShot = "sleep 0.2; scrot -s -b /tmp/screen%H%M%S.png"
@@ -255,7 +254,6 @@ myConf = defaultConfig {
 	, ("M-<F4>", spawn myPentaMouse)
 	, ("M-<F5>", spawn myWpChgr)
 	, ("M-<F6>", spawn myRandWp)
-	, ("M4-i", spawn myChngConky)
 	, ("S-<Print>", spawn myScrShot)
 	, ("<Print>", spawn myScreenFull)
 	, ("<XF86AudioPlay>", spawn myMPDPlay)
