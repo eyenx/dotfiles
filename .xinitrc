@@ -20,6 +20,7 @@ numlockx &
 udiskie &
 unclutter &
 urxvtd -f -o -q
+~/.xmonad/conkyxmobar &
 u1sdtool -c &
 tĥunar --daemon &
 mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &

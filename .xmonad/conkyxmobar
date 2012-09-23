@@ -1,0 +1,5 @@
+#!/bin/bash
+
+conky -c ~/.xmonad/conkyrc-xmobar | while read line; do
+	echo -n "$line" > /tmp/.conkystats;
+done

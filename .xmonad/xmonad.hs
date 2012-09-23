@@ -7,7 +7,7 @@ import Data.Monoid
 import XMonad.Util.EZConfig
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Renamed
-import XMonad.Layout.NoBorders
+import XMonad.Layout.NoBorders 
 import System.Exit
 
 import qualified XMonad.StackSet as W
@@ -120,6 +120,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- push window into tiling
     , ((modm,xK_t),
 	withFocused $ windows . W.sink)
+	
+    -- push window out of tiling (float)
+--    , ((modm .|. shiftMask, xK_t),
+----	withFocused $ windows . W.float)
 
     -- number of windows in master area +1
     , ((modm,xK_comma),
@@ -172,21 +176,21 @@ myLayout = tile ||| mtile ||| full
      tile   = renamed [Replace "[]="] $ smartBorders rt
      mtile   = renamed [Replace "M[]="] $ smartBorders $ Mirror rt
      full   = renamed [Replace "[]"] $ noBorders Full
-
      -- default #windows in master
      nmaster = 1
-
      -- proportion size of master
      ratio   = 6/10
-
      -- incrementation on resizing
      delta   = 2/100
      
 
 --rules
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
+    [ className =? "MPlayer"        --> doShift "media"
+    , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
+    , className  =? "VirtualBox"     --> doShift "vm"
+    , className  =? "VirtualBox"     --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
