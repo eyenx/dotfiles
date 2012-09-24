@@ -14,7 +14,6 @@ fi
 
 #/usr/bin/xscreensaver -no-splash &
 /usr/bin/xautolock -time 15 -locker slock &
-xsetroot -cursor_name left_ptr &
 feh --bg-scale --no-fehb $(find ~/img/wallpapers/wallbase/ -iname "wallbase*jpg" -type f|sort -R|head -1) &
 numlockx &
 udiskie &
@@ -37,6 +36,6 @@ export GNOME_KEYRING_PID
 
 #exec openbox-session
 #exec ck-launch-session openbox-session
-exec xmonad
+xmonad
 # exec startxfce4
 # ...or the Window Manager of your choice

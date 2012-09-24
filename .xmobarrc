@@ -13,4 +13,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{%conky%        %date%"}
+	, template = "%StdinReader% }{%conky%    %date%"}

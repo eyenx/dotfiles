@@ -5,11 +5,17 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import Data.Monoid
 import XMonad.Util.EZConfig
+import XMonad.Util.Cursor
+import XMonad.Hooks.SetWMName
+import XMonad.Actions.FloatSnap
+--import XMonad.Actions.FloatKeys
+import XMonad.Actions.FlexibleManipulate as Flex
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders 
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
 import System.Exit
-
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -76,8 +82,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- reset to default layout
     , ((modm .|. shiftMask,xK_space),
 	setLayout $ XMonad.layoutHook conf)
+	
+    -- go to full layout
+    , ((modm, xK_f),
+	sendMessage $ Toggle FULL)
 
-    -- resize windows to predefined size
+    -- refresh
     , ((modm,xK_n),
 	refresh)
 
@@ -117,14 +127,28 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,xK_l),
 	sendMessage Expand)
 
-    -- push window into tiling
+    -- push window into tiling if not floating - float if tiling
     , ((modm,xK_t),
-	withFocused $ windows . W.sink)
+	withFocused (\windowId -> do { floats <- gets (W.floating . windowset);
+	if windowId `M.member`floats
+	then withFocused $ windows. W.sink
+	else float windowId }))
+    -- moving / shrinking Floating Windows (thanks to FloatSnap Module)
+    , ((modm,               xK_Left),  withFocused $ snapMove L Nothing)
+    , ((modm,               xK_Right), withFocused $ snapMove R Nothing)
+    , ((modm,               xK_Up),    withFocused $ snapMove U Nothing)
+    , ((modm,               xK_Down),  withFocused $ snapMove D Nothing)
+    , ((modm .|. shiftMask, xK_Left),  withFocused $ snapShrink R Nothing)
+    , ((modm .|. shiftMask, xK_Right), withFocused $ snapGrow R Nothing)
+    , ((modm .|. shiftMask, xK_Up),    withFocused $ snapShrink D Nothing)
+    , ((modm .|. shiftMask, xK_Down),  withFocused $ snapGrow D Nothing)
+    -- moving / resizing floating windows (FloatKeys)
+--    , ((modm,               xK_d     ), withFocused (keysResizeWindow (-10,-10) (1,1)))
+--    , ((modm,               xK_s     ), withFocused (keysResizeWindow (10,10) (1,1)))
+--    , ((modm .|. shiftMask, xK_d     ), withFocused (keysAbsResizeWindow (-10,-10) (1024,752)))
+--    , ((modm .|. shiftMask, xK_s     ), withFocused (keysAbsResizeWindow (10,10) (1024,752)))
+--    , ((modm,               xK_a     ), withFocused (keysMoveWindowTo (512,384) (1%2,1%2)))
 	
-    -- push window out of tiling (float)
---    , ((modm .|. shiftMask, xK_t),
-----	withFocused $ windows . W.float)
-
     -- number of windows in master area +1
     , ((modm,xK_comma),
 	sendMessage (IncMasterN 1))
@@ -157,19 +181,21 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
+    [ ((modm, button1), (\w -> focus w >> Flex.mouseWindow Flex.position w
                                        >> windows W.shiftMaster))
 
     -- mod-button2, Raise the window to the top of the stack
     , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
 
     -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
+    , ((modm, button3), (\w -> focus w >> Flex.mouseWindow Flex.resize w
                                        >> windows W.shiftMaster))
     ]
 
 --layouts
-myLayout = tile ||| mtile ||| full
+myLayout = smartBorders
+	$ mkToggle (NOBORDERS ?? FULL ?? EOT)
+	$ tile ||| mtile ||| full
   where
      -- tiling profiles
      rt = ResizableTall nmaster delta ratio []
@@ -192,6 +218,7 @@ myManageHook = composeAll
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
     , resource  =? "desktop_window" --> doIgnore
+    , className  =? "stalonetray" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
 -- event handling
@@ -201,7 +228,9 @@ myEventHook = mempty
 myLogHook = return ()
 
 -- startup
-myStartupHook = return ()
+myStartupHook = do 
+		setWMName "LG3D" 
+		setDefaultCursor xC_left_ptr
 
 -- launch xmobar
 myBar = "/usr/bin/xmobar"
