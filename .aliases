@@ -52,8 +52,7 @@ alias hisrch='hist|grep $1'
 alias hist='fc -li 1'
 alias paccle='pacman -Runsc $(/usr/bin/pacman -Qdtq)'
 alias ddwn='wget $(xclip -o) -P /tmp/dwn/'
-alias ccyt='mkdir -p /tmp/yt && cclive -bf best $(xclip -o) --output-dir /tmp/yt/ --log-file /tmp/cclive.log_${RANDOM:2}'
-alias ytdl='mkdir -p /tmp/yt && youtube-dl --max-quality 37 -o "/tmp/yt/%(title)s_%(uploader)s.%(ext)s" $(xclip -o) &>> /tmp/ytdl.log &'
+alias ytdl='mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o "/tmp/yt/%(title)s.%(ext)s" $(xclip -o) &'
 alias mpcyt='mpyt $(xclip -o)'
 alias vb='vboxmanage'
 alias mp='mplayer'
@@ -92,8 +91,8 @@ alias txa='tmux attach-session -t $1'
 alias dgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 #fasd alias
-alias v='fasd $1 -e vim'
-alias o='fasd $1 -e mimeo'
+#alias v='fasd $1 -e vim'
+#alias o='fasd $1 -e mimeo'
 
 # shutdown aliases
 alias reboot='[ `pidof mpd` ] && mpc stop &>/dev/null && mpd --kill;echo "shutting down..."; sleep 2;sudo systemctl reboot'

@@ -9,8 +9,8 @@ command! -description=aboutnewtab at tabopen about:newtab
 command! -nargs=* -description='aur search' aur tabopen http://aur.archlinux.org/packages.php?O=0&K=<args>&do_Search=Ga
 command! -nargs=* -description='archwiki search' awiki tabopen https://wiki.archlinux.org/index.php?search=<args>
 command! -nargs=* -description='cpan search' cpan tabopen http://search.cpan.org/search?mode=all&query=<args>
-command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tmp/yt && cclive -bf best \'"+content.location.href+"\' --output-dir /tmp/yt --log-file /tmp/cclive.log_${RANDOM:2}")
-command! -description='download yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && cclive -bf best $(xclip -o) --output-dir /tmp/yt --log-file /tmp/cclive.log_${RANDOM:2}")
+command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" \'"+content.location.href+"\' &")
+command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" $(xclip -o) &")
 command! -nargs=* -description='google search' g tabopen http://google.ch/search?q=<args>
 command! -nargs=* -description='gcontacts search' gcont tabopen https://www.google.com/contacts/u/0/#contacts/search/<args> 
 command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.com/mail/?shva=1#search/<args>
@@ -68,6 +68,7 @@ map -count -modes=n,v -silent Xf <count>:flashtoggle<Return>
 map -count -modes=n,v -silent Xm <count>:myt<Return>
 map -count -modes=n,v -silent Xmm <count>:myyt<Return>
 map -count -modes=n,v -silent Xyy <count>:dyyt<Return>
+map -count -modes=n,v -silent Xy <count>:dyt<Return>
 map -count -modes=n,v -silent Xs <count>:source ~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
