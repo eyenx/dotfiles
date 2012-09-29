@@ -1,4 +1,4 @@
-"hg6821
+"hg6825
 
 loadplugins '\.(js|penta)$'
 group user
@@ -13,6 +13,7 @@ command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tm
 command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" $(xclip -o) &")
 command! -nargs=* -description='google search' g tabopen http://google.ch/search?q=<args>
 command! -nargs=* -description='gcontacts search' gcont tabopen https://www.google.com/contacts/u/0/#contacts/search/<args> 
+command! -nargs=* -description='github search' git tabopen https://github.com/search?q=<args>&type=Everything&repo=&langOverride=&start_value=1
 command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.com/mail/?shva=1#search/<args>
 command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.com/maps?q=<args>
 command! -nargs=* -description='search gentoo wiki' gwiki tabopen http://en.gentoo-wiki.com/w/index.php?title=Special%3ASearch&search=<args>&go=Go
@@ -69,7 +70,7 @@ map -count -modes=n,v -silent Xm <count>:myt<Return>
 map -count -modes=n,v -silent Xmm <count>:myyt<Return>
 map -count -modes=n,v -silent Xyy <count>:dyyt<Return>
 map -count -modes=n,v -silent Xy <count>:dyt<Return>
-map -count -modes=n,v -silent Xs <count>:source ~/.pentadactylrc<Return>
+map -count -modes=n,v -silent Xs <count>:source<Space>~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
 set editor='urxvt -e vim'
