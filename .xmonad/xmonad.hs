@@ -45,7 +45,7 @@ myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 -- border
 myBorderWidth   = 1

@@ -140,7 +140,7 @@ randwp() {
 	feh --bg-scale --no-fehbg $wpfl
 }
 
-clntrnsl() { 
+clntrns() { 
 	tors=$(expr `transmission-remote -l | wc -l` - 1)
 	tors2=$(expr $tors - 1)
 	transmission-remote -l | head -$tors | tail -$tors2 | while read LINE; do
