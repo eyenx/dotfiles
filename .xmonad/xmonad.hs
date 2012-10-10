@@ -217,6 +217,7 @@ myManageHook = composeAll
     , className =? "Gimp"           --> doFloat
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
+    , className =? "Xfce4-notifyd"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , className  =? "stalonetray" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
