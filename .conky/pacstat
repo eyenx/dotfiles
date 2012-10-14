@@ -1,0 +1,24 @@
+#!/bin/bash
+
+NUM=$(pacman -Qu | wc -l)
+
+if [ $NUM == 0 ]
+	then
+		echo -n "up to date"
+elif [ $NUM == 1 ]
+	then
+		echo -n "1 new pkg"
+else
+		echo -n "${NUM} new pkgs"
+
+fi
+
+ORPH=$(pacman -Qdtq | wc -l)
+
+if [ $ORPH != 0 ]
+	then
+		echo -n " - orph: ${ORPH}"
+fi
+		
+	
+		
