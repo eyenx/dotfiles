@@ -1,0 +1,5 @@
+icon_size 16
+icon_gravity E
+grow_gravity E
+geometry 1x1-75+0
+background "#1c1d1f"
