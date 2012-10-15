@@ -54,7 +54,7 @@ myBorderWidth   = 1
 myModMask       = mod1Mask
 
 -- my workspaces
-myWorkspaces    = ["web","media","vm","code" ] 
+myWorkspaces    = ["web","media","vm","work","code" ] 
 
 -- border colors
 myNormalBorderColor  = "#707070"

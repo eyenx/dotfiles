@@ -1,0 +1,4 @@
+#!/bin/bash
+PATH=$PATH:$HOME/bin
+dmenu_path | dmenu_run -b -i -nb '#1c1d1f' -nf '#b0b0b0' -sb '#141414' -sf '#e04614' -fn 'Zekton-7:Normal'
+
