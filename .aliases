@@ -98,5 +98,5 @@ alias dgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 #alias o='fasd $1 -e mimeo'
 
 # shutdown aliases
-alias reboot='[ `pidof mpd` ] && mpc stop &>/dev/null && mpd --kill;echo "shutting down..."; sleep 2;sudo systemctl reboot'
-alias shutdown='[ `pidof mpd` ] && mpc stop &>/dev/null && mpd --kill;echo "rebooting..."sleep 2;sudo systemctl poweroff'
+alias reboot='[ `pidof mpd` ] && mpc stop &>/dev/null && mpd --kill;echo "rebooting..."; sleep 2;sudo systemctl reboot'
+alias shutdown='[ `pidof mpd` ] && mpc stop &>/dev/null && mpd --kill;echo "shutting down..."sleep 2;sudo systemctl poweroff'
