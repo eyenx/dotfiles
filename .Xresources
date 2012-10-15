@@ -11,18 +11,18 @@ URxvt*color0:#1c1d1f
 URxvt*color1:#FF0000
 URxvt*color2:#00FF00
 URxvt*color3:#FFFF00
-URxvt*color4:#085dad
+URxvt*color4:#1793d0
 URxvt*color5:#FF00FF
 URxvt*color6:#00FFFF
 URxvt*color7:#B0B0B0
-URxvt*color8:#1793D0
+URxvt*color8:#000000
 URxvt*color9:#AA0000
 URxvt*color10:#00AA00
-URxvt*color11:#b0b0b0
-URxvt*color12:#6599FF
+URxvt*color11:#AAAA00
+URxvt*color12:#085dad
 URxvt*color13:#AA00AA
 URxvt*color14:#00AAAA
-URxvt*color15:#b0b0b0
+URxvt*color15:#999999
 ! other urxvt options
 URxvt.perl-ext: default,url-select
 !,tabbed
