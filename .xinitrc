@@ -22,7 +22,6 @@ urxvtd -f -o -q
 ~/.xmonad/conkyxmobar &
 u1sdtool -c &
 #oneko -tofocus -speed 30 &
-tĥunar --daemon &
 stalonetray &
 mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 ~/bin/mpdstart &
