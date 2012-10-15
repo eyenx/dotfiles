@@ -58,7 +58,7 @@ myWorkspaces    = ["web","media","vm","code" ]
 
 -- border colors
 myNormalBorderColor  = "#707070"
-myFocusedBorderColor = "#1793d0"
+myFocusedBorderColor = "#e04617"
 
 --key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -237,7 +237,7 @@ myStartupHook = do
 myBar = "/usr/bin/xmobar"
 --custom PP
 myPP = xmobarPP { 
-	ppCurrent = xmobarColor "#1793d0" "" 
+	ppCurrent = xmobarColor "#e04617" "" 
 	, ppHidden = xmobarColor "#b0b0b0" ""
 	, ppHiddenNoWindows = xmobarColor "#707070" ""
  	, ppVisible = xmobarColor "#b0b0b0" ""
@@ -245,7 +245,7 @@ myPP = xmobarPP {
 	, ppLayout = xmobarColor "#707070" "" 
  	, ppSep = "\t\t\t"
  	, ppWsSep = xmobarColor "#505050" "" " / "
- 	, ppTitle = xmobarColor "#1793d0" "" . shorten 50
+ 	, ppTitle = xmobarColor "#e04617" "" . shorten 50
 }
 -- key bind
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)

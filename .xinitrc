@@ -14,8 +14,7 @@ fi
 
 #/usr/bin/xscreensaver -no-splash &
 /usr/bin/xautolock -time 15 -locker slock &
-feh --bg-scale --no-fehb $(find ~/img/wallpapers/wallbase/ -iname "wallbase*jpg" -type f|sort -R|head -1) &
-numlockx &
+feh --bg-scale --no-fehb ~/.wall
 udiskie &
 unclutter &
 urxvtd -f -o -q
@@ -23,8 +22,8 @@ urxvtd -f -o -q
 u1sdtool -c &
 #oneko -tofocus -speed 30 &
 tĥunar --daemon &
-mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
-~/bin/mpdstart &
+#mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
+#~/bin/mpdstart &
 # Start a D-Bus session
 source /etc/X11/xinit/xinitrc.d/30-dbus
 # Start GNOME Keyring

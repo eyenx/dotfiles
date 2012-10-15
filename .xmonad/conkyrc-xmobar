@@ -18,18 +18,18 @@ cpu ${if_match ${cpu cpu1}>80}<fc=\#e04614>${cpu cpu1}%</fc>$else<fc=\#707070>${
 ${if_match ${cpu cpu2}>80}<fc=\#e04614>${cpu cpu2}%</fc>$else<fc=\#707070>${cpu cpu2}%</fc>$endif \
 ${if_match ${cpu cpu3}>80}<fc=\#e04614>${cpu cpu3}%</fc>$else<fc=\#707070>${cpu cpu3}%</fc>$endif \
 ${if_match ${cpu cpu4}>80}<fc=\#e04614>${cpu cpu4}%</fc>$else<fc=\#707070>${cpu cpu4}%</fc>$endif \
-<fc=\#707070>${execi 8 sensors | grep 'CPU Temp' | awk '{print $3}'}</fc> \
 ram ${if_match $memperc>70}<fc=\#e04614>$memperc%</fc>$else<fc=\#707070>$memperc%</fc>$endif <fc=\#707070>$mem</fc> \
-<fc=\#707070>${execi 8 sensors | grep 'MB Temp' | awk '{print $3}'}</fc> \
 root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
 var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
 home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
-dwl ${if_match ${fs_used_perc /media/downloads}>90}<fc=\#e04614>${fs_used_perc /media/downloads}%</fc>$else<fc=\#707070>${fs_used_perc /media/downloads}%</fc>$endif <fc=\#707070></fc> \
-bak ${if_match ${fs_used_perc /media/backup}>80}<fc=\#e04614>${fs_used_perc /media/backup}%</fc>$else<fc=\#707070>${fs_used_perc /media/backup}%</fc>$endif <fc=\#707070></fc> \
-${if_mounted /media/nas}nas ${if_match ${fs_used_perc /media/nas}>90}<fc=\#e04614>${fs_used_perc /media/nas}%</fc>$else<fc=\#707070>${fs_used_perc /media/nas}%</fc>$endif <fc=\#707070></fc>$endif \
-<fc=\#707070>${execi 30 nc localhost 7634 | cut -d \| -f 4} C°</fc> \
-eth0 <fc=\#707070>${upspeed eth0}/${downspeed eth0}</fc> \
+${if_existing /sys/class/net/eth0/operstate up}eth0 <fc=\#707070>${upspeed eth0}/${downspeed eth0}</fc> \
 loc <fc=\#707070>${addr eth0}</fc> \
+$else \
+${if_existing /sys/class/net/wlan0/operstate up}wlan0 <fc=\#707070>${upspeed wlan0}/${downspeed wlan0}</fc> \
+loc <fc=\#707070>${addr wlan0}</fc> \
+$else \
+$endif \
+$endif \
 pub <fc=\#707070>${execi 1800 ~/.conky/publicip.sh}</fc> \
 repo <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
 mail <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
