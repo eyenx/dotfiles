@@ -22,18 +22,20 @@ ram ${if_match $memperc>70}<fc=\#e04614>$memperc%</fc>$else<fc=\#707070>$memperc
 root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
 var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
 home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
-${if_match $battery_percent<20}\
+${if_match ${battery_percent}<20}\
 bat <fc=\#e04614>${battery_short}</fc>\
 $else\
-bat <fc=\#707070>${battery_short}</fc>\
+ bat <fc=\#707070>${battery_short}</fc>\
 $endif\
 ${if_existing /sys/class/net/eth0/operstate up}eth0 <fc=\#707070>${upspeed eth0}/${downspeed eth0}</fc> \
 loc <fc=\#707070>${addr eth0}</fc> \
 $else \
 ${if_existing /sys/class/net/wlan0/operstate up}wlan0 <fc=\#707070>${upspeed wlan0}/${downspeed wlan0}</fc> \
+${wireless_essid wlan0} \
+<fc=\#707070>${wireless_link_qual_perc wlan0}%</fc> \
 loc <fc=\#707070>${addr wlan0}</fc> \
-$else \
-$endif \
+$else\
+$endif\
 $endif \
 pub <fc=\#707070>${execi 1800 ~/.conky/publicip.sh}</fc> \
 repo <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
