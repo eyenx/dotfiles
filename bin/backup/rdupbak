@@ -1,0 +1,74 @@
+#!/bin/bash
+
+## daily launched script to incremental backups with rdup
+
+# variables
+
+R="rdup"
+TS="/media/backup/.ts"
+FL="/media/backup/.fs"
+TODAY=$(date +%F)
+SRC="/home/eye /media/exthome"
+DEST="/media/backup"
+FDIR="$DEST/full"
+MDIR="$DEST/monthly"
+TDIR="${DEST}/incr/${TODAY}"
+UDIR='/home/eye/.uu/backup'
+H=`hostname`
+EX="/home/eye/bin/backup/.excludelist"
+
+
+# run
+
+# first remove old incremental backups (14 days old)
+
+OLDBAKS=`find /media/backup/incr -maxdepth 1 -type d -mtime +14`
+if [ ${#OLDBAKS} != 0 ]; then
+	for DIR in $OLDBAKS; do
+		rm -rf $DIR;
+	done;
+fi
+
+#mkdir of today
+
+mkdir $TDIR
+
+#copy filelist into today ARCHIVE
+cp -p $FL $TDIR/.fl 
+#start rdup process
+# for modified
+$R -M $TDIR/.fl -E $EX $TDIR/.flm $SRC | rdup-up $TDIR
+# full dump into full backupdir
+$R -M $TS -E $EX $FL $SRC | rdup-up $FDIR
+
+## script to create a tar archive of the existing full backup (only monthly)
+
+#first test if last backup is older than 30 days
+if [[ -n `find $MDIR -type f -name "*tar.bz2" -mtime -3` ]]
+	then 
+		exit 0 
+fi
+
+## remove old montly backups
+
+OLDBAKS=`find /media/backup/monthly -type f -mtime +180`
+if [ ${#OLDBAKS} != 0 ]; then
+	for DIR in $OLDBAKS; do
+		rm -rf $DIR;
+	done;
+fi
+
+
+G="gpg --default-recipient-self"
+FN="${MDIR}/${TODAY}_${H}.tar.lzo"
+tar -cpf - $FDIR  | lzop -9 -o $FN
+
+## get filename in ubuntuone folder and replace it
+UUFL=$(ls $UDIR/${TODAY:0:4}*bak)
+NFL=`echo $FN | sed 's/.*\/\(.*$\)/\1/'`
+[[ -f $UUFL ]] || exit 0
+
+if [ $(stat -c "%Y" $UUFL) -lt $(stat -c "%Y" $FN) ];then
+	        rm $UUFL;
+		$G -o $UDIR/${NFL:0:-8}.bak -e $FN
+		fi
