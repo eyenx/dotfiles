@@ -13,8 +13,8 @@ DEST="/media/backup"
 FDIR="$DEST/full"
 MDIR="$DEST/monthly"
 TDIR="${DEST}/incr/${TODAY}"
-UDIR='/home/eye/.uu/backup'
 H=`hostname`
+UDIR='/home/eye/.uu/backup/${H}'
 EX="/home/eye/bin/backup/.excludelist"
 
 
@@ -33,12 +33,10 @@ fi
 
 mkdir $TDIR
 
-#copy filelist into today ARCHIVE
-cp -p $FL $TDIR/.fl 
-#start rdup process
-# for modified
-$R -M $TDIR/.fl -E $EX $TDIR/.flm $SRC | rdup-up $TDIR
-# full dump into full backupdir
+# for modified incremental
+$R -M $TS -E $EX $FL $SRC | rdup-up $TDIR
+# dump full backup
+rm -f $TS
 $R -M $TS -E $EX $FL $SRC | rdup-up $FDIR
 
 ## script to create a tar archive of the existing full backup (only monthly)
