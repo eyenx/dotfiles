@@ -7,7 +7,9 @@ command! -description=aboutconfig ac tabopen about:config
 command! -description=abouthome ah tabopen about:home
 command! -description=aboutnewtab at tabopen about:newtab
 command! -nargs=* -description='aur search' aur tabopen http://aur.archlinux.org/packages.php?O=0&K=<args>&do_Search=Ga
+command! -nargs=* -description='kat.ph search' kat tabopen http://kat.ph/usearch/<args>/
 command! -nargs=* -description='archwiki search' awiki tabopen https://wiki.archlinux.org/index.php?search=<args>
+command! -nargs=* -description='tumblr search' tumb tabopen http://tumblr.com/tagged/<args>
 command! -nargs=* -description='cpan search' cpan tabopen http://search.cpan.org/search?mode=all&query=<args>
 command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" \'"+content.location.href+"\' &")
 command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" $(xclip -o) &")
@@ -18,7 +20,6 @@ command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.
 command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.com/maps?q=<args>
 command! -nargs=* -description='search gentoo wiki' gwiki tabopen http://en.gentoo-wiki.com/w/index.php?title=Special%3ASearch&search=<args>&go=Go
 command! -nargs=* -description='imdb search' imdb tabopen http://www.imdb.com/find?q=<args>&s=all
-command! -nargs=* -description='kat.ph search' kat tabopen http://kat.ph/usearch/<args>
 command! -nargs=1 -description='mailto opens gmail compose' mailto tabopen https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=<args>
 command! -nargs=* -description='man search' man tabopen http://google.ch/search?q=<args>+site:ss64.com/bash+OR+site:man7.org/linux/man-pages+OR+site:linux.die.net
 command! -nargs=* -description='meme search' meme tabopen http://knowyourmeme.com/search?q=<args>
