@@ -22,8 +22,8 @@ ram ${if_match $memperc>70}<fc=\#e04614>$memperc%</fc>$else<fc=\#707070>$memperc
 root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
 var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
 home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
-${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%"}<20}\
-bat <fc=\#e04614>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}<</fc>\
+${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}<20}\
+bat <fc=\#e04614>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
 ${else}\
 bat <fc=\#707070>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
 $endif\

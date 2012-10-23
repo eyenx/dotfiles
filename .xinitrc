@@ -19,7 +19,7 @@ udiskie &
 unclutter &
 urxvtd -f -o -q
 ~/.xmonad/conkyxmobar &
-u1sdtool -c &
+#u1sdtool -c &
 #oneko -tofocus -speed 30 &
 stalonetray &
 #mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &

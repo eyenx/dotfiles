@@ -13,8 +13,8 @@ DEST="/media/backup"
 FDIR="$DEST/full"
 MDIR="$DEST/monthly"
 TDIR="${DEST}/incr/${TODAY}"
-UDIR='/home/eye/.uu/backup'
 H=`hostname`
+UDIR='/home/eye/.uu/backup/${H}'
 EX="/home/eye/bin/backup/.excludelist"
 
 
