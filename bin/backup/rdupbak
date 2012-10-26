@@ -14,7 +14,7 @@ FDIR="$DEST/full"
 MDIR="$DEST/monthly"
 TDIR="${DEST}/incr/${TODAY}"
 H=`hostname`
-UDIR='/home/eye/.uu/backup/${H}'
+UDIR='/home/eye/.uu/backup/'
 EX="/home/eye/bin/backup/.excludelist"
 
 
@@ -42,7 +42,7 @@ $R -M $TS -E $EX $FL $SRC | rdup-up $FDIR
 ## script to create a tar archive of the existing full backup (only monthly)
 
 #first test if last backup is older than 30 days
-if [[ -n `find $MDIR -type f -name "*tar.bz2" -mtime -3` ]]
+if [[ -n `find $MDIR -type f -name "*.lzo" -mtime -30` ]]
 	then 
 		exit 0 
 fi

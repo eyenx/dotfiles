@@ -32,7 +32,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode git extract archlinux python nyan gpg-agent svn fasd)
+plugins=(vi-mode git extract archeye python nyan gpg-agent svn fasd encode64 perl urltools)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
