@@ -97,11 +97,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- focus next window
     , ((modm,xK_j),
-	windows W.focusDown)
+	windows W.focusDown) 
 
     -- focus prev window
     , ((modm,xK_k),
-	windows W.focusUp  )
+	windows W.focusUp)
 
     -- focus master window
     , ((modm,xK_m),
@@ -217,6 +217,7 @@ myManageHook = composeAll
     , className =? "Gimp"           --> doFloat
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
+    , className  =? "Skype"     --> doFloat
     , className =? "Xfce4-notifyd"   --> doIgnore
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
