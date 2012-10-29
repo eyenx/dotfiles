@@ -27,7 +27,7 @@ myTmux = "~/bin/term"
 myBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
-myRandWp = "wpfl=$(find ~/img/wallpapers/wallbase -iname 'wallbase*jpg' -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
+--myRandWp = "wpfl=$(find ~/img/wallpapers/wallbase -iname 'wallbase*jpg' -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
 myPentaMouse = "~/bin/pentadactyt yt"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot /tmp/screenshot_%H%M%S_%Y%m%d.png"
@@ -285,7 +285,7 @@ myConf = defaultConfig {
 	, ("M-<F3>", spawn myTmux)
 	, ("M-<F4>", spawn myPentaMouse)
 	, ("M-<F5>", spawn myWpChgr)
-	, ("M-<F6>", spawn myRandWp)
+	--, ("M-<F6>", spawn myRandWp)
 	, ("S-<Print>", spawn myScrShot)
 	, ("<Print>", spawn myScreenFull)
 	, ("<XF86AudioPlay>", spawn myMPDPlay)
