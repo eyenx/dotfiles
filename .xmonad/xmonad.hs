@@ -222,6 +222,7 @@ myManageHook = composeAll
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , className  =? "stalonetray" --> doIgnore
+    , className  =? "com-eviware-soapui-SoapUI" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
 -- event handling
