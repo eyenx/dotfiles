@@ -97,7 +97,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- focus next window
     , ((modm,xK_j),
-	windows W.focusDown) 
+	windows W.focusDown)
 
     -- focus prev window
     , ((modm,xK_k),
@@ -107,7 +107,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,xK_m),
 	windows W.focusMaster  )
 
-    -- swap master
+    -- swap master)
     , ((modm,xK_Return),
 	windows W.swapMaster)
 
@@ -183,6 +183,9 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, button1), (\w -> focus w >> Flex.mouseWindow Flex.position w
                                        >> windows W.shiftMaster))
+    , ((0, button1), (\w -> focus w >> Flex.mouseWindow Flex.position w 
+					>> windows W.shiftMaster))
+					
 
     -- mod-button2, Raise the window to the top of the stack
     , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
