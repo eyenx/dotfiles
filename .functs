@@ -2,11 +2,11 @@
 aurd(){
 	[[ -z $@ ]] && echo -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
 	pkg=$1
-	url="http://aur.archlinux.org/packages/"
+	url="https://aur.archlinux.org/packages/"
 	build="/tmp/aurd/"
 	[[ -d $build ]] || mkdir -pv $build
 	cd $build
-	curl "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
+	curl -k "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
 mymem() {
