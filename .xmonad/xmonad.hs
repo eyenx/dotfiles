@@ -97,7 +97,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- focus next window
     , ((modm,xK_j),
-	windows W.focusDown) 
+	windows W.focusDown)
 
     -- focus prev window
     , ((modm,xK_k),
@@ -107,7 +107,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,xK_m),
 	windows W.focusMaster  )
 
-    -- swap master
+    -- swap master)
     , ((modm,xK_Return),
 	windows W.swapMaster)
 
