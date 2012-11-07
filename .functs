@@ -160,3 +160,8 @@ u1sdprg() {
 	echo Progress: ${res}\%
 	echo $(expr $writ / 1024 / 1024) Mb of $(expr $tot / 1024 / 1024) Mb written
 }
+toavi() {
+	[[ -z $@ ]] && echo -e "ffmpeg a file to avi\nusage: toavi <filename>" && return 1
+	fl=$1
+	ffmpeg -i $fl -vcodec copy -acodec ac3 ${fl:0:-4}.avi
+}
