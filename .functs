@@ -173,3 +173,8 @@ bl(){
 	fi
 	sudo sh -c "echo $par_bl > $path_bl"
 }
+toavi() {
+	[[ -z $@ ]] && echo -e "ffmpeg a file to avi\nusage: toavi <filename>" && return 1
+	fl=$1
+	ffmpeg -i $fl -vcodec copy -acodec ac3 ${fl:0:-4}.avi
+}
