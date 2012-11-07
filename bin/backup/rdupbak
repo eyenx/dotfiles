@@ -14,7 +14,7 @@ FDIR="$DEST/full"
 MDIR="$DEST/monthly"
 TDIR="${DEST}/incr/${TODAY}"
 H=`hostname`
-UDIR='/home/eye/.uu/backup/'
+UDIR="/home/eye/.bak_${H}"
 EX="/home/eye/bin/backup/.excludelist"
 
 

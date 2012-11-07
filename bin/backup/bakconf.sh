@@ -4,7 +4,7 @@
 
 HOME='/home/eye/'
 H=`hostname`
-UU='/home/eye/.uu/backup/${H}'
+UU="/home/eye/.bak_${H}"
 FILESYS='/usr/share/slim/themes/archlinux-me:/usr/share/slim/themes/archlinux-simple:/etc/fstab:/etc/dhcpcd.conf:/etc/pacman.d/mirrorlist:/etc/pacman.conf:/etc/resolv.conf:/etc/locale.conf:/etc/hostname:/etc/timezone:/etc/conf.d/network:/etc/vconsole.conf:/etc/slim.conf:/etc/ntp.conf:/etc/makepkg.conf:/etc/pacman.d/gnupg/gpg.conf:/etc/clamav/clamd.conf:/etc/clamav/freshclam.conf:/etc/abs.conf:/etc/systemd'
 FILEHOME='.local/share/applications:.bash*:.config:.mozilla-backup:.conky*:.cups:.dmrc:.face:.fehbg:.fonts:.gtk*:.hplip:.htoprc:.mpd*:.mplayer:.ncmpcpp:.pondus:.purple:.sane:.vim*:.xinitrc:.xscreensaver:.themes:.icons:.pulse/client.conf:.zshrc:.zshenv:.omzsh:.zshrc.orig:.functs:.muttrc:.pentadactyl:.pentadactylrc:.vimperator:.vimperatorrc:.Xresources:.xmobarrc:.xmonad'
 DEST='/tmp/confbak'
