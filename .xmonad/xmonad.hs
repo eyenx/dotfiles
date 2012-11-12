@@ -41,6 +41,7 @@ myVolDown="~/bin/volctrl down"
 myVolChange="~/bin/volctrl change"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
+myXDisplay="~/bin/xdisplay.sh"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
 
 -- get focus on mouse 
@@ -288,6 +289,7 @@ myConf = defaultConfig {
 	--, ("M-<F6>", spawn myRandWp)
 	, ("S-<Print>", spawn myScrShot)
 	, ("<Print>", spawn myScreenFull)
+	, ("<XF86Display>", spawn myXDisplay)
 	, ("<XF86AudioPlay>", spawn myMPDPlay)
 	, ("<XF86AudioNext>", spawn myMPDNext)
 	, ("<XF86AudioPrev>", spawn myMPDPrev)
