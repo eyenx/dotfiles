@@ -51,7 +51,7 @@ myFocusFollowsMouse = False
 myBorderWidth   = 1
 
 -- my metas
-myModMask       = mod1Mask
+myModMask       = mod4Mask
 
 -- my workspaces
 myWorkspaces    = ["web","media","vm","work","code" ] 
@@ -90,10 +90,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- refresh
     , ((modm,xK_n),
 	refresh)
-
-    -- focus next window
-    , ((modm,xK_Tab),
-	windows W.focusDown)
 
     -- focus next window
     , ((modm,xK_j),
@@ -280,12 +276,12 @@ myConf = defaultConfig {
 	`additionalKeysP`
 	[ ("M4-l", spawn myLock)
 	, ("M4-<Esc>", spawn myVolChange)
-	, ("M-<F1>", spawn myBrowser)
-	, ("M-<F2>", spawn myMail)
-	, ("M-<F3>", spawn myTmux)
-	, ("M-<F4>", spawn myPentaMouse)
-	, ("M-<F5>", spawn myWpChgr)
-	, ("M-<F6>", spawn myRandWp)
+	, ("M4-<F1>", spawn myBrowser)
+	, ("M4-<F2>", spawn myMail)
+	, ("M4-<F3>", spawn myTmux)
+	, ("M4-<F4>", spawn myPentaMouse)
+	, ("M4-<F5>", spawn myWpChgr)
+	, ("M4-<F6>", spawn myRandWp)
 	, ("S-<Print>", spawn myScrShot)
 	, ("<Print>", spawn myScreenFull)
 	, ("<XF86AudioPlay>", spawn myMPDPlay)

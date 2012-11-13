@@ -165,3 +165,8 @@ toavi() {
 	fl=$1
 	ffmpeg -i $fl -vcodec copy -acodec ac3 ${fl:0:-4}.avi
 }
+gdrv() {
+	[[ -n $@ ]] && echo -e "use grive-sync in your grive folder" && return 1
+	g="$HOME/.g"
+	cd $g; grive;cd -
+}

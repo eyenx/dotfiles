@@ -80,6 +80,11 @@ alias txk='tmux kill-session -t $1'
 alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
+# kill aliases
+alias killf='killall firefox'
+alias killmpd='killall mpd && killall mpdscribble'
+alias killmp='killall mplayer'
+
 # dotfiles git alias
 
 alias dgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
