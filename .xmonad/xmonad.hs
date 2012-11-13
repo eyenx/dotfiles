@@ -274,7 +274,7 @@ myConf = defaultConfig {
     }
 -- additional keys ...
 	`additionalKeysP`
-	[ ("M4-l", spawn myLock)
+	[ ("M4-S-l", spawn myLock)
 	, ("M4-<Esc>", spawn myVolChange)
 	, ("M4-<F1>", spawn myBrowser)
 	, ("M4-<F2>", spawn myMail)
