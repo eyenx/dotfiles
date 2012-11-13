@@ -210,6 +210,7 @@ myLayout = smartBorders
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doShift "media"
     , className =? "MPlayer"        --> doFloat
+    , className =? "Gimp"           --> doShift "media"
     , className =? "Gimp"           --> doFloat
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
