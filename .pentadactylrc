@@ -16,6 +16,7 @@ command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdi
 command! -nargs=* -description='google search' g tabopen http://google.ch/search?q=<args>
 command! -nargs=* -description='*nix search' nix tabopen http://www.cyberciti.biz/linux-search.php?q=<args>
 command! -nargs=* -description='gcontacts search' gcont tabopen https://www.google.com/contacts/u/0/#contacts/search/<args> 
+command! -nargs=* -description='distro search' distro tabopen http://distrowatch.com/table.php?distribution=<args> 
 command! -nargs=* -description='github search' git tabopen https://github.com/search?q=<args>&type=Everything&repo=&langOverride=&start_value=1
 command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.com/mail/?shva=1#search/<args>
 command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.com/maps?q=<args>
@@ -24,8 +25,8 @@ command! -nargs=* -description='imdb search' imdb tabopen http://www.imdb.com/fi
 command! -nargs=1 -description='mailto opens gmail compose' mailto tabopen https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=<args>
 command! -nargs=* -description='man search' man tabopen http://google.ch/search?q=<args>+site:ss64.com/bash+OR+site:man7.org/linux/man-pages+OR+site:linux.die.net
 command! -nargs=* -description='meme search' meme tabopen http://knowyourmeme.com/search?q=<args>
-command! -description='watch yt video in mplayer' myt js ex.run("mplayer -cache-min 1 -cookies -cookies-file /tmp/.mpyt eval $(youtube-dl -g --max-quality 37 --cookies /tmp/.mpyt \'"+content.location.href+"\') &")
-command! -description='watch yanked yt url in mplayer' myyt js ex.run("mplayer -cache-min 1 -cookies -cookies-file /tmp/.mpyt eval $(youtube-dl -g --max-quality 37 --cookies /tmp/.mpyt $(xclip -o)) &")
+command! -description='watch yt video in mplayer' myt js ex.run("mplayer $(youtube-dl -g --max-quality 37 \'"+content.location.href+"\') &")
+command! -description='watch yanked yt url in mplayer' myyt js ex.run("mplayer -cache-min 1 $(youtube-dl -g --max-quality 37 $(xclip -o)) &")
 command! -nargs=* -description='uuwiki search' uu tabopen http://ubuntuusers.de/search?query=<args>&area=wiki
 command! -nargs=* -description='wiki search' wiki tabopen http://en.wikipedia.org/w/index.php?search=<args>
 command! -nargs=* -description='yt search' yt tabopen http://youtube.com/results?search_query=<args>
@@ -77,7 +78,7 @@ map -count -modes=n,v -silent Xs <count>:source<Space>~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
 set editor='urxvt -e vim'
-set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com
+set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com
 set showtabline=multitab
 
 " vim: set ft=pentadactyl:
