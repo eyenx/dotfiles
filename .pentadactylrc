@@ -14,6 +14,7 @@ command! -nargs=* -description='cpan search' cpan tabopen http://search.cpan.org
 command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" \'"+content.location.href+"\' &")
 command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" $(xclip -o) &")
 command! -nargs=* -description='google search' g tabopen http://google.ch/search?q=<args>
+command! -nargs=* -description='*nix search' nix tabopen http://www.cyberciti.biz/linux-search.php?q=<args>
 command! -nargs=* -description='gcontacts search' gcont tabopen https://www.google.com/contacts/u/0/#contacts/search/<args> 
 command! -nargs=* -description='github search' git tabopen https://github.com/search?q=<args>&type=Everything&repo=&langOverride=&start_value=1
 command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.com/mail/?shva=1#search/<args>
