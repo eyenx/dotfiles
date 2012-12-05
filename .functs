@@ -144,7 +144,7 @@ clntrns() {
 	tors2=$(expr $tors - 1)
 	transmission-remote -l | head -$tors | tail -$tors2 | while read LINE; do
 	if [[ `echo $LINE | awk '{print $2}'` == "100%" ]]; then
-		transmission-remote -t `echo $LINE | awk '{print $1}'` -r
+		transmission-remote -t `echo $LINE | awk '{print $1}'|tr -dc "[0-9]"` -r
 	fi
 	done
 }
