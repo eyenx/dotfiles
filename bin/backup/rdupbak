@@ -5,8 +5,10 @@
 # variables
 
 R="rdup"
-TS="/media/backup/.ts"
-FL="/media/backup/.fs"
+TSF="/media/backup/full/.ts"
+FLF="/media/backup/full/.fs"
+TSI="/media/backup/incr/.ts"
+FLI="/media/backup/incr/.fs"
 TODAY=$(date +%F)
 SRC="/home/eye /media/exthome"
 DEST="/media/backup"
@@ -34,10 +36,10 @@ fi
 mkdir $TDIR
 
 # for modified incremental
-$R -M $TS -E $EX $FL $SRC | rdup-up $TDIR
+$R -M $TSI -E $EX $FLI $SRC | rdup-up $TDIR
 # dump full backup
-rm -f $TS
-$R -M $TS -E $EX $FL $SRC | rdup-up $FDIR
+rm -f $TSF
+$R -M $TSF -E $EX $FLF $SRC | rdup-up $FDIR
 
 ## script to create a tar archive of the existing full backup (only monthly)
 
