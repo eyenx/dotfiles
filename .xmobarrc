@@ -8,9 +8,10 @@ Config {
 	, lowerOnStart = True
 	, commands = [
 		 Run Com "cat" ["/tmp/.conkystats"] "conky" 30
-		, Run Date "%a %_d %b %H:%M" "date" 10
+		, Run Com "printf" ["%$(echo $(xwininfo -name stalonetray|grep Width|tr -s ' '|cut -d' ' -f3)/1.6|bc)s"] "space" 20
+		, Run Date "29 Jun %H:%M" "date" 10
 		, Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{%conky%								%date%"}
+	, template = "%StdinReader% }{%conky% %space% %date%"}

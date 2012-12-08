@@ -86,6 +86,7 @@ alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
 # kill aliases
+alias ka='killall'
 alias killf='killall firefox'
 alias killmpd='killall mpd && killall mpdscribble'
 alias killmp='killall mplayer'
