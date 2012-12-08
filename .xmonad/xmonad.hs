@@ -22,7 +22,7 @@ import qualified Data.Map        as M
 -- preferred applications
 -- shortcuts
 
-myTerm      = "urxvt"
+myTerm      = "urxvtc"
 myTmux = "~/bin/term"
 myBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
