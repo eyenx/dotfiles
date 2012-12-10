@@ -78,7 +78,7 @@ map -count -modes=n,v -silent Xs <count>:source<Space>~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
 set editor='urxvt -e vim'
-set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com
+set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com
 set showtabline=multitab
 
 " vim: set ft=pentadactyl:

@@ -95,7 +95,13 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
+" powerline
+set laststatus=2 " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set t_Co=256
+set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 8
+let g:Powerline_symbols='fancy'
+let g:Powerline_cache_dir="/tmp"
 
 " set number line counting
 set number

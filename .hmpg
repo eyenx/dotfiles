@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+
+
+<head>
+  <title>home</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="author" content="gnomeye" />
+   <script type='text/javascript'>
+	function hovering(element){
+		element.style.color = "#1793D0";
+		}
+	function out(element){
+		element.style.color = '#505050';
+		}
+  </script>
+  <style type"text/css">
+	a {
+	text-decoration: none;
+	color: #505050;
+    }
+	a:visited {
+	color: #505050;
+	text-decoration: none; 
+	}
+	a:hover {
+	color: #1793D0;
+	text-decoration: none;
+	}
+	a:active {
+	color: #505050;
+	text-decoration: none;
+	}
+	body {
+	background:#1c1d1f;
+	font-family:zekton;
+	font-size:10px;
+	}
+	div.titlediv {
+	text-align:right;
+	color:#505050;
+	margin-right:15px;
+	font-size:28px;
+	}
+	div.middiv{
+	text-align:center;
+	color:#b0b0b0;
+	font-size:10px;
+	padding-top:10%;
+	width:800px;
+	margin:0 auto;
+
+	}
+	div.botdiv{
+	text-align:center;
+	color:#b0b0b0;
+	font-size:10px;
+	padding-top:3%;
+	width:800px;
+	margin:0 auto;
+	}
+	h1{
+	font-size:10px;
+	color:#b0b0b0;
+	}
+   </style>
+</head>
+<body >
+<div class="titlediv">
+welcome gnomeye</div>
+
+<div class='middiv'>
+<p style='font-size:20px'><font color="#0140CA">g</font><font color="#dd1812">o</font><font color="#fcca03">o</font><font color="#0140CA">g</font><font color="#16a61e">l</font><font color="#dd1812">e</font></p>
+<form name='search' method="get" action="http://www.google.com/search">
+
+<input type="text" name="q" size="50"
+ maxlength="255" value=''>
+<a href="javascript:document.search.submit()" onMouseover="hovering(this)" onMouseout='out(this)' >search</a>
+</form>
+</div>
+<div class='botdiv'>
+links
+<br>
+<h1>mngmt</h1>
+<a href='https://mail.google.com/mail/#inbox'>gmail</a> - 
+<a href='https://calendar.google.com/'>gcal</a> - 
+<a href='https://drive.google.com/'>gdrive</a> -
+<a href='https://dropbox.com'>dropbox</a> -
+<a href='http://rememberthemilk.com'>rtm</a> 
+<h1>news</h1>
+<a href='http://20min.ch'>20min</a> - 
+<a href='http://blickamabend.ch'>baa</a> - 
+<a href='http://reddit.com'>reddit</a> - 
+<a href='http://heise.de'>heise</a> - 
+<a href='https://reader.google.com'>greader</a>
+<h1>social</h1>
+<a href='http://about.me/antoniotauro'>aboutme</a> -
+<a href='https://twitter.com'>twit</a> -
+<a href='https://plus.google.com'>g+</a> -
+<a href='https://joindiaspora.com/'>spora</a> -
+<a href='https://youtube.com'>youtube</a> - 
+<a href='https://last.fm'>lastfm</a> -
+<a href='https://facebook.com'>fb</a>
+<h1>linux</h1>
+<a href='https://archlinux.org'>archweb</a> - 
+<a href='https://bbs.archlinux.org'>archforum</a> - 
+<a href='https://wiki.archlinux.org'>archwiki</a> - 
+<a href='http://www.cyberciti.biz/'>nixcraft</a> -
+<a href='http://ubuntuusers.de'>uu.de</a> -
+<a href='http://ss64.com'>ss64</a> -
+<a href='http://distrowatch.org'>distrowatch</a> - 
+<a href='http://zshwiki.org/home/start'>zshwiki</a> -
+<a href='http://wiki.bash-hackers.org/start'>bashwiki</a> -
+<a href='http://commandlinefu.com'>commandlinefu</a> 
+<h1>programming</h1>
+<a href='http://github.com/gnomeye'>github</a> -
+<a href='http://docs.python.org'>pydocs</a> -
+<a href='http://perldoc.perl.org'>perldocs</a> -
+<a href='http://cpan.org'>cpan</a> -
+<a href='http://learnyouahaskell.com/chapters'>learnyourhaskell</a> -
+<a href='http://www.galileocomputing.de/katalog/openbook'>openbooks</a>
+<h1>tor</h1>
+<a href='http://torrentz.eu'>tor</a> - 
+<a href='http://thepiratebay.se'>tpb</a> -
+<a href='http://kat.ph'>kat</a> -
+<a href='http://1337x.org'>1337x</a> -
+<a href='http://h33t.com'>h33t</a> -
+<a href='http://ilcorsaronero.info'>icn</a>
+</div>
+</body>
+</html>
