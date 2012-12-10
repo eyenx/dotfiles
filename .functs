@@ -148,17 +148,6 @@ clntrns() {
 	fi
 	done
 }
-u1sdprg() {
-	[[ -n $@ ]] && echo -e "get ubuntuone transferprogress" && return 1
-	writ=0;
-	tot=0;
-	for num in $(u1sdtool --current-transfers | grep written | awk '{print $3}'); do writ=$(expr $writ + $num); done 2>/dev/null
-		for num in $(u1sdtool --current-transfers | grep deflated | awk '{print $3}'); do tot=$(expr $tot + $num); done 2>/dev/null
-	res=$(expr $writ \* 100 / $tot) 2>/dev/null
-	[[ -z $res ]] && echo "No Transactions.." && return 1
-	echo Progress: ${res}\%
-	echo $(expr $writ / 1024 / 1024) Mb of $(expr $tot / 1024 / 1024) Mb written
-}
 bl(){
 	[[ -z $@ ]] && echo -e "adjust backlight\nusage: bl <low/high/number>" && return 1
 	local par_bl=$1

@@ -9,7 +9,7 @@ FILESYS='/usr/share/slim/themes/archlinux-me:/usr/share/slim/themes/archlinux-si
 FILEHOME='.local/share/applications:.bash*:.config:.mozilla-backup:.conky*:.cups:.dmrc:.face:.fehbg:.fonts:.gtk*:.hplip:.htoprc:.mpd*:.mplayer:.ncmpcpp:.pondus:.purple:.sane:.vim*:.xinitrc:.xscreensaver:.themes:.icons:.pulse/client.conf:.zshrc:.zshenv:.omzsh:.zshrc.orig:.functs:.muttrc:.pentadactyl:.pentadactylrc:.vimperator:.vimperatorrc:.Xresources:.xmobarrc:.xmonad'
 DEST='/tmp/confbak'
 DATE=`date +%F`
-FL="/media/backup/conf/conf-${DATE}_${H}.tar.lzo"
+FL="/tmp/conf-${DATE}_${H}.tar.lzo"
 
 mkdir /tmp/confbak
 for FILE in `echo $FILESYS | sed 's/\:/\n/g'`; do cp -av $FILE $DEST; done
@@ -25,7 +25,7 @@ rm -rf $DEST
 
 ## cleanup old tars
 
-find /media/backup/conf -mtime +50 -exec rm -rf {} \;
+#find /media/backup/conf -mtime +50 -exec rm -rf {} \;
 
 ## get filename in ubuntuone folder and replace it
 UUFL=$(ls $UU/conf*${H}*bak)
