@@ -26,6 +26,7 @@ dropbox start &
 stalonetray &
 mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
+notify-listener.py &
 mpdscribble &
 skype &
 # Start a D-Bus session
