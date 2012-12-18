@@ -1,5 +1,2 @@
 #!/bin/bash
-# eigene öffentliche ip anzeigen
-
-wget http://checkip.dyndns.org/ -q -O - |
-grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>'
+wget checkip.dyndns.org -qO-|egrep -o "[0-9]{1,3}(\.[0-9]{1,3}){3}" 
