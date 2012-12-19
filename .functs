@@ -148,19 +148,6 @@ clntrns() {
 	fi
 	done
 }
-bl(){
-	[[ -z $@ ]] && echo -e "adjust backlight\nusage: bl <low/high/number>" && return 1
-	local par_bl=$1
-	local path_bl="/sys/class/backlight/intel_backlight/brightness"
-	if [[ $par_bl == "low" ]];
-	then
-		local par_bl=250;
-	elif [[ $par_bl == "high" ]];
-	then
-		local par_bl=4437;
-	fi
-	sudo sh -c "echo $par_bl > $path_bl"
-}
 toavi() {
 	[[ -z $@ ]] && echo -e "ffmpeg a file to avi\nusage: toavi <filename>" && return 1
 	fl=$1
