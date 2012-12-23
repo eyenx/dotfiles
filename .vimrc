@@ -1,3 +1,5 @@
+"disable formatting when pasting
+set pastetoggle=<F2>
 "no vim compatibility
 set nocompatible
 "autoreload vimrc
@@ -20,55 +22,55 @@ map Q gqap
 inoremap <C-U> <C-G>u<C-U>
 
 " because mouse is mainstream
-if has('mouse')
-  set mouse=a
-endif
+set mouse=a
 
 "syntax highlightning
-if &t_Co > 2 || has("gui_running")
-  filetype plugin on
-  syntax on
-  set hlsearch
-  set incsearch
-  set ignorecase
-  set smartcase
-endif
-
+filetype plugin on
+filetype indent on
+syntax on
+set ofu=syntaxcomplete#Complete
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+"wrapping like a boss
+set wrap                " word wrap
+set textwidth=0         " 
+set lbr                 " line break
+set display=lastline    " don't display @ with long paragraphs
+"tabs
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+set autoindent		" always set autoindenting on
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+"other stuff takeon somewhere from the outernet
+set shortmess+=I        " disable the welcome screen
+set complete+=k         " enable dictionary completion
+set completeopt+=longest
+set clipboard+=unnamed  " yank and copy to X clipboard
+set showmatch           " show matching brackets (),{},[]
+set mat=5               " show mathine brackets for 0.5 seconds
+"copy/pasting for intend
+vmap <c-y> y:call system("xclip -i", getreg("\""))<CR>
+nmap <c-v> :call setreg("\"",system("xclip -o"))<CR>p
+imap <c-v> <Esc><c-v>a
+"remap those omnimenu keys
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
 
-  filetype plugin indent on
-  augroup vimrcEx
-  au!
-  " textwidth
-  autocmd FileType text setlocal textwidth=78
-  " autojump last known position
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
+inoremap <silent>j <C-R>=OmniPopup('j')<CR>
+inoremap <silent>k <C-R>=OmniPopup('k')<CR>
 " powerline
 set laststatus=2 " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -84,17 +86,25 @@ set number
 colorscheme darkblue
 
 " set backupdir
-set backupdir=~/.vim/bak/,/tmp
+set backupdir=/tmp
+set directory=/tmp
 " plugins
+" vim-python
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+"vim-latexsuite
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor ="latex"
 "
 " mappings
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-map <Leader>n <esc>:tabnext<CR>
-map <Leader>p <esc>:tabprevious<CR>
-vnoremap <Leader>s :sort<CR>
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <c-w>l
+map <C-h> <C-w>h
+map <C-n> <esc>:tabnext<CR>
+map <C-m> <esc>:tabprevious<CR>
+noremap <C-w> :w<CR>
+inoremap <C-w> <esc><esc>:w<CR>
+vnoremap <C-w> <esc><esc>:w<CR>
+vnoremap <S-s> :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv 
