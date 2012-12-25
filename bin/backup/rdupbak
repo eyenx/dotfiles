@@ -36,10 +36,10 @@ fi
 mkdir $TDIR
 
 # for modified incremental
-$R -M $TSI -E $EX $FLI $SRC | rdup-up $TDIR
+$R -N $TSI -E $EX $FLI $SRC | rdup-up $TDIR
 # dump full backup
 rm -f $TSF
-$R -M $TSF -E $EX $FLF $SRC | rdup-up $FDIR
+$R -N $TSF -E $EX $FLF $SRC | rdup-up $FDIR
 
 ## script to create a tar archive of the existing full backup (only monthly)
 

@@ -217,6 +217,7 @@ myManageHook = composeAll
     , className  =? "VirtualBox"     --> doFloat
     , className  =? "Skype"     --> doFloat
     , className =? "Xfce4-notifyd"   --> doIgnore
+    , className =? "Steam"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , className  =? "stalonetray" --> doIgnore
