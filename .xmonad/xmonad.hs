@@ -286,9 +286,15 @@ myConf = defaultConfig {
 	, ("M4-<F6>", spawn myRandWp)
 	, ("S-<Print>", spawn myScrShot)
 	, ("<Print>", spawn myScreenFull)
-	, ("<XF86AudioPlay>", spawn myMPDPlay)
-	, ("<XF86AudioNext>", spawn myMPDNext)
-	, ("<XF86AudioPrev>", spawn myMPDPrev)
-	, ("<XF86AudioMute>", spawn myVolMute)
-	, ("<XF86AudioLowerVolume>", spawn myVolDown)
-	, ("<XF86AudioRaiseVolume>", spawn myVolUp)]
+	, ("M4-<F10>", spawn myMPDPlay)
+	, ("M4-<F11>", spawn myMPDNext)
+	, ("M4-<F9>", spawn myMPDPrev)
+	, ("M4-<F12>", spawn myVolMute)
+	, ("M4-<Page_Down>", spawn myVolDown)
+	, ("M4-<Page_Up>", spawn myVolUp)]
+--	, ("<XF86AudioPlay>", spawn myMPDPlay)
+--	, ("<XF86AudioNext>", spawn myMPDNext)
+--	, ("<XF86AudioPrev>", spawn myMPDPrev)
+--	, ("<XF86AudioMute>", spawn myVolMute)
+--	, ("<XF86AudioLowerVolume>", spawn myVolDown)
+--	, ("<XF86AudioRaiseVolume>", spawn myVolUp)]

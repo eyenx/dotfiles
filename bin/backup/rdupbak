@@ -10,7 +10,8 @@ FLF="/media/backup/full/.fs"
 TSI="/media/backup/incr/.ts"
 FLI="/media/backup/incr/.fs"
 TODAY=$(date +%F)
-SRC="/home/eye /media/exthome"
+S1="/home/eye"
+S2="/media/exthome"
 DEST="/media/backup"
 FDIR="$DEST/full"
 MDIR="$DEST/monthly"
@@ -31,15 +32,11 @@ if [ ${#OLDBAKS} != 0 ]; then
 	done;
 fi
 
-#mkdir of today
-
-mkdir $TDIR
-
 # for modified incremental
-$R -N $TSI -E $EX $FLI $SRC | rdup-up $TDIR
+$R -N $TSI $FLI -E $EX $S1 $S2 | rdup-up -t $TDIR
 # dump full backup
 rm -f $TSF
-$R -N $TSF -E $EX $FLF $SRC | rdup-up $FDIR
+$R -N $TSF $FLF -E $EX $S1 $S2 | rdup-up $FDIR
 
 ## script to create a tar archive of the existing full backup (only monthly)
 
