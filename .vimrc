@@ -23,7 +23,6 @@ inoremap <C-U> <C-G>u<C-U>
 
 " because mouse is mainstream
 set mouse=a
-
 "syntax highlightning
 filetype plugin on
 filetype indent on
@@ -89,8 +88,10 @@ colorscheme darkblue
 set backupdir=/tmp
 set directory=/tmp
 " plugins
-" vim-python
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"pathogen
+execute pathogen#infect()
+" pydiction
+let g:pydiction_location = '/usr/share/pydiction/complete-dict'
 "vim-latexsuite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor ="latex"
@@ -98,13 +99,14 @@ let g:tex_flavor ="latex"
 " mappings
 map <C-j> <C-w>j
 map <C-k> <C-w>k
-map <C-l> <c-w>l
+map <C-l> <C-w>l
 map <C-h> <C-w>h
-map <C-n> <esc>:tabnext<CR>
-map <C-m> <esc>:tabprevious<CR>
-noremap <C-w> :w<CR>
-inoremap <C-w> <esc><esc>:w<CR>
-vnoremap <C-w> <esc><esc>:w<CR>
+" implementet with buftabs
+map <C-n> <esc>:bnext<CR>
+map <C-m> <esc>:bprevious<CR>
+noremap <silent> <C-s> :w<CR>
+inoremap <silent> <C-s> <esc><esc>:w<CR>
+vnoremap <silent> <C-s> <esc><esc>:w<CR>
 vnoremap <S-s> :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv 

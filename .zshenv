@@ -1,5 +1,6 @@
 umask 0077
 PATH=$PATH:$HOME/bin
+stty -ixon
 export PATH
 export EDITOR=vim
 export BROWSER=firefox
