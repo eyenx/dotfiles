@@ -123,6 +123,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- expand master area
     , ((modm,xK_l),
 	sendMessage Expand)
+    
+    -- expand master area
+    , ((modm .|. mod1Mask,xK_j),
+	sendMessage MirrorShrink)
+    
+    -- expand master area
+    , ((modm .|. mod1Mask,xK_k),
+	sendMessage MirrorExpand)
 
     -- push window into tiling if not floating - float if tiling
     , ((modm,xK_t),

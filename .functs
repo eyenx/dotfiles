@@ -6,7 +6,7 @@ aurd(){
 	build="/tmp/aurd/"
 	[[ -d $build ]] || mkdir -pv $build
 	cd $build
-	curl -k "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
+	wget -qO- "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
 mymem() {
