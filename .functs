@@ -167,5 +167,5 @@ toavi() {
 gdrv() {
 	[[ -n $@ ]] && echo -e "use grive-sync in your grive folder" && return 1
 	g="$HOME/.g"
-	cd $g; grive;cd -
+	cd $g; grive;cd - >/dev/null
 }
