@@ -28,6 +28,7 @@ myBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 myRandWp = "wpfl=$(find ~/img/wallpapers/wallbase -iname 'wallbase*jpg' -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
+mySkype = "/usr/bin/skype"
 myPentaFlashOut = "~/bin/pentadactyt fpo"
 myPentaFlashIn = "~/bin/pentadactyt fpi"
 myLock = "xautolock -locknow"
@@ -223,9 +224,10 @@ myManageHook = composeAll
     , className =? "Gimp"           --> doFloat
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
-    , className  =? "Skype"     --> doFloat
+--    , className  =? "Skype"     --> doFloat
+    , className  =? "Skype"     --> doShift "media"
     , className =? "Xfce4-notifyd"   --> doIgnore
-    , className =? "Steam"   --> doFloat
+--    , className =? "Steam"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , className  =? "stalonetray" --> doIgnore
@@ -294,6 +296,7 @@ myConf = defaultConfig {
 	, ("M4-S-<F4>", spawn myPentaFlashIn)
 	, ("M4-<F5>", spawn myWpChgr)
 	, ("M4-<F6>", spawn myRandWp)
+	, ("M4-<F7>", spawn mySkype)
 	, ("S-<Print>", spawn myScrShot)
 	, ("<Print>", spawn myScreenFull)
 	, ("M4-<F10>", spawn myMPDPlay)
