@@ -6,7 +6,7 @@ aurd(){
 	build="/tmp/aurd/"
 	[[ -d $build ]] || mkdir -pv $build
 	cd $build
-	curl -k "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
+	wget -qO- "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
 mymem() {
@@ -156,5 +156,5 @@ toavi() {
 gdrv() {
 	[[ -n $@ ]] && echo -e "use grive-sync in your grive folder" && return 1
 	g="$HOME/.g"
-	cd $g; grive;cd -
+	cd $g; grive;cd - >/dev/null
 }
