@@ -28,7 +28,8 @@ myBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 --myRandWp = "wpfl=$(find ~/img/wallpapers/wallbase -iname 'wallbase*jpg' -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
-myPentaMouse = "~/bin/pentadactyt yt"
+myPentaFlashOut = "~/bin/pentadactyt fpo"
+myPentaFlashIn = "~/bin/pentadactyt fpi"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot /tmp/screenshot_%H%M%S_%Y%m%d.png"
 myScrShot = "sleep 0.2; scrot -s -b /tmp/screen%H%M%S.png"
@@ -282,7 +283,8 @@ myConf = defaultConfig {
 	, ("M4-<F1>", spawn myBrowser)
 	, ("M4-<F2>", spawn myMail)
 	, ("M4-<F3>", spawn myTmux)
-	, ("M4-<F4>", spawn myPentaMouse)
+	, ("M4-<F4>", spawn myPentaFlashOut)
+	, ("M4-S-<F4>", spawn myPentaFlashIn)
 	, ("M4-<F5>", spawn myWpChgr)
 	--, ("M4-<F6>", spawn myRandWp)
 	, ("S-<Print>", spawn myScrShot)

@@ -40,4 +40,3 @@ $endif \
 pub <fc=\#707070>${execi 1800 ~/.conky/publicip.sh}</fc> \
 repo <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
 mail <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
-weather <fc=\#707070>${execpi 900 ~/.conky/weather.sh}</fc> \

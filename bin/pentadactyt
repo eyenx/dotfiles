@@ -1,15 +1,15 @@
 #!/bin/bash
 
-if [[ $1 == "yt" ]]; then
+if [[ $1 == "fpo" ]]; then
 	xdotool mousemove 5 70 
 	xdotool keyup Super_L
 	xdotool click 1
 	exit 0
 fi
-if [[ $1 == "ff" ]]; then
-	wind=`xdotool search --onlyvisible --classname "Navigator"`
-	xdotool windowmove $wind 0 16
-	xdotool windowsize $wind 1160 1034
-	exit 0
+if [[ $1 == "fpi" ]]; then
+    xdotool mousemove 529 285
+	xdotool keyup Super_L
+	xdotool click 1
+    exit 0
 fi
 
