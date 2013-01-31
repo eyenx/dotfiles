@@ -186,23 +186,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
-
-    -- mod-button1, Set the window to floating mode and move by dragging
+-- mod-button1, Set the window to floating mode and move by dragging
     [ ((modm, button1), (\w -> focus w >> Flex.mouseWindow Flex.position w
-                                       >> windows W.shiftMaster))
+                                   >> windows W.shiftMaster))
 
-    -- mod-button2, Raise the window to the top of the stack
-    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+-- mod-button2, Raise the window to the top of the stack
+  , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
 
-    -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> Flex.mouseWindow Flex.resize w
-                                       >> windows W.shiftMaster))
-    ]
+-- mod-button3, Set the window to floating mode and resize by dragging
+  , ((modm, button3), (\w -> focus w >> Flex.mouseWindow Flex.resize w
+                                  >> windows W.shiftMaster))
+   ]
 
 --layouts
 myLayout = smartBorders
 	$ mkToggle (NOBORDERS ?? FULL ?? EOT)
-	$ tile ||| mtile ||| full
+	$ tile ||| mtile ||| full 
   where
      -- tiling profiles
      rt = ResizableTall nmaster delta ratio []
@@ -220,9 +219,10 @@ myLayout = smartBorders
 --rules
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doShift "media"
-    , className =? "MPlayer"        --> doFloat
+   , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doShift "media"
-    , className =? "Gimp"           --> doFloat
+    -- trying gimp without floating
+--    , className =? "Gimp"           --> doFloat
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
 --    , className  =? "Skype"     --> doFloat
@@ -231,7 +231,6 @@ myManageHook = composeAll
 --    , className =? "Steam"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
-    , className  =? "stalonetray" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
 -- event handling
