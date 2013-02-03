@@ -22,6 +22,8 @@ EX="/home/eye/bin/backup/.excludelist"
 
 
 # run
+#create packagelist
+comm -23 <(/usr/bin/pacman -Qeq|sort) <(pacman -Qmq|sort) > $S1/.pkglist
 
 # first remove old incremental backups (14 days old)
 
