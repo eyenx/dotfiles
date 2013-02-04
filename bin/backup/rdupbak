@@ -22,8 +22,6 @@ EX="/home/eye/bin/backup/.excludelist"
 
 
 # run
-#create packagelist
-comm -23 <(/usr/bin/pacman -Qeq|sort) <(pacman -Qmq|sort) > $S1/.pkglist
 
 # first remove old incremental backups (14 days old)
 
@@ -41,6 +39,9 @@ $R -N $TSI $FLI -E $EX $S1 $S2 | rdup-up -t $TDIR
 # dump full backup
 rm -f $TSF
 $R -N $TSF $FLF -E $EX $S1 $S2 | rdup-up $FDIR
+
+#create packagelist
+comm -23 <(/usr/bin/pacman -Qeq|sort) <(pacman -Qmq|sort) > $TDIR/.pkglist
 
 ## script to create a tar archive of the existing full backup (only monthly)
 
