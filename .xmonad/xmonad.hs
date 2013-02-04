@@ -11,6 +11,7 @@ import XMonad.Actions.FloatSnap
 --import XMonad.Actions.FloatKeys
 import XMonad.Actions.FlexibleManipulate as Flex
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders 
 import XMonad.Layout.MultiToggle
@@ -59,7 +60,8 @@ myModMask       = mod4Mask
 myWorkspaces    = ["web","media","vm","work","code" ] 
 
 -- border colors
-myNormalBorderColor  = "#707070"
+--myNormalBorderColor  = "#707070"
+myNormalBorderColor  = "#1c1d1f"
 myFocusedBorderColor = "#1793d0"
 
 --key bindings
@@ -199,14 +201,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 --layouts
 myLayout = smartBorders
-	$ mkToggle (NOBORDERS ?? FULL ?? EOT)
+	$ fulltoggle 
 	$ tile ||| mtile ||| full 
   where
      -- tiling profiles
-     rt = ResizableTall nmaster delta ratio []
+     rt = spacing 1 $ ResizableTall nmaster delta ratio []
      tile   = renamed [Replace "[]="] $ smartBorders rt
      mtile   = renamed [Replace "M[]="] $ smartBorders $ Mirror rt
      full   = renamed [Replace "[]"] $ noBorders Full
+     fulltoggle = mkToggle (NOBORDERS ?? FULL ?? EOT)
      -- default #windows in master
      nmaster = 1
      -- proportion size of master
