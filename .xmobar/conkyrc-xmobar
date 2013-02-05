@@ -23,10 +23,14 @@ root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<f
 var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
 home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
-${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}<20}\
-<icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#e04614>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
+${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>65}\
+<icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#707070>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
 ${else}\
+${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>20}\
 <icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#707070>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
+${else}\
+<icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#e046e14>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
+$endif\
 $endif\
 ${else}\
 <icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#707070>${execi 120 acpi|awk '{print $3}'|cut -c -1} ${execi 120 acpi|awk '{print $4}'}</fc>\
