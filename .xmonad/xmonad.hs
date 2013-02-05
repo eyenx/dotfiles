@@ -11,6 +11,7 @@ import XMonad.Actions.FloatSnap
 --import XMonad.Actions.FloatKeys
 import XMonad.Actions.FlexibleManipulate as Flex
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders 
 import XMonad.Layout.MultiToggle
@@ -57,10 +58,11 @@ myBorderWidth   = 1
 myModMask       = mod4Mask
 
 -- my workspaces
-myWorkspaces    = ["web","media","vm","work","code" ] 
+myWorkspaces    = ["web","code","im","media","work","vm"]
 
 -- border colors
-myNormalBorderColor  = "#707070"
+--myNormalBorderColor  = "#707070"
+myNormalBorderColor  = "#1c1d1f"
 myFocusedBorderColor = "#e04617"
 
 --key bindings
@@ -200,14 +202,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 --layouts
 myLayout = smartBorders
-	$ mkToggle (NOBORDERS ?? FULL ?? EOT)
+	$ fulltoggle 
 	$ tile ||| mtile ||| full 
   where
      -- tiling profiles
-     rt = ResizableTall nmaster delta ratio []
+     rt = spacing 1 $ ResizableTall nmaster delta ratio []
      tile   = renamed [Replace "[]="] $ smartBorders rt
      mtile   = renamed [Replace "M[]="] $ smartBorders $ Mirror rt
      full   = renamed [Replace "[]"] $ noBorders Full
+     fulltoggle = mkToggle (NOBORDERS ?? FULL ?? EOT)
      -- default #windows in master
      nmaster = 1
      -- proportion size of master
@@ -226,7 +229,7 @@ myManageHook = composeAll
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
 --    , className  =? "Skype"     --> doFloat
-    , className  =? "Skype"     --> doShift "media"
+    , className  =? "Skype"     --> doShift "im"
     , className =? "Xfce4-notifyd"   --> doIgnore
 --    , className =? "Steam"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
@@ -246,16 +249,19 @@ myStartupHook = do
 
 -- launch xmobar
 myBar = "/usr/bin/xmobar"
+-- get icon function
+getIcon s = "<icon="++icondir++s++".xbm"++"/> "
+        where icondir = "/home/eye/.xmobar/xbm/"
 --custom PP
 myPP = xmobarPP { 
-	ppCurrent = xmobarColor "#e04617" "" 
-	, ppHidden = xmobarColor "#b0b0b0" ""
-	, ppHiddenNoWindows = xmobarColor "#707070" ""
- 	, ppVisible = xmobarColor "#b0b0b0" ""
- 	, ppUrgent = xmobarColor "#1c1d1f" "#1793d0"
+	ppCurrent = \d -> xmobarColor "#e04617" ""  . pad $ (getIcon d) ++ d
+	, ppHidden = \d -> xmobarColor "#b0b0b0" "" . pad $ (getIcon d) ++ d
+--	, ppHiddenNoWindows = xmobarColor "#707070" ""
+ 	, ppVisible = \d -> xmobarColor "#b0b0b0" "" . pad $ (getIcon d) ++ d 
+ 	, ppUrgent = \d -> xmobarColor "#1c1d1f" "#e04617" . pad $ (getIcon d) ++ d
 	, ppLayout = xmobarColor "#707070" "" 
- 	, ppSep = "\t\t\t"
- 	, ppWsSep = xmobarColor "#505050" "" " / "
+ 	, ppSep = "\t\t"
+ 	, ppWsSep = xmobarColor "#505050" "" " "
  	, ppTitle = xmobarColor "#e04617" "" . shorten 50
 }
 -- key bind

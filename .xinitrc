@@ -18,7 +18,7 @@ feh --bg-scale --no-fehb ~/.wall
 udiskie &
 unclutter &
 urxvtd -f -o -q
-~/.xmonad/conkyxmobar &
+~/.xmobar/conkyxmobar &
 dropbox start &
 #u1sdtool -c &
 #oneko -tofocus -speed 30 &
