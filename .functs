@@ -32,7 +32,7 @@ sshtun() {
 calc() { 
 	par=$*
 	echo -e "$par ="
-	calc=$(awk "BEGIN{ print $par }") 
+    calc=$(ghc -e $par)
     	echo $calc
 }
 qload() {
