@@ -1,6 +1,5 @@
 -- gnomeye's xmonad.hs
---
--- imports
+-- -- imports
 import XMonad
 import XMonad.Hooks.DynamicLog
 import Data.Monoid
@@ -45,6 +44,8 @@ myVolChange="~/bin/volctrl change"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myXDisplay="~/bin/xdisplay.sh"
+myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0"
+myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
 
 -- get focus on mouse 
@@ -311,4 +312,6 @@ myConf = defaultConfig {
 	, ("<XF86AudioPrev>", spawn myMPDPrev)
 	, ("<XF86AudioMute>", spawn myVolMute)
 	, ("<XF86AudioLowerVolume>", spawn myVolDown)
-	, ("<XF86AudioRaiseVolume>", spawn myVolUp)]
+	, ("<XF86AudioRaiseVolume>", spawn myVolUp)
+	, ("<XF86MonBrightnessUp>", spawn myXBackLightUp)
+	, ("<XF86MonBrightnessDown>", spawn myXBackLightDwn)]
