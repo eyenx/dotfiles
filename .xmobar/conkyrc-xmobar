@@ -44,5 +44,7 @@ ${if_existing /sys/class/net/wlan0/operstate up}<icon=/home/eye/.xmobar/xbm/wire
 <icon=/home/eye/.xmobar/xbm/private.xbm/> <fc=\#707070>${addr wlan0}</fc> \
 $endif \
 <icon=/home/eye/.xmobar/xbm/public.xbm/> <fc=\#707070>${execi 1800 ~/.conky/publicip.sh}</fc> \
+${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 <icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
+$endif\
 <icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
