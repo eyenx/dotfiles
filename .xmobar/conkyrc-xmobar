@@ -31,7 +31,9 @@ ${if_mounted /media/nas}nas ${if_match ${fs_used_perc /media/nas}>90}<fc=\#e0461
 <icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
 <icon=/home/eye/.xmobar/xbm/private.xbm/> <fc=\#707070>${addr eth0}</fc> \
 <icon=/home/eye/.xmobar/xbm/public.xbm/> <fc=\#707070>${execi 1800 ~/.conky/publicip.sh}</fc> \
+${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 <icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
+$endif\
 <icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
 <icon=/home/eye/.xmobar/xbm/weather.xbm/> <fc=\#707070>${execpi 900 ~/.conky/weather.sh}</fc> \
 ${if_mpd_playing}<icon=/home/eye/.xmobar/xbm/note1.xbm/> <fc=\#707070>${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}</fc>$endif
