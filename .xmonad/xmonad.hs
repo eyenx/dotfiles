@@ -45,6 +45,7 @@ myVolChange="~/bin/volctrl change"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
+myStream="mplayer http://ladybug:8000 -nocache"
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
@@ -307,6 +308,7 @@ myConf = defaultConfig {
 	, ("M4-<F10>", spawn myMPDPlay)
 	, ("M4-<F11>", spawn myMPDNext)
 	, ("M4-<F9>", spawn myMPDPrev)
+    , ("M4-<F8>", spawn myStream)
 	, ("M4-<F12>", spawn myVolMute)
 	, ("M4-<Page_Down>", spawn myVolDown)
 	, ("M4-<Page_Up>", spawn myVolUp)]
