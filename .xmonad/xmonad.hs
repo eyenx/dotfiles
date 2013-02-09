@@ -45,7 +45,7 @@ myVolChange="~/bin/volctrl change"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
-myStream="mplayer http://ladybug:8000 -nocache"
+myStream="mplayer http://ladybug:8000 -nocache 2>/dev/null"
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
@@ -231,7 +231,10 @@ myManageHook = composeAll
 --    , className  =? "Skype"     --> doFloat
     , className  =? "Skype"     --> doShift "im"
     , className =? "Xfce4-notifyd"   --> doIgnore
---    , className =? "Steam"   --> doFloat
+    , className =? "Steam"   --> doShift "media"
+    , className =? "Steam"   --> doFloat
+    , className =? "hl2_linux"   --> doShift "media"
+    , className =? "hl2_linux"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
