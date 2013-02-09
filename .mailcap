@@ -1,0 +1,8 @@
+# /home/eye/.mailcap
+
+image/*; gpicview %s
+video/*; mp %s
+audio/*; mp %s
+text/html; firefox %s
+text/plain; less %s
+application/pdf; mupdf %s
