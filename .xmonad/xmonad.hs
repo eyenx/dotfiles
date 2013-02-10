@@ -45,7 +45,7 @@ myVolChange="~/bin/volctrl change"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
-myStream="mplayer http://ladybug:8000 -nocache 2>/dev/null"
+myStream="mpg123 http://ladybug:8000" 
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
