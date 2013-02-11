@@ -47,6 +47,7 @@ myXDisplay="~/bin/xdisplay.sh"
 myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
+myStream="mpg123 http://ladybug:8000" 
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
@@ -232,7 +233,10 @@ myManageHook = composeAll
 --    , className  =? "Skype"     --> doFloat
     , className  =? "Skype"     --> doShift "im"
     , className =? "Xfce4-notifyd"   --> doIgnore
---    , className =? "Steam"   --> doFloat
+    , className =? "Steam"   --> doShift "media"
+    , className =? "Steam"   --> doFloat
+    , className =? "hl2_linux"   --> doShift "media"
+    , className =? "hl2_linux"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
@@ -315,3 +319,9 @@ myConf = defaultConfig {
 	, ("<XF86AudioRaiseVolume>", spawn myVolUp)
 	, ("<XF86MonBrightnessUp>", spawn myXBackLightUp)
 	, ("<XF86MonBrightnessDown>", spawn myXBackLightDwn)]
+--	, ("<XF86AudioPlay>", spawn myMPDPlay)
+--	, ("<XF86AudioNext>", spawn myMPDNext)
+--	, ("<XF86AudioPrev>", spawn myMPDPrev)
+--	, ("<XF86AudioMute>", spawn myVolMute)
+--	, ("<XF86AudioLowerVolume>", spawn myVolDown)
+--	, ("<XF86AudioRaiseVolume>", spawn myVolUp)]

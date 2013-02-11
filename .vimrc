@@ -24,8 +24,10 @@ inoremap <C-U> <C-G>u<C-U>
 " because mouse is mainstream
 set mouse=a
 "syntax highlightning
-filetype plugin on
-filetype indent on
+"pathogen
+filetype off
+execute pathogen#infect()
+filetype plugin indent on
 syntax on
 set ofu=syntaxcomplete#Complete
 set hlsearch
@@ -88,8 +90,6 @@ colorscheme darkblue
 set backupdir=/tmp
 set directory=/tmp
 " plugins
-"pathogen
-execute pathogen#infect()
 " pydiction
 let g:pydiction_location = '/usr/share/pydiction/complete-dict'
 "vim-latexsuite
