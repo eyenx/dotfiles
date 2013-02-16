@@ -169,3 +169,13 @@ gdrv() {
 	g="$HOME/.g"
 	cd $g; grive;cd - >/dev/null
 }
+## good gotbletu rtmp functions
+rtmp_sniff(){
+    [[ -n $@ ]] && echo -e "rtmp sniff w/ iptables rules to get rtmp url\nusage: rtmp_sniff" && return 1;
+    sudo iptables -t nat -A OUTPUT -p tcp --dport 1935 -m owner \! --uid-owner root -j REDIRECT
+    rtmpsrv
+    sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -m owner \! --uid-owner root -j REDIRECT
+}
+
+
+
