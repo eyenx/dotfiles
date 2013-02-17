@@ -71,6 +71,7 @@ highlight Title color: inherit ; background: inherit ;
 highlight URL text-decoration: none; color: inherit; background: inherit;
 highlight WarningMsg color: red ; background: inherit ;
 map -count -modes=n,v -silent Xf <count>:flashtoggle<Return>
+map -count -modes=n,v -silent X<space> <count>:youtube -toggle<Return>
 map -count -modes=n,v -silent Xm <count>:myt<Return>
 map -count -modes=n,v -silent Xmm <count>:myyt<Return>
 map -count -modes=n,v -silent Xyy <count>:dyyt<Return>
