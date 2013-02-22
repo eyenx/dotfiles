@@ -23,7 +23,8 @@ urxvtd -f -o -q
 dropbox start &
 #u1sdtool -c &
 #oneko -tofocus -speed 30 &
-stalonetray &
+#stalonetray &
+trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true --align right --margin 56 --height 16 --padding 0 --transparent true --alpha 0 --tint 0x1c1d1f&
 mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
 notify-listener.py &
