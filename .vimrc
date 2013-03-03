@@ -86,7 +86,9 @@ set number
 " set colorscheme
 "colorscheme darkblue
 "colorscheme wombat
-colorscheme grb256
+"colorscheme grb256
+colorscheme neverland
+"colorscheme distinguished
 "colorscheme solarized
 "colorscheme jellybeans
 
