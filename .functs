@@ -35,7 +35,15 @@ calc() {
     calc=$(ghc -e $par)
     	echo $calc
 }
+pstop(){
+        [[ -n $@ ]] && echo -e "find out the most ressources eating processes" && return 1
+        echo -ne "CpuTop:\t"
+        ps axu|awk '{print $3,$11}'|sort -n|tail -1
+        echo -ne "MemTop:\t"
+        ps axu|awk '{print $4,$11}'|sort -n|tail -1
+    }
 qload() {
+
 	uptime|sed 's/.*rage:\ \(.*\)/load:\ \1/'|sed 's/,//g'
 }
 
@@ -140,11 +148,13 @@ randwp() {
 }
 
 clntrns() { 
-	tors=$(expr `transmission-remote -l | wc -l` - 1)
+    trns="/usr/bin/transmission-remote" 
+    hst=roach
+	tors=$(expr `$trns $hst -l | wc -l` - 1)
 	tors2=$(expr $tors - 1)
-	transmission-remote -l | head -$tors | tail -$tors2 | while read LINE; do
+	$trns $hst -l | head -$tors | tail -$tors2 | while read LINE; do
 	if [[ `echo $LINE | awk '{print $2}'` == "100%" ]]; then
-		transmission-remote -t `echo $LINE | awk '{print $1}'|tr -dc "[0-9]"` -r
+		$trns $hst -t `echo $LINE | awk '{print $1}'|tr -dc "[0-9]"` -r
 	fi
 	done
 }

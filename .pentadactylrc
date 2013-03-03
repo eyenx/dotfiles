@@ -1,4 +1,4 @@
-"hg6837
+"1.1pre-hg6886-default
 
 loadplugins '\.(js|penta)$'
 group user
@@ -20,13 +20,13 @@ command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.c
 command! -nargs=* -description='search gentoo wiki' gwiki tabopen http://en.gentoo-wiki.com/w/index.php?title=Special%3ASearch&search=<args>&go=Go
 command! -nargs=* -description='imdb search' imdb tabopen http://www.imdb.com/find?q=<args>&s=all
 command! -nargs=* -description='kat.ph search' kat tabopen http://kat.ph/usearch/<args>/
-command! -nargs=* -description='torrentz.eu search' tor tabopen http://torrentz.eu/search?f=<args>
 command! -nargs=1 -description='mailto opens gmail compose' mailto tabopen https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=<args>
 command! -nargs=* -description='man search' man tabopen http://google.ch/search?q=<args>+site:ss64.com/bash+OR+site:man7.org/linux/man-pages+OR+site:linux.die.net
 command! -nargs=* -description='meme search' meme tabopen http://knowyourmeme.com/search?q=<args>
 command! -description='watch yt video in mplayer' myt js ex.run("mplayer $(youtube-dl -g --max-quality 37 \'"+content.location.href+"\') &")
 command! -description='watch yanked yt url in mplayer' myyt js ex.run("mplayer -cache-min 1 $(youtube-dl -g --max-quality 37 $(xclip -o)) &")
 command! -nargs=* -description='*nix search' nix tabopen http://www.cyberciti.biz/linux-search.php?q=<args>
+command! -nargs=* -description='torrentz.eu search' tor tabopen http://torrentz.eu/search?f=<args>
 command! -nargs=* -description='tumblr search' tumb tabopen http://tumblr.com/tagged/<args>
 command! -nargs=* -description='uuwiki search' uu tabopen http://ubuntuusers.de/search?query=<args>&area=wiki
 command! -nargs=* -description='wiki search' wiki tabopen http://en.wikipedia.org/w/index.php?search=<args>
@@ -71,7 +71,7 @@ highlight Title color: inherit ; background: inherit ;
 highlight URL text-decoration: none; color: inherit; background: inherit;
 highlight WarningMsg color: red ; background: inherit ;
 map -count -modes=n,v -silent Xf <count>:flashtoggle<Return>
-map -count -modes=n,v -silent X<space> <count>:youtube -toggle<Return>
+map -count -modes=n,v -silent X<Space> <count>:youtube<Space>-toggle<Return>
 map -count -modes=n,v -silent Xm <count>:myt<Return>
 map -count -modes=n,v -silent Xmm <count>:myyt<Return>
 map -count -modes=n,v -silent Xyy <count>:dyyt<Return>
@@ -80,7 +80,7 @@ map -count -modes=n,v -silent Xs <count>:source<Space>~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
 set editor='urxvt -e vim'
-set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com,beatport.com
+set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com,beatport.com,roach
 set showtabline=multitab
 
 " vim: set ft=pentadactyl:

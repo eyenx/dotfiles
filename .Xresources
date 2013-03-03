@@ -52,7 +52,7 @@ URxvt*underlineColor: #1793D0
 
 ! Xcursor -------------------------------------------------------------------
 
-Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.theme: aterblue
 Xcursor.size: 16
 
 
