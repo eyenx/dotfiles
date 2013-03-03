@@ -2,9 +2,9 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 gtk-theme-name="SimpleDark"
-gtk-icon-theme-name="ACYLBlue"
+gtk-icon-theme-name="ACYLOrange"
 gtk-font-name="Zekton 7"
-gtk-cursor-theme-name="Vanilla-DMZ-AA"
+gtk-cursor-theme-name="aterred"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
