@@ -84,7 +84,11 @@ let g:Powerline_cache_dir="/tmp"
 set number
 
 " set colorscheme
-colorscheme darkblue
+"colorscheme darkblue
+"colorscheme wombat
+colorscheme grb256
+"colorscheme solarized
+"colorscheme jellybeans
 
 " set backupdir
 set backupdir=/tmp

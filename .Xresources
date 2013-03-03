@@ -1,28 +1,51 @@
-! ----------------------------------------------------------------------------
-! ! file:     ~/.Xdefaults
-! ! vim:enc=utf8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
-! ----------------------------------------------------------------------------
-
 ! terminal colors ------------------------------------------------------------
 *background: #1c1d1f
 *foreground: #b0b0b0
-! Special Orange
-URxvt*color0:#1c1d1f
-URxvt*color1:#FF0000
-URxvt*color2:#00FF00
-URxvt*color3:#FFFF00
-URxvt*color4:#085dad
-URxvt*color5:#FF00FF
-URxvt*color6:#00FFFF
-URxvt*color7:#B0B0B0
-URxvt*color8:#1793d0
-URxvt*color9:#AA0000
-URxvt*color10:#00AA00
-URxvt*color11:#AAAA00
-URxvt*color12:#6599FF
-URxvt*color13:#AA00AA
-URxvt*color14:#00AAAA
-URxvt*color15:#999999
+*fading: 40
+*fadeColor: #1c1d1f
+!URxvt*color0:#1c1d1f
+!URxvt*color1:#FF0000
+!URxvt*color2:#00FF00
+!URxvt*color3:#FFFF00
+!URxvt*color4:#085dad
+!URxvt*color5:#FF00FF
+!URxvt*color6:#00FFFF
+!URxvt*color7:#B0B0B0
+!URxvt*color8:#1793d0
+!URxvt*color9:#AA0000
+!URxvt*color10:#00AA00
+!URxvt*color11:#AAAA00
+!URxvt*color12:#6599FF
+!URxvt*color13:#AA00AA
+!URxvt*color14:#00AAAA
+!URxvt*color15:#999999
+! tangoesque scheme
+! ! Black (not tango) + DarkGrey
+*color0:  #1c1d1f
+*color8:  #555753
+!! ! DarkRed + Red
+*color1:  #9f2424
+*color9:  #ef2929
+!! ! DarkGreen + Green
+*color2:  #4e9a06
+!*color10: #8ae234
+*color10: #74d41b
+!! ! DarkYellow + Yellow
+*color3:  #c4a000
+*color11: #fce94f
+!! ! DarkBlue + Blue
+*color4:  #085dad
+*color12: #739fcf
+!! ! DarkMagenta + Magenta
+*color5:  #75507b
+*color13: #ad7fa8 
+!! !DarkCyan + Cyan (both not tango)
+*color6:  #06989a
+*color14: #34e2e2
+!! ! LightGrey + White
+*color7:  #b0b0b0
+*color15: #9f9f9f
+!
 ! other urxvt options
 URxvt.perl-ext: default,url-select
 !,tabbed
