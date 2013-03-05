@@ -150,13 +150,11 @@ randwp() {
 clntrns() { 
     trns="/usr/bin/transmission-remote" 
     hst=roach
-	tors=$(expr `$trns $hst -l | wc -l` - 1)
-	tors2=$(expr $tors - 1)
-	$trns $hst -l | head -$tors | tail -$tors2 | while read LINE; do
-	if [[ `echo $LINE | awk '{print $2}'` == "100%" ]]; then
-		$trns $hst -t `echo $LINE | awk '{print $1}'|tr -dc "[0-9]"` -r
-	fi
-	done
+    ids=$($trns $hst -l | awk '{if ($1~/[0-9]+/ && $2=="100%") print $1}')
+    for id in $ids;
+        do
+            $trns $hst -t $id -r
+        done
 }
 u1sdprg() {
 	[[ -n $@ ]] && echo -e "get ubuntuone transferprogress" && return 1
