@@ -49,7 +49,8 @@
 *color10: #74d41b
 !! ! DarkYellow + Yellow
 *color3:  #c4a000
-*color11: #fce94f
+!*color11: #fce94f
+*color11: #A8350F
 !! ! DarkBlue + Blue
 *color4:  #085dad
 *color12: #739fcf
