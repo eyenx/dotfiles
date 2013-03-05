@@ -38,7 +38,8 @@
 *color12: #739fcf
 !! ! DarkMagenta + Magenta
 *color5:  #75507b
-*color13: #ad7fa8 
+!*color13: #ad7fa8 
+*color13: #9d5c96 
 !! !DarkCyan + Cyan (both not tango)
 *color6:  #06989a
 *color14: #34e2e2
