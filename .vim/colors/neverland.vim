@@ -148,7 +148,7 @@ if &t_Co > 255
    hi Folded          ctermfg=240  ctermbg=235 cterm=bold
    hi Function        ctermfg=118
    hi Identifier      ctermfg=149
-   hi Ignore          ctermfg=244 ctermbg=232
+   hi Ignore          ctermfg=244 ctermbg=none
    hi IncSearch       ctermfg=193 ctermbg=16
 
    hi Keyword         ctermfg=111               cterm=bold
@@ -177,7 +177,7 @@ if &t_Co > 255
    hi SignColumn      ctermfg=118 ctermbg=235
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
-   hi Special         ctermfg=81  ctermbg=232
+   hi Special         ctermfg=81  ctermbg=none
    hi SpecialKey      ctermfg=245
 
    hi SpellBad        ctermfg=darkred ctermbg=none cterm=bold
@@ -198,9 +198,9 @@ if &t_Co > 255
    hi Type            ctermfg=166               cterm=none
    hi Underlined      ctermfg=106               cterm=none
 
-   hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
+   hi VertSplit       ctermfg=244 ctermbg=none   cterm=bold
    hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=235
+   hi Visual                      ctermbg=236
    hi WarningMsg      ctermfg=21  ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
