@@ -314,7 +314,7 @@ myConf = defaultConfig {
 	, ("<XF86AudioPlay>", spawn myMPDPlay)
 	, ("<XF86AudioNext>", spawn myMPDNext)
 	, ("<XF86AudioPrev>", spawn myMPDPrev)
-	, ("<XF86AudioMute>", spawn myVolMute)
+--	, ("<XF86AudioMute>", spawn myVolMute)
 	, ("<XF86AudioLowerVolume>", spawn myVolDown)
 	, ("<XF86AudioRaiseVolume>", spawn myVolUp)
 	, ("<XF86MonBrightnessUp>", spawn myXBackLightUp)

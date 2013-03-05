@@ -28,6 +28,7 @@ alias srcz='source ~/.zshrc'
 alias sl='ls'
 # misc
 
+alias snet='sudo netcfg'
 alias pong='ping -c 3 www.google.com'
 alias eo='mimeo'
 alias getxbf='tmux show-buffer | xclip -i -se p,c'
