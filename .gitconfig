@@ -1,0 +1,23 @@
+[user]
+	name = gnomeye
+	email = gnomeye@gmail.com
+
+[alias]
+	st=status
+	ss=status -s
+	del=rm --cached
+	ci=commit 
+	co=checkout
+	a=add
+	af=add -f
+	cl=clone
+	di=diff
+	m=merge
+	br=branch
+	p=push
+	ps=push
+	pl=pull
+	lg=log -p
+	ls=ls-files
+[push]
+	default = simple
