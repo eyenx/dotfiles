@@ -19,6 +19,7 @@ command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.
 command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.com/maps?q=<args>
 command! -nargs=* -description='search gentoo wiki' gwiki tabopen http://en.gentoo-wiki.com/w/index.php?title=Special%3ASearch&search=<args>&go=Go
 command! -nargs=* -description='imdb search' imdb tabopen http://www.imdb.com/find?q=<args>&s=all
+command! -nargs=* -description='rotten search' rot tabopen http://www.rottentomatoes.com/search/?search=<args>&sitesearch=rt
 command! -nargs=* -description='kat.ph search' kat tabopen http://kat.ph/usearch/<args>/
 command! -nargs=1 -description='mailto opens gmail compose' mailto tabopen https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=<args>
 command! -nargs=* -description='man search' man tabopen http://google.ch/search?q=<args>+site:ss64.com/bash+OR+site:man7.org/linux/man-pages+OR+site:linux.die.net
