@@ -225,14 +225,14 @@ myManageHook = composeAll
    , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doShift "media"
     -- trying gimp without floating
---    , className =? "Gimp"           --> doFloat
+    , className =? "Gimp"           --> doFloat
     , className  =? "VirtualBox"     --> doShift "vm"
     , className  =? "VirtualBox"     --> doFloat
 --    , className  =? "Skype"     --> doFloat
     , className  =? "Skype"     --> doShift "im"
     , className =? "Xfce4-notifyd"   --> doIgnore
     , className =? "Steam"   --> doShift "media"
-    , className =? "Steam"   --> doFloat
+--    , className =? "Steam"   --> doFloat
     , className =? "hl2_linux"   --> doShift "media"
     , className =? "hl2_linux"   --> doFloat
     , className =? "stalonetray"   --> doIgnore
