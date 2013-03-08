@@ -17,7 +17,8 @@ FDIR="$DEST/full"
 MDIR="$DEST/monthly"
 TDIR="${DEST}/incr/${TODAY}"
 H=`hostname`
-UDIR="/home/eye/.bak_${H}"
+CLDIR="/home/eye/.bak_${H}"
+NDIR="/media/roach/backup/"
 EX="/home/eye/bin/backup/.excludelist"
 
 
@@ -65,12 +66,15 @@ G="gpg --default-recipient-self"
 FN="${MDIR}/full_${TODAY}_${H}.tar.lzo"
 tar -cpf - $FDIR  | lzop -9 -o $FN
 
-## get filename in ubuntuone folder and replace it
-UUFL=$(ls $UDIR/${TODAY:0:2}*bak)
+## get filename in cloud folder and replace it
+CLFL=$(ls $CLDIR/${TODAY:0:2}*bak)
 NFL=`echo $FN | sed 's/.*\/\(.*$\)/\1/'`
-[[ -f $UUFL ]] || exit 0
+[[ -f $CLFL ]] || exit 0
 
-if [ $(stat -c "%Y" $UUFL) -lt $(stat -c "%Y" $FN) ];then
-	        rm $UUFL;
-		$G -o $UDIR/${NFL:0:-8}.bak -e $FN
+if [ $(stat -c "%Y" $CLFL) -lt $(stat -c "%Y" $FN) ];then
+	        rm $CLFL;
+		$G -o $CLDIR/${NFL:0:-8}.bak -e $FN
 		fi
+
+# finally copy it to nas
+cp $FN  $NDIR
