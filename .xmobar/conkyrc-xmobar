@@ -1,5 +1,4 @@
-## FULL ##
-text_buffer_size 2048
+## FULL ##itext_buffer_size 2048
 update_interval 3
 total_run_times 0
 default_color b0b0b0 
@@ -26,7 +25,7 @@ var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$e
 home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
 dwl ${if_match ${fs_used_perc /media/downloads}>90}<fc=\#e04614>${fs_used_perc /media/downloads}%</fc>$else<fc=\#707070>${fs_used_perc /media/downloads}%</fc>$endif <fc=\#707070></fc> \
 bak ${if_match ${fs_used_perc /media/backup}>80}<fc=\#e04614>${fs_used_perc /media/backup}%</fc>$else<fc=\#707070>${fs_used_perc /media/backup}%</fc>$endif <fc=\#707070></fc> \
-${if_mounted /media/nas}nas ${if_match ${fs_used_perc /media/nas}>90}<fc=\#e04614>${fs_used_perc /media/nas}%</fc>$else<fc=\#707070>${fs_used_perc /media/nas}%</fc>$endif <fc=\#707070></fc>$endif \
+${if_mounted /media/roach}nas ${if_match ${fs_used_perc /media/roach}>90}<fc=\#e04614>${fs_used_perc /media/roach}%</fc>$else<fc=\#707070>${fs_used_perc /media/roach}%</fc>$endif <fc=\#707070></fc>$endif \
 <fc=\#707070>${execi 30 nc localhost 7634 | cut -d \| -f 4} C°</fc> \
 <icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
 <icon=/home/eye/.xmobar/xbm/private.xbm/> <fc=\#707070>${addr eth0}</fc> \
@@ -35,5 +34,6 @@ ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 <icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
 $endif\
 <icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
+${if_match ${execi 5 ~/.conky/simple_notify.sh}>0}<fc=\#e04614><icon=/home/eye/.xmobar/xbm/im.xbm/></fc><fc=\#707070> im </fc>$endif \
 <icon=/home/eye/.xmobar/xbm/weather.xbm/> <fc=\#707070>${execpi 900 ~/.conky/weather.sh}</fc> \
-${if_mpd_playing}<icon=/home/eye/.xmobar/xbm/note1.xbm/> <fc=\#707070>${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}</fc>$endif
+${if_mpd_playing}<icon=/home/eye/.xmobar/xbm/note1.xbm/> <fc=\#707070>${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}</fc>$endif \
