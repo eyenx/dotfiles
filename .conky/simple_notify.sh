@@ -7,7 +7,7 @@ sound='/usr/share/sounds/freedesktop/stereo/message-new-instant.oga'
 interval=5;
 flag=`cat $tfile`
 
-[[ $flag == "0" ]] && echo 0 && exit 0;
+[[ ! -f $tfile ]] || [[ $flag == "0" ]] && echo 0 && exit 0;
 
 date_now=`date +%s`
 date_file=`stat -c %Y $tfile`
