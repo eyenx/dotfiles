@@ -80,10 +80,9 @@ URxvt.url-select.underline: true
 URxvt*matcher.button: 1
 URxvt*termName:screen-256color
 !URxvt*termName:screen
-!URxvt.font:xft:monospace:size=7
-URxvt.font:xft:DejaVu Sans Mono for Powerline:size=8
-!URxvt.font:-*-courier-medium-r-normal-*-12-*-*-*-*-*-iso8859-1
-!URxvt.font:-*-zekton-regular-*-*-*-10-*-*-*-*-*-iso8859-1
+URxvt.font:xft:Inconsolata for Powerline:size=8:antialias=true:hinting:true
+!URxvt.font:xft:DejaVu Sans Mono for Powerline:size=8
+!URxvt.font:xft:Liberation Mono for Powerline:size=8
 URxvt*letterSpace: 0
 URxvt.saveLines:10000
 URxvt.iconFile:/home/eye/.icons/ACYLBlue/scalable/apps/terminal.svg
@@ -127,6 +126,7 @@ xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y
 
 !Xft.dpi: 96
 !Xft.antialias: true
+!Xft.antialias: false
 !Xft.rgba: rgb
-!Xft.hinting: true
+!Xft.hinting: full
 !Xft.hintstyle: hintfull

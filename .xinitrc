@@ -27,7 +27,11 @@ trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true 
 #mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
 #notify-listener.py &
+<<<<<<< HEAD
 #mpdscribble &
+=======
+mpdscribble &
+>>>>>>> upstream/master
 skype &
 # Start a D-Bus session
 source /etc/X11/xinit/xinitrc.d/30-dbus
