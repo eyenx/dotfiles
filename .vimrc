@@ -76,7 +76,8 @@ inoremap <silent>k <C-R>=OmniPopup('k')<CR>
 set laststatus=2 " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set t_Co=256
-set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 8
+"set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 8
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 7
 let g:Powerline_symbols='fancy'
 let g:Powerline_cache_dir="/tmp"
 
@@ -101,7 +102,6 @@ let g:pydiction_location = '/usr/share/pydiction/complete-dict'
 "vim-latexsuite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor ="latex"
-"
 " mappings
 "
 map <C-j> <C-w>j

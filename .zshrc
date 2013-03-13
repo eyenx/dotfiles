@@ -43,3 +43,4 @@ source $ZSH/oh-my-zsh.sh
 #ZSH_HIGHLIGHT_STYLES[alias]='fg=yellow'
 #ZSH_HIGHLIGHT_STYLES[function]='fg=yellow'
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+#. /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh

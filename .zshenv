@@ -1,7 +1,9 @@
 umask 0077
 PATH=$PATH:$HOME/bin
+PYTHONPATH=/usr/lib/python3.3/site-packages
 stty -ixon
 export PATH
+export PYTHONPATH
 export EDITOR=vim
 export MPD_HOST=ladybug
 export BROWSER=firefox
