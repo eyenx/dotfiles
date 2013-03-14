@@ -1,0 +1,25 @@
+{
+	"name": "eye_colors",
+	"groups": {
+		"background:divider": { "fg": "myblack", "bg": "mydgray2" },
+		"session": { "fg": "myblack", "bg": "gray10", "attr": ["bold"] },
+		"date": { "fg": "myblack", "bg": "gray2" },
+		"time": { "fg": "myblack", "bg": "gray2", "attr": ["bold"] },
+		"time:divider": { "fg": "myblack", "bg": "gray2" },
+		"email_alert": { "fg": "myblack", "bg": "brightred", "attr": ["bold"] },
+		"hostname": { "fg": "myblack", "bg": "mylgray" },
+		"weather": { "fg": "mygray", "bg": "mydgray2" },
+		"weather_temp_cold": { "fg": "steelblue", "bg": "mydgray2" },
+		"weather_temp_hot": { "fg": "darkorange3", "bg": "mydgray2" },
+		"weather_condition_hot": { "fg": "khaki1", "bg": "mydgray2" },
+		"weather_condition_snowy": { "fg": "skyblue1", "bg": "mydgray2" },
+		"weather_condition_rainy": { "fg": "skyblue1", "bg": "mydgray2" },
+		"uptime": { "fg": "mygray", "bg": "mydgray2" },
+		"external_ip": { "fg": "mygray", "bg": "mydgray2" },
+		"network_load": { "fg": "mygray", "bg": "mydgray2" },
+		"system_load": { "fg": "mygray", "bg": "mydgray2" },
+		"system_load_good": { "fg": "mydgreen", "bg": "mydgray2" },
+		"system_load_bad": { "fg": "mydyellow", "bg": "mydgray2" },
+		"system_load_ugly": { "fg": "mydred", "bg": "mydgray2" }
+	}
+}
