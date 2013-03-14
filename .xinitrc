@@ -29,6 +29,8 @@ trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true 
 #notify-listener.py &
 #mpdscribble &
 skype &
+#automatic disable touchpad while typing
+syndaemon -t -k -i 2 -d &
 # Start a D-Bus session
 source /etc/X11/xinit/xinitrc.d/30-dbus
 # Start GNOME Keyring
