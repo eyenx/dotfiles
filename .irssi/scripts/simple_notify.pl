@@ -47,7 +47,7 @@ sub ser {
 wf(0);
 Irssi::signal_add('print text', 'ser');
 Irssi::signal_add('message private', 'flag');
-Irssi::signal_add('dcc request', 'noti');
+Irssi::signal_add('dcc request', 'flag');
 Irssi::signal_add('window activity', 'unfl');
 Irssi::signal_add('send command', 'unflsend');
 

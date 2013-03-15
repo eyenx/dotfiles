@@ -34,7 +34,11 @@
 			},
 			{
 				"name": "weather",
-				"priority": 50
+				"priority": 50,
+                "args":{
+                    "unit":"c",
+                    "location_query":"zollikofen,switzerland"
+                }
 			},
 			{
 				"name": "hostname"
