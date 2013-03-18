@@ -29,6 +29,7 @@ ${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>20}\
 <icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
 ${else}\
 <icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#e04614> ${execi 120 acpi|awk '{print $4}'}</fc>\
+${execi 900 notify-send -i info "Battery low"}\
 $endif\
 $endif\
 ${else}\

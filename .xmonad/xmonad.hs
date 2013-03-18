@@ -37,10 +37,10 @@ myScrShot = "sleep 0.2; scrot -s -b /tmp/screen%H%M%S.png"
 myMPDPlay="mpc toggle"
 myMPDNext="mpc next"
 myMPDPrev="mpc prev"
-myVolMute="~/bin/volctrl mute"
-myVolUp="~/bin/volctrl up"
-myVolDown="~/bin/volctrl down"
-myVolChange="~/bin/volctrl change"
+myVolMute="ponymix toggle"
+myVolUp="ponymix increase 5"
+myVolDown="ponymix decrease 5"
+myVolChange="ponymix list-profiles|grep active|grep iec && ponymix set-profile output:analog-surround-71+input:analog-stereo || ponymix set-profile output:iec958-stereo+input:analog-stereo"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myXDisplay="~/bin/xdisplay.sh"
@@ -60,7 +60,7 @@ myBorderWidth   = 1
 myModMask       = mod4Mask
 
 -- my workspaces
-myWorkspaces    = ["web","code","im","media","work","vm"]
+myWorkspaces    = ["web","code","im","media","work","vm","7","8","9"]
 
 -- border colors
 --myNormalBorderColor  = "#707070"
@@ -131,11 +131,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	sendMessage Expand)
     
     -- expand master area
-    , ((modm .|. mod1Mask,xK_j),
+    , ((modm .|. shiftMask,xK_h),
 	sendMessage MirrorShrink)
     
     -- expand master area
-    , ((modm .|. mod1Mask,xK_k),
+    , ((modm .|. shiftMask,xK_l),
 	sendMessage MirrorExpand)
 
     -- push window into tiling if not floating - float if tiling
