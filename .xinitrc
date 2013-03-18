@@ -16,7 +16,7 @@ fi
 /usr/bin/xautolock -time 15 -locker slock &
 feh --bg-scale --no-fehb $(find ~/img/wallpapers/wallbase/ -iname "wallbase*jpg" -type f|sort -R|head -1) &
 numlockx &
-udiskie &
+PYTHONPATH="" udiskie &
 unclutter &
 urxvtd -f -o -q
 ~/.xmobar/conkyxmobar &
