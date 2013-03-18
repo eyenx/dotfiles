@@ -40,7 +40,7 @@ myMPDPrev="mpc prev"
 myVolMute="ponymix toggle"
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
-myVolChange="ponymix list-profiles|grep active|grep iec && ponymix set-profile output:analog-surround-71+input:analog-stereo || ponymix set-profile output:iec958-stereo+input:analog-stereo"
+--myVolChange="ponymix list-profiles|grep active|grep iec && ponymix set-profile output:analog-surround-71+input:analog-stereo || ponymix set-profile output:iec958-stereo+input:analog-stereo"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myXDisplay="~/bin/xdisplay.sh"
@@ -299,7 +299,7 @@ myConf = defaultConfig {
 -- additional keys ...
 	`additionalKeysP`
 	[ ("M1-C-l", spawn myLock)
-	, ("M4-<Esc>", spawn myVolChange)
+--	, ("M4-<Esc>", spawn myVolChange)
 	, ("M4-<F1>", spawn myBrowser)
 	, ("M4-<F2>", spawn myMail)
 	, ("M4-<F3>", spawn myTmux)
