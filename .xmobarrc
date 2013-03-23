@@ -1,7 +1,7 @@
 Config {
 	font = "xft:zekton-7"
-	, bgColor= "#1c1d1f"
-	, fgColor= "#b0b0b0"
+	, bgColor= "#1f1f1b"
+	, fgColor= "#9e9c96"
 	, position = Top
 	, border = NoBorder
 	, borderColor = "#000000"
@@ -9,9 +9,8 @@ Config {
 	, commands = [
 		 Run Com "cat" ["/tmp/.conkystats"] "conky" 30
 		, Run Com "printf" ["%$(echo $(xwininfo -name panel|grep Width|tr -s ' '|cut -d' ' -f3)*0.5|bc)s"] "space" 20
-		, Run Date "%_d %b %H:%M" "date" 10
 		, Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{%conky% %space% %date%"}
+	, template = "%StdinReader% }{%conky% %space%"}

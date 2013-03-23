@@ -10,7 +10,7 @@
   <meta http-equiv="author" content="gnomeye" />
    <script type='text/javascript'>
 	function hovering(element){
-		element.style.color = "#1793D0";
+		element.style.color = "#567694";
 		}
 	function out(element){
 		element.style.color = '#505050';
@@ -26,7 +26,7 @@
 	text-decoration: none; 
 	}
 	a:hover {
-	color: #1793D0;
+	color: #567694;
 	text-decoration: none;
 	}
 	a:active {
@@ -34,7 +34,7 @@
 	text-decoration: none;
 	}
 	body {
-	background:#1c1d1f;
+	background:#1f1f1b;
 	font-family:zekton;
 	font-size:10px;
 	}
@@ -46,7 +46,7 @@
 	}
 	div.middiv{
 	text-align:center;
-	color:#b0b0b0;
+	color:#9e9c96;
 	font-size:10px;
 	padding-top:10%;
 	width:800px;
@@ -55,7 +55,7 @@
 	}
 	div.botdiv{
 	text-align:center;
-	color:#b0b0b0;
+	color:#9e9c96;
 	font-size:10px;
 	padding-top:3%;
 	width:800px;
@@ -63,7 +63,7 @@
 	}
 	h1{
 	font-size:10px;
-	color:#b0b0b0;
+	color:#9e9c96;
 	}
    </style>
 </head>

@@ -23,7 +23,6 @@ ${if_match ${cpu cpu4}>80}<fc=\#e04614>${cpu cpu4}%</fc>$else<fc=\#707070>${cpu 
 root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
 var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
 home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
-dwl ${if_match ${fs_used_perc /media/downloads}>90}<fc=\#e04614>${fs_used_perc /media/downloads}%</fc>$else<fc=\#707070>${fs_used_perc /media/downloads}%</fc>$endif <fc=\#707070></fc> \
 bak ${if_match ${fs_used_perc /media/backup}>80}<fc=\#e04614>${fs_used_perc /media/backup}%</fc>$else<fc=\#707070>${fs_used_perc /media/backup}%</fc>$endif <fc=\#707070></fc> \
 ${if_mounted /media/roach}nas ${if_match ${fs_used_perc /media/roach}>90}<fc=\#e04614>${fs_used_perc /media/roach}%</fc>$else<fc=\#707070>${fs_used_perc /media/roach}%</fc>$endif <fc=\#707070></fc>$endif \
 <fc=\#707070>${execi 30 nc localhost 7634 | cut -d \| -f 4} C°</fc> \

@@ -52,7 +52,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 1
+myBorderWidth   = 3
 
 -- my metas
 myModMask       = mod4Mask
@@ -62,8 +62,8 @@ myWorkspaces    = ["web","code","im","media","work","vm","7","8","9"]
 
 -- border colors
 --myNormalBorderColor  = "#707070"
-myNormalBorderColor  = "#1c1d1f"
-myFocusedBorderColor = "#1793d0"
+myNormalBorderColor  = "#1f1f1b"
+myFocusedBorderColor = "#567694"
 
 --key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -206,7 +206,7 @@ myLayout = smartBorders
 	$ tile ||| mtile ||| full 
   where
      -- tiling profiles
-     rt = spacing 1 $ ResizableTall nmaster delta ratio []
+     rt = spacing 2 $ ResizableTall nmaster delta ratio []
      tile   = renamed [Replace "[]="] $ smartBorders rt
      mtile   = renamed [Replace "M[]="] $ smartBorders $ Mirror rt
      full   = renamed [Replace "[]"] $ noBorders Full
@@ -257,15 +257,15 @@ getIcon s = "<icon="++icondir++s++".xbm"++"/> "
         where icondir = "/home/eye/.xmobar/xbm/"
 --custom PP
 myPP = xmobarPP { 
-	ppCurrent = \d -> xmobarColor "#1793d0" ""  . pad $ (getIcon d) ++ d
-	, ppHidden = \d -> xmobarColor "#b0b0b0" "" . pad $ (getIcon d) ++ d
+	ppCurrent = \d -> xmobarColor "#567694" ""  . pad $ (getIcon d) ++ d
+	, ppHidden = \d -> xmobarColor "#9e9c96" "" . pad $ (getIcon d) ++ d
 --	, ppHiddenNoWindows = xmobarColor "#707070" ""
- 	, ppVisible = \d -> xmobarColor "#b0b0b0" "" . pad $ (getIcon d) ++ d 
- 	, ppUrgent = \d -> xmobarColor "#1c1d1f" "#1793d0" . pad $ (getIcon d) ++ d
+ 	, ppVisible = \d -> xmobarColor "#9e9c96" "" . pad $ (getIcon d) ++ d 
+ 	, ppUrgent = \d -> xmobarColor "#1f1f1b" "#567694" . pad $ (getIcon d) ++ d
 	, ppLayout = xmobarColor "#707070" "" 
  	, ppSep = "\t\t"
  	, ppWsSep = xmobarColor "#505050" "" " "
- 	, ppTitle = xmobarColor "#1793d0" "" . shorten 50
+ 	, ppTitle = xmobarColor "#567694" "" . shorten 50
 }
 -- key bind
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)

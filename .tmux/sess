@@ -1,6 +1,6 @@
 splitw -v;
 rename-window '!z';
-new-window -n im 'zsh -c irssi';
+new-window -n irssi 'zsh -c irssi';
 new-window -n music ncmpcpp;
 splitw -v;
 select-window -t "!z";
