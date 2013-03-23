@@ -1,4 +1,4 @@
-"hg6830
+"1.1pre-hg6896-default
 
 loadplugins '\.(js|penta)$'
 group user
@@ -19,54 +19,55 @@ command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.
 command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.com/maps?q=<args>
 command! -nargs=* -description='search gentoo wiki' gwiki tabopen http://en.gentoo-wiki.com/w/index.php?title=Special%3ASearch&search=<args>&go=Go
 command! -nargs=* -description='imdb search' imdb tabopen http://www.imdb.com/find?q=<args>&s=all
-command! -nargs=* -description='rotten search' rot tabopen http://www.rottentomatoes.com/search/?search=<args>&sitesearch=rt
 command! -nargs=* -description='kat.ph search' kat tabopen http://kat.ph/usearch/<args>/
+command! -nargs=* -description='tpb search' tpb tabopen https://thepiratebay.se/search/<args>/
 command! -nargs=1 -description='mailto opens gmail compose' mailto tabopen https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=<args>
 command! -nargs=* -description='man search' man tabopen http://google.ch/search?q=<args>+site:ss64.com/bash+OR+site:man7.org/linux/man-pages+OR+site:linux.die.net
 command! -nargs=* -description='meme search' meme tabopen http://knowyourmeme.com/search?q=<args>
 command! -description='watch yt video in mplayer' myt js ex.run("mplayer $(youtube-dl -g --max-quality 37 \'"+content.location.href+"\') &")
 command! -description='watch yanked yt url in mplayer' myyt js ex.run("mplayer -cache-min 1 $(youtube-dl -g --max-quality 37 $(xclip -o)) &")
 command! -nargs=* -description='*nix search' nix tabopen http://www.cyberciti.biz/linux-search.php?q=<args>
+command! -nargs=* -description='rotten search' rot tabopen http://www.rottentomatoes.com/search/?search=<args>&sitesearch=rt
 command! -nargs=* -description='torrentz.eu search' tor tabopen http://torrentz.eu/search?f=<args>
 command! -nargs=* -description='tumblr search' tumb tabopen http://tumblr.com/tagged/<args>
 command! -nargs=* -description='uuwiki search' uu tabopen http://ubuntuusers.de/search?query=<args>&area=wiki
 command! -nargs=* -description='wiki search' wiki tabopen http://en.wikipedia.org/w/index.php?search=<args>
 command! -nargs=* -description='yt search' yt tabopen http://youtube.com/results?search_query=<args>
 highlight Bell background-color: inherit; border: 0 none;
-highlight -link=FontFixed CmdLine color: #b0b0b0; font-family: zekton; 
+highlight -link=FontFixed CmdLine color: #9e9c96; font-family: zekton; 
 highlight -link=FontFixed,Normal Comp margin:0;
 highlight CompDesc color: inherit; width: 50%; padding-left: 1em; font-size: 7pt;
 highlight CompIcon width: 10px; min-width: 10px; display: none; margin-right: .5ex;
 highlight CompItem color: inherit; background: inherit;font-size: 7px; font-family:zekton;
-highlight CompItem[selected] background: #2c2c2c; color: #E04614; font-size 7px; font-family:zekton;
+highlight CompItem[selected] background: #2c2c2c; color: #567694; font-size 7px; font-family:zekton;
 highlight CompResult width: 40%; padding-right: 1%; overflow: hidden; font-size: 7pt; font-family: zekton; font-weight: normal;
-highlight CompTitle color: #b0b0b0 ; background: #1c1d1f; font-weight: bold; font-famly: zekton;
-highlight CompTitle>* color: #E04614; font-weight: bold;
-highlight CompTitleSep background: #1c1d1f; 
+highlight CompTitle color: #9e9c96 ; background: #1f1f1b; font-weight: bold; font-famly: zekton;
+highlight CompTitle>* color: #567694; font-weight: bold;
+highlight CompTitleSep background: #1f1f1b; 
 highlight ErrorMsg color: red ; background: inherit ; 
-highlight Filter font-weight: bold; color: #E04614 ;
-highlight FrameIndicator background-color: #1c1d1f; opacity: 0.6; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
-highlight Function color: #E04614 ; background: inherit ;
-highlight Hint font-family: zekton; font-size: 9px ; color: #b0b0b0 ; background-color: #1c1d1f ; border: solid 1px #1c1d1f ; position: absolute ;
-highlight HintActive background: #E04614; color: #b0b0b0;
+highlight Filter font-weight: bold; color: #567694 ;
+highlight FrameIndicator background-color: #1f1f1b; opacity: 0.6; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+highlight Function color: #567694 ; background: inherit ;
+highlight Hint font-family: zekton; font-size: 9px ; color: #9e9c96 ; background-color: #1f1f1b ; border: solid 1px #1f1f1b ; position: absolute ;
+highlight HintActive background: #567694; color: #9e9c96;
 highlight HintElem background-color: inherit ;
 highlight HintImage opacity: .5 ;
-highlight Indicator color: #b0b0b0 ; width: 4px; text-align: center; font-weight: bold;
+highlight Indicator color: #9e9c96 ; width: 4px; text-align: center; font-weight: bold;
 highlight InfoMsg color: inherit ; background: inherit ;
 highlight LineNr color: red ; background: inherit ;
 highlight Message white-space: normal; min-width: 100%; width: 100%; padding-left: 2em; text-indent: -2em; display: block; color: inherit ; background: inherit ; font-weight: bold;
 highlight ModeMsg color: inherit ; background: inherit ; font-weight: bold ;
 highlight MoreMsg color: inherit ; background: inherit ;
 highlight NonText color: lightblue ; background: transparent ; min-height: 16px; padding-left: 2px;
-highlight Normal color: #b0b0b0; background: #1c1d1f; font-family: zekton font-size: 7px;
-highlight Object color: #E04614 ; background: inherit ;
+highlight Normal color: #9e9c96; background: #1f1f1b; font-family: zekton font-size: 7px;
+highlight Object color: #567694 ; background: inherit ;
 highlight Question color: inherit ; background: inherit ; font-weight: bold;
-highlight Search color: #1c1d1f; background: #E04614;
+highlight Search color: #1f1f1b; background: #567694;
 highlight -link=FontFixed StatusLine background: transparent; -moz-appearance: none !important; bord;
-highlight StatusLineBroken color: #1c1d1f !important; background: #ffa0a0 !important;
-highlight StatusLineExtended color: #1c1d1f !important; background: #a0ffa0 !important;
-highlight StatusLineNormal color: #b0b0b0; background: #1c1d1f !important;
-highlight StatusLineSecure color: #1c1d1f !important; background: #a0a0ff !important;
+highlight StatusLineBroken color: #1f1f1b !important; background: #ffa0a0 !important;
+highlight StatusLineExtended color: #1f1f1b !important; background: #a0ffa0 !important;
+highlight StatusLineNormal color: #9e9c96; background: #1f1f1b !important;
+highlight StatusLineSecure color: #1f1f1b !important; background: #a0a0ff !important;
 highlight Tag color: inherit ; background: inherit ;
 highlight Title color: inherit ; background: inherit ;
 highlight URL text-decoration: none; color: inherit; background: inherit;
@@ -81,7 +82,7 @@ map -count -modes=n,v -silent Xs <count>:source<Space>~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
 set editor='urxvt -e vim'
-set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com,beatport.com,roach
+set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com,beatport.com,roach,imgur.com
 set showtabline=multitab
 
 " vim: set ft=pentadactyl:

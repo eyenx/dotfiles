@@ -35,6 +35,9 @@ sub unflsend {
     my ($x,$y,$z)=@_;
 	wf('0') if $z; 
 }
+sub unflman {
+    wf('0');
+}
 sub flag {
 	wf('1');
 }
@@ -51,3 +54,4 @@ Irssi::signal_add('dcc request', 'flag');
 Irssi::signal_add('window activity', 'unfl');
 Irssi::signal_add('send command', 'unflsend');
 
+Irssi::command_bind('notify_unflag','unflman');

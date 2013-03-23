@@ -23,8 +23,8 @@ dropbox start &
 #u1sdtool -c &
 #oneko -tofocus -speed 30 &
 #stalonetray &
-trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true --align right --margin 58 --height 16 --padding 0 --transparent true --alpha 0 --tint 0x1c1d1f&
 #mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
+trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true --align right --margin 0 --height 16 --padding 0 --transparent true --alpha 0 --tint 0x1f1f1b&
 #~/bin/mpdstart &
 #notify-listener.py &
 #mpdscribble &

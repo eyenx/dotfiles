@@ -1,33 +1,16 @@
 ! terminal colors ------------------------------------------------------------
-*background: #1c1d1f
-*foreground: #b0b0b0
-! Special Orange
-!URxvt*color0:#1c1d1f
-!URxvt*color1:#FF0000
-!URxvt*color2:#00FF00
-!URxvt*color3:#FFFF00
-!URxvt*color4:#085dad
-!URxvt*color5:#FF00FF
-!URxvt*color6:#00FFFF
-!URxvt*color7:#B0B0B0
-!URxvt*color8:#e04614
-!URxvt*color9:#AA0000
-!URxvt*color10:#00AA00
-!URxvt*color11:#A8350F
-!URxvt*color12:#6599FF
-!URxvt*color13:#AA00AA
-!URxvt*color14:#00AAAA
-!URxvt*color15:#999999
+*background: #1f1f1b
+*foreground: #9e9c96
 *fading: 40
-*fadeColor: #1c1d1f
-!URxvt*color0:#1c1d1f
+*fadeColor: #1f1f1b
+!URxvt*color0:#1f1f1b
 !URxvt*color1:#FF0000
 !URxvt*color2:#00FF00
 !URxvt*color3:#FFFF00
 !URxvt*color4:#085dad
 !URxvt*color5:#FF00FF
 !URxvt*color6:#00FFFF
-!URxvt*color7:#B0B0B0
+!URxvt*color7:#9e9c96
 !URxvt*color8:#1793d0
 !URxvt*color9:#AA0000
 !URxvt*color10:#00AA00
@@ -38,31 +21,30 @@
 !URxvt*color15:#999999
 ! tangoesque scheme
 ! ! Black (not tango) + DarkGrey
-*color0:  #1c1d1f
+*color0:  #1f1f1b
 *color8:  #555753
 !! ! DarkRed + Red
-*color1:  #9f2424
-*color9:  #ef2929
+*color1:  #ab5243
+*color9:  #873d2f
 !! ! DarkGreen + Green
-*color2:  #4e9a06
+*color2:  #71a736
 !*color10: #8ae234
-*color10: #74d41b
+*color10: #709450
 !! ! DarkYellow + Yellow
-*color3:  #c4a000
-!*color11: #fce94f
-*color11: #A8350F
+*color3:  #c2b95d
+*color11: #9c9441
 !! ! DarkBlue + Blue
-*color4:  #085dad
-*color12: #739fcf
+*color4:  #567694
+*color12: #51667a
 !! ! DarkMagenta + Magenta
-*color5:  #75507b
+*color5:  #8f648b
 !*color13: #ad7fa8 
-*color13: #9d5c96 
+*color13: #704c6d
 !! !DarkCyan + Cyan (both not tango)
-*color6:  #06989a
-*color14: #34e2e2
+*color6:  #4c898f
+*color14: #45898f
 !! ! LightGrey + White
-*color7:  #b0b0b0
+*color7:  #9e9c96
 *color15: #9f9f9f
 !
 ! other urxvt options
@@ -109,19 +91,19 @@ xscreensaver.Dialog.buttonFont: xft:zekton:size=7
 xscreensaver.Dialog.dateFont: xft:zekton:size=7h
 xscreensaver.passwd.passwdFont: xft:zekton:size=7
 !general dialog box
-xscreensaver.Dialog.foreground: #b0b0b0
-xscreensaver.Dialog.background: #1c1d1f
-xscreensaver.Dialog.topShadowColor: #1c1d1f
-xscreensaver.Dialog.bottomShadowColor: #1c1d1f
-xscreensaver.Dialog.Button.foreground:  #b0b0b0
-xscreensaver.Dialog.Button.background:  #1c1d1f
+xscreensaver.Dialog.foreground: #9e9c96
+xscreensaver.Dialog.background: #1f1f1b
+xscreensaver.Dialog.topShadowColor: #1f1f1b
+xscreensaver.Dialog.bottomShadowColor: #1f1f1b
+xscreensaver.Dialog.Button.foreground:  #9e9c96
+xscreensaver.Dialog.Button.background:  #1f1f1b
 !username/password input box and date text colour
-xscreensaver.Dialog.text.foreground:    #b0b0b0
-xscreensaver.Dialog.text.background: #1c1d1f
+xscreensaver.Dialog.text.foreground:    #9e9c96
+xscreensaver.Dialog.text.background: #1f1f1b
 xscreensaver.Dialog.borderWidth:        0
 xscreensaver.Dialog.shadowThickness:    0
-xscreensaver.passwd.thermometer.foreground: #1c1d1f
-xscreensaver.passwd.thermometer.background: #1c1d1f
+xscreensaver.passwd.thermometer.foreground: #1f1f1b
+xscreensaver.passwd.thermometer.background: #1f1f1b
 xscreensaver.passwd.thermometer.width: 0
 !datestamp format--see the strftime(3) manual page for details
 xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y
