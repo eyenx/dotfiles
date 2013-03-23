@@ -10,7 +10,7 @@
   <meta http-equiv="author" content="gnomeye" />
    <script type='text/javascript'>
 	function hovering(element){
-		element.style.color = "#567694";
+		element.style.color = "#9C553A";
 		}
 	function out(element){
 		element.style.color = '#505050';
@@ -26,7 +26,7 @@
 	text-decoration: none; 
 	}
 	a:hover {
-	color: #567694;
+	color: #9C553A;
 	text-decoration: none;
 	}
 	a:active {
