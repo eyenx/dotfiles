@@ -1,7 +1,7 @@
 Config {
 	font = "xft:zekton-7"
 	, bgColor= "#1f1f1b"
-	, fgColor= "#9e9c96"
+	, fgColor= "#C2BFB8"
 	, position = Top
 	, border = NoBorder
 	, borderColor = "#000000"
