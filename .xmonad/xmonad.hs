@@ -63,7 +63,7 @@ myWorkspaces    = ["web","code","im","media","work","vm","7","8","9"]
 -- border colors
 --myNormalBorderColor  = "#707070"
 myNormalBorderColor  = "#1f1f1b"
-myFocusedBorderColor = "#476F94"
+myFocusedBorderColor = "#4E7394"
 
 --key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -257,15 +257,15 @@ getIcon s = "<icon="++icondir++s++".xbm"++"/> "
         where icondir = "/home/eye/.xmobar/xbm/"
 --custom PP
 myPP = xmobarPP { 
-	ppCurrent = \d -> xmobarColor "#476F94" ""  . pad $ (getIcon d) ++ d
+	ppCurrent = \d -> xmobarColor "#4E7394" ""  . pad $ (getIcon d) ++ d
 	, ppHidden = \d -> xmobarColor "#C2BFB8" "" . pad $ (getIcon d) ++ d
 --	, ppHiddenNoWindows = xmobarColor "#707070" ""
  	, ppVisible = \d -> xmobarColor "#C2BFB8" "" . pad $ (getIcon d) ++ d 
- 	, ppUrgent = \d -> xmobarColor "#1f1f1b" "#476F94" . pad $ (getIcon d) ++ d
+ 	, ppUrgent = \d -> xmobarColor "#1f1f1b" "#4E7394" . pad $ (getIcon d) ++ d
 	, ppLayout = xmobarColor "#707070" "" 
  	, ppSep = "\t\t"
  	, ppWsSep = xmobarColor "#505050" "" " "
- 	, ppTitle = xmobarColor "#476F94" "" . shorten 50
+ 	, ppTitle = xmobarColor "#4E7394" "" . shorten 50
 }
 -- key bind
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
