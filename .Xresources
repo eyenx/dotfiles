@@ -26,38 +26,38 @@
 *color8:  #555753
 !! ! DarkRed + Red
 !*color1:  #ab5243
-*color1:  #ad4331
+*color1:  #ad4d3d
 !*color9:  #873d2f
-*color9:  #993320
+*color9:  #914031
 !! ! DarkGreen + Green
 !*color2:  #71a736
-*color2:  #6eb025
+*color2:  #77A840
 !*color10: #8ae234
 !*color10: #709450
-*color10: #588c2a
+*color10: #67993C
 !! ! DarkYellow + Yellow
 !*color3:  #c2b95d
-*color3:  #c2b742
+*color3:  #C2B744
 !*color11: #9c9441
 !*color11: #b8ac32
 !*color11: #9C553A
-*color11: #A34927
+*color11: #A3583B
 !! ! DarkBlue + Blue
 !*color4:  #567694
-*color4:  #476F94
+*color4:  #4E7394
 !*color12: #51667a
-*color12: #47749E
+*color12: #466480
 !! ! DarkMagenta + Magenta
 !*color5:  #8f648b
-*color5: #8F4388
+*color5: #8F4F89
 !*color13: #ad7fa8 
 !*color13: #704c6d
-*color13: #6E3569
+*color13: #6E3D6A
 !! !DarkCyan + Cyan (both not tango)
 !*color6:  #4c898f
-*color6:  #439ba3
+*color6:  #5A9DA3
 !*color14: #45898f
-*color14: #318991
+*color14: #467B80
 !! ! LightGrey + White
 *color7:  #9e9c96
 *color15: #9f9f9f
@@ -131,3 +131,4 @@ Xft.rgba: rgb
 Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.antialias: 1
+
