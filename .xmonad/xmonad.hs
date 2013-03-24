@@ -32,8 +32,8 @@ mySkype = "/usr/bin/skype"
 myPentaFlashOut = "~/bin/pentadactyt fpo"
 myPentaFlashIn = "~/bin/pentadactyt fpi"
 myLock = "xautolock -locknow"
-myScreenFull = "scrot /tmp/screenshot_%H%M%S_%Y%m%d.png"
-myScrShot = "sleep 0.2; scrot -s -b /tmp/screen%H%M%S.png"
+myScreenFull = "scrot -q100 /tmp/screenshot_%H%M%S_%Y%m%d.png"
+myScrShot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
 myMPDPlay="mpc toggle"
 myMPDNext="mpc next"
 myMPDPrev="mpc prev"
@@ -65,7 +65,7 @@ myWorkspaces    = ["web","code","im","media","work","vm","7","8","9"]
 -- border colors
 --myNormalBorderColor  = "#707070"
 myNormalBorderColor  = "#1f1f1b"
-myFocusedBorderColor = "#9C553A"
+myFocusedBorderColor = "#A34927"
 
 --key bindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -259,15 +259,15 @@ getIcon s = "<icon="++icondir++s++".xbm"++"/> "
         where icondir = "/home/eye/.xmobar/xbm/"
 --custom PP
 myPP = xmobarPP { 
-	ppCurrent = \d -> xmobarColor "#9C553A" ""  . pad $ (getIcon d) ++ d
-	, ppHidden = \d -> xmobarColor "#9e9c96" "" . pad $ (getIcon d) ++ d
+	ppCurrent = \d -> xmobarColor "#A34927" ""  . pad $ (getIcon d) ++ d
+	, ppHidden = \d -> xmobarColor "#C2BFB8" "" . pad $ (getIcon d) ++ d
 --	, ppHiddenNoWindows = xmobarColor "#707070" ""
- 	, ppVisible = \d -> xmobarColor "#9e9c96" "" . pad $ (getIcon d) ++ d 
- 	, ppUrgent = \d -> xmobarColor "#1f1f1b" "#9C553A" . pad $ (getIcon d) ++ d
+ 	, ppVisible = \d -> xmobarColor "#C2BFB8" "" . pad $ (getIcon d) ++ d 
+ 	, ppUrgent = \d -> xmobarColor "#1f1f1b" "#A34927" . pad $ (getIcon d) ++ d
 	, ppLayout = xmobarColor "#707070" "" 
  	, ppSep = "\t\t"
  	, ppWsSep = xmobarColor "#505050" "" " "
- 	, ppTitle = xmobarColor "#9C553A" "" . shorten 50
+ 	, ppTitle = xmobarColor "#A34927" "" . shorten 50
 }
 -- key bind
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)

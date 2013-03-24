@@ -1,6 +1,7 @@
 ! terminal colors ------------------------------------------------------------
 *background: #1f1f1b
-*foreground: #9e9c96
+!*foreground: #9e9c96
+*foreground: #C2BFB8
 *fading: 40
 *fadeColor: #1f1f1b
 !URxvt*color0:#1f1f1b
@@ -24,25 +25,39 @@
 *color0:  #1f1f1b
 *color8:  #555753
 !! ! DarkRed + Red
-*color1:  #ab5243
-*color9:  #873d2f
+!*color1:  #ab5243
+*color1:  #ad4331
+!*color9:  #873d2f
+*color9:  #993320
 !! ! DarkGreen + Green
-*color2:  #71a736
+!*color2:  #71a736
+*color2:  #6eb025
 !*color10: #8ae234
-*color10: #709450
+!*color10: #709450
+*color10: #588c2a
 !! ! DarkYellow + Yellow
-*color3:  #c2b95d
-*color11: #9C553A
+!*color3:  #c2b95d
+*color3:  #c2b742
+!*color11: #9c9441
+!*color11: #b8ac32
+!*color11: #9C553A
+*color11: #A34927
 !! ! DarkBlue + Blue
-*color4:  #567694
-*color12: #51667a
+!*color4:  #567694
+*color4:  #476F94
+!*color12: #51667a
+*color12: #47749E
 !! ! DarkMagenta + Magenta
-*color5:  #8f648b
+!*color5:  #8f648b
+*color5: #8F4388
 !*color13: #ad7fa8 
-*color13: #704c6d
+!*color13: #704c6d
+*color13: #6E3569
 !! !DarkCyan + Cyan (both not tango)
-*color6:  #4c898f
-*color14: #45898f
+!*color6:  #4c898f
+*color6:  #439ba3
+!*color14: #45898f
+*color14: #318991
 !! ! LightGrey + White
 *color7:  #9e9c96
 *color15: #9f9f9f
