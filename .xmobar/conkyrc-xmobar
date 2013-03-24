@@ -11,28 +11,22 @@ out_to_x no
 out_to_console yes
 
 TEXT
-<icon=/home/eye/.xmobar/xbm/arch1.xbm/> <fc=\#707070>${kernel}_${machine}</fc> \
-<icon=/home/eye/.xmobar/xbm/info5.xbm/> <fc=\#707070>$uptime</fc> \
 <icon=/home/eye/.xmobar/xbm/cpu13.xbm/> ${if_match ${cpu cpu1}>80}<fc=\#e04614>${cpu cpu1}%</fc>$else<fc=\#707070>${cpu cpu1}%</fc>$endif \
 ${if_match ${cpu cpu2}>80}<fc=\#e04614>${cpu cpu2}%</fc>$else<fc=\#707070>${cpu cpu2}%</fc>$endif \
 ${if_match ${cpu cpu3}>80}<fc=\#e04614>${cpu cpu3}%</fc>$else<fc=\#707070>${cpu cpu3}%</fc>$endif \
 ${if_match ${cpu cpu4}>80}<fc=\#e04614>${cpu cpu4}%</fc>$else<fc=\#707070>${cpu cpu4}%</fc>$endif \
-<icon=/home/eye/.xmobar/xbm/temp3.xbm/> <fc=\#707070>${execi 8 sensors | grep 'CPU Temp' | awk '{print $3}'}</fc> \
-<icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#e04614>$memperc%</fc>$else<fc=\#707070>$memperc%</fc>$endif <fc=\#707070>$mem</fc> \
-<icon=/home/eye/.xmobar/xbm/temp3.xbm/> <fc=\#707070>${execi 8 sensors | grep 'MB Temp' | awk '{print $3}'}</fc> \
-root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
-var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
-home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
-bak ${if_match ${fs_used_perc /media/backup}>80}<fc=\#e04614>${fs_used_perc /media/backup}%</fc>$else<fc=\#707070>${fs_used_perc /media/backup}%</fc>$endif <fc=\#707070></fc> \
-${if_mounted /media/roach}nas ${if_match ${fs_used_perc /media/roach}>90}<fc=\#e04614>${fs_used_perc /media/roach}%</fc>$else<fc=\#707070>${fs_used_perc /media/roach}%</fc>$endif <fc=\#707070></fc>$endif \
-<fc=\#707070>${execi 30 nc localhost 7634 | cut -d \| -f 4} C°</fc> \
-<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
-<icon=/home/eye/.xmobar/xbm/private.xbm/> <fc=\#707070>${addr eth0}</fc> \
-<icon=/home/eye/.xmobar/xbm/public.xbm/> <fc=\#707070>${execi 1800 ~/.conky/publicip.sh}</fc> \
+| <icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#e04614>$memperc%</fc>$else<fc=\#707070>$memperc%</fc>$endif \
+| root ${if_match ${fs_used_perc /}>80}<fc=\#e04614>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
+| var ${if_match ${fs_used_perc /var}>80}<fc=\#e04614>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
+| home ${if_match ${fs_used_perc /home}>90}<fc=\#e04614>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
+| bak ${if_match ${fs_used_perc /media/backup}>80}<fc=\#e04614>${fs_used_perc /media/backup}%</fc>$else<fc=\#707070>${fs_used_perc /media/backup}%</fc>$endif <fc=\#707070></fc> \
+${if_mounted /media/roach}| nas ${if_match ${fs_used_perc /media/roach}>90}<fc=\#e04614>${fs_used_perc /media/roach}%</fc>$else<fc=\#707070>${fs_used_perc /media/roach}%</fc>$endif <fc=\#707070></fc>$endif \
+| <icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
-<icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
+| <icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
 $endif\
-<icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
+| <icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
 ${if_match ${execi 5 ~/.conky/simple_notify.sh}>0}<fc=\#e04614><icon=/home/eye/.xmobar/xbm/im.xbm/></fc><fc=\#707070> im </fc>$endif \
-<icon=/home/eye/.xmobar/xbm/weather.xbm/> <fc=\#707070>${execpi 900 ~/.conky/weather.sh}</fc> \
-${if_mpd_playing}<icon=/home/eye/.xmobar/xbm/note1.xbm/> <fc=\#707070>${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}</fc>$endif \
+| <icon=/home/eye/.xmobar/xbm/weather.xbm/> <fc=\#707070>${execpi 900 ~/.conky/weather.sh}</fc> \
+${if_mpd_playing}\
+| <icon=/home/eye/.xmobar/xbm/note1.xbm/> <fc=\#707070>${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}</fc>$endif \
