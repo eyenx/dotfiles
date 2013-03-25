@@ -46,7 +46,8 @@
 !*color12: #51667a
 !*color12: #466480
 !*color12: #38526B
-*color12: #464C8C
+!*color12: #464C8C
+*color12: #38518C
 !! ! DarkMagenta + Magenta
 !*color5:  #8f648b
 !*color5: #8F4F89
