@@ -1,4 +1,4 @@
-## FULL ##itext_buffer_size 2048
+# FULL ##itext_buffer_size 2048
 update_interval 3
 total_run_times 0
 default_color b0b0b0 
@@ -15,31 +15,31 @@ TEXT
 ${if_match ${cpu cpu2}>80}<fc=\#ad4d3d>${cpu cpu2}%</fc>$else<fc=\#707070>${cpu cpu2}%</fc>$endif \
 ${if_match ${cpu cpu3}>80}<fc=\#ad4d3d>${cpu cpu3}%</fc>$else<fc=\#707070>${cpu cpu3}%</fc>$endif \
 ${if_match ${cpu cpu4}>80}<fc=\#ad4d3d>${cpu cpu4}%</fc>$else<fc=\#707070>${cpu cpu4}%</fc>$endif \
-| <icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#ad4d3d>$memperc%</fc>$else<fc=\#707070>$memperc%</fc>$endif \
-| root ${if_match ${fs_used_perc /}>80}<fc=\#ad4d3d>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
-| var ${if_match ${fs_used_perc /var}>80}<fc=\#ad4d3d>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
-| home ${if_match ${fs_used_perc /home}>90}<fc=\#ad4d3d>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#ad4d3d>$memperc%</fc>$else<fc=\#707070>$memperc%</fc>$endif \
+<fc=\#707070>| </fc>root ${if_match ${fs_used_perc /}>80}<fc=\#ad4d3d>${fs_used_perc /}%</fc>$else<fc=\#707070>${fs_used_perc /}%</fc>$endif <fc=\#707070></fc> \
+<fc=\#707070>| </fc>var ${if_match ${fs_used_perc /var}>80}<fc=\#ad4d3d>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
+<fc=\#707070>| </fc>home ${if_match ${fs_used_perc /home}>90}<fc=\#ad4d3d>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>65}\
-| <icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
 ${else}\
 ${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>20}\
-| <icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
 ${else}\
-| <icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#ad4d3d> ${execi 120 acpi|awk '{print $4}'}</fc>\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#ad4d3d> ${execi 120 acpi|awk '{print $4}'}</fc>\
 ${execi 900 notify-send -i info "Battery low"}\
 $endif\
 $endif\
 ${else}\
-| <icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
 $endif\
-${if_existing /sys/class/net/eth0/operstate up}| <icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
+${if_existing /sys/class/net/eth0/operstate up}<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
 $else \
-${if_existing /sys/class/net/wlan0/operstate up}| <icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlan0} \
-<fc=\#707070>${wireless_link_qual_perc wlan0}%</fc> |\
+${if_existing /sys/class/net/wlan0/operstate up}<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlan0} \
+<fc=\#707070>${wireless_link_qual_perc wlan0}%</fc> <fc=\#707070>|</fc>\
 <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed wlan0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed wlan0}</fc> \
 $endif \
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
-| <icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
+<fc=\#707070><fc=\#707070>| </fc></fc><icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
 $endif\
-| <icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
