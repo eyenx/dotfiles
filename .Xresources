@@ -95,7 +95,7 @@ URxvt.iconFile:/home/eye/.icons/ACYLBlue/scalable/apps/terminal.svg
 URxvt.geometry:70x35
 URxvt.scrollBar: off
 URxvt*cursorUnderline: 1
-URxvt*underlineColor: #e04614
+URxvt*underlineColor: #A3583B
 
 ! Xcursor -------------------------------------------------------------------
 
