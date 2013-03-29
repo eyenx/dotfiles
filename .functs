@@ -184,13 +184,3 @@ rtmp_sniff(){
     rtmpsrv
     sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -m owner \! --uid-owner root -j REDIRECT
 }
-
-
-#omp
-omp(){
-    [[ -z $@ ]] && echo -e "upload an image to ompldr.org\nusage: omp <filename> && return 1;
-    upfl=$1
-    out=$(curl -# -F file1=@"$upfl" http://ompldr.org/upload)
-    url=$(echo $out|
-    bb=
-}
