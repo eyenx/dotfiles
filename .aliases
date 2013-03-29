@@ -2,6 +2,7 @@
 
 alias ls='ls --color=auto --time-style="+%d/%m/%y %H:%M"'
 alias c='clear'
+alias dt='date'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
