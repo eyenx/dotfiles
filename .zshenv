@@ -1,10 +1,11 @@
 umask 0077
 PATH=$PATH:$HOME/bin
-PYTHONPATH=/usr/lib/python3.3/site-packages
+#PYTHONPATH=/usr/lib/python3.3/site-packages
+#PYTHONPATH=$PYTHONPATH:/usr/lib/python3.3/site-packages
 XDG_CONFIG_HOME="/home/eye/.config"
 stty -ixon
 export PATH
-export PYTHONPATH
+#export PYTHONPATH
 export XDG_CONFIG_HOME
 export EDITOR=vim
 export MPD_HOST=ladybug

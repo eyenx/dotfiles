@@ -80,6 +80,7 @@ set t_Co=256
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 7
 let g:Powerline_symbols='fancy'
 let g:Powerline_cache_dir="/tmp"
+let $PYTHONPATH="/usr/lib/python3.3/site-packages"
 
 " set number line counting
 set number
