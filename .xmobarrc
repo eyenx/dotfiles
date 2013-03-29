@@ -7,7 +7,7 @@ Config {
 	, borderColor = "#000000"
 	, lowerOnStart = True
 	, commands = [
-		 Run Com "cat" ["/tmp/.conkystats"] "conky" 30
+		 Run Com "cat" ["/tmp/.inxmobar"] "conky" 30
 		, Run Com "printf" ["%$(echo $(xwininfo -name panel|grep Width|tr -s ' '|cut -d' ' -f3)*0.5|bc)s"] "space" 20
 		, Run StdinReader
 	]

@@ -48,6 +48,7 @@ myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mpg123 http://ladybug:8000" 
+myDate="cpid=`pidof conky`;kill -STOP $cpid; date +'<fc=#707070>%A %B %d, %H:%M</fc>' > /tmp/.inxmobar; sleep 3; kill -CONT $cpid"
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
@@ -299,6 +300,7 @@ myConf = defaultConfig {
 -- additional keys ...
 	`additionalKeysP`
 	[ ("M1-C-l", spawn myLock)
+	, ("M4-d", spawn myDate)
 --	, ("M4-<Esc>", spawn myVolChange)
 	, ("M4-<F1>", spawn myBrowser)
 	, ("M4-<F2>", spawn myMail)
