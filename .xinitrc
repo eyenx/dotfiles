@@ -15,7 +15,8 @@ fi
 #/usr/bin/xscreensaver -no-splash &
 /usr/bin/xautolock -time 15 -locker slock &
 feh --bg-scale --no-fehb ~/.wall
-PYTHONPATH="" udiskie &
+#PYTHONPATH="" udiskie &
+udiskie &
 unclutter &
 urxvtd -f -o -q
 ~/.xmobar/conkyxmobar &
