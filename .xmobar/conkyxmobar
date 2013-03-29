@@ -1,5 +1,5 @@
 #!/bin/bash
-csfl="/tmp/.conkystats"
+csfl="/tmp/.inxmobar"
 >$csfl
 conky -qc ~/.xmobar/conkyrc-xmobar| while read line; do
 	echo -n "$line" >$csfl;
