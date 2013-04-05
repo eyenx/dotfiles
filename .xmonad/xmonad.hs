@@ -25,6 +25,7 @@ import qualified Data.Map        as M
 myTerm      = "urxvtc"
 myTmux = "~/bin/term"
 myBrowser = "firefox"
+myAltBrowser = "chromium"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 --myRandWp = "wpfl=$(find ~/img/wallpapers/wallbase -iname 'wallbase*jpg' -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
@@ -303,6 +304,7 @@ myConf = defaultConfig {
 	, ("M4-d", spawn myDate)
 --	, ("M4-<Esc>", spawn myVolChange)
 	, ("M4-<F1>", spawn myBrowser)
+	, ("M4-S-<F1>", spawn myAltBrowser)
 	, ("M4-<F2>", spawn myMail)
 	, ("M4-<F3>", spawn myTmux)
 	, ("M4-<F4>", spawn myPentaFlashOut)
