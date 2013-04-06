@@ -67,7 +67,7 @@ FN="${MDIR}/full_${TODAY}_${H}.tar.lzo"
 tar -cpf - $FDIR  | lzop -9 -o $FN
 
 ## get filename in cloud folder and replace it
-CLFL=$(ls $CLDIR/${TODAY:0:2}*bak)
+CLFL=$(ls $CLDIR/full_${TODAY:0:2}*bak)
 NFL=`echo $FN | sed 's/.*\/\(.*$\)/\1/'`
 [[ -f $CLFL ]] || exit 0
 
