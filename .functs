@@ -9,6 +9,29 @@ aurd(){
 	wget -qO- "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
+cowu(){
+	[[ -n $@ ]] && echo -e "use cower to update all aur pkgs\nusage: cowu" && return 1
+    cowb="/tmp/cow"
+    [[ -d $cowb ]] || mkdir -p $cowb
+    cower -dut $cowb
+    [[ $? == 0 ]] || return 1
+    cd $cowb
+    for i in *; 
+        do cd $i; 
+        makepkg -s;
+        cd $cowb;
+    done
+}
+cowd(){
+	[[ -z $@ ]] && echo -e "use cower to download an aur pkgs\nusage: cowd <pkgname>" && return 1
+    pkg=$1
+    cowb="/tmp/cow"
+    [[ -d $cowb ]] || mkdir -p $cowb
+    cower -dt $cowb $pkg
+    [[ $? == 0 ]] || return 1
+    cd $cowb/$pkg
+    makepkg -si
+}
 mymem() {
 ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g
 }
