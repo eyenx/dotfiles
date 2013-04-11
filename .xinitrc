@@ -20,7 +20,7 @@ udiskie &
 unclutter &
 urxvtd -f -o -q
 ~/.xmobar/conkyxmobar &
-dropbox start &
+#dropbox start &
 #u1sdtool -c &
 #oneko -tofocus -speed 30 &
 #stalonetray &
@@ -29,7 +29,7 @@ trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true 
 #~/bin/mpdstart &
 #notify-listener.py &
 #mpdscribble &
-skype &
+#skype &
 #automatic disable touchpad while typing
 #syndaemon -t -k -i 2 -d &
 # Start a D-Bus session

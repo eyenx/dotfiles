@@ -3,7 +3,7 @@
 # Script to backup important config files from System
 
 HOME='/home/eye/'
-NDIR='/media/roach/backup/'
+#NDIR='/media/roach/backup/'
 H=`hostname`
 CL="/home/eye/.bak_${H}"
 FILESYS='/usr/share/slim/themes/archlinux-me:/usr/share/slim/themes/archlinux-simple:/etc/fstab:/etc/dhcpcd.conf:/etc/pacman.d/mirrorlist:/etc/pacman.conf:/etc/resolv.conf:/etc/locale.conf:/etc/hostname:/etc/timezone:/etc/conf.d/network:/etc/vconsole.conf:/etc/slim.conf:/etc/ntp.conf:/etc/makepkg.conf:/etc/pacman.d/gnupg/gpg.conf:/etc/clamav/clamd.conf:/etc/clamav/freshclam.conf:/etc/abs.conf:/etc/systemd'
@@ -38,4 +38,5 @@ if [[ $(stat -c "%Y" $CLFL) -lt $(stat -c "%Y" $FL) ]];then
 	$G -o $CL/${NFL:0:-8}.bak -e $FL;
 fi
 # finally, copy it to nas
-cp $FL $NDIR
+#cp $FL $NDIR
+rm $FL

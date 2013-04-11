@@ -29,7 +29,7 @@ alias srcz='source ~/.zshrc'
 alias sl='ls'
 # misc
 
-alias snet='sudo netcfg'
+alias snet='sudo netctl'
 alias sduck='sr duckduckgo'
 alias swiki='sr wikipedia'
 alias syt='sr youtube'
