@@ -13,16 +13,16 @@ DATE=`date +%F`
 FL="/tmp/conf-${DATE}_${H}.tar.lzo"
 
 mkdir /tmp/confbak
-for FILE in `echo $FILESYS | sed 's/\:/\n/g'`; do cp -av $FILE $DEST; done
+for FILE in `echo $FILESYS | sed 's/\:/\n/g'`; do sudo cp -av $FILE $DEST; done
 for FILE in `echo $FILEHOME | sed 's/\:/\n/g'`; do cp -av $HOME$FILE $DEST; done
 
 comm -23 <(/usr/bin/pacman -Qeq|sort) <(pacman -Qmq|sort) > $DEST/pkglist
 
 
-tar -cjpf - $DEST | lzop -9 -o $FL
-#chown eye:users $FL
-#chmod og-r $FL
-rm -rf $DEST
+sudo tar -cjpf - $DEST | lzop -9 -o $FL
+sudo chown eye:users $FL
+sudo chmod og-r $FL
+sudo rm -rf $DEST
 
 ## cleanup old tars
 
@@ -39,4 +39,4 @@ if [[ $(stat -c "%Y" $CLFL) -lt $(stat -c "%Y" $FL) ]];then
 fi
 # finally, copy it to nas
 #cp $FL $NDIR
-rm $FL
+sudo rm $FL
