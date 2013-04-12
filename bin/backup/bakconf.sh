@@ -6,8 +6,8 @@ HOME='/home/eye/'
 NDIR='/media/roach/backup/'
 H=`hostname`
 CL="/home/eye/.bak_${H}"
-FILESYS='/usr/share/slim/themes/archlinux-me:/usr/share/slim/themes/archlinux-simple:/etc/fstab:/etc/dhcpcd.conf:/etc/pacman.d/mirrorlist:/etc/pacman.conf:/etc/resolv.conf:/etc/locale.conf:/etc/hostname:/etc/timezone:/etc/conf.d/network:/etc/vconsole.conf:/etc/slim.conf:/etc/ntp.conf:/etc/makepkg.conf:/etc/pacman.d/gnupg/gpg.conf:/etc/clamav/clamd.conf:/etc/clamav/freshclam.conf:/etc/abs.conf:/etc/systemd'
-FILEHOME='.local/share/applications:.bash*:.config:.firefox:.conky*:.cups:.dmrc:.face:.fehbg:.fonts:.gtk*:.hplip:.htoprc:.mpd*:.mplayer:.ncmpcpp:.pondus:.purple:.sane:.vim*:.xinitrc:.xscreensaver:.themes:.icons:.pulse/client.conf:.zshrc:.zshenv:.omzsh:.zshrc.orig:.functs:.muttrc:.pentadactyl:.pentadactylrc:.vimperator:.vimperatorrc:.Xresources:.xmobarrc:.xmonad:.xmobar'
+FILESYS='/usr/share/slim/themes/archlinux-me:/usr/share/slim/themes/archlinux-simple:/etc/fstab:/etc/dhcpcd.conf:/etc/pacman.d/mirrorlist:/etc/pacman.conf:/etc/resolv.conf:/etc/locale.conf:/etc/hostname:/etc/localtime:/etc/conf.d/network:/etc/vconsole.conf:/etc/slim.conf:/etc/ntp.conf:/etc/makepkg.conf:/etc/pacman.d/gnupg/gpg.conf:/etc/clamav/clamd.conf:/etc/clamav/freshclam.conf:/etc/abs.conf:/etc/systemd:/etc/hosts'
+FILEHOME='.local/share/applications:.bash*:.config:.mozilla:.conky*:.cups:.dmrc:.face:.fehbg:.fonts:.gtk*:.hplip:.htoprc:.mpd*:.mplayer:.ncmpcpp:.pondus:.purple:.sane:.vim*:.xinitrc:.xscreensaver:.themes:.icons:.pulse/client.conf:.zshrc:.zshenv:.omzsh:.zshrc.orig:.functs:.muttrc:.pentadactyl:.pentadactylrc:.Xresources:.xmobarrc:.xmonad:.xmobar:.bitcoin/*dat:.PyBitmessage'
 DEST='/tmp/confbak'
 DATE=`date +%F`
 FL="/media/backup/conf/conf_${DATE}_${H}.tar.lzo"
@@ -20,8 +20,8 @@ comm -23 <(/usr/bin/pacman -Qeq|sort) <(pacman -Qmq|sort) > $DEST/pkglist
 
 
 tar -cjpf - $DEST | lzop -9 -o $FL
-#chown eye:users $FL
-#chmod og-r $FL
+#sudo chown eye:users $FL
+#sudo chmod og-r $FL
 rm -rf $DEST
 
 ## cleanup old tars
