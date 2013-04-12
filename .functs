@@ -52,6 +52,14 @@ sshtun() {
 	_cmd="ssh -f -g -N -L"
 	eval $_cmd $lp:$lh:$rp $rh
 }
+sshtun_trans(){
+    [[ -n $@ ]] && echo -e "create a ssh tunnel to roach:9091 (transmission web/rpc listening port)\nusage:ssh_transmission" && return 1
+    ssh -fNL 9091:roach:9091 home
+}
+ssh_trans(){
+    [[ -z $@ ]] && echo -e "use bin/trnsremote.sh over ssh\nusage:ssh_trans <list/magnetlink>" && return 1
+    ssh home "bin/trnsremote.sh $1"
+}
 calc() { 
 	par=$*
 	echo -e "$par ="
