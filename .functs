@@ -76,12 +76,18 @@ wiki() {
 }
 
 gsay() {
-	[[ -z $@ ]] && echo -e "download and play google translate phrase\nusage: gsay [lang] <text>" && return 1
+	[[ -z $@ ]] && echo -e "download and play google translate phrase\nusage: gsay <lang> <text>" && return 1
 	lang=${1}
 	shift
 	text=$@
 	text=${text//\ /\+}
 	mplayer "http://translate.google.com/translate_tts?tl=$lang&q=$text"}
+gsay_trnsl() {
+    [[ -z $@ ]] && echo -e "say something translated into a language\nusage: gsay_trnsl <tolang> <text>" && return 1
+    lang=$1;shift;text=$@
+    trad=`trnsl $lang $text`
+    gsay $lang $trad
+}
 	
 chkhp()	{
 	[[ -z $@ ]] && echo -e "check if homepage is up or down with downforeveryoneorjustme.com\nusage: chkhp <url>" && return 1
@@ -90,14 +96,17 @@ chkhp()	{
 }
 
 trnsl() {
-	[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <fromlang> <tolang> <text>" && return 1
-	tgl=$2
-	fgl=$1
+	#[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <fromlang> <tolang> <text>" && return 1
+	[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <tolang> <text>" && return 1
+	#tgl=$2
+	tgl=$1
+#	fgl=$1
+	#shift
 	shift
-	shift
-	text=$@
+	#text=$@
 	text=${@//\ /\+}
-	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=$fgl&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
+#	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=$fgl&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
+	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=auto&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
 }
 
 dwnlft() {
