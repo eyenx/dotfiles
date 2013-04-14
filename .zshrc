@@ -38,9 +38,3 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(vi-mode git extract archeye python nyan gpg-agent svn fasd encode64 perl urltools zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-# Customize to your needs...
-# ZSH_HIGHLIGHTER
-#ZSH_HIGHLIGHT_STYLES[alias]='fg=yellow'
-#ZSH_HIGHLIGHT_STYLES[function]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-#. /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
