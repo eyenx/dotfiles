@@ -27,7 +27,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export KAKI='dini mami'
 #jp2a if tty
 
 #if [[ $(echo $TTY|cut -c 6-8) == "tty" ]]; then
