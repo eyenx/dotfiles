@@ -47,7 +47,7 @@ set shiftround
 set expandtab
 set autoindent		" always set autoindenting on
 
-"other stuff takeon somewhere from the outernet
+"other stuff takeon somewhere from the net
 set shortmess+=I        " disable the welcome screen
 set complete+=k         " enable dictionary completion
 set completeopt+=longest
