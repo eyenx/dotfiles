@@ -48,7 +48,7 @@ myXDisplay="~/bin/xdisplay.sh"
 myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
-myStream="mpg123 http://ladybug:8000" 
+myStream="mplayer -nocache http://ladybug:8000" 
 myDate="cpid=`pidof conky`;kill -STOP $cpid; date +'<fc=#707070>%A %B %d, %H:%M</fc>' > /tmp/.inxmobar; sleep 3; kill -CONT $cpid"
 
 -- get focus on mouse 
