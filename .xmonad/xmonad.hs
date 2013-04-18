@@ -46,7 +46,7 @@ myVolChange="ponymix list-profiles|grep active|grep iec && ponymix set-profile o
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
-myStream="mpg123 http://ladybug:8000" 
+myStream="mplayer -nocache http://ladybug:8000" 
 myDate="cpid=`pidof conky`;kill -STOP $cpid; date +'<fc=#707070>%A %B %d, %H:%M</fc>' > /tmp/.inxmobar; sleep 3; kill -CONT $cpid"
 
 -- get focus on mouse 
