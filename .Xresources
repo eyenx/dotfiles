@@ -129,7 +129,7 @@ xscreensaver.passwd.thermometer.width: 0
 xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y
 
 Xft.dpi: 96
-Xft.autohint: 0
+Xft.autohint: 1
 Xft:lcdfilter: lcddefault
 !Xft:lcdfilter: lcdlight
 Xft.rgba: rgb
