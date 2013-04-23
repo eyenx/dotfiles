@@ -108,7 +108,7 @@ xscreensaver.Dialog.bodyFont: xft:zekton:size=7
 xscreensaver.Dialog.labelFont: xft:zekton:size=7
 xscreensaver.Dialog.unameFont: xft:zekton:size=7
 xscreensaver.Dialog.buttonFont: xft:zekton:size=7
-xscreensaver.Dialog.dateFont: xft:zekton:size=7h
+xscreensaver.Dialog.dateFont: xft:zekton:size=7
 xscreensaver.passwd.passwdFont: xft:zekton:size=7
 !general dialog box
 xscreensaver.Dialog.foreground: #9e9c96
@@ -129,7 +129,7 @@ xscreensaver.passwd.thermometer.width: 0
 xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y
 
 Xft.dpi: 96
-Xft.autohint: 1
+Xft.autohint: 0
 Xft:lcdfilter: lcddefault
 !Xft:lcdfilter: lcdlight
 Xft.rgba: rgb
