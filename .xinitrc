@@ -30,7 +30,7 @@ mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
 #notify-listener.py &
 mpdscribble &
-skype &
+#skype &
 # Start a D-Bus session
 source /etc/X11/xinit/xinitrc.d/30-dbus
 # Start GNOME Keyring
