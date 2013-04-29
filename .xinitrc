@@ -31,16 +31,6 @@ mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #notify-listener.py &
 mpdscribble &
 #skype &
-# Start a D-Bus session
-source /etc/X11/xinit/xinitrc.d/30-dbus
-# Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-# You probably need to do this too:
-export SSH_AUTH_SOCK
-export GPG_AGENT_INFO
-export GNOME_KEYRING_CONTROL
-export GNOME_KEYRING_PID
-
 #exec openbox-session
 #exec ck-launch-session openbox-session
 xmonad
