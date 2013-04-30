@@ -1,7 +1,7 @@
 # FULL ##itext_buffer_size 2048
 update_interval 3
 total_run_times 0
-default_color b0b0b0 
+default_color 2CBFB8 
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
