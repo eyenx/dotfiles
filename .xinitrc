@@ -29,6 +29,8 @@ trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true 
 #~/bin/mpdstart &
 #notify-listener.py &
 #mpdscribble &
+# btsync start
+~/bin/btsync.sh start
 #skype &
 #automatic disable touchpad while typing
 #syndaemon -t -k -i 2 -d &
