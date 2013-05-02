@@ -30,6 +30,8 @@ mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
 #notify-listener.py &
 mpdscribble &
+# btsync start
+~/bin/btsync.sh start
 #skype &
 #exec openbox-session
 #exec ck-launch-session openbox-session
