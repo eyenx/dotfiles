@@ -20,25 +20,26 @@ ${if_match ${cpu cpu4}>80}<fc=\#ad4d3d>${cpu cpu4}%</fc>$else<fc=\#707070>${cpu 
 <fc=\#707070>| </fc>var ${if_match ${fs_used_perc /var}>80}<fc=\#ad4d3d>${fs_used_perc /var}%</fc>$else<fc=\#707070>${fs_used_perc /var}%</fc>$endif <fc=\#707070></fc> \
 <fc=\#707070>| </fc>home ${if_match ${fs_used_perc /home}>90}<fc=\#ad4d3d>${fs_used_perc /home}%</fc>$else<fc=\#707070>${fs_used_perc /home}%</fc>$endif <fc=\#707070></fc> \
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
-${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>65}\
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
+${if_match ${execi 120 ~/.conky/batmerge.sh>65}}\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#707070> ${execi 120 ~/.conky/batmerge.sh}%</fc>\
 ${else}\
-${if_match ${execi 120 acpi|awk '{print $4}'|tr -d "%,"}>20}\
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
+${if_match ${execi 120 ~/.conky/batmerge.sh>20}}\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#707070> ${execi 120 ~/.conky/batmerge.sh}%</fc>\
 ${else}\
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#ad4d3d> ${execi 120 acpi|awk '{print $4}'}</fc>\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#ad4d3d> ${execi 120 ~/.conky/batmerge.sh}%</fc>\
 ${execi 900 notify-send -i info "Battery low"}\
 $endif\
 $endif\
 ${else}\
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#707070> ${execi 120 acpi|awk '{print $4}'}</fc>\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#707070> ${execi 120 ~/.conky/batmerge.sh}%</fc>\
 $endif\
 ${if_existing /sys/class/net/eth0/operstate up}<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
 $else \
 ${if_existing /sys/class/net/wlan0/operstate up}<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlan0} \
 <fc=\#707070>${wireless_link_qual_perc wlan0}%</fc> <fc=\#707070>|</fc>\
 <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed wlan0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed wlan0}</fc> \
-$endif \
+$endif\
+$endif\
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 <fc=\#707070><fc=\#707070>| </fc></fc><icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
 $endif\
