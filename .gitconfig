@@ -19,5 +19,6 @@
 	pl=pull
 	lg=log -p
 	ls=ls-files
+    f=fetch
 [push]
 	default = simple
