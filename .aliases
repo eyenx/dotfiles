@@ -27,6 +27,7 @@ alias ..='cd ..'
 alias dir='echo "\e[0;31mQUACK!\n\e[0mYou are kidding, right?"'
 alias srcz='source ~/.zshrc'
 alias sl='ls'
+alias udo='sudo'
 # misc
 
 alias sduck='sr duckduckgo'
@@ -106,7 +107,7 @@ alias killmp='killall mplayer'
 
 # dotfiles git alias
 
-alias dgit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 #fasd alias
 #alias v='fasd $1 -e vim'
