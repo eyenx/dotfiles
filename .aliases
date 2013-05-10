@@ -91,7 +91,7 @@ alias minimal='mp http://128.179.101.9:9010 -nocache'
 alias uzict='wget -qO- http://www.uzic.ch/accueil.php | sed -n '\''s/.*<marquee\ scrollamount\=3><b>\(.*\)<\/b>.*/\1/p'\'
 alias :q='exit'
 alias witch='which'
-alias mu='echo "Welcome to mutt"|cowsay;sleep 1;mutt'
+alias mu='echo "Welcome to mutt"|cowsay;sleep .5;mutt'
 #tmux
 alias txl='tmux list-sessions'
 alias txk='tmux kill-session -t $1'
