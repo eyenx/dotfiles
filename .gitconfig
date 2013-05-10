@@ -3,10 +3,11 @@
 	email = gnomeye@gmail.com
 
 [alias]
-	st=status
-	ss=status -s
-	del=rm --cached
+	s=status
+	ss=status -s -uno
+	d=rm --cached
 	ci=commit 
+    cia=commit -a
 	co=checkout
 	a=add
 	af=add -f
@@ -14,7 +15,6 @@
 	di=diff
 	m=merge
 	br=branch
-	p=push
 	ps=push
 	pl=pull
 	lg=log -p
