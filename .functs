@@ -152,6 +152,10 @@ tyurl() {
 	echo -e "here you go, it was xclipped...\n\n---------------------------\n$shrturl\n---------------------------"
 	echo "$shrturl" | xclip -i -se c
 }
+secpwd(){
+    [[ -z $@ ]] && echo -e "get a secpwd from /dev/urandom\nusage: secpwd <number of characters>" && return 1
+    cat /dev/urandom | tr -dc "[A-Za-z0-9]^*#_+-=:.;,^!?$£€@"|fold -w $1|head -5
+}
 cdup() {
 	[[ -z $@ ]] && echo -e "cd out of directory quicker\nusage: cdup <#ofdirs>" && return 1
 	local x="";
