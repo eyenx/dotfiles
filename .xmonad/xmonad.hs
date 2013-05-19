@@ -42,11 +42,11 @@ myMPDPrev="mpc prev"
 myVolMute="ponymix toggle"
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
-myVolChange="ponymix list-profiles|grep active|grep iec && ponymix set-profile output:analog-surround-71+input:analog-stereo || ponymix set-profile output:iec958-stereo+input:analog-stereo"
+myVolChange="ponymix list-profiles|grep active|grep hdmi-stereo && ponymix set-profile output:analog-surround-71+input:analog-stereo || ponymix set-profile output:hdmi-stereo+input:analog-stereo"
 myDmenu="~/bin/dm"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
-myStream="mplayer -nocache http://ladybug:8000" 
+myStream="mplayer -nocache http://roach:8000" 
 myDate="cpid=`pidof conky`;kill -STOP $cpid; date +'<fc=#707070>%A %B %d, %H:%M</fc>' > /tmp/.inxmobar; sleep 3; kill -CONT $cpid"
 
 -- get focus on mouse 
