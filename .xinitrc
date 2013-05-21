@@ -33,7 +33,7 @@ trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true 
 ~/bin/btsync.sh start
 #skype &
 #automatic disable touchpad while typing
-#syndaemon -t -k -i 2 -d &
+syndaemon -k -i 0.3 -d &
 #exec openbox-session
 #exec ck-launch-session openbox-session
 xmonad

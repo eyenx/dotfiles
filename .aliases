@@ -48,6 +48,7 @@ alias psa='psu'
 alias psx='psu'
 alias psg='psu | grep -v "grep" | grep -i $1'
 alias renet='syd restart netctl-auto@wlan0.service; syd restart netctl-ifplugd@eth0.service'
+alias stpnet='sydstp netctl-auto@wlan0.service'
 alias psuc='psu|sort -nrk+3|head'
 alias psum='psu|sort -nrk+4|head'
 alias mntall='sudo mount -a'
@@ -112,6 +113,7 @@ alias killmp='killall mplayer'
 # dotfiles git alias
 
 alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias ditupd='dit f upstream;dit m upstream/master'
 
 #fasd alias
 #alias v='fasd $1 -e vim'
