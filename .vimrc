@@ -40,9 +40,9 @@ set textwidth=0         "
 set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
 "tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
 set expandtab
 set autoindent		" always set autoindenting on
