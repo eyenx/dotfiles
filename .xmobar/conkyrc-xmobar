@@ -23,10 +23,12 @@ ${if_match ${cpu cpu4}>80}<fc=\#AD4D3D>${cpu cpu4}%</fc>$else<fc=\#707070>${cpu 
 ${if_mounted /media/roach}<fc=\#707070>| </fc>nas ${if_match ${fs_used_perc /media/roach}>90}<fc=\#AD4D3D>${fs_used_perc /media/roach}%</fc>$else<fc=\#707070>${fs_used_perc /media/roach}%</fc>$endif <fc=\#707070></fc>$endif \
 <fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#707070> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#707070>${downspeed eth0}</fc> \
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execpi 3600 ~/.conky/pacstat}</fc> \
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/pacman1.xbm/> <fc=\#707070>${execi 3600 ~/.conky/pacstat}</fc> \
 $endif\
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>${execpi 300 ~/.conky/gm.sh}</fc> \
+${if_match ${execi 300 ~/.conky/gm.sh}>0}\
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/mail10.xbm/> <fc=\#707070>new mail</fc> \
+$endif\
 ${if_match ${execi 5 ~/.conky/simple_notify.sh}>0}<fc=\#AD4D3D><icon=/home/eye/.xmobar/xbm/im.xbm/></fc><fc=\#707070> im </fc>$endif \
-<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/weather.xbm/> <fc=\#707070>${execpi 900 ~/.conky/weather.sh}</fc> \
+<fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/weather.xbm/> <fc=\#707070>${execi 900 ~/.conky/weather.sh}</fc> \
 ${if_mpd_playing}\
 <fc=\#707070>| </fc><icon=/home/eye/.xmobar/xbm/note1.xbm/> <fc=\#707070>${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}</fc>$endif \
