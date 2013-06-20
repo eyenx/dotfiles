@@ -50,7 +50,7 @@ myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
 myRest="/usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
 --myDate="cpid=`pidof conky`;kill -STOP $cpid; date +'<fc=#707070>%A %B %d, %H:%M</fc>' > /tmp/.inxmobar; sleep 3; kill -CONT $cpid"
-myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 2 -fn 'Zekton:size=10' -fg '#4E7394' -ta c -w 160 -h 40 -x 880 -y 520"
+myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 2 -fn 'Zekton:size=10' -fg '#A3583B' -ta c -w 160 -h 40 -x 720 -y 430"
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
