@@ -164,6 +164,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_Page_Down), spawn myVolDown)
   -- VolUp
   , ((modm, xK_Page_Up), spawn myVolUp)
+  -- Screenshot full display
+  , ((0, xK_Print), spawn myScreenFull)
+  -- Screenshot with selection
+  , ((shiftMask, xK_Print), spawn myScrShot)
   -- push window into tiling if not floating - float if tiling
   , ((modm, xK_t),
 	withFocused (\windowId -> do { floats <- gets (W.floating . windowset);
