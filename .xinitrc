@@ -29,7 +29,7 @@ trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true 
 mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
 #notify-listener.py &
-mpdscribble &
+#mpdscribble &
 # btsync start
 ~/bin/btsync.sh start
 #skype &

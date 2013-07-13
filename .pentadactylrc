@@ -11,6 +11,9 @@ command! -description=aboutnewtab at tabopen about:newtab
 command! -nargs=* -description='aur search' aur tabopen http://aur.archlinux.org/packages.php?O=0&K=<args>&do_Search=Ga
 command! -nargs=* -description='archwiki search' awiki tabopen https://wiki.archlinux.org/index.php?search=<args>
 command! -nargs=* -description='cpan search' cpan tabopen http://search.cpan.org/search?mode=all&query=<args>
+command! -nargs=* -description='pydoc search' pydoc tabopen http://docs.python.org/3.3/search.html?q=<args>
+command! -nargs=* -description='perldoc search' perldoc tabopen http://perldoc.perl.org/search.html?q=<args> 
+command! -nargs=* -description='hoogle search' hoo tabopen http://www.haskell.org/hoogle/?hoogle=<args> 
 command! -nargs=* -description='distro search' distro tabopen http://distrowatch.com/table.php?distribution=<args> 
 command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" \'"+content.location.href+"\' &")
 command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" $(xclip -o) &")

@@ -1,6 +1,7 @@
 splitw -v;
 rename-window '!z';
 new-window -n im 'zsh -c weechat-curses';
+rename-window -t 1 im
 new-window -n music ncmpcpp;
 splitw -v;
 select-window -t "!z";
