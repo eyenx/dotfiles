@@ -117,6 +117,7 @@ alias killmp='killall mplayer'
 #archlinux/pacman specific
 alias lpac='pacman'
 alias spac='sudo pacman'
+alias pacups='pacman -Qu'
 alias pacupg='sudo packer -Su'
 alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
 
