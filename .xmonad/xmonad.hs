@@ -6,6 +6,7 @@ import XMonad
 import System.IO (hPutStrLn)
 
 import Data.Monoid
+import Data.List
 
 import XMonad.Util.Cursor
 import XMonad.Util.Run (spawnPipe)
@@ -69,8 +70,16 @@ myBorderWidth   = 3
 myModMask   = mod4Mask
 altMask     = mod1Mask
 
--- my workspaces
-myWorkspaces  = ["web","code","im","media","vm"]
+-- my workspaces - clickable http://github.com/windelicato/dotfiles
+myWorkspaces  = click $ ["web","code","im","media","vm"]
+              where click w = [ "^ca(1,xdotool key super+"++show(n)++ ")"++getIcon ws++ws++"^ca()" |
+                      (i,ws) <- zip [1..] w,
+                      let n = i ]
+
+-- get icon function
+
+getIcon i = "^i("++icondir++i++".xbm"++") "
+  where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
 myNormalBorderColor  = "#1F1F1B"
@@ -226,11 +235,11 @@ myManageHook = composeAll . concat $
   , [title =? t --> doFloat | t <- myTFloats]
   , [resource =? r --> doFloat | r <- myRFloats]
   , [(className =? i <||> title =? i <||> resource =? i) --> doIgnore | i <- myIgnores]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift "web" | x <- my1Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift "code" | x <- my2Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift "im" | x <- my3Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift "media" | x <- my4Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift "vm" | x <- my5Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 0) | x <- my1Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 1) | x <- my2Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 2) | x <- my3Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
   ]
   where
 --classes / titles / resources
@@ -262,20 +271,15 @@ myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
 --myDzenRightBar = "/home/eye/.dzen/dzenbar.sh | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
 myDzenPost=" -bg '#1f1f1b' -fn 'Zekton:size=7' -h 16 -e 'onstart=lower'"
 
--- get icon function
-
-getIcon i = "^i("++icondir++i++".xbm"++") "
-  where icondir = "/home/eye/.dzen/xbm/"
-
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
-	ppCurrent = \d -> dzenColor "#4E7394" ""  . pad $ (getIcon d) ++ d
-	, ppHidden = \d -> dzenColor "#C2BFB8" "" . pad $ (getIcon d) ++ d
- 	, ppVisible = \d -> dzenColor "#C2BFB8" "" . pad $ (getIcon d) ++ d 
- 	, ppUrgent = \d -> dzenColor "#1f1f1b" "#4E7394" . pad $ (getIcon d) ++ d
+	ppCurrent = dzenColor "#4E7394" "" 
+	, ppHidden = dzenColor "#C2BFB8" "" 
+ 	, ppVisible = dzenColor "#C2BFB8" "" 
+ 	, ppUrgent = dzenColor "#1f1f1b" "#4E7394" 
   , ppLayout = dzenColor "#707070" "" 
  	, ppSep = " "
- 	, ppWsSep = dzenColor "#505050" "" ""
+ 	, ppWsSep = dzenColor "#505050" "" "  "
  	, ppTitle = dzenColor "#4E7394" "" . shorten 50
   , ppOutput = hPutStrLn h
 }

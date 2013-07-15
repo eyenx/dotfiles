@@ -108,13 +108,15 @@ alias killf='killall firefox'
 alias killmpd='killall mpd && killall mpdscribble'
 alias killmp='killall mplayer'
 
+#archlinux/pacman specific
+alias lpac='pacman'
+alias spac='sudo pacman'
+alias pacupg='sudo packer -Su'
+alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
+
 # dotfiles git alias
 
 alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-
-#fasd alias
-#alias v='fasd $1 -e vim'
-#alias o='fasd $1 -e mimeo'
 
 # shutdown aliases
 alias reboot='sudo systemctl reboot'
