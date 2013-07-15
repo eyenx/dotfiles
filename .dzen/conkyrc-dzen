@@ -1,0 +1,49 @@
+# FULL ##itext_buffer_size 2048
+update_interval 3
+total_run_times 0
+default_color C2BFB8 
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+use_spacer none
+out_to_x no
+out_to_console yes
+
+TEXT
+^i(/home/eye/.xmobar/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#ad4d3d)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
+${if_match ${cpu cpu2}>80}^fg(\#ad4d3d)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
+${if_match ${cpu cpu3}>80}^fg(\#ad4d3d)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
+${if_match ${cpu cpu4}>80}^fg(\#ad4d3d)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#ad4d3d)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
+^fg(\#707070)| ^fg()root ${if_match ${fs_used_perc /}>80}^fg(\#ad4d3d)${fs_used_perc /}%^fg()$else^fg(\#707070)${fs_used_perc /}%^fg()$endif ^fg(\#707070)^fg() \
+^fg(\#707070)| ^fg()var ${if_match ${fs_used_perc /var}>80}^fg(\#ad4d3d)${fs_used_perc /var}%^fg()$else^fg(\#707070)${fs_used_perc /var}%^fg()$endif ^fg(\#707070)^fg() \
+^fg(\#707070)| ^fg()home ${if_match ${fs_used_perc /home}>90}^fg(\#ad4d3d)${fs_used_perc /home}%^fg()$else^fg(\#707070)${fs_used_perc /home}%^fg()$endif ^fg(\#707070)^fg() \
+${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>65}}\
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+${else}\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>20}}\
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1half.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+${else}\
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1empty.xbm) ^fg(\#ad4d3d) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+${execi 900 notify-send -i info "Battery low"}\
+$endif\
+$endif\
+${else}\
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/ac8.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+$endif\
+${if_existing /sys/class/net/eth0/operstate up}^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/net_wired.xbm) ^i(/home/eye/.xmobar/xbm/uparrow8.xbm)^fg(\#707070) ${upspeed eth0} ^fg()^i(/home/eye/.xmobar/xbm/downarrow8.xbm) ^fg(\#707070)${downspeed eth0}^fg() \
+$else \
+${if_existing /sys/class/net/wlan0/operstate up}^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/wireless8.xbm) ${wireless_essid wlan0} \
+^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg() ^fg(\#707070)|^fg()\
+^i(/home/eye/.xmobar/xbm/uparrow8.xbm)^fg(\#707070) ${upspeed wlan0} ^fg()^i(/home/eye/.xmobar/xbm/downarrow8.xbm) ^fg(\#707070)${downspeed wlan0}^fg() \
+$endif\
+$endif\
+${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
+^fg(\#707070)^fg(\#707070)| ^fg()^fg()^i(/home/eye/.xmobar/xbm/pacman1.xbm) ^fg(\#707070)${execpi 3600 ~/.conky/pacstat}^fg() \
+$endif\
+${if_match ${execi 300 ~/.conky/gm.sh}>0}\
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/mail10.xbm) ^fg(\#707070)new mail^fg() \
+$endif\
+${execi 3 ~/.conky/spacer.sh}

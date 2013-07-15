@@ -96,6 +96,7 @@ alias chromgl='chromium --ignore-gpu-blacklist'
 alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null && echo -ne "\033[32mCache purged.\n\007"'
 alias minimal='mp http://128.179.101.9:9010 -nocache'
 alias uzict='wget -qO- http://www.uzic.ch/accueil.php | sed -n '\''s/.*<marquee\ scrollamount\=3><b>\(.*\)<\/b>.*/\1/p'\'
+alias coffeeshop='mplayer -nocache http://coffitivity.com/other/cleanupcut.mp3'
 alias :q='exit'
 alias witch='which'
 alias mu='echo "Welcome to mutt"|cowsay;sleep .5;mutt'
@@ -112,14 +113,16 @@ alias killf='killall firefox'
 alias killmpd='killall mpd && killall mpdscribble'
 alias killmp='killall mplayer'
 
+#archlinux/pacman specific
+alias lpac='pacman'
+alias spac='sudo pacman'
+alias pacupg='sudo packer -Su'
+alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
+
 # dotfiles git alias
 
 alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias ditupd='dit f upstream;dit m upstream/master'
-
-#fasd alias
-#alias v='fasd $1 -e vim'
-#alias o='fasd $1 -e mimeo'
 
 # shutdown aliases
 alias reboot='sudo systemctl reboot'
