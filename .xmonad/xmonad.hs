@@ -23,6 +23,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders 
+import XMonad.Layout.Fullscreen
 import XMonad.Layout.ToggleLayouts
 
 import System.Exit
@@ -99,7 +100,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- reset to default layout
   , ((modm .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf)
   -- go to full layout
-  , ((modm, xK_f), sendMessage $ Toggle "Full")
+  , ((modm, xK_f), sendMessage $ ToggleLayout)
   -- refresh
   , ((modm, xK_n), refresh)
   -- focus next window
@@ -214,13 +215,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
   ]
 
 --layouts
-myLayout = avoidStruts $ smartBorders $ toggleLayouts Full $ tile ||| mtile ||| full 
+myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| btile ||| full 
   where
   -- tiling profiles
-  rt = spacing 3 $ ResizableTall nmaster delta ratio []
-  tile   = renamed [Replace "[]="] $ smartBorders rt
-  mtile   = renamed [Replace "M[]="] $ smartBorders $ Mirror rt
-  full   = renamed [Replace "[]"] $ noBorders Full
+  lay = ResizableTall nmaster delta ratio []
+  rt = spacing 3 $ lay
+  tile = renamed [Replace "tile"] $ smartBorders rt
+  mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
+  btile = renamed [Replace "btile" ] $ noBorders $ lay
+  full =  renamed [Replace "full"] $ noBorders $ fullscreenFull Full
   -- default #windows in master
   nmaster = 1
   -- proportion size of master
@@ -275,12 +278,17 @@ myDzenPost=" -bg '#1f1f1b' -fn 'Zekton:size=7' -h 16 -e 'onstart=lower'"
 myLogHook h = dynamicLogWithPP $ defaultPP {
 	ppCurrent = dzenColor "#4E7394" "" 
 	, ppHidden = dzenColor "#C2BFB8" "" 
- 	, ppVisible = dzenColor "#C2BFB8" "" 
  	, ppUrgent = dzenColor "#1f1f1b" "#4E7394" 
-  , ppLayout = dzenColor "#707070" "" 
- 	, ppSep = " "
+  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#707070" "" .
+              (\x -> case x of
+                  "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
+                  "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
+                  "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
+                  "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
+                  )
+ 	, ppSep = "   "
  	, ppWsSep = dzenColor "#505050" "" "  "
- 	, ppTitle = dzenColor "#4E7394" "" . shorten 50
+ 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#4E7394" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
 
