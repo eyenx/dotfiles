@@ -223,7 +223,7 @@ myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| 
   -- default #windows in master
   nmaster = 1
   -- proportion size of master
-  ratio   = 6/10
+  ratio   = 5/10
   -- incrementation on resizing
   delta   = 2/100
 
