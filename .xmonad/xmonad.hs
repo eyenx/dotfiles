@@ -57,7 +57,6 @@ myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall conky dzen2 && /usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
---myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 2 -fn 'Zekton:size=50' -fg '#4E7394' -ta c -w 160 -h 40 -x 880 -y 520"
 myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 1 -fn 'Zekton:size=50' -fg '#4E7394' -ta c -w 1920 -h 1080"
 
 -- get focus on mouse 
