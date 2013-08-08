@@ -82,11 +82,6 @@ URxvt.url-select.underline: true
 URxvt*matcher.button: 1
 URxvt*termName:screen-256color
 !URxvt*termName:screen
-!URxvt.font:xft:Inconsolata for Powerline:size=9
-!URxvt.font:xft:Terminus (TTF) for Powerline:size=8
-!URxvt.font:xft:Terminus for Powerline:style=Regular:size=9
-!URxvt.font:xft:DejaVu Sans Mono for Powerline:size=8
-!URxvt.font:xft:Zekton:size=6
 URxvt.font:xft:Liberation Mono for Powerline:size=8
 !URxvt*letterSpace: 0 URxvt.saveLines:10000 URxvt.iconFile:/home/eye/.icons/ACYLBlue/scalable/apps/terminal.svg URxvt.geometry:70x35
 URxvt.scrollBar: off
