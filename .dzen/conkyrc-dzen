@@ -20,7 +20,7 @@ ${if_match ${cpu cpu4}>80}^fg(\#ad4d3d)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu 
 ^fg(\#707070)| ^fg()var ${if_match ${fs_used_perc /var}>80}^fg(\#ad4d3d)${fs_used_perc /var}%^fg()$else^fg(\#707070)${fs_used_perc /var}%^fg()$endif ^fg(\#707070)^fg() \
 ^fg(\#707070)| ^fg()home ${if_match ${fs_used_perc /home}>90}^fg(\#ad4d3d)${fs_used_perc /home}%^fg()$else^fg(\#707070)${fs_used_perc /home}%^fg()$endif ^fg(\#707070)^fg() \
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
-${if_match ${execi 120 ~/.conky/batmerge.sh}>65}}\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
 ${else}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}}\
