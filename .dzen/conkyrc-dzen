@@ -23,7 +23,7 @@ ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
 ${else}\
-${if_match ${execi 120 ~/.conky/batmerge.sh}>20}}\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1half.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
 ${else}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1empty.xbm) ^fg(\#ad4d3d) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
