@@ -31,6 +31,6 @@ ${if_match ${execi 300 ~/.conky/gm.sh}>0}\
 $endif\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/weather.xbm) ^fg(\#707070)${execi 900 ~/.conky/weather.sh}^fg() \
 ${if_mpd_playing}\
-^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/note1.xbm) ^fg(\#707070)${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}fg()$endif \
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/note1.xbm) ^fg(\#707070)${mpd_artist} - ${mpd_title} - ${mpd_elapsed}/${mpd_length}^fg()$endif \
 ^fg(\#707070)| ^fg()${time %a, %b %d - %H:%M  } \
 ${execi 3 ~/.conky/spacer.sh}
