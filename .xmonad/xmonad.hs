@@ -242,7 +242,7 @@ myManageHook = composeAll . concat $
   ]
   where
 --classes / titles / resources
-  myCFloats = ["MPlayer","Gimp","VirtualBox","hl2_linux","Steam"]
+  myCFloats = ["MPlayer","Gimp","VirtualBox"]
   myTFloats = ["Downloads", "Save As"]
   myRFloats = []
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
