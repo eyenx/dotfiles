@@ -10,6 +10,7 @@ import Data.List
 
 import XMonad.Util.Cursor
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.EZConfig
 
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
@@ -86,118 +87,118 @@ myNormalBorderColor  = "#1F1F1B"
 myFocusedBorderColor = "#4E7394"
 
 --key bindings
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
-
+myKeys = \c -> mkKeymap c $ 
   -- launch a terminal
-  [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+  [ ("M-S-<Return>", spawn $ XMonad.terminal c)
   -- launch dmenu
-  , ((modm, xK_p), spawn myDmenu)
+  , ("M-p", spawn myDmenu)
   -- close focused window
-  , ((modm, xK_c), kill)
+  , ("M-c", kill)
    -- rotate through layouts
-  , ((modm, xK_space), sendMessage NextLayout)
+  , ("M-<Space>", sendMessage NextLayout)
   -- reset to default layout
-  , ((modm .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf)
+  , ("M-S-<Space>", setLayout $ XMonad.layoutHook c)
   -- go to full layout
-  , ((modm, xK_f), sendMessage $ ToggleLayout)
+  , ("M-f", sendMessage $ ToggleLayout)
   -- refresh
-  , ((modm, xK_n), refresh)
+  , ("M-n", refresh)
   -- focus next window
-  , ((modm, xK_j), windows W.focusDown)
+  , ("M-j", windows W.focusDown)
   -- focus prev window
-  , ((modm, xK_k), windows W.focusUp)
+  , ("M-k", windows W.focusUp)
   -- focus master window
-  , ((modm, xK_m), windows W.focusMaster  )
+  , ("M-m", windows W.focusMaster)
   -- swap master)
-  , ((modm, xK_Return), windows W.swapMaster)
+  , ("M-<Return>", windows W.swapMaster)
   -- swap current window with next
-  , ((modm .|. shiftMask, xK_j), windows W.swapDown)
+  , ("M-S-j", windows W.swapDown)
   -- swap current window with prev
-  , ((modm .|. shiftMask, xK_k), windows W.swapUp  )
+  , ("M-S-k", windows W.swapUp)
   -- shrink master area
-  , ((modm, xK_h), sendMessage Shrink)
+  , ("M-h", sendMessage Shrink)
   -- expand master area
-  , ((modm, xK_l), sendMessage Expand)
+  , ("M-l", sendMessage Expand)
   -- expand master area
-  , ((modm .|. shiftMask, xK_h), sendMessage MirrorShrink)
+  , ("M-S-h", sendMessage MirrorShrink)
   -- expand master area
-  , ((modm .|. shiftMask, xK_l), sendMessage MirrorExpand)
+  , ("M-S-l", sendMessage MirrorExpand)
   -- number of windows in master area +1
-  , ((modm, xK_comma), sendMessage (IncMasterN 1))
+  , ("M-,", sendMessage (IncMasterN 1))
   -- number of windows in master area -1
-  , ((modm, xK_period), sendMessage (IncMasterN (-1)))
+  , ("M-.", sendMessage (IncMasterN (-1)))
   -- togglestruts
-  , ((modm, xK_b), sendMessage ToggleStruts)
+  , ("M-b", sendMessage ToggleStruts)
   -- quit xmonad
-  , ((modm .|. shiftMask, xK_q   ), io (exitWith ExitSuccess))
+  , ("M-S-q", io (exitWith ExitSuccess))
   -- restart xmonad
-  , ((modm .|. shiftMask, xK_r  ), spawn myRecomp)
+  , ("M-S-r", spawn myRecomp)
   -- restart w/o recompile
-  , ((modm, xK_r ), spawn myRest)
+  , ("M-r", spawn myRest)
   -- lock
-  , ((altMask .|. controlMask, xK_l ), spawn myLock)
+  , ("M1-C-l", spawn myLock)
   -- date
-  , ((modm, xK_d), spawn myDate)
+  , ("M-d", spawn myDate)
   -- switch pulseoutput
-  , ((modm, xK_Escape), spawn myVolChange)
+  , ("M-<Escape>", spawn myVolChange)
   -- start browser
-  , ((modm, xK_F1), spawn myBrowser)
+  , ("M-<F1>", spawn myBrowser)
   -- start alternative browser
-  , ((modm .|. shiftMask, xK_F1), spawn myAltBrowser)
+  , ("M-S-<F1>", spawn myAltBrowser)
   -- start mail app
-  , ((modm, xK_F2), spawn myMail)
+  , ("M-<F2>", spawn myMail)
   -- start tmux
-  , ((modm, xK_F3), spawn myTmux)
+  , ("M-<F3>", spawn myTmux)
   -- xdotool to move mouse away from flash
-  , ((modm, xK_F4), spawn myPentaFlashOut)
+  , ("M-<F4>", spawn myPentaFlashOut)
   -- xdotool to move mouse inside flash
-  , ((modm .|. shiftMask, xK_F4), spawn myPentaFlashIn)
+  , ("M-S-<F4>", spawn myPentaFlashIn)
   -- change wallpaper over net
-  , ((modm, xK_F5), spawn myWpChgr)
+  , ("M-<F5>", spawn myWpChgr)
   -- change wallpaper locally
-  , ((modm, xK_F6), spawn myRandWp)
+  , ("M-<F6>", spawn myRandWp)
   -- start skype 
-  , ((modm, xK_F7), spawn mySkype)
+  , ("M-<F7>", spawn mySkype)
   -- start mplayer stream
-  , ((modm, xK_F8), spawn myStream)
+  , ("M-<F8>", spawn myStream)
   -- MPD controls
   -- MPDPrev
-  , ((modm, xK_F9), spawn myMPDPrev)
+  , ("M-<F9>", spawn myMPDPrev)
   -- MPDPlay
-  , ((modm, xK_F10), spawn myMPDPlay)
+  , ("M-<F10>", spawn myMPDPlay)
   -- MPDNext
-  , ((modm, xK_F11), spawn myMPDNext)
+  --, ((modm, xK_F11), spawn myMPDNext)
+  , ("M-<F11>", spawn myMPDNext)
   -- VolumeMute
-  , ((modm, xK_F12), spawn myVolMute)
+  , ("M-<F12>", spawn myVolMute)
   -- VolDown
-  , ((modm, xK_Page_Down), spawn myVolDown)
+  , ("M-<Page_Down>", spawn myVolDown)
   -- VolUp
-  , ((modm, xK_Page_Up), spawn myVolUp)
+  , ("M-<Page_Up>", spawn myVolUp)
   -- Screenshot full display
-  , ((0, xK_Print), spawn myScreenFull)
+  , ("<Print>", spawn myScreenFull)
   -- Screenshot with selection
-  , ((shiftMask, xK_Print), spawn myScrShot)
+  , ("S-<Print>", spawn myScrShot)
   -- push window into tiling if not floating - float if tiling
-  , ((modm, xK_t),
+  , ("M-t",
 	withFocused (\windowId -> do { floats <- gets (W.floating . windowset);
 	if windowId `M.member`floats
 	then withFocused $ windows. W.sink
 	else float windowId }))
   -- moving / shrinking Floating Windows (thanks to FloatSnap Module)
-  , ((modm,         xK_Left),  withFocused $ snapMove L Nothing)
-  , ((modm,         xK_Right), withFocused $ snapMove R Nothing)
-  , ((modm,         xK_Up),  withFocused $ snapMove U Nothing)
-  , ((modm,         xK_Down),  withFocused $ snapMove D Nothing)
-  , ((modm .|. shiftMask, xK_Left),  withFocused $ snapShrink R Nothing)
-  , ((modm .|. shiftMask, xK_Right), withFocused $ snapGrow R Nothing)
-  , ((modm .|. shiftMask, xK_Up),  withFocused $ snapShrink D Nothing)
-  , ((modm .|. shiftMask, xK_Down),  withFocused $ snapGrow D Nothing)
+  , ("M-<L>",  withFocused $ snapMove L Nothing)
+  , ("M-<R>", withFocused $ snapMove R Nothing)
+  , ("M-<U>",  withFocused $ snapMove U Nothing)
+  , ("M-<D>",  withFocused $ snapMove D Nothing)
+  , ("M-S-<L>",  withFocused $ snapShrink R Nothing)
+  , ("M-S-<R>", withFocused $ snapGrow R Nothing)
+  , ("M-S-<U>",  withFocused $ snapShrink D Nothing)
+  , ("M-S-<D>",  withFocused $ snapGrow D Nothing)
   ] ++
   -- mod-[1..9], go to workspace n
   -- mod-shift-[1..9], send window to workspace n
-  [((m .|. modm, k), windows $ f i)
-    | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+  [(m ++ k, windows $ f w)
+    | (w, k) <- zip (XMonad.workspaces c) (map show [1..9])
+    , (m, f) <- [("M-",W.greedyView), ("M-S",W.shift)]]
 
 -- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
