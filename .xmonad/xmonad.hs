@@ -192,7 +192,7 @@ myKeys = \c -> mkKeymap c $
   -- mod-shift-[1..9], send window to workspace n
   [(m ++ k, windows $ f w)
     | (w, k) <- zip (XMonad.workspaces c) (map show [1..9])
-    , (m, f) <- [("M-",W.greedyView), ("M-S",W.shift)]]
+    , (m, f) <- [("M-",W.greedyView), ("M-S-",W.shift)]]
 
 -- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
