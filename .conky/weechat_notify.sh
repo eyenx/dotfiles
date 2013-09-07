@@ -1,5 +1,5 @@
 #!/bin/bash
-i=300
+i=30
 file="/tmp/.weenotify"
 s=`stat -c "%Y" $file`
 d=$(date +%s)
