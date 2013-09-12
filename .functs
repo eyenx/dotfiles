@@ -217,3 +217,9 @@ rtmp_sniff(){
     rtmpsrv
     sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -m owner \! --uid-owner root -j REDIRECT
 }
+# pastebin
+fbu(){
+  u=`cat $1  | curl -nsk -F "file=@-;filename=stdin" https://paste.gnomeye.net/index.php/file/do_upload/`
+  echo $u;
+  echo $u|xclip -i;
+}
