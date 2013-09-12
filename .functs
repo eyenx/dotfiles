@@ -222,7 +222,7 @@ rtmp_sniff(){
 }
 # pastebin
 fbu(){
-  u=`cat $1  | curl -nsk -F "file=@-;filename=stdin" https://paste.gnomeye.net`
+  u=`cat $1  | curl -nsk -F "file=@-;filename=stdin" https://paste.gnomeye.net/index.php/file/do_upload/`
   echo $u;
   echo $u|xclip -i;
 }
