@@ -1,0 +1,12 @@
+split-window -h mutt;
+split-window -v -p 40;
+clock;
+select-pane -t 0;
+rename-window '!z';
+new-window -n code; 
+splitw -h;
+splitw -v;
+rename-window -t 1 code
+new-window -n ssh;
+splitw -h;
+select-window -t "!z";
