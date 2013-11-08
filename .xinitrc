@@ -26,7 +26,7 @@ urxvtd -f -o -q
 #oneko -tofocus -speed 30 &
 #stalonetray &
 trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true --align right --margin 0 --height 16 --padding 0 --transparent true --alpha 0 --tint 0x1f1f1b&
-mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
+#mplayer "http://translate.google.com/translate_tts?tl=en&q=welcome+$(whoami)" &
 #~/bin/mpdstart &
 #notify-listener.py &
 #mpdscribble &
