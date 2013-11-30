@@ -223,13 +223,13 @@ rtmp_sniff(){
 # pastebin
 fbu(){
 	[[ -z $@ ]] && echo -e "upload file to filebin\nusage: fbu <filename>" && return 1
-  u=`curl -nsk -F "file=@$1" https://paste.gnomeye.net/index.php/file/do_upload/`
+  u=`curl -nsk -F "file=@$1" https://paste.eyenx.ch/index.php/file/do_upload/`
   echo $u;
   echo $u|xclip -i;
 }
 fbi(){
 	[[ -n $@ ]] && echo -e "upload stdin to filebin\nusage: fbi <stdin>\nexample: echo \"upload\" | fbi " && return 1
-  u=`curl -nsk -F "file=@-;filename=stdin" https://paste.gnomeye.net/index.php/file/do_upload/`
+  u=`curl -nsk -F "file=@-;filename=stdin" https://paste.eyenx.ch/index.php/file/do_upload/`
   echo $u;
   echo $u|xclip -i;
 }
