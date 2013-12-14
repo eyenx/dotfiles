@@ -1,6 +1,5 @@
 split-window -h mutt;
-split-window -v -p 40;
-clock;
+split-window -v -p 40 "tty-clock -c -C 4";
 select-pane -t 0;
 rename-window '!z';
 new-window -n code; 
