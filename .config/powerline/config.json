@@ -16,7 +16,12 @@
 	"ext": {
 		"ipython": {
 			"colorscheme": "default",
-			"theme": "default"
+			"theme": "in",
+			"local_themes": {
+				"rewrite": "rewrite",
+				"out": "out",
+				"in2": "in2"
+			}
 		},
 		"shell": {
 			"colorscheme": "eye",
@@ -31,7 +36,13 @@
 			"theme": "default",
 			"local_themes": {
 				"cmdwin": "cmdwin",
-				"help": "help"
+				"help": "help",
+				"quickfix": "quickfix",
+
+				"powerline.matchers.plugin.nerdtree.nerdtree": "plugin/nerdtree",
+				"powerline.matchers.plugin.ctrlp.ctrlp": "plugin/ctrlp",
+				"powerline.matchers.plugin.gundo.gundo": "plugin/gundo",
+				"powerline.matchers.plugin.gundo.gundo_preview": "plugin/gundo-preview"
 			}
 		},
 		"wm": {
