@@ -8,6 +8,7 @@ command! -description=abouthome ah tabopen about:home
 command! -description=aboutsynclog asl tabopen about:sync-log
 command! -description=aboutsynctabs ast tabopen about:sync-tabs
 command! -description=aboutnewtab at tabopen about:newtab
+command! -description=aboutdownloads dl tabopen about:downloads
 command! -nargs=* -description='aur search' aur tabopen http://aur.archlinux.org/packages.php?O=0&K=<args>&do_Search=Ga
 command! -nargs=* -description='archwiki search' awiki tabopen https://wiki.archlinux.org/index.php?search=<args>
 command! -nargs=* -description='cpan search' cpan tabopen http://search.cpan.org/search?mode=all&query=<args>
