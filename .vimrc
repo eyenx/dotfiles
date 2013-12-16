@@ -68,7 +68,7 @@ set number
 colorscheme neverland
 
 " set backupdir
-set backupdir=/tmp
+set backupdir=~/.vim/bak
 set directory=/tmp
 " plugins
 "vim-latexsuite
