@@ -23,6 +23,7 @@ inoremap <C-U> <C-G>u<C-U>
 " because mouse is mainstream
 set mouse=a
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 syntax on
 set hlsearch
 set incsearch
