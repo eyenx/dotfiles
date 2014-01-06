@@ -5,12 +5,13 @@ ZSH=$HOME/.omzsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-if [[ $(echo $TTY|cut -c 6-8) == "tty" ]]; then
-	ZSH_THEME="eye_`hostname`"
-else
+#if [[ $(echo $TTY|cut -c 6-8) == "tty" ]]; then
+#	ZSH_THEME="eye_`hostname`"
+#else
 #ZSH_THEME="eye_`hostname`"
-ZSH_THEME="eye_`hostname`_pl"
-fi
+#ZSH_THEME="eye_`hostname`_pl"
+ZSH_THEME="eye_`hostname`"
+#fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

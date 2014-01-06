@@ -81,11 +81,14 @@ image/x-xcf=gpicview.desktop;
 image/x-xpixmap=gpicview.desktop;
 image/x-xwindowdump=gpicview.desktop;
 text/plain=geany.desktop;
-x-scheme-handler/http=firefox.desktop;
-x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/chrome=exo-web-browser.desktop;
+x-scheme-handler/ftp=exo-web-browser.desktop;
+x-scheme-handler/http=exo-web-browser.desktop;
+x-scheme-handler/https=exo-web-browser.desktop;
 x-scheme-handler/magnet=transremo.desktop;
 x-scheme-handler/mailto=exo-mail-reader.desktop;
 x-scheme-handler/trash=exo-file-manager.desktop;
+x-scheme-handler/ts3server=teamspeak3.desktop;
 [Added Associations]
 audio/32kadpcm=mplayer.desktop;
 audio/3gpp=mplayer.desktop;
