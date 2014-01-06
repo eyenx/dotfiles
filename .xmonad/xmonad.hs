@@ -289,7 +289,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
                   "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
                   )
- 	, ppSep = "   "
+ 	, ppSep = "  "
  	, ppWsSep = dzenColor "#505050" "" "  "
  	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#4E7394" "" . shorten 50
   , ppOutput = hPutStrLn h
