@@ -65,7 +65,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 3
+myBorderWidth   = 4
 
 -- my metas
 myModMask   = mod4Mask
@@ -73,13 +73,13 @@ altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
 myWorkspaces  = click $ ["web","chat","shell","media","game","labs"]
-              where click w = [ "^ca(1,xdotool key super+"++show(n)++ ")"++getIcon ws++ws++"^ca()" |
+              where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++getIcon ws++"^ca()" |
                       (i,ws) <- zip [1..] w,
                       let n = i ]
 
 -- get icon function
 
-getIcon i = "^i("++icondir++i++".xbm"++") "
+getIcon i = "^i("++icondir++i++".xbm"++")"
   where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
@@ -219,7 +219,7 @@ myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| 
   where
   -- tiling profiles
   lay = ResizableTall nmaster delta ratio []
-  rt = spacing 3 $ lay
+  rt = spacing 2 $ lay
   tile = renamed [Replace "tile"] $ smartBorders rt
   mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
   btile = renamed [Replace "btile" ] $ noBorders $ lay
