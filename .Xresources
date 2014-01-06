@@ -83,7 +83,8 @@ URxvt.url-select.underline: true
 URxvt*matcher.button: 1
 URxvt*termName:screen-256color
 !URxvt*termName:screen
-URxvt.font:xft:Liberation Mono for Powerline:size=8
+!URxvt.font:xft:Liberation Mono for Powerline:size=8
+URxvt.font:xft:Liberation Mono:size=8
 !URxvt*letterSpace: 0 URxvt.saveLines:10000 URxvt.iconFile:/home/eye/.icons/ACYLBlue/scalable/apps/terminal.svg URxvt.geometry:70x35
 URxvt.scrollBar: off
 URxvt*cursorUnderline: 1
