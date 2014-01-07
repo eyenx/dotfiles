@@ -66,7 +66,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 3
+myBorderWidth   = 4
 
 -- my metas
 myModMask   = mod4Mask
@@ -74,13 +74,13 @@ altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
 myWorkspaces  = click $ ["web","chat","shell","media","game","labs"]
-              where click w = [ "^ca(1,xdotool key super+"++show(n)++ ")"++getIcon ws++ws++"^ca()" |
+              where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++getIcon ws++"^ca()" |
                       (i,ws) <- zip [1..] w,
                       let n = i ]
 
 -- get icon function
 
-getIcon i = "^i("++icondir++i++".xbm"++") "
+getIcon i = "^i("++icondir++i++".xbm"++")"
   where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
@@ -213,7 +213,7 @@ myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| 
   where
   -- tiling profiles
   lay = ResizableTall nmaster delta ratio []
-  rt = spacing 3 $ lay
+  rt = spacing 2 $ lay
   tile = renamed [Replace "tile"] $ smartBorders rt
   mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
   btile = renamed [Replace "btile" ] $ noBorders $ lay
@@ -269,7 +269,7 @@ myDzenRightBar = myConky ++ " | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
 --myDzenRightBar = "/home/eye/.dzen/dzenbar.sh | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
 --myDzenPost=" -bg '#1f1f1b' -fn 'Zekton:size=7' -h 16 -e 'onstart=lower'"
-myDzenPost=" -bg '#1f1f1b' -fn 'Liberation Mono for Powerline:size=7' -h 16 -e 'onstart=lower'"
+myDzenPost=" -bg '#1f1f1b' -fn 'Liberation Mono:size=7' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
@@ -283,7 +283,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
                   "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
                   )
- 	, ppSep = "   "
+ 	, ppSep = "  "
  	, ppWsSep = dzenColor "#505050" "" "  "
  	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#A3583B" "" . shorten 50
   , ppOutput = hPutStrLn h

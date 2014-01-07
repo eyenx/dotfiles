@@ -54,13 +54,14 @@ vmap <c-y> y:call system("xclip -i", getreg("\""))<CR>
 nmap <c-v> :call setreg("\"",system("xclip -o"))<CR>p
 imap <c-v> <Esc><c-v>a
 " powerline
-set laststatus=2 " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set t_Co=256
-set guifont=Liberation\ Mono\ for\ Powerline
-let g:Powerline_symbols='fancy'
-let g:Powerline_cache_dir="/tmp"
-let $PYTHONPATH="/usr/lib/python3.3/site-packages"
+"set laststatus=2 " Always show the statusline
+"set encoding=utf-8 " Necessary to show Unicode glyphs
+"set t_Co=256
+"set guifont=Liberation\ Mono\ for\ Powerline
+set guifont=Liberation\ Mono
+"let g:Powerline_symbols='fancy'
+"let g:Powerline_cache_dir="/tmp"
+"let $PYTHONPATH="/usr/lib/python3.3/site-packages"
 
 " set number line counting
 set number
