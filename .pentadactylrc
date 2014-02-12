@@ -94,6 +94,6 @@ set editor='urxvt -e vim'
 set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com,beatport.com,roach,imgur.com
 set passkeys=mail.google.com:jk<Return>,gi,cloud.feedly.com:jk<Return>,ga,gm,gg,s
 set showtabline=multitab
-autocmd LocationChange mail.google.com,drive.google.com,feedly.com,tweetdeck.twitter.com :normal! <C-z>
+"autocmd LocationChange mail.google.com,drive.google.com,feedly.com,tweetdeck.twitter.com :normal! <C-z>
 
 " vim: set ft=pentadactyl:
