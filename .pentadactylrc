@@ -8,21 +8,21 @@ command! -description=abouthome ah tabopen about:home
 command! -description=aboutsynclog asl tabopen about:sync-log
 command! -description=aboutsynctabs ast tabopen about:sync-tabs
 command! -description=aboutnewtab at tabopen about:newtab
-command! -description=aboutdownloads dl tabopen about:downloads
+"command! -description=aboutdownloads dl tabopen about:downloads
 command! -nargs=* -description='aur search' aur tabopen http://aur.archlinux.org/packages.php?O=0&K=<args>&do_Search=Ga
 command! -nargs=* -description='archwiki search' awiki tabopen https://wiki.archlinux.org/index.php?search=<args>
 command! -nargs=* -description='cpan search' cpan tabopen http://search.cpan.org/search?mode=all&query=<args>
 command! -nargs=* -description='ddg search' ddg tabopen https://duckduckgo.com/search?q=<args>
-command! -nargs=* -description='distro search' distro tabopen http://distrowatch.com/table.php?distribution=<args> 
+command! -nargs=* -description='distro search' distro tabopen http://distrowatch.com/table.php?distribution=<args>
 command! -description='download yt video to /tmp/yt' dyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" \'"+content.location.href+"\' &")
 command! -description='download yanked yt video to /tmp/yt' dyyt js ex.run("mkdir -p /tmp/yt && youtube-dl --max-quality 37 -q -o \"/tmp/yt/%(title)s.%(ext)s\" $(xclip -o) &")
 command! -nargs=* -description='google search' g tabopen http://google.ch/search?q=<args>
-command! -nargs=* -description='gcontacts search' gcont tabopen https://www.google.com/contacts/u/0/#contacts/search/<args> 
+command! -nargs=* -description='gcontacts search' gcont tabopen https://www.google.com/contacts/u/0/#contacts/search/<args>
 command! -nargs=* -description='github search' git tabopen https://github.com/search?q=<args>&type=Everything&repo=&langOverride=&start_value=1
 command! -nargs=* -description='gmail search' gmail tabopen https://mail.google.com/mail/?shva=1#search/<args>
 command! -nargs=* -description='gmaps search' gmap tabopen https://maps.google.com/maps?q=<args>
 command! -nargs=* -description='search gentoo wiki' gwiki tabopen http://en.gentoo-wiki.com/w/index.php?title=Special%3ASearch&search=<args>&go=Go
-command! -nargs=* -description='hoogle search' hoo tabopen http://www.haskell.org/hoogle/?hoogle=<args> 
+command! -nargs=* -description='hoogle search' hoo tabopen http://www.haskell.org/hoogle/?hoogle=<args>
 command! -nargs=* -description='imdb search' imdb tabopen http://www.imdb.com/find?q=<args>&s=all
 command! -nargs=* -description='kat.ph search' kat tabopen http://kat.ph/usearch/<args>/
 command! -nargs=1 -description='mailto opens gmail compose' mailto tabopen https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=<args>
@@ -31,7 +31,7 @@ command! -nargs=* -description='meme search' meme tabopen http://knowyourmeme.co
 command! -description='watch yt video in mplayer' myt js ex.run("mplayer $(youtube-dl -g --max-quality 37 \'"+content.location.href+"\') &")
 command! -description='watch yanked yt url in mplayer' myyt js ex.run("mplayer -cache-min 1 $(youtube-dl -g --max-quality 37 $(xclip -o)) &")
 command! -nargs=* -description='*nix search' nix tabopen http://www.cyberciti.biz/linux-search.php?q=<args>
-command! -nargs=* -description='perldoc search' perldoc tabopen http://perldoc.perl.org/search.html?q=<args> 
+command! -nargs=* -description='perldoc search' perldoc tabopen http://perldoc.perl.org/search.html?q=<args>
 command! -nargs=* -description='pydoc search' pydoc tabopen http://docs.python.org/3.3/search.html?q=<args>
 command! -nargs=* -description='rotten search' rot tabopen http://www.rottentomatoes.com/search/?search=<args>&sitesearch=rt
 command! -nargs=* -description='torrentz.eu search' tor tabopen http://torrentz.eu/search?f=<args>
@@ -42,7 +42,7 @@ command! -nargs=* -description='wiki search' wiki tabopen http://en.wikipedia.or
 command! -nargs=* -description='yify search' yify tabopen http://yify-torrents.com/browse-movie/<args>/
 command! -nargs=* -description='yt search' yt tabopen http://youtube.com/results?search_query=<args>
 highlight Bell background-color: inherit; border: 0 none;
-highlight -link=FontFixed CmdLine color: #C2BFB8; font-family: zekton; 
+highlight -link=FontFixed CmdLine color: #C2BFB8; font-family: zekton;
 highlight -link=FontFixed,Normal Comp margin:0;
 highlight CompDesc color: inherit; width: 50%; padding-left: 1em; font-size: 7pt;
 highlight CompIcon width: 10px; min-width: 10px; display: none; margin-right: .5ex;
@@ -50,10 +50,10 @@ highlight CompItem color: inherit; background: inherit;font-size: 7px; font-fami
 highlight CompItem[selected] background: #2c2c2c; color: #A3583B; font-size 7px; font-family:zekton;
 highlight CompResult width: 40%; padding-right: 1%; overflow: hidden; font-size: 7pt; font-family: zekton; font-weight: normal;
 highlight CompTitle color: #C2BFB8 ; background: #1f1f1b; font-weight: bold; font-famly: zekton;
-highlight CompTitle>* color: #A3583B; font-weight: bold;
-highlight CompTitleSep background: #1f1f1b; 
-highlight ErrorMsg color: red ; background: inherit ; 
-highlight Filter font-weight: bold; color: #A3583B ;
+highlight CompTitle>* color: #4E7394; font-weight: bold;
+highlight CompTitleSep background: #1f1f1b;
+highlight ErrorMsg color: red ; background: inherit ;
+highlight Filter font-weight: bold; color: #4E7394 ;
 highlight FrameIndicator background-color: #1f1f1b; opacity: 0.6; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 highlight Function color: #A3583B ; background: inherit ;
 highlight Hint font-family: zekton; font-size: 9px ; color: #C2BFB8 ; background-color: #1f1f1b ; border: solid 1px #1f1f1b ; position: absolute ;
