@@ -50,10 +50,10 @@ highlight CompItem color: inherit; background: inherit;font-size: 7px; font-fami
 highlight CompItem[selected] background: #2c2c2c; color: #A3583B; font-size 7px; font-family:zekton;
 highlight CompResult width: 40%; padding-right: 1%; overflow: hidden; font-size: 7pt; font-family: zekton; font-weight: normal;
 highlight CompTitle color: #C2BFB8 ; background: #1f1f1b; font-weight: bold; font-famly: zekton;
-highlight CompTitle>* color: #4E7394; font-weight: bold;
+highlight CompTitle>* color: #A3583B; font-weight: bold;
 highlight CompTitleSep background: #1f1f1b;
 highlight ErrorMsg color: red ; background: inherit ;
-highlight Filter font-weight: bold; color: #4E7394 ;
+highlight Filter font-weight: bold; color: #A3583B ;
 highlight FrameIndicator background-color: #1f1f1b; opacity: 0.6; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 highlight Function color: #A3583B ; background: inherit ;
 highlight Hint font-family: zekton; font-size: 9px ; color: #C2BFB8 ; background-color: #1f1f1b ; border: solid 1px #1f1f1b ; position: absolute ;
