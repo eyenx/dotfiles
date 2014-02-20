@@ -1,5 +1,5 @@
 umask 0077
-PATH=$PATH:$HOME/bin:$HOME/.gem/ruby/2.0.0/bin
+PATH=$HOME/bin:$HOME/.cabal/bin:$HOME/.gem/ruby/2.0.0/bin:$PATH
 #PYTHONPATH=/usr/lib/python3.3/site-packages
 #PYTHONPATH=$PYTHONPATH:/usr/lib/python3.3/site-packages
 XDG_CONFIG_HOME="/home/eye/.config"
