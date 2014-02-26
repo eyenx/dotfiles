@@ -56,7 +56,7 @@ myVolDown="ponymix decrease 5"
 myVolChange="ponymix list-profiles|grep active|grep hdmi-stereo && ponymix set-profile output:analog-surround-71+input:analog-stereo || ponymix set-profile output:hdmi-stereo+input:analog-stereo"
 myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
-myRest="killall conky dzen2 && /usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
+myRest="killall conky dzen2 && xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
 myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 1 -fn 'Zekton:size=50' -fg '#4E7394' -ta c -w 1920 -h 1080"
 
@@ -270,8 +270,8 @@ myStartupHook = do
 
 -- dzen2
 
-myDzenLeftBar = "/usr/bin/dzen2 -ta l -w 500" ++ myDzenPost
-myDzenRightBar = myConky ++ " | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
+myDzenLeftBar = "dzen2 -ta l -w 500" ++ myDzenPost
+myDzenRightBar = myConky ++ " | dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
 --myDzenRightBar = "/home/eye/.dzen/dzenbar.sh | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
 --myDzenPost=" -bg '#1f1f1b' -fn 'Zekton:size=7' -h 16 -e 'onstart=lower'"
