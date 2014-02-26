@@ -19,4 +19,4 @@ unclutter &
 urxvtd -f -o -q
 trayer --edge top --widthtype request --SetDockType true --SetPartialStrut true --align right --margin 0 --height 16 --padding 0 --transparent true --alpha 0 --tint 0x1f1f1b&
 #windowmanager
-~/.cabal/bin/xmonad
+xmonad

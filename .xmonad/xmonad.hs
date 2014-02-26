@@ -53,7 +53,7 @@ myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
 myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
-myRest="killall conky dzen2 && /usr/bin/xmonad --restart; notify-send 'xmonad restarted'"
+myRest="killall conky dzen2 && xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
 myXDisplay="~/bin/xdisplay.sh"
 myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
@@ -264,8 +264,8 @@ myStartupHook = do
 
 -- dzen2
 
-myDzenLeftBar = "/usr/bin/dzen2 -ta l -w 500" ++ myDzenPost
-myDzenRightBar = myConky ++ " | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
+myDzenLeftBar = "dzen2 -ta l -w 500" ++ myDzenPost
+myDzenRightBar = myConky ++ " | dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
 --myDzenRightBar = "/home/eye/.dzen/dzenbar.sh | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
 --myDzenPost=" -bg '#1f1f1b' -fn 'Zekton:size=7' -h 16 -e 'onstart=lower'"
