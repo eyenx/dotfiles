@@ -36,8 +36,8 @@ import qualified Data.Map    as M
 
 myTerm    = "urxvtc"
 myTmux = "~/bin/term"
-myAltBrowser = "chromium"
-myBrowser = "firefox"
+myBrowser = "chromium"
+myAltBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 mySkype = "/usr/bin/skype"
@@ -245,7 +245,7 @@ myManageHook = composeAll . concat $
   myTFloats = ["Downloads", "Save As"]
   myRFloats = []
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
-  my1Shifts = ["Firefox"]
+  my1Shifts = ["Firefox","Chromium"]
   my2Shifts = ["Skype","ts3client_linux_amd64"]
   my3Shifts = []
   my4Shifts = ["Gimp","MPlayer"]
