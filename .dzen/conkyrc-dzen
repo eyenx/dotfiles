@@ -16,9 +16,9 @@ ${if_match ${cpu cpu2}>80}^fg(\#ad4d3d)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu 
 ${if_match ${cpu cpu3}>80}^fg(\#ad4d3d)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
 ${if_match ${cpu cpu4}>80}^fg(\#ad4d3d)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#ad4d3d)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
-^fg(\#707070)| ^fg()root ${if_match ${fs_used_perc /}>80}^fg(\#ad4d3d)${fs_used_perc /}%^fg()$else^fg(\#707070)${fs_used_perc /}%^fg()$endif ^fg(\#707070)^fg() \
-^fg(\#707070)| ^fg()var ${if_match ${fs_used_perc /var}>80}^fg(\#ad4d3d)${fs_used_perc /var}%^fg()$else^fg(\#707070)${fs_used_perc /var}%^fg()$endif ^fg(\#707070)^fg() \
-^fg(\#707070)| ^fg()home ${if_match ${fs_used_perc /home}>90}^fg(\#ad4d3d)${fs_used_perc /home}%^fg()$else^fg(\#707070)${fs_used_perc /home}%^fg()$endif ^fg(\#707070)^fg() \
+${if_match ${fs_used_perc /}>60}^fg(\#707070)| ^fg()root ^fg(\#AD4D3D)${fs_used_perc /}%^fg() $endif\
+${if_match ${fs_used_perc /var}>60}^fg(\#707070)| ^fg()var ^fg(\#AD4D3D)${fs_used_perc /var}%^fg() $endif\
+${if_match ${fs_used_perc /home}>60}^fg(\#707070)| ^fg()home ^fg(\#AD4D3D)${fs_used_perc /home}%^fg() $endif\
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
@@ -41,7 +41,7 @@ ${if_existing /sys/class/net/wlan0/operstate up}^fg(\#707070)| ^fg()^i(/home/eye
 $endif\
 $endif\
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
-^fg(\#707070)^fg(\#707070)| ^fg()^fg()^i(/home/eye/.xmobar/xbm/pacman1.xbm) ^fg(\#707070)${execpi 3600 ~/.conky/pacstat}^fg() \
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/pacman1.xbm) ^fg(\#707070)updates^fg() \
 $endif\
-^fg(\#707070)| ^fg()${time %a, %b %d - %H:%M  } \
+^fg(\#707070)| ^fg()${time %H:%M  } \
 ${execi 3 ~/.conky/spacer.sh}
