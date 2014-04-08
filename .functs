@@ -134,6 +134,15 @@ bmi() {
 	fi
 	printf "Your BMI is %.2f.\nYou are in the %s range.\n" $bmi $res
 }
+weather() {
+	### Yahoo weather RSS
+	RSS='http://weather.yahooapis.com/forecastrss'
+	WOEID='785728'
+	METR='c'
+	URL="${RSS}?w=${WOEID}&u=${METR}"
+	RET=$(curl -s "$URL" | grep "C<BR" | sed 's/^\(.*\)<.*$/\1/')
+	echo $RET
+}
 bak() {
 	[[ -z $@ ]] && echo -e "backup file with date\nusage: bak <filename>" && return 1
 	fl=$1
