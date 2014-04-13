@@ -42,8 +42,8 @@ myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 myRandWp = "wpfl=$(find ~/img/wallpapers/ -type f|sort -R|head -1);feh --bg-scale --no-fehbg $wpfl;echo $wpfl > /tmp/.randwp"
 mySkype = "/usr/bin/skype"
-myPentaFlashOut = "~/bin/pentadactyt fpo"
-myPentaFlashIn = "~/bin/pentadactyt fpi"
+myXdotoolFlashOut = "xdotool mousemove 10 90;xdotool keyup Super_L;xdotool click 1"
+myXdotoolFlashIn = "xdotool mousemove 940 370;xdotool keyup Super_L;xdotool click 1"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
 myScrShot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
@@ -149,9 +149,9 @@ myKeys = \c -> mkKeymap c $
   -- start tmux
   , ("M-<F3>", spawn myTmux)
   -- xdotool to move mouse away from flash
-  , ("M-<F4>", spawn myPentaFlashOut)
+  , ("M-<F4>", spawn myXdotoolFlashOut)
   -- xdotool to move mouse inside flash
-  , ("M-S-<F4>", spawn myPentaFlashIn)
+  , ("M-S-<F4>", spawn myXdotoolFlashIn)
   -- change wallpaper over net
   , ("M-<F5>", spawn myWpChgr)
   -- change wallpaper locally
