@@ -326,12 +326,13 @@ video/x-theora=mplayer.desktop;
 x-scheme-handler/chrome=exo-web-browser.desktop;firefox.desktop;
 x-scheme-handler/file=exo-file-manager.desktop;
 x-scheme-handler/ftp=exo-web-browser.desktop;firefox.desktop;
-x-scheme-handler/http="chromium.desktop";exo-web-browser.desktop;
-x-scheme-handler/https=exo-web-browser.desktop;
+x-scheme-handler/http=exo-web-browser.desktop
+x-scheme-handler/https=exo-web-browser.desktop
 x-scheme-handler/magnet=transremo.desktop;
-x-scheme-handler/mailto=exo-mail-reader.desktop;
+x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/trash=exo-file-manager.desktop;
 x-scheme-handler/ts3server=teamspeak3.desktop;
+
 [Default Applications]
 application/x-extension-htm=firefox.desktop;
 application/x-extension-html=firefox.desktop;
@@ -342,7 +343,8 @@ application/xhtml+xml=firefox.desktop;
 text/html=firefox.desktop;
 x-scheme-handler/chrome=exo-web-browser.desktop;
 x-scheme-handler/ftp=exo-web-browser.desktop;
-x-scheme-handler/http="chromium.desktop";
+x-scheme-handler/http=exo-web-browser.desktop
 x-scheme-handler/https=exo-web-browser.desktop;
 x-scheme-handler/mailto=exo-mail-reader.desktop;
 x-scheme-handler/ts3server=teamspeak3.desktop;
+
