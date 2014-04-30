@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $1 == "fpo" ]]; then
+	xdotool mousemove 10 70 
+	xdotool keyup Super_L
+	xdotool click 1
+	exit 0
+fi
+if [[ $1 == "fpi" ]]; then
+    xdotool mousemove 510 285
+	xdotool keyup Super_L
+	xdotool click 1
+    exit 0
+fi
+
