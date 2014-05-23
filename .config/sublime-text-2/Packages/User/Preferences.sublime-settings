@@ -9,6 +9,7 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"Jedi - Python autocompletion"
 	],
 	"overlay_scroll_bars": "disabled",
 	"remember_open_files": false,
