@@ -15,8 +15,7 @@ import XMonad.Util.EZConfig
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-
+import XMonad.Hooks.ManageHelpers 
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.FlexibleManipulate as Flex
 
@@ -62,6 +61,16 @@ myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
 --myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 2 -fn 'Zekton:size=50' -fg '#A3583B' -ta c -w 160 -h 40 -x 880 -y 520"
 myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 1 -fn 'Zekton:size=50' -fg '#A3583B' -ta c -w 1600 -h 900"
+
+-- mouse move relative and click with xdotool
+myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
+myMouseMoveRight="xdotool mousemove_relative -- 20 0"
+myMouseMoveUp="xdotool mousemove_relative -- 0 -20" 
+myMouseMoveDown="xdotool mousemove_relative -- 0 20"
+myMouseClickLeft="xdotool click 1"
+myMouseClickMiddle="xdotool click 2"
+myMouseClickRight="xdotool click 3"
+
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
@@ -176,6 +185,15 @@ myKeys = \c -> mkKeymap c $
   , ("<Print>", spawn myScreenFull)
   -- Screenshot with selection
   , ("S-<Print>", spawn myScrShot)
+  -- mouse move relative 
+  , ("M-M1-k", spawn myMouseMoveUp)
+  , ("M-M1-j", spawn myMouseMoveDown)
+  , ("M-M1-h", spawn myMouseMoveLeft)
+  , ("M-M1-l", spawn myMouseMoveRight)
+  , ("M-M1-u", spawn myMouseClickLeft)
+  , ("M-M1-i", spawn myMouseClickMiddle)
+  , ("M-M1-o", spawn myMouseClickRight)
+
   -- push window into tiling if not floating - float if tiling
   , ("M-t",
 	withFocused (\windowId -> do { floats <- gets (W.floating . windowset);
