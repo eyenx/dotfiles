@@ -50,6 +50,8 @@ myScrShot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
 myMPDPlay="mpc toggle"
 myMPDNext="mpc next"
 myMPDPrev="mpc prev"
+-- because chromium doesn't support shift+insert as primary selection switch from primary to clipboard
+myXclipSwitch="xclip -o -se p | xclip -i -se c" 
 myVolMute="ponymix toggle"
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
@@ -138,6 +140,8 @@ myKeys = \c -> mkKeymap c $
   , ("M1-C-l", spawn myLock)
   -- date
   , ("M-d", spawn myDate)
+  -- xclip switch
+  , ("M-o", spawn myXclipSwitch)
   -- switch pulseoutput
   , ("M-<Escape>", spawn myVolChange)
   -- start browser
