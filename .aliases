@@ -88,6 +88,7 @@ alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/nul
 alias minimal='mp http://128.179.101.9:9010 -nocache'
 alias uzict='wget -qO- http://www.uzic.ch/accueil.php | sed -n '\''s/.*<marquee\ scrollamount\=3><b>\(.*\)<\/b>.*/\1/p'\'
 alias coffeeshop='mplayer -nocache http://coffitivity.com/other/cleanupcut.mp3'
+alias clock='tty-clock -s -c -C 4 -B'
 alias :q='exit'
 alias witch='which'
 alias mu='echo "Welcome to mutt"|cowsay;sleep .5;mutt'
