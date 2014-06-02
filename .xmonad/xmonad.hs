@@ -151,7 +151,7 @@ myKeys = \c -> mkKeymap c $
   -- date
   , ("M-d", spawn myDate)
   -- xclip switch
-  , ("M-o", spawn myXclipSwitch)
+  , ("M-y", spawn myXclipSwitch)
   -- start browser
   , ("M-<F1>", spawn myBrowser)
   -- start alternative browser
