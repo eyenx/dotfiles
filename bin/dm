@@ -1,4 +1,4 @@
 #!/bin/bash
 PATH=$PATH:$HOME/bin
-dmenu_run -b -i -nb '#1f1f1b' -nf '#C2BFB8' -sb '#141414' -sf '#4E7394' -fn 'Zekton-7:Normal'
+dmenu_run -b -i -nb '#1f1f1b' -nf '#C2BFB8' -sb '#141414' -sf '#4E7394' -fn 'Liberation Mono-8:Normal'
 

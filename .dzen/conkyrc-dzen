@@ -11,7 +11,7 @@ out_to_x no
 out_to_console yes
 
 TEXT
-${if_match ${execi 3 wc -l /tmp/.weenotify| awk '{print $1}'}>0}^fg(\#AD4D3D)^i(/home/eye/.xmobar/xbm/im.xbm)^fg()^fg(\#707070) ${execi 3 /home/eye/.conky/weechat_notify.sh} ^fg(\#707070)|$endif \
+${if_match ${execi 3 wc -l /tmp/.weenotify| awk '{print $1}'}>0}^fg(\#AD4D3D)^i(/home/eye/.xmobar/xbm/im.xbm)^fg()^fg(\#707070) ${execi 3 /home/eye/.conky/weechat_notify.sh} ^fg(\#707070)$endif \
 ^fg()^i(/home/eye/.xmobar/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#AD4D3D)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
 ${if_match ${cpu cpu2}>80}^fg(\#AD4D3D)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
 ${if_match ${cpu cpu3}>80}^fg(\#AD4D3D)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
@@ -26,5 +26,5 @@ ${if_mounted /media/roach}${if_match ${fs_used_perc /media/roach}>60}^fg(\#70707
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/pacman1.xbm) ^fg(\#707070)updates^fg() \
 $endif\
-^fg(\#707070)| ^fg()${time %H:%M  } \
+^fg(\#707070)| ^fg()${time %H:%M} \
 ${execi 3 ~/.conky/spacer.sh}
