@@ -11,11 +11,11 @@ out_to_x no
 out_to_console yes
 
 TEXT
-^i(/home/eye/.xmobar/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#ad4d3d)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
-${if_match ${cpu cpu2}>80}^fg(\#ad4d3d)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
-${if_match ${cpu cpu3}>80}^fg(\#ad4d3d)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
-${if_match ${cpu cpu4}>80}^fg(\#ad4d3d)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
-^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#ad4d3d)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
+^i(/home/eye/.xmobar/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#AD4D3D)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
+${if_match ${cpu cpu2}>80}^fg(\#AD4D3D)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
+${if_match ${cpu cpu3}>80}^fg(\#AD4D3D)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
+${if_match ${cpu cpu4}>80}^fg(\#AD4D3D)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
+^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#AD4D3D)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
 ${if_match ${fs_used_perc /}>60}^fg(\#707070)| ^fg()root ^fg(\#AD4D3D)${fs_used_perc /}%^fg() $endif\
 ${if_match ${fs_used_perc /var}>60}^fg(\#707070)| ^fg()var ^fg(\#AD4D3D)${fs_used_perc /var}%^fg() $endif\
 ${if_match ${fs_used_perc /home}>60}^fg(\#707070)| ^fg()home ^fg(\#AD4D3D)${fs_used_perc /home}%^fg() $endif\
@@ -43,5 +43,5 @@ $endif\
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.xmobar/xbm/pacman1.xbm) ^fg(\#707070)updates^fg() \
 $endif\
-^fg(\#707070)| ^fg()${time %H:%M  } \
+^fg(\#707070)| ^fg()${time %H:%M} \
 ${execi 3 ~/.conky/spacer.sh}

@@ -289,9 +289,7 @@ myStartupHook = do
 myDzenLeftBar = "dzen2 -ta l -w 500" ++ myDzenPost
 myDzenRightBar = myConky ++ " | dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
---myDzenRightBar = "/home/eye/.dzen/dzenbar.sh | /usr/bin/dzen2 -ta r -x 500" ++ myDzenPost
---myDzenPost=" -bg '#1f1f1b' -fn 'Zekton:size=7' -h 16 -e 'onstart=lower'"
-myDzenPost=" -bg '#1f1f1b' -fn 'Liberation Mono:size=7' -h 16 -e 'onstart=lower'"
+myDzenPost=" -bg '#1f1f1b' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
@@ -305,8 +303,8 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
                   "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
                   )
- 	, ppSep = "  "
- 	, ppWsSep = dzenColor "#505050" "" "  "
+ 	, ppSep = " "
+ 	, ppWsSep = dzenColor "#505050" "" " "
  	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#A3583B" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
