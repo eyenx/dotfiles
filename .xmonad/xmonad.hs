@@ -59,7 +59,7 @@ myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall conky dzen2 && xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
-myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 1 -fn 'Zekton:size=50' -fg '#4E7394' -ta c -w 1920 -h 1080"
+myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 1 -fn 'Liberation Mono:size=50' -fg '#4E7394' -ta c -w 1920 -h 1080"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
