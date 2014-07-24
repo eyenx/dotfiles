@@ -42,21 +42,21 @@ command! -nargs=* -description='wiki search' wiki tabopen http://en.wikipedia.or
 command! -nargs=* -description='yify search' yify tabopen http://yify-torrents.com/browse-movie/<args>/
 command! -nargs=* -description='yt search' yt tabopen http://youtube.com/results?search_query=<args>
 highlight Bell background-color: inherit; border: 0 none;
-highlight -link=FontFixed CmdLine color: #C2BFB8; font-family: zekton;
+highlight -link=FontFixed CmdLine color: #C2BFB8; font-family: Liberation Mono;
 highlight -link=FontFixed,Normal Comp margin:0;
-highlight CompDesc color: inherit; width: 50%; padding-left: 1em; font-size: 7pt;
+highlight CompDesc color: inherit; width: 50%; padding-left: 1em; font-size: 8pt;
 highlight CompIcon width: 10px; min-width: 10px; display: none; margin-right: .5ex;
-highlight CompItem color: inherit; background: inherit;font-size: 7px; font-family:zekton;
-highlight CompItem[selected] background: #2c2c2c; color: #A3583B; font-size 7px; font-family:zekton;
-highlight CompResult width: 40%; padding-right: 1%; overflow: hidden; font-size: 7pt; font-family: zekton; font-weight: normal;
-highlight CompTitle color: #C2BFB8 ; background: #1f1f1b; font-weight: bold; font-famly: zekton;
+highlight CompItem color: inherit; background: inherit;font-size: 8px; font-family:Liberation Mono;
+Highlight CompItem[selected] background: #2c2c2c; color: #A3583B; font-size 8px; font-family:Liberation Mono;
+highlight CompResult width: 40%; padding-right: 1%; overflow: hidden; font-size: 8pt; font-family: Liberation Mono; font-weight: normal;
+highlight CompTitle color: #C2BFB8 ; background: #1f1f1b; font-weight: bold; font-famly: Liberation Mono;
 highlight CompTitle>* color: #A3583B; font-weight: bold;
 highlight CompTitleSep background: #1f1f1b;
 highlight ErrorMsg color: red ; background: inherit ;
 highlight Filter font-weight: bold; color: #A3583B ;
 highlight FrameIndicator background-color: #1f1f1b; opacity: 0.6; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 highlight Function color: #A3583B ; background: inherit ;
-highlight Hint font-family: zekton; font-size: 9px ; color: #C2BFB8 ; background-color: #1f1f1b ; border: solid 1px #1f1f1b ; position: absolute ;
+highlight Hint font-family: Liberation Mono; font-size: 9px ; color: #C2BFB8 ; background-color: #1f1f1b ; border: solid 1px #1f1f1b ; position: absolute ;
 highlight HintActive background: #A3583B; color: #C2BFB8;
 highlight HintElem background-color: inherit ;
 highlight HintImage opacity: .5 ;
@@ -67,7 +67,7 @@ highlight Message white-space: normal; min-width: 100%; width: 100%; padding-lef
 highlight ModeMsg color: inherit ; background: inherit ; font-weight: bold ;
 highlight MoreMsg color: inherit ; background: inherit ;
 highlight NonText color: lightblue ; background: transparent ; min-height: 16px; padding-left: 2px;
-highlight Normal color: #C2BFB8; background: #1f1f1b; font-family: zekton font-size: 7px;
+highlight Normal color: #C2BFB8; background: #1f1f1b; font-family: Liberation Mono font-size: 8px;
 highlight Object color: #A3583B ; background: inherit ;
 highlight Question color: inherit ; background: inherit ; font-weight: bold;
 highlight Search color: #1f1f1b; background: #A3583B;
