@@ -11,6 +11,7 @@ out_to_x no
 out_to_console yes
 
 TEXT
+${execi 3 /home/eye/.conky/eznotify.sh}\
 ^i(/home/eye/.xmobar/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#AD4D3D)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
 ${if_match ${cpu cpu2}>80}^fg(\#AD4D3D)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
 ${if_match ${cpu cpu3}>80}^fg(\#AD4D3D)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
