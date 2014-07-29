@@ -89,7 +89,6 @@ map -count -modes=n,v -silent Xy <count>:dyt<Return>
 map -count -modes=n,v -silent Xs <count>:source<Space>~/.pentadactylrc<Return>
 map -count -modes=n,v -silent ZR <count>:restart<Return>
 map -count -modes=n,v -silent gI <count>:open<Space>https://mail.google.com/mail/u/0/#inbox<Return>
-set defsearch=duckduckgo
 set editor='urxvt -e vim'
 set fbwhitelist=youtube.com,grooveshark.com,facebook.com,google.com,imdb.com,be-at.tv,soundcloud.com,mixcloud.com,dropbox.com,wilmaa.com,beatport.com,roach,imgur.com
 set passkeys=mail.google.com:jk<Return>,gi,cloud.feedly.com:jk<Return>,ga,gm,gg,s
