@@ -35,8 +35,8 @@ import qualified Data.Map    as M
 
 myTerm    = "urxvtc"
 myTmux = "~/bin/term"
-myBrowser = "chromium"
-myAltBrowser = "firefox"
+myBrowser = "firefox"
+myAltBrowser = "chromium"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 mySkype = "/usr/bin/skype"
