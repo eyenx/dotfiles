@@ -9,8 +9,8 @@ export PATH
 export XDG_CONFIG_HOME
 export EDITOR=vim
 export MPD_HOST=roach
-#export BROWSER=firefox
-export BROWSER=chromium
+export BROWSER=firefox
+#export BROWSER=chromium
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
 #export TERM="rxvt-unicode"
 if [[ -n $TMUX ]]
