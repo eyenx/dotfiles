@@ -94,6 +94,14 @@ set editor='urxvt -e vim'
 "set passkeys=mail.google.com:jk<Return>,gi,cloud.feedly.com:jk<Return>,ga,gm,gg,s
 set showtabline=multitab
 set defsearch=duckduckgo
+"disable smooth scrolling
+set scrollsteps=1
+set scrolltime=0
+"faster scrolling
+map -b j 5j
+map -b k 5k
+map -b h 5h
+map -b l 5l
 "autocmd LocationChange mail.google.com,drive.google.com,feedly.com,tweetdeck.twitter.com :normal! <C-z>
 
 " vim: set ft=pentadactyl:
