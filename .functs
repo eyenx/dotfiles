@@ -152,7 +152,7 @@ bak() {
 mpyt() {
 	[[ -z $@ ]] && echo -e "stream yt videos in full quality directly into mplayer\nusage: mpyt <yturl>" && return 1
 	url=$1
-	mplayer -cache-min 1 $(youtube-dl -g --max-quality 37 $url)
+	mplayer -cache-min 1 $(youtube-dl -g --no-playlist $url)
 }
 tyurl() {
 	[[ -z $@ ]] && echo -e "tinyurl a url\nusage: tyurl <url>" && return 1
