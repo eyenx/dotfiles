@@ -35,8 +35,8 @@ import qualified Data.Map    as M
 
 myTerm    = "urxvtc"
 myTmux = "~/bin/term"
-myBrowser = "firefox"
-myAltBrowser = "chromium"
+myBrowser = "chromium"
+mySecBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
 myWpChgr = "~/bin/wpchgr.pl"
 mySkype = "/usr/bin/skype"
@@ -153,8 +153,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-y", spawn myXclipSwitch)
   -- start browser
   , ("M-<F1>", spawn myBrowser)
-  -- start alternative browser
-  , ("M-S-<F1>", spawn myAltBrowser)
+  -- start second browser
+  , ("M-S-<F1>", spawn mySecBrowser)
   -- start mail app
   , ("M-<F2>", spawn myMail)
   -- start tmux
