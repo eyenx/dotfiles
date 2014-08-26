@@ -18,6 +18,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers 
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.FlexibleManipulate as Flex
+import XMonad.Actions.CycleWS
 
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
@@ -137,6 +138,9 @@ myKeys = \c -> mkKeymap c $
   , ("M-,", sendMessage (IncMasterN 1))
   -- number of windows in master area -1
   , ("M-.", sendMessage (IncMasterN (-1)))
+  -- dual monitor setup
+  , ("M-o", swapNextScreen)
+  , ("M-S-o", shiftNextScreen)
   -- togglestruts
   , ("M-b", sendMessage ToggleStruts)
   -- quit xmonad
@@ -213,7 +217,7 @@ myKeys = \c -> mkKeymap c $
   -- mod-shift-[1..9], send window to workspace n
   [(m ++ k, windows $ f w)
     | (w, k) <- zip (XMonad.workspaces c) (map show [1..9])
-    , (m, f) <- [("M-",W.greedyView), ("M-S-",W.shift)]]
+    , (m, f) <- [("M-",W.view), ("M-S-",W.shift)]] -- was W.greedyView
 
 -- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
