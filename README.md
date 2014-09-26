@@ -1,5 +1,6 @@
 ## wasp
 
-dotfiles of main being used T430s Lenovo notbook
+dotfiles of T430s Lenovo notebook (main used workstation)
 
 https://github.com/eyenx/dotfiles
+
