@@ -57,10 +57,8 @@ myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall conky dzen2 && xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
-myXDisplay="~/bin/xdisplay.sh"
 myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
-myDate="date '+%a, %b %d | %H:%M' | dzen2 -p 1 -fn 'Liberation Mono:size=50' -fg '#A3583B' -ta c -w 1600 -h 900"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
@@ -151,8 +149,6 @@ myKeys = \c -> mkKeymap c $
   , ("M-r", spawn myRest)
   -- lock
   , ("M1-C-l", spawn myLock)
-  -- date
-  , ("M-d", spawn myDate)
   -- xclip switch
   , ("M-y", spawn myXclipSwitch)
   -- start browser
