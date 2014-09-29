@@ -13,5 +13,8 @@ use LWP::Simple;
 # statics
 
 my $url = "http://thepaperwall.com";
+
+# get / regexp / output
+
 get($url) =~ m/.*<div.*active.*href="wallpaper\.php\?.*mblock.*<img src="(\/image\.php\?).*(image=.*)" alt.*<\/a><\/div>/;
 print get($url.$1.$2);
