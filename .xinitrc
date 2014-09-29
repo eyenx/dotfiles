@@ -13,7 +13,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 /usr/bin/xautolock -time 15 -locker slock &
-~/bin/wpotd.pl|feh --bg-scale --no-fehb -
+~/bin/wpotd.pl|feh --bg-scale --no-fehbg -
 xsetroot -solid "#1f1f1b"
 udiskie &
 unclutter &
