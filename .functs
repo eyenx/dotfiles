@@ -196,8 +196,7 @@ fi
 }
 randwp() {
 	[[ -n $@ ]] && echo -e "change wallpaper randomly\nusage: randwp" && return 1
-	wpfl=$(find ~/img/wallpapers/wallbase -iname "wallbase*jpg" -type f|sort -R|head -1)
-	feh --bg-scale --no-fehbg $wpfl
+        perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg -
 }
 
 clntrns() { 
