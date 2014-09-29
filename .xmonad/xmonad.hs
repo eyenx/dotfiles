@@ -35,7 +35,7 @@ import qualified Data.Map    as M
 -- shortkeys
 
 myTerm    = "urxvtc"
-myTmux = "~/bin/term"
+myTmux = "~/bin/tmuxsess"
 myBrowser = "chromium"
 mySecBrowser = "firefox"
 myMail = "mimeo http://mail.google.com"
