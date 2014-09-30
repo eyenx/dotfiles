@@ -14,7 +14,7 @@ fi
 
 /usr/bin/xautolock -time 15 -locker slock &
 perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg - &
-xsetroot -solid "#1f1f1b"
+#xsetroot -solid "#1f1f1b"
 udiskie &
 unclutter &
 urxvtd -f -o -q
