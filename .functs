@@ -1,6 +1,6 @@
 #!/bin/zsh
 aurd(){
-	[[ -z $@ ]] && echo -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
+	[[ -z $@ ]] && lcho -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
 	pkg=$1
 	url="https://aur.archlinux.org/packages/"
 	build="/tmp/aurd/"
@@ -76,6 +76,11 @@ pstop(){
 qload() {
 
 	uptime|sed 's/.*rage:\ \(.*\)/load:\ \1/'|sed 's/,//g'
+}
+psg(){
+    [[ -z $@ ]] && echo -e "ultimate pgrep function\nusage: psg <processname>" && return 1
+    pid=`pgrep -f $1`
+    ps up $(echo $pid)
 }
 
 wiki() {
@@ -237,4 +242,8 @@ fbi(){
   u=`curl -nsk -F "file=@-;filename=stdin" https://paste.eyenx.ch/index.php/file/do_upload/`
   echo $u;
   echo $u|xclip -i;
+}
+transfer() { 
+	[[ -z $@ ]] && echo -e "upload file to transfer.sh\nusage: transfer <filename>" && return 1
+        curl -T $1 https://transfer.sh/$(basename $1)
 }
