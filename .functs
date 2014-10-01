@@ -9,7 +9,7 @@ aurd(){
 	wget -qO- "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
-cowu(){
+aurup(){
 	[[ -n $@ ]] && echo -e "use cower to update all aur pkgs\nusage: cowu" && return 1
     cowb="/tmp/cow"
     [[ -d $cowb ]] || mkdir -p $cowb
