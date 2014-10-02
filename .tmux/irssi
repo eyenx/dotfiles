@@ -1,6 +1,0 @@
-new-window -n irssi 'zsh -c irssi';
-set-window-option -t irssi main-pane-width 96;
-splitw -v "cat /tmp/.irssinicklistfifo";
-selectl main-vertical;
-selectw -t irssi;
-selectp -t 0;
