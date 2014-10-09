@@ -80,7 +80,7 @@ qload() {
 psg(){
     [[ -z $@ ]] && echo -e "ultimate pgrep function\nusage: psg <processname>" && return 1
     pid=`pgrep -f $1`
-    ps up $(echo $pid)
+    ps up $(echo $pid) 2>/dev/null
 }
 
 wiki() {
