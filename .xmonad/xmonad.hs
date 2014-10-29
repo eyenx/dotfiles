@@ -168,7 +168,9 @@ myKeys = \c -> mkKeymap c $
   -- xdotool to move mouse inside flash
   , ("M-S-<F4>", spawn myXdotoolFlashIn)
   -- change wallpaper over net
-  , ("M-<F5>", spawn myWpPattern)
+  , ("M-<F5>", spawn myWpChgr)
+  -- change to random pattern wallpaper
+  , ("M-<F6>", spawn myWpPattern)
   -- start skype 
   , ("M-<F7>", spawn mySkype)
   -- start mplayer stream
