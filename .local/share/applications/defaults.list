@@ -81,6 +81,7 @@ image/x-xbitmap=gpicview.desktop;
 image/x-xcf=gpicview.desktop;
 image/x-xpixmap=gpicview.desktop;
 image/x-xwindowdump=gpicview.desktop;
+text/html=exo-web-browser.desktop;
 text/plain=geany.desktop;
 x-scheme-handler/chrome=exo-web-browser.desktop;
 x-scheme-handler/ftp=exo-web-browser.desktop;

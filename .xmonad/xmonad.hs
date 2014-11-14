@@ -84,7 +84,7 @@ myModMask   = mod4Mask
 altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
-myWorkspaces  = click $ ["web","chat","shell","media","game","labs"]
+myWorkspaces  = click $ ["web","chat","shell","work","media","labs","game" ]
               where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++getIcon ws++"^ca()" |
                       (i,ws) <- zip [1..] w,
                       let n = i ]
@@ -265,6 +265,7 @@ myManageHook = composeAll . concat $
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my6Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my7Shifts]
   ]
   where
 --classes / titles / resources
@@ -275,9 +276,10 @@ myManageHook = composeAll . concat $
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = ["Skype","ts3client_linux_amd64"]
   my3Shifts = []
-  my4Shifts = ["Gimp","MPlayer"]
-  my5Shifts = ["hl2_linux","Steam"]
+  my4Shifts = ["Wfica"]
+  my5Shifts = ["Gimp","MPlayer"]
   my6Shifts = ["VirtualBox"]
+  my7Shifts = ["hl2_linux","Steam"]
 
 -- event handling
 
