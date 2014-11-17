@@ -1,7 +1,7 @@
 # standard
 
 alias ls='ls --color=auto --time-style="+%d/%m/%y %H:%M"'
-alias cl='clear'
+alias clr='clear'
 alias dt='date'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -23,7 +23,7 @@ alias sudo='sudo '
 alias pls='pls'
 alias p='sudo'
 alias sim='sudo vim'
-alias sus='sudo -i'
+alias sus='sudo -s'
 alias sui='sudo -i'
 alias rut='sui'
 alias more='less'
