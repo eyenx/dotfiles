@@ -4,66 +4,28 @@
 *foreground: #C2BFB8
 *fading: 20
 *fadeColor: #1f1f1b
-!URxvt*color0:#1f1f1b
-!URxvt*color1:#FF0000
-!URxvt*color2:#00FF00
-!URxvt*color3:#FFFF00
-!URxvt*color4:#085dad
-!URxvt*color5:#FF00FF
-!URxvt*color6:#00FFFF
-!URxvt*color7:#9e9c96
-!URxvt*color8:#1793d0
-!URxvt*color9:#AA0000
-!URxvt*color10:#00AA00
-!URxvt*color11:#AAAA00
-!URxvt*color12:#6599FF
-!URxvt*color13:#AA00AA
-!URxvt*color14:#00AAAA
-!URxvt*color15:#999999
 ! tangoesque scheme
 ! ! Black (not tango) + DarkGrey
 *color0:  #1f1f1b
 *color8:  #555753
 !! ! DarkRed + Red
-!*color1:  #ab5243
 *color1:  #ad4d3d
-!*color9:  #873d2f
 *color9:  #914031
 !! ! DarkGreen + Green
-!*color2:  #71a736
 *color2:  #77A840
-!*color10: #8ae234
-!*color10: #709450
 *color10: #67993C
 !! ! DarkYellow + Yellow
-!*color3:  #c2b95d
 *color3:  #C2B744
-!*color11: #9c9441
-!*color11: #b8ac32
-!*color11: #9C553A
 *color11: #A3583B
 !! ! DarkBlue + Blue
 !*color4:  #567694
 *color4:  #4E7394
-!*color12: #51667a
-!*color12: #466480
-!*color12: #38526B
-!*color12: #464C8C
 *color12: #38518C
 !! ! DarkMagenta + Magenta
-!*color5:  #8f648b
-!*color5: #8F4F89
 *color5: #A85DA2
-!*color13: #ad7fa8 
-!*color13: #704c6d
-!*color13: #6E3D6A
 *color13: #8C4D87
 !! !DarkCyan + Cyan (both not tango)
-!*color6:  #4c898f
-!*color6:  #5A9DA3
 *color6: #5FA6AD
-!*color14: #45898f
-!*color14: #467B80
 *color14: #5C9499
 !! ! LightGrey + White
 *color7:  #9e9c96
