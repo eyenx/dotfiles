@@ -1,35 +1,72 @@
 ! terminal colors ------------------------------------------------------------
 *fading: 20
 *fadeColor: #1f1f1b
-! tangoesque scheme
-*background: #1f1f1b
-*foreground: #C2BFB8
-! ! Black (not tango) + DarkGrey
-*color0:  #1f1f1b
-*color8:  #555753
-!! ! DarkRed + Red
-*color1:  #ad4d3d
-*color9:  #914031
-!! ! DarkGreen + Green
-*color2:  #77A840
-*color10: #67993C
-!! ! DarkYellow + Yellow
-*color3:  #C2B744
-*color11: #A3583B
-!! ! DarkBlue + Blue
-!*color4:  #567694
-*color4:  #4E7394
-*color12: #38518C
-!! ! DarkMagenta + Magenta
-*color5: #A85DA2
-*color13: #8C4D87
-!! !DarkCyan + Cyan (both not tango)
-*color6: #5FA6AD
-*color14: #5C9499
-!! ! LightGrey + White
-*color7:  #9e9c96
-*color15: #9f9f9f
-!
+! --- ~/.Xresources ------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! --- generated with 4bit Terminal Color Scheme Designer -----------------------
+! ------------------------------------------------------------------------------
+! --- http://ciembor.github.com/4bit -------------------------------------------
+! ------------------------------------------------------------------------------
+
+! --- special colors ---
+
+*background: #303030
+*foreground: #e3e3e3
+
+! --- standard colors ---
+
+! black
+*color0: #1c1c1c
+
+! bright_black
+*color8: #303030
+
+! red
+*color1: #a65c49
+
+! bright_red
+*color9: #c88f81
+
+! green
+*color2: #49a65c
+
+! bright_green
+*color10: #81c88f
+
+! yellow
+*color3: #94a649
+
+! bright_yellow
+*color11: #bac881
+
+! blue
+*color4: #5c49a6
+
+! bright_blue
+*color12: #8f81c8
+
+! magenta
+*color5: #a64994
+
+! bright_magenta
+*color13: #c881ba
+
+! cyan
+*color6: #4994a6
+
+! bright_cyan
+*color14: #81bac8
+
+! white
+*color7: #e3e3e3
+
+! bright_white
+*color15: #efefef
+
+
+! ------------------------------------------------------------------------------
+! --- end of terminal colors section -------------------------------------------
+! ------------------------------------------------------------------------------
 ! other urxvt options
 URxvt.perl-ext: default,url-select
 !,tabbed

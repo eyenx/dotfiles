@@ -60,7 +60,7 @@ myRest="killall conky dzen2 && xmonad --restart; notify-send 'xmonad restarted'"
 myStream="mplayer -nocache http://roach:8000" 
 myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
--- myShowDate="echo \"^fg(#A3583B)$(date '+%a, %b %d | %H:%M')\" | dzen2 -ta r -x 500 -bg '#1f1f1b' -fn 'Liberation Mono:size=8' -h 16 -p 2"
+-- myShowDate="echo \"^fg(#81bac8)$(date '+%a, %b %d | %H:%M')\" | dzen2 -ta r -x 500 -bg '#303030' -fn 'Liberation Mono:size=8' -h 16 -p 2"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
@@ -95,8 +95,8 @@ getIcon i = "^i("++icondir++i++".xbm"++")"
   where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
-myNormalBorderColor  = "#1f1f1b"
-myFocusedBorderColor = "#A3583B"
+myNormalBorderColor  = "#303030"
+myFocusedBorderColor = "#81bac8"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -294,13 +294,13 @@ myStartupHook = do
 myDzenLeftBar = "dzen2 -ta l -w 500" ++ myDzenPost
 myDzenRightBar = myConky ++ " | dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
-myDzenPost=" -bg '#1f1f1b' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
+myDzenPost=" -bg '#303030' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
-	ppCurrent = dzenColor "#A3583B" "" 
-	, ppHidden = dzenColor "#C2BFB8" "" 
- 	, ppUrgent = dzenColor "#1f1f1b" "#A3583B" 
+	ppCurrent = dzenColor "#81bac8" "" 
+	, ppHidden = dzenColor "#e3e3e3" "" 
+ 	, ppUrgent = dzenColor "#303030" "#81bac8" 
   , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#707070" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
@@ -310,7 +310,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   )
  	, ppSep = " "
  	, ppWsSep = dzenColor "#505050" "" " "
- 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#A3583B" "" . shorten 50
+ 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#81bac8" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
 
