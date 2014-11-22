@@ -1,10 +1,9 @@
 ! terminal colors ------------------------------------------------------------
-*background: #1f1f1b
-!*foreground: #9e9c96
-*foreground: #C2BFB8
 *fading: 20
 *fadeColor: #1f1f1b
 ! tangoesque scheme
+*background: #1f1f1b
+*foreground: #C2BFB8
 ! ! Black (not tango) + DarkGrey
 *color0:  #1f1f1b
 *color8:  #555753
