@@ -12,37 +12,36 @@ out_to_console yes
 
 TEXT
 ${execi 3 /home/eye/.conky/eznotify.sh}\
-^i(/home/eye/.dzen/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#a65c49)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
+${if_match ${cpu cpu0}>30}^i(/home/eye/.dzen/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#a65c49)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
 ${if_match ${cpu cpu2}>80}^fg(\#a65c49)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
 ${if_match ${cpu cpu3}>80}^fg(\#a65c49)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
 ${if_match ${cpu cpu4}>80}^fg(\#a65c49)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#a65c49)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
-${if_match ${fs_used_perc /}>60}^fg(\#707070)| ^fg()root ^fg(\#a65c49)${fs_used_perc /}%^fg() $endif\
-${if_match ${fs_used_perc /var}>60}^fg(\#707070)| ^fg()var ^fg(\#a65c49)${fs_used_perc /var}%^fg() $endif\
-${if_match ${fs_used_perc /home}>60}^fg(\#707070)| ^fg()home ^fg(\#a65c49)${fs_used_perc /home}%^fg() $endif\
+$else^fg()$endif \
+${if_match $memperc>70}^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/mem1.xbm) ^fg(\#a65c49)$memperc%^fg()$else^fg()$endif \
+${if_match ${fs_used_perc /}>80}^fg(\#707070) ^fg()root ^fg(\#a65c49)${fs_used_perc /}%^fg() $endif\
+${if_match ${fs_used_perc /var}>80}^fg(\#707070) ^fg()var ^fg(\#a65c49)${fs_used_perc /var}%^fg() $endif\
+${if_match ${fs_used_perc /home}>80}^fg(\#707070) ^fg()home ^fg(\#a65c49)${fs_used_perc /home}%^fg() $endif\
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
 ${else}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/batt1half.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/batt1half.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
 ${else}\
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/batt1empty.xbm) ^fg(\#ad4d3d) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/batt1empty.xbm) ^fg(\#ad4d3d) ${execi 120 ~/.conky/batmerge.sh}% BAT LOW^fg()\
 ${execi 900 notify-send -i info "Battery low"}\
 $endif\
 $endif\
 ${else}\
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/ac8.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
+^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/ac8.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
 $endif\
-${if_existing /sys/class/net/eth0/operstate up}^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/net_wired.xbm) ^i(/home/eye/.dzen/xbm/uparrow8.xbm)^fg(\#707070) ${upspeed eth0} ^fg()^i(/home/eye/.dzen/xbm/downarrow8.xbm) ^fg(\#707070)${downspeed eth0}^fg() \
+${if_existing /sys/class/net/eth0/operstate up}^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/net_wired.xbm) ^fg() \
 $else \
-${if_existing /sys/class/net/wlan0/operstate up}^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlan0} \
-^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg() ^fg(\#707070)|^fg()\
-^i(/home/eye/.dzen/xbm/uparrow8.xbm)^fg(\#707070) ${upspeed wlan0} ^fg()^i(/home/eye/.dzen/xbm/downarrow8.xbm) ^fg(\#707070)${downspeed wlan0}^fg() \
+${if_existing /sys/class/net/wlan0/operstate up}^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlan0} \
+^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg() \
 $endif\
 $endif\
-${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/pacman1.xbm) ^fg(\#707070)updates^fg() \
+${if_match ${execi 3600 pacman -Quwc -l}>0}\
+^fg(\#707070) ^fg()^i(/home/eye/.dzen/xbm/pacman1.xbm)^fg() \
 $endif\
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/clock5.xbm) ^fg(\#707070)${time %H:%M }^fg()\
 ${execi 3 ~/.conky/spacer.sh}
