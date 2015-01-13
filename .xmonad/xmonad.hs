@@ -84,7 +84,7 @@ myModMask   = mod4Mask
 altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
-myWorkspaces  = click $ ["web","chat","shell","work","media","labs","game" ]
+myWorkspaces  = click $ ["web","shell","work","media","dev" ]
               where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++getIcon ws++"^ca()" |
                       (i,ws) <- zip [1..] w,
                       let n = i ]
@@ -262,22 +262,18 @@ myManageHook = composeAll . concat $
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 2) | x <- my3Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my6Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my7Shifts]
   ]
   where
 --classes / titles / resources
-  myCFloats = ["MPlayer","Gimp","VirtualBox","Steam"]
-  myTFloats = ["Downloads", "Save As"]
+  myCFloats = []
+  myTFloats = []
   myRFloats = []
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
   my1Shifts = ["Firefox","Chromium"]
-  my2Shifts = ["Skype","ts3client_linux_amd64"]
-  my3Shifts = []
-  my4Shifts = ["Wfica"]
-  my5Shifts = ["Gimp","MPlayer"]
-  my6Shifts = ["VirtualBox"]
-  my7Shifts = ["hl2_linux","Steam"]
+  my2Shifts = ["ts3client_linux_amd64","Pidgin"]
+  my3Shifts = ["Wfica"]
+  my4Shifts = ["Gimp","MPlayer"]
+  my5Shifts = ["VirtualBox"]
 
 -- event handling
 

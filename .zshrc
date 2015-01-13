@@ -8,9 +8,7 @@ ZSH=$HOME/.omzsh
 #if [[ $(echo $TTY|cut -c 6-8) == "tty" ]]; then
 #	ZSH_THEME="eye_`hostname`"
 #else
-#ZSH_THEME="eye_`hostname`"
-#ZSH_THEME="eye_`hostname`_pl"
-ZSH_THEME="eye_`hostname`"
+ZSH_THEME="eye"
 #fi
 
 # Example aliases
@@ -39,3 +37,5 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(vi-mode git github extract archlinux gpg-agent python perl nyan svn fasd encode64 perl urltools zsh-syntax-highlighting systemd catimg)
 source $ZSH/oh-my-zsh.sh
+#temporary fix
+unset GREP_OPTIONS

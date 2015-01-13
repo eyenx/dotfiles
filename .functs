@@ -235,20 +235,24 @@ rtmp_sniff(){
     rtmpsrv
     sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -m owner \! --uid-owner root -j REDIRECT
 }
-# pastebin
-fbu(){
-	[[ -z $@ ]] && echo -e "upload file to filebin\nusage: fbu <filename>" && return 1
-  u=`curl -nsk -F "file=@$1" https://paste.eyenx.ch/index.php/file/do_upload/`
-  echo $u;
-  echo $u|xclip -i;
-}
-fbi(){
-	[[ -n $@ ]] && echo -e "upload stdin to filebin\nusage: fbi <stdin>\nexample: echo \"upload\" | fbi " && return 1
-  u=`curl -nsk -F "file=@-;filename=stdin" https://paste.eyenx.ch/index.php/file/do_upload/`
-  echo $u;
-  echo $u|xclip -i;
-}
+# transfer
 transfer() { 
-	[[ -z $@ ]] && echo -e "upload file to transfer.sh\nusage: transfer <filename>" && return 1
-        curl -T $1 https://transfer.sh/$(basename $1)
-}
+if [ $# -eq 0 ]; then 
+echo "No arguments specified. Usage:" 
+echo "$ transfer /tmp/test.md" 
+echo "$ cat /tmp/test.md | transfer test.md" 
+return 1 
+fi 
+
+# write to output to tmpfile because of progress bar 
+tmpfile=$( mktemp -t transferXXX ); 
+
+if tty -s; then 
+basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); 
+curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; 
+else 
+curl --progress-bar --upload-file "-" "https://transfer.sh/$1" 
+fi 
+
+cat $tmpfile; rm -f $tmpfile; 
+} 

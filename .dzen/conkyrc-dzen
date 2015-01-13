@@ -12,14 +12,14 @@ out_to_console yes
 
 TEXT
 ${execi 3 /home/eye/.conky/eznotify.sh}\
-^i(/home/eye/.dzen/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#c88f81)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
-${if_match ${cpu cpu2}>80}^fg(\#c88f81)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
-${if_match ${cpu cpu3}>80}^fg(\#c88f81)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
-${if_match ${cpu cpu4}>80}^fg(\#c88f81)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
-^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#c88f81)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
-${if_match ${fs_used_perc /}>60}^fg(\#707070)| ^fg()root ^fg(\#c88f81)${fs_used_perc /}%^fg() $endif\
-${if_match ${fs_used_perc /var}>60}^fg(\#707070)| ^fg()var ^fg(\#c88f81)${fs_used_perc /var}%^fg() $endif\
-${if_match ${fs_used_perc /home}>60}^fg(\#707070)| ^fg()home ^fg(\#c88f81)${fs_used_perc /home}%^fg() $endif\
+^i(/home/eye/.dzen/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#a65c49)${cpu cpu1}%^fg()$else^fg(\#707070)${cpu cpu1}%^fg()$endif \
+${if_match ${cpu cpu2}>80}^fg(\#a65c49)${cpu cpu2}%^fg()$else^fg(\#707070)${cpu cpu2}%^fg()$endif \
+${if_match ${cpu cpu3}>80}^fg(\#a65c49)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu cpu3}%^fg()$endif \
+${if_match ${cpu cpu4}>80}^fg(\#a65c49)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
+^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/mem1.xbm) ${if_match $memperc>70}^fg(\#a65c49)$memperc%^fg()$else^fg(\#707070)$memperc%^fg()$endif \
+${if_match ${fs_used_perc /}>60}^fg(\#707070)| ^fg()root ^fg(\#a65c49)${fs_used_perc /}%^fg() $endif\
+${if_match ${fs_used_perc /var}>60}^fg(\#707070)| ^fg()var ^fg(\#a65c49)${fs_used_perc /var}%^fg() $endif\
+${if_match ${fs_used_perc /home}>60}^fg(\#707070)| ^fg()home ^fg(\#a65c49)${fs_used_perc /home}%^fg() $endif\
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
 ^fg(\#707070)| ^fg()^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg()\
