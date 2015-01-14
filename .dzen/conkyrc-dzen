@@ -23,8 +23,7 @@ ${if_match ${fs_used_perc /}>80}root ^fg(\#a65c49)${fs_used_perc /}%^fg(\#707070
 ${if_match ${fs_used_perc /var}>80}^fg(\#707070) · ^fg()var ^fg(\#a65c49)${fs_used_perc /var}%^fg(\#707070) · ^fg()$endif\
 ${if_match ${fs_used_perc /home}>80}^fg(\#707070) · ^fg()home ^fg(\#a65c49)${fs_used_perc /home}%^fg(\#707070) · ^fg()$endif\
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
-${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
-^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#707070) · ^fg()\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>50}\
 ${else}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
 ^i(/home/eye/.dzen/xbm/batt1half.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#707070) · ^fg()\
@@ -33,8 +32,6 @@ ${else}\
 ${execi 900 notify-send -i info "Battery low"}\
 $endif\
 $endif\
-${else}\
-^i(/home/eye/.dzen/xbm/ac8.xbm) ^fg(\#707070) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#707070) · ^fg()\
 $endif\
 ${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#707070) · ^fg()\
 $else \
