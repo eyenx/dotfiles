@@ -18,7 +18,7 @@ ${if_match ${cpu cpu3}>80}^fg(\#a65c49)${cpu cpu3}%^fg()$else^fg(\#707070)${cpu 
 ${if_match ${cpu cpu4}>80}^fg(\#a65c49)${cpu cpu4}%^fg()$else^fg(\#707070)${cpu cpu4}%^fg()$endif \
 ^fg(\#707070) · ^fg()\
 $endif\
-${if_match $memperc>70}^i(/home/eye/.dzen/xbm/mem1.xbm) ^fg(\#a65c49)$memperc%^fg(\#707070) · ^fg()$endif \
+${if_match $memperc>70}^i(/home/eye/.dzen/xbm/mem1.xbm) ^fg(\#a65c49)$memperc%^fg(\#707070) · ^fg()$endif\
 ${if_match ${fs_used_perc /}>80}root ^fg(\#a65c49)${fs_used_perc /}%^fg(\#707070) · ^fg()$endif\
 ${if_match ${fs_used_perc /var}>80}^fg(\#707070) · ^fg()var ^fg(\#a65c49)${fs_used_perc /var}%^fg(\#707070) · ^fg()$endif\
 ${if_match ${fs_used_perc /home}>80}^fg(\#707070) · ^fg()home ^fg(\#a65c49)${fs_used_perc /home}%^fg(\#707070) · ^fg()$endif\
@@ -34,7 +34,7 @@ $endif\
 $endif\
 $endif\
 ${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#707070) · ^fg()\
-$else \
+$else\
 ${if_existing /sys/class/net/wlan0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlan0} \
 ^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg(\#707070) · ^fg()\
 $endif\
