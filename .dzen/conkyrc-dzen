@@ -42,7 +42,7 @@ $endif\
 ${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
 ^i(/home/eye/.dzen/xbm/pacman1.xbm)^fg(\#707070) · ^fg()\
 $endif\
-${if_match ${execi 600 ~/.conky/gmail.py | wc -l}>0}\
+${if_match ${execi 600 ~/.conky/gmail.py}>0}\
 ^i(/home/eye/.dzen/xbm/mail.xbm)^fg(\#707070) · ^fg()\
 $endif\
 ${execi 3 ~/.conky/spacer.sh}
