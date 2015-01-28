@@ -39,7 +39,7 @@ ${if_existing /sys/class/net/wlan0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wire
 ^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg(\#707070) · ^fg()\
 $endif\
 $endif\
-${if_match ${execi 3600 pacman -Qu|wc -l}>0}\
+${if_match ${execi 600 pacman -Qu|wc -l}>0}\
 ^i(/home/eye/.dzen/xbm/pacman1.xbm)^fg(\#707070) · ^fg()\
 $endif\
 ${if_match ${execi 600 ~/.conky/gmail.py}>0}\
