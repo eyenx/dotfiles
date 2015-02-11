@@ -122,9 +122,8 @@ alias pacupg='sudo packer -Su'
 alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
 # xrandr
 
-alias dvi_office='xrandr --output HDMI1 --auto --rotate left --left-of LVDS1'
+alias dvi_office='xrandr --output HDMI3 --auto --rotate left --left-of LVDS1'
 alias dvi_home='xrandr --output HDMI3 --auto --right-of LVDS1'
-alias dvi_off='xrandr --output HDMI1 --off'
 
 
 # dotfiles git alias
