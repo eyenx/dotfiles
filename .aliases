@@ -120,8 +120,10 @@ alias spac='sudo pacman'
 alias pacups='pacman -Qu'
 alias pacupg='sudo packer -Su'
 alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
+
 # xrandr
 
+alias xr='xrandr'
 alias xr_office='xrandr --output HDMI3 --auto --rotate left --left-of LVDS1'
 alias xr_home='xrandr --output HDMI3 --auto --right-of LVDS1'
 
