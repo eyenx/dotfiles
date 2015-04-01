@@ -9,6 +9,7 @@ aurd(){
 	wget -qO- "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
+
 aurup(){
 	[[ -n $@ ]] && echo -e "use cower to build updates for all aur pkgs\nusage: aurup" && return 1
     cowb="/tmp/cow"
@@ -22,6 +23,7 @@ aurup(){
         cd $cowb;
     done
 }
+
 pacinsaur(){
     [[ -n $@ ]] && echo -e "install all build aur pkgs under /tmp/cow\nusage: pacinsaur" && return 1
     sudo pacman -U $(find /tmp/cow -iname "*pkg*z") && rm -rf /tmp/cow
@@ -37,9 +39,11 @@ cowd(){
     cd $cowb/$pkg
     makepkg -si
 }
+
 mymem() {
 ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g
 }
+
 cpssh() {
 	[[ -z $@ ]] && echo -e "copy file to rhost over ssh tunnel\nusage: cpssh <rhost> <lfile> [rfile]" && return 1
 	_s="ssh -e none"
@@ -48,6 +52,7 @@ cpssh() {
 	rf=${3:-$2}
 	cat $lf | eval $_s $rh cat > $rf
 }
+
 sshtun() {
 	[[ -z $@ ]] && echo -e "create an local ssh tunnel from your machine to another one\nusage: sshtun <rhost> <rport> [locport]" && return 1
 	rh=$1
@@ -57,31 +62,37 @@ sshtun() {
 	_cmd="ssh -f -g -N -L"
 	eval $_cmd $lp:$lh:$rp $rh
 }
-sshtun_trans(){
-    [[ -n $@ ]] && echo -e "create a ssh tunnel to roach:9091 (transmission web/rpc listening port)\nusage:ssh_transmission" && return 1
-    ssh -fNL 9091:roach:9091 home
+
+sshtuntrns(){
+    [[ -n $@ ]] && echo -e "create a ssh tunnel to roach:9091 (transmission web/rpc listening port)\nusage:sshtuntrns" && return 1
+    ssh -fNL 9091:192.168.1.10:9091 home
 }
-ssh_trans(){
-    [[ -z $@ ]] && echo -e "use bin/trnsremote.sh over ssh\nusage:ssh_trans <list/magnetlink>" && return 1
-    ssh home "bin/trnsremote.sh $1"
+
+sshtrns(){
+    [[ -z $@ ]] && echo -e "transmission-remote over ssh\nusage: sshtrns <parameter>"
+    ssh rp "transmission-remote 192.168.1.10 $@"
 }
+
 calc() { 
 	par=$*
 	echo -e "$par ="
-    calc=$(ghc -e $par)
+        calc=$(ghc -e $par)
     	echo $calc
 }
+
 pstop(){
         [[ -n $@ ]] && echo -e "find out the most ressources eating processes" && return 1
         echo -ne "CpuTop:\t"
         ps axu|awk '{print $3,$11}'|sort -n|tail -1
         echo -ne "MemTop:\t"
         ps axu|awk '{print $4,$11}'|sort -n|tail -1
-    }
+}
+
 qload() {
 
 	uptime|sed 's/.*rage:\ \(.*\)/load:\ \1/'|sed 's/,//g'
 }
+
 psg(){
     [[ -z $@ ]] && echo -e "ultimate pgrep function\nusage: psg <processname>" && return 1
     pid=`pgrep -f $1`
@@ -114,16 +125,10 @@ chkhp()	{
 }
 
 trnsl() {
-	#[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <fromlang> <tolang> <text>" && return 1
 	[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <tolang> <text>" && return 1
-	#tgl=$2
 	tgl=$1
-#	fgl=$1
-	#shift
 	shift
-	#text=$@
 	text=${@//\ /\+}
-#	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=$fgl&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
 	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=auto&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
 }
 
@@ -133,11 +138,13 @@ dwnlft() {
 	url=$2
 	wget -erobots=off -U "Mozilla/5.0" -H -r -l1 -w5 -t1 -N --random-wait -P/tmp/hpdwn -nd -np -A.$1 $url
 }
+
 expurl() {
 	[[ -z $@ ]] && echo -e "expand a url like is.gd or goo.gl\nusage: expurl <url>" && return 1
 	url=$1
 	curl -sIL $url &>/dev/null|egrep "^Location"
 }
+
 bmi() {
 	[[ -z $@ ]] && echo -e "calculate the body mass index\nusage: bmi <weight kg> <height in cm>" && return 1
 	wgh=$1
@@ -152,6 +159,7 @@ bmi() {
 	fi
 	printf "Your BMI is %.2f.\nYou are in the %s range.\n" $bmi $res
 }
+
 weather() {
 	### Yahoo weather RSS
 	RSS='http://weather.yahooapis.com/forecastrss'
@@ -161,17 +169,20 @@ weather() {
 	RET=$(curl -s "$URL" | grep "C<BR" | sed 's/^\(.*\)<.*$/\1/')
 	echo $RET
 }
+
 bak() {
 	[[ -z $@ ]] && echo -e "backup file with date\nusage: bak <filename>" && return 1
 	fl=$1
 	date=$(date +%Y%m%d)
 	cp $1{,.$date.bak}
 }
+
 mpyt() {
 	[[ -z $@ ]] && echo -e "stream yt videos in full quality directly into mplayer\nusage: mpyt <yturl>" && return 1
 	url=$1
 	mplayer -cache-min 1 $(youtube-dl -g --no-playlist $url)
 }
+
 tyurl() {
 	[[ -z $@ ]] && echo -e "tinyurl a url\nusage: tyurl <url>" && return 1
 	longurl=$1
@@ -179,10 +190,12 @@ tyurl() {
 	echo -e "here you go, it was xclipped...\n\n---------------------------\n$shrturl\n---------------------------"
 	echo "$shrturl" | xclip -i -se c
 }
+
 secpwd(){
     [[ -z $@ ]] && echo -e "get a secpwd from /dev/urandom\nusage: secpwd <number of characters>" && return 1
     cat /dev/urandom | tr -dc "[A-Za-z0-9]^*#_+-=:.;,^!?$£€@"|fold -w $1|head -5
 }
+
 cdup() {
 	[[ -z $@ ]] && echo -e "cd out of directory quicker\nusage: cdup <#ofdirs>" && return 1
 	local x="";
@@ -204,6 +217,7 @@ title() {
 		print -Pn "\ek$1:q\e\\"
 fi
 }
+
 randwp() {
 	[[ -n $@ ]] && echo -e "change wallpaper randomly\nusage: randwp" && return 1
         perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg -
@@ -218,16 +232,19 @@ clntrns() {
             $trns $hst -t $id -r
         done
 }
+
 toavi() {
 	[[ -z $@ ]] && echo -e "ffmpeg a file to avi\nusage: toavi <filename>" && return 1
 	fl=$1
 	ffmpeg -i $fl -vcodec copy -acodec ac3 ${fl:0:-4}.avi
 }
+
 gdrv() {
 	[[ -n $@ ]] && echo -e "use grive-sync in your grive folder" && return 1
 	g="$HOME/.g"
 	cd $g; grive;cd - >/dev/null
 }
+
 ## good gotbletu rtmp functions
 rtmp_sniff(){
     [[ -n $@ ]] && echo -e "rtmp sniff w/ iptables rules to get rtmp url\nusage: rtmp_sniff" && return 1;
@@ -237,22 +254,22 @@ rtmp_sniff(){
 }
 # transfer
 transfer() { 
-if [ $# -eq 0 ]; then 
-echo "No arguments specified. Usage:" 
-echo "$ transfer /tmp/test.md" 
-echo "$ cat /tmp/test.md | transfer test.md" 
-return 1 
-fi 
+    if [ $# -eq 0 ]; then 
+    echo "No arguments specified. Usage:" 
+    echo "$ transfer /tmp/test.md" 
+    echo "$ cat /tmp/test.md | transfer test.md" 
+    return 1 
+    fi 
 
-# write to output to tmpfile because of progress bar 
-tmpfile=$( mktemp -t transferXXX ); 
+    # write to output to tmpfile because of progress bar 
+    tmpfile=$( mktemp -t transferXXX ); 
 
-if tty -s; then 
-basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); 
-curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; 
-else 
-curl --progress-bar --upload-file "-" "https://transfer.sh/$1" 
-fi 
+    if tty -s; then 
+    basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); 
+    curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; 
+    else 
+    curl --progress-bar --upload-file "-" "https://transfer.sh/$1" 
+    fi 
 
-cat $tmpfile; rm -f $tmpfile; 
+    cat $tmpfile; rm -f $tmpfile; 
 } 

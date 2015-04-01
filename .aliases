@@ -69,6 +69,7 @@ alias hist='fc -li 1'
 alias ddwn='wget $(xclip -o) -P /tmp/dwn/'
 alias ytdl='mkdir -p /tmp/yt && youtube-dl --no-playlist -q -o "/tmp/yt/%(title)s.%(ext)s" $(xclip -o) &'
 alias mpcyt='mpyt $(xclip -o)'
+alias sandstorm="mp -nocache http://a.tumblr.com/tumblr_m3eat8besa1r3sgeio1.mp3" 
 alias gn='geeknote'
 alias gnc='gn create'
 alias vb='vboxmanage'
@@ -94,6 +95,7 @@ alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/nul
 alias uzic='mp http://128.179.101.9:9010 -nocache'
 alias gbfm='mp http://gbs03.de:7220/ -nocache'
 alias radio32='mp http://rstreaming.solnet.ch:8000/radio32 -nocache'
+alias difm='mp "http://pub4.di.fm/di_minimal_aac?type=.flv" -nocache'
 alias clock='tty-clock -s -c -C 6 -B'
 alias :q='exit'
 alias witch='which'
@@ -125,7 +127,7 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 
 alias xr='xrandr'
 alias xr_office='xrandr --output HDMI3 --auto --rotate left --left-of LVDS1'
-alias xr_home='xrandr --output HDMI3 --auto --right-of LVDS1'
+alias xr_home='xrandr --output HDMI3 --auto --rotate normal --right-of LVDS1'
 
 
 # dotfiles git alias

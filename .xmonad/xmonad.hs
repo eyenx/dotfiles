@@ -47,13 +47,11 @@ myXdotoolFlashIn = "xdotool mousemove 940 370;xdotool keyup Super_L;xdotool clic
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
 myScrShot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
-myMPDPlay="mpc toggle"
-myMPDNext="mpc next"
-myMPDPrev="mpc prev"
 -- because chromium doesn't support shift+insert as primary selection switch from primary to clipboard
 myXclipSwitch="xclip -o -se p | xclip -i -se c" 
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
+myVolMute="ponymix toggle"
 myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall conky dzen2 trayer && ~/bin/mytrayer.sh && xmonad --restart; notify-send 'xmonad restarted'"
@@ -173,17 +171,12 @@ myKeys = \c -> mkKeymap c $
   , ("M-<F7>", spawn mySkype)
   -- start mplayer stream
   , ("M-<F8>", spawn myStream)
-  -- MPD controls
-  -- MPDPrev
-  , ("<XF86AudioPrev>", spawn myMPDPrev)
-  -- MPDPlay
-  , ("<XF86AudioPlay>", spawn myMPDPlay)
-  -- MPDNext
-  , ("<XF86AudioNext>", spawn myMPDNext)
   -- VolDown
   , ("<XF86AudioLowerVolume>", spawn myVolDown)
   -- VolUp
   , ("<XF86AudioRaiseVolume>", spawn myVolUp)
+  -- Mute 
+  , ("<XF86AudioMute>", spawn myVolMute)
   -- Screenshot full display
   , ("<Print>", spawn myScreenFull)
   -- Screenshot with selection
