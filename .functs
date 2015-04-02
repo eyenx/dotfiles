@@ -218,8 +218,8 @@ title() {
 fi
 }
 
-randwp() {
-	[[ -n $@ ]] && echo -e "change wallpaper randomly\nusage: randwp" && return 1
+rwp() {
+	[[ -n $@ ]] && echo -e "change wallpaper randomly\nusage: rwp" && return 1
         perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg -
 }
 
@@ -273,3 +273,17 @@ transfer() {
 
     cat $tmpfile; rm -f $tmpfile; 
 } 
+cmdfm(){
+    # taken from https://github.com/llaine/cmdfm
+    CLIENTID=2cd0c4a7a6e5992167a4b09460d85ece
+    # cmdfm api
+    APIURL="https://cmd.fm/api/tracks/search/"
+    # test chosen genre
+    test -z $1 && echo -e "Please select a genre\nexample: cmdfm minimal" && return 1
+    GENRE=$1
+    # play
+    while : 
+        do  STREAMURL=`curl -sk ${APIURL}\?genre=${GENRE}\&limit=1 |  sed 's/.*stream_url\":\"\(http.*stream\)\",.*/\1/g'`
+        mplayer -quiet -nocache "${STREAMURL}?client_id=${CLIENTID}" &>/dev/null 
+    done
+}
