@@ -38,7 +38,7 @@ myTerm    = "urxvtc"
 myTmux = "~/bin/tmuxsess"
 myBrowser = "chromium"
 mySecBrowser = "firefox"
-myMail = "mimeo http://mail.google.com"
+myMail = "mimeo http://inbox.google.com"
 myWpChgr = "perl -e 'use LWP::Simple;use JSON;print get(from_json(get(\"https://api.desktoppr.co/1/wallpapers/random\"),{utf8 => 1})->{\"response\"}->{\"image\"}->{\"url\"})' | feh --bg-scale --no-fehbg -"
 myWpPattern = "~/bin/randompatternsvg.rb > /tmp/.w.svg && feh --magick-timeout 1 --bg-tile --no-fehbg /tmp/.w.svg"
 mySkype = "/usr/bin/skype"
@@ -250,8 +250,8 @@ myManageHook = composeAll . concat $
   , [title =? t --> doFloat | t <- myTFloats]
   , [resource =? r --> doFloat | r <- myRFloats]
   , [(className =? i <||> title =? i <||> resource =? i) --> doIgnore | i <- myIgnores]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 0) | x <- my1Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 1) | x <- my2Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 0) | x <- my1Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 2) | x <- my3Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
@@ -263,7 +263,7 @@ myManageHook = composeAll . concat $
   myRFloats = []
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
   my1Shifts = ["Firefox","Chromium"]
-  my2Shifts = ["ts3client_linux_amd64","Pidgin"]
+  my2Shifts = ["ts3client_linux_amd64","Pidgin","crx_nckgahadagoaajjgafhacjanaoiihapd"]
   my3Shifts = ["Wfica"]
   my4Shifts = ["Gimp","MPlayer"]
   my5Shifts = ["VirtualBox"]
