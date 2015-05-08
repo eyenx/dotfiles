@@ -12,6 +12,7 @@ export MPD_HOST=roach
 #export BROWSER=firefox
 export BROWSER=chromium
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 #export TERM="rxvt-unicode"
 if [[ -n $TMUX ]]
     then
@@ -34,3 +35,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 #	toilet -f mono12 -F metal -F border "welcome"
 #	jp2a  --height=50 ~/img/faces/face4.jpg	
 #fi
+#

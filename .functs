@@ -273,6 +273,16 @@ transfer() {
 
     cat $tmpfile; rm -f $tmpfile; 
 } 
+#iotek vps
+io(){
+    f=$(mktemp)
+    tty -s && cat $1 > ${f} || cat > ${f}
+    md5=`md5sum ${f} | cut -c -6` 
+    cat ${f} | ssh io "cat > pub/${md5}"
+    rm ${f}
+    echo "http://d.eyenx.ch/${md5}" 
+    echo "http://d.eyenx.ch/${md5}" |xclip -i
+}
 cmdfm(){
     # taken from https://github.com/llaine/cmdfm
     CLIENTID=2cd0c4a7a6e5992167a4b09460d85ece
