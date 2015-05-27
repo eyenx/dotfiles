@@ -275,13 +275,16 @@ transfer() {
 } 
 #iotek vps
 io(){
-    f=$(mktemp)
-    tty -s && cat $1 > ${f} || cat > ${f}
-    md5=`md5sum ${f} | cut -c -6` 
-    cat ${f} | ssh io "cat > pub/${md5}"
-    rm ${f}
-    echo "http://d.eyenx.ch/${md5}" 
-    echo "http://d.eyenx.ch/${md5}" |xclip -i
+    if tty -s; then
+        f=$1
+    else
+        f=$(mktemp -t XXXXXX)
+        cat > ${f}
+    fi
+    fn=`basename $f`
+    cat ${f} | ssh io "cat > pub/${fn}"
+    echo "http://d.eyenx.ch/${fn}" 
+    echo "http://d.eyenx.ch/${fn}" |xclip -i
 }
 cmdfm(){
     # taken from https://github.com/llaine/cmdfm
