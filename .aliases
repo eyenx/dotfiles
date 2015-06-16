@@ -90,7 +90,7 @@ alias re='reset'
 alias du.='du -sh'
 alias cdu.='cdu -sidh'
 alias chromgl='chromium --ignore-gpu-blacklist'
-alias pubip='wget checkip.dyndns.org -qO-|egrep -o "[0-9]{1,3}(\.[0-9]{1,3}){3}"'
+alias pubip='curl "https://api.ipify.org"'
 alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null && echo -ne "\033[32mCache purged.\n\007"'
 alias uzic='mp http://128.179.101.9:9010 -nocache'
 alias gbfm='mp http://gbs03.de:7220/ -nocache'
@@ -126,8 +126,8 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 # xrandr
 
 alias xr='xrandr'
-alias xr_office='xrandr --output HDMI3 --auto --rotate left --left-of LVDS1'
-alias xr_home='xrandr --output HDMI3 --auto --rotate normal --right-of LVDS1'
+alias xr-office='xrandr --output HDMI3 --auto --rotate left --left-of LVDS1'
+alias xr-home='xrandr --output HDMI3 --auto --rotate normal --right-of LVDS1'
 
 
 # dotfiles git alias
