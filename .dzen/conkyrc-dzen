@@ -36,13 +36,7 @@ $endif\
 ${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#707070) · ^fg()\
 $else\
 ${if_existing /sys/class/net/wlan0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlan0} \
-^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg(\#707070) · ^fg()\
+^fg(\#707070)${wireless_link_qual_perc wlan0}%^fg(\#707070) ^fg()\
 $endif\
-$endif\
-${if_match ${execi 600 pacman -Qu|wc -l}>0}\
-^i(/home/eye/.dzen/xbm/pacman1.xbm)^fg(\#707070) · ^fg()\
-$endif\
-${if_match ${execi 600 ~/.conky/gmail.py}>0}\
-^i(/home/eye/.dzen/xbm/mail.xbm)^fg(\#707070) · ^fg()\
 $endif\
 ${execi 3 ~/.conky/spacer.sh}
