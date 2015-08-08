@@ -22,5 +22,6 @@ urxvtd -f -o -q
 ~/bin/mytrayer.sh
 # create download folder
 mkdir /tmp/dwn
+mkdir ~/.cache/omzsh
 #windowmanager
 xmonad
