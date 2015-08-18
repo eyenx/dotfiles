@@ -242,7 +242,7 @@ toavi() {
 gdrv() {
 	[[ -n $@ ]] && echo -e "use grive-sync in your grive folder" && return 1
 	g="$HOME/.g"
-	cd $g; grive;cd - >/dev/null
+	cd $g; grive2;cd - >/dev/null
 }
 
 ## good gotbletu rtmp functions
