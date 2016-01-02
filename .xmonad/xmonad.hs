@@ -93,8 +93,8 @@ getIcon i = "^i("++icondir++i++".xbm"++")"
   where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
-myNormalBorderColor  = "#303030"
-myFocusedBorderColor = "#81bac8"
+myNormalBorderColor  = "#2a1f1d"
+myFocusedBorderColor = "#9b6c4a"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -283,23 +283,23 @@ myStartupHook = do
 myDzenLeftBar = "dzen2 -ta l -w 500" ++ myDzenPost
 myDzenRightBar = myConky ++ " | dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-dzen"
-myDzenPost=" -bg '#303030' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
+myDzenPost=" -bg '#2a1f1d' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
-	ppCurrent = dzenColor "#81bac8" "" 
-	, ppHidden = dzenColor "#e3e3e3" "" 
- 	, ppUrgent = dzenColor "#303030" "#81bac8" 
-  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#707070" "" .
+	ppCurrent = dzenColor "#9b6c4a" "" 
+	, ppHidden = dzenColor "#e0dbb7" "" 
+ 	, ppUrgent = dzenColor "#9b6c4a" "#573d26" 
+  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#9b6c4a" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
                   "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
                   "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
                   "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
                   )
- 	, ppSep = " · "
- 	, ppWsSep = dzenColor "#505050" "" " "
- 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#81bac8" "" . shorten 50
+ 	, ppSep = dzenColor "#573d26" "" " · "
+ 	, ppWsSep = dzenColor "#573d26" "" " "
+ 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#9b6c4a" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
 

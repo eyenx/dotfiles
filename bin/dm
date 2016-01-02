@@ -1,3 +1,3 @@
 #!/bin/bash
 PATH=$PATH:$HOME/bin
-dmenu_run -b -i -nb '#303030' -nf '#e3e3e3' -sb '#1c1c1c' -sf '#81bac8' -fn 'Liberation Mono-8:Normal'
+dmenu_run -b -i -nb '#2a1f1d' -nf '#e0dbb7' -sb '#2a1f1d' -sf '#9b6c4a' -fn 'Liberation Mono-8:Normal'
