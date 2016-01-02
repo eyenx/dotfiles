@@ -18,6 +18,7 @@ fi
 #xsetroot -solid "#303030"
 udiskie &
 unclutter &
+twmnd &
 urxvtd -f -o -q
 ~/bin/mytrayer.sh
 # create download folder

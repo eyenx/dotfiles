@@ -105,6 +105,7 @@ alias pm='ponymix'
 alias pmd='ponymix decrease 5'
 alias pmu='ponymix increase 5'
 alias sa='ssh-add'
+alias teleglaz='vmware-view'
 #tmux
 alias txl='tmux list-sessions'
 alias txk='tmux kill-session -t $1'

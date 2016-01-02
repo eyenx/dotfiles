@@ -82,8 +82,8 @@ myModMask   = mod4Mask
 altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
-myWorkspaces  = click $ ["web","shell","work","media","dev" ]
-              where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++getIcon ws++"^ca()" |
+myWorkspaces  = click $ ["1","2","3","4","5","6","7"]
+              where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++ws++"^ca()" |
                       (i,ws) <- zip [1..] w,
                       let n = i ]
 
@@ -265,7 +265,7 @@ myManageHook = composeAll . concat $
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = ["ts3client_linux_amd64","Pidgin","crx_nckgahadagoaajjgafhacjanaoiihapd"]
   my3Shifts = ["Wfica"]
-  my4Shifts = ["Gimp","MPlayer"]
+  my4Shifts = ["Gimp","MPlayer","vmware-view"]
   my5Shifts = ["VirtualBox"]
 
 -- event handling

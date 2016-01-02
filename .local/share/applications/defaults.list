@@ -1,7 +1,7 @@
 [Default Applications]
 application/pdf=mupdf.desktop;
 application/x-bittorrent=transremo.desktop;
-application/x-ica=wfica.desktop;
+application/x-ica=wfica_x.desktop;
 application/x-shellscript=geany.desktop;
 application/x-trash=geany.desktop;
 image/bmp=gpicview.desktop;
