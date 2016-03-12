@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 gtk-theme-name="SimpleDark"
-gtk-icon-theme-name="ACYLBrown"
+gtk-icon-theme-name="Flattr Dark"
 gtk-font-name="Liberation Sans 8"
 gtk-cursor-theme-name="aterred"
 gtk-cursor-theme-size=0
