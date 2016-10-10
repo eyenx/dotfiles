@@ -1,6 +1,6 @@
 [user]
 	name = eye
-	email = eye@eyenx.ch
+        email = eye@eyenx.ch
 	signingkey = 3A1405959789646F
 
 [alias]
@@ -23,3 +23,5 @@
     f=fetch
 [push]
 	default = simple
+[commit]
+	gpgsign = true
