@@ -1,7 +1,7 @@
 [user]
 	name = eye
         email = eye@eyenx.ch
-	signingkey = 3A1405959789646F
+	signingkey = 0796132F0077A5F8
 
 [alias]
 	s=status
