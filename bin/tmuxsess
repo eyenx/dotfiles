@@ -1,0 +1,6 @@
+#!/bin/bash
+#urxvtc --geometry=80x50-0+16
+txnr=$(tmux list-sessions|grep -v attached|cut -d\: -f1)
+#echo $txnr
+[[ -z $txnr ]] && com="tmux new-session" || com="tmux attach-session -t $txnr" 
+urxvtc -g 90x50-0+16 -e zsh -c "$com"
