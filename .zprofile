@@ -34,3 +34,9 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 #	toilet -f mono12 -F metal -F border "welcome"
 #	jp2a  --height=50 ~/img/faces/face4.jpg	
 #fi
+#
+
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ];
+then
+    exec startx
+fi
