@@ -30,7 +30,6 @@ ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
 ^i(/home/eye/.dzen/xbm/batt1half.xbm) ^fg(\#9b6c4a) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#573d26) · ^fg()\
 ${else}\
 ^i(/home/eye/.dzen/xbm/batt1empty.xbm) ^fg(\#ad4d3d) ${execi 120 ~/.conky/batmerge.sh}% BAT LOW^fg(\#573d26) · ^fg()\
-${execi 900 notify-send -i info "Battery low"}\
 $endif\
 $endif\
 ${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#573d26) · ^fg()\

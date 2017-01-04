@@ -24,5 +24,7 @@ urxvtd -f -o -q
 # create download folder
 mkdir /tmp/dwn
 mkdir ~/.cache/omzsh
+rm -rf ~/.cache/chromium
 #windowmanager
+~/bin/emulatewheel.sh
 xmonad
