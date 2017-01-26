@@ -288,9 +288,9 @@ myDzenPost=" -bg '#383838' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
 	ppCurrent = dzenColor "#749ceb" "" 
-	, ppHidden = dzenColor "#dedede" "" 
+	, ppHidden = dzenColor "#eeeeee" "" 
  	, ppUrgent = dzenColor "#749ceb" "#573d26" 
-  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#dedede" "" .
+  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#eeeeee" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
                   "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
@@ -299,7 +299,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   )
  	, ppSep = dzenColor "#999999" "" " · "
  	, ppWsSep = dzenColor "#999999" "" " "
- 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#dedede" "" . shorten 50
+ 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#eeeeee" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
 

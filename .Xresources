@@ -11,7 +11,7 @@
 ! --- special colors ---
 
 *background: #383838
-*foreground: #dedede
+*foreground: #eeeeee
 
 ! --- standard colors ---
 
@@ -58,7 +58,7 @@
 *color14: #93cfd7
 
 ! white
-*color7: #dedede
+*color7: #eeeeee
 
 ! bright_white
 *color15: #fff9d5
