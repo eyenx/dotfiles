@@ -94,7 +94,7 @@ getIcon i = "^i("++icondir++i++".xbm"++")"
 
 -- border colors
 myNormalBorderColor  = "#383838"
-myFocusedBorderColor = "#5588EE"
+myFocusedBorderColor = "#749ceb"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -231,7 +231,7 @@ myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| 
   where
   -- tiling profiles
   lay = ResizableTall nmaster delta ratio []
-  rt = spacing 8 $ lay
+  rt = spacing 4 $ lay
   tile = renamed [Replace "tile"] $ smartBorders rt
   mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
   btile = renamed [Replace "btile" ] $ noBorders $ lay
@@ -287,10 +287,10 @@ myDzenPost=" -bg '#383838' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
-	ppCurrent = dzenColor "#5588ee" "" 
+	ppCurrent = dzenColor "#749ceb" "" 
 	, ppHidden = dzenColor "#dedede" "" 
- 	, ppUrgent = dzenColor "#5588ee" "#573d26" 
-  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#5588ee" "" .
+ 	, ppUrgent = dzenColor "#749ceb" "#573d26" 
+  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#749ceb" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
                   "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
@@ -299,7 +299,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   )
  	, ppSep = dzenColor "#573d26" "" " · "
  	, ppWsSep = dzenColor "#573d26" "" " "
- 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#5588ee" "" . shorten 50
+ 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#749ceb" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
 
