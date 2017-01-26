@@ -12,30 +12,30 @@ out_to_console yes
 
 TEXT
 ${execi 3 /home/eye/.conky/eznotify.sh}\
-${if_match ${cpu cpu0}>30}^i(/home/eye/.dzen/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#be2d26)${cpu cpu1}%^fg()$else^fg(\#749ceb)${cpu cpu1}%^fg()$endif \
-${if_match ${cpu cpu2}>80}^fg(\#be2d26)${cpu cpu2}%^fg()$else^fg(\#749ceb)${cpu cpu2}%^fg()$endif \
-${if_match ${cpu cpu3}>80}^fg(\#be2d26)${cpu cpu3}%^fg()$else^fg(\#749ceb)${cpu cpu3}%^fg()$endif \
-${if_match ${cpu cpu4}>80}^fg(\#be2d26)${cpu cpu4}%^fg()$else^fg(\#749ceb)${cpu cpu4}%^fg()$endif\
-^fg(\#573d26) · ^fg()\
+${if_match ${cpu cpu0}>30}^i(/home/eye/.dzen/xbm/cpu13.xbm) ${if_match ${cpu cpu1}>80}^fg(\#be2d26)${cpu cpu1}%^fg()$else^fg(\#dedede)${cpu cpu1}%^fg()$endif \
+${if_match ${cpu cpu2}>80}^fg(\#be2d26)${cpu cpu2}%^fg()$else^fg(\#dedede)${cpu cpu2}%^fg()$endif \
+${if_match ${cpu cpu3}>80}^fg(\#be2d26)${cpu cpu3}%^fg()$else^fg(\#dedede)${cpu cpu3}%^fg()$endif \
+${if_match ${cpu cpu4}>80}^fg(\#be2d26)${cpu cpu4}%^fg()$else^fg(\#dedede)${cpu cpu4}%^fg()$endif\
+^fg(\#999999) · ^fg()\
 $endif\
-${if_match $memperc>70}^i(/home/eye/.dzen/xbm/mem1.xbm) ^fg(\#be2d26)$memperc%^fg(\#573d26) · ^fg()$endif\
-${if_match ${fs_used_perc /}>80}root ^fg(\#be2d26)${fs_used_perc /}%^fg(\#573d26) · ^fg()$endif\
-${if_match ${fs_used_perc /var}>80}var ^fg(\#be2d26)${fs_used_perc /var}%^fg(\#573d26) · ^fg()$endif\
-${if_match ${fs_used_perc /home}>80}home ^fg(\#be2d26)${fs_used_perc /home}%^fg(\#573d26) · ^fg()$endif\
+${if_match $memperc>70}^i(/home/eye/.dzen/xbm/mem1.xbm) ^fg(\#be2d26)$memperc%^fg(\#999999) · ^fg()$endif\
+${if_match ${fs_used_perc /}>80}root ^fg(\#be2d26)${fs_used_perc /}%^fg(\#999999) · ^fg()$endif\
+${if_match ${fs_used_perc /var}>80}var ^fg(\#be2d26)${fs_used_perc /var}%^fg(\#999999) · ^fg()$endif\
+${if_match ${fs_used_perc /home}>80}home ^fg(\#be2d26)${fs_used_perc /home}%^fg(\#999999) · ^fg()$endif\
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>60}\
-^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#749ceb) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#573d26) · ^fg()\
+^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#dedede) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#999999) · ^fg()\
 ${else}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
-^i(/home/eye/.dzen/xbm/batt1half.xbm) ^fg(\#749ceb) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#573d26) · ^fg()\
+^i(/home/eye/.dzen/xbm/batt1half.xbm) ^fg(\#dedede) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#999999) · ^fg()\
 ${else}\
-^i(/home/eye/.dzen/xbm/batt1empty.xbm) ^fg(\#ad4d3d) ${execi 120 ~/.conky/batmerge.sh}% BAT LOW^fg(\#573d26) · ^fg()\
+^i(/home/eye/.dzen/xbm/batt1empty.xbM) ^fg(\#e84627) ${execi 120 ~/.conky/batmerge.sh}% BAT LOW^fg(\#999999) · ^fg()\
 $endif\
 $endif\
-${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#573d26) · ^fg()\
+${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#999999) · ^fg()\
 $else\
 ${if_existing /sys/class/net/wlp2s0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlp2s0} \
-^fg(\#749ceb)${wireless_link_qual_perc wlp2s0}%^fg(\#749ceb) ^fg()\
+^fg(\#dedede)${wireless_link_qual_perc wlp2s0}%^fg(\#dedede) ^fg()\
 $endif\
 $endif\
 ${execi 3 ~/.conky/spacer.sh}
