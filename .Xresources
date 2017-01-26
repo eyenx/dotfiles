@@ -1,6 +1,6 @@
 ! terminal colors ------------------------------------------------------------
 *fading: 20
-*fadeColor: #2a1f1d
+*fadeColor: #383838
 ! --- ~/.Xresources ------------------------------------------------------------
 ! ------------------------------------------------------------------------------
 ! --- generated with 4bit Terminal Color Scheme Designer -----------------------
@@ -10,8 +10,8 @@
 
 ! --- special colors ---
 
-*background: #2a1f1d
-*foreground: #e0dbb7
+*background: #383838
+*foreground: #dedede
 
 ! --- standard colors ---
 
@@ -19,7 +19,7 @@
 *color0: #573d26
 
 ! bright_black
-*color8: #9b6c4a
+*color8: #5588ee
 
 ! red
 *color1: #be2d26
@@ -58,7 +58,7 @@
 *color14: #93cfd7
 
 ! white
-*color7: #e0dbb7
+*color7: #dedede
 
 ! bright_white
 *color15: #fff9d5

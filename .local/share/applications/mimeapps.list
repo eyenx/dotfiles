@@ -432,3 +432,4 @@ x-scheme-handler/magnet=transremo.desktop;
 x-scheme-handler/mailto=exo-mail-reader.desktop;
 x-scheme-handler/trash=exo-file-manager.desktop;
 x-scheme-handler/ts3server=teamspeak3.desktop;
+x-scheme-handler/webcal=chromium.desktop

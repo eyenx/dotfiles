@@ -75,7 +75,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 4
+myBorderWidth   = 3
 
 -- my metas
 myModMask   = mod4Mask
@@ -93,8 +93,8 @@ getIcon i = "^i("++icondir++i++".xbm"++")"
   where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
-myNormalBorderColor  = "#2a1f1d"
-myFocusedBorderColor = "#9b6c4a"
+myNormalBorderColor  = "#383838"
+myFocusedBorderColor = "#5588EE"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -231,7 +231,7 @@ myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| 
   where
   -- tiling profiles
   lay = ResizableTall nmaster delta ratio []
-  rt = spacing 2 $ lay
+  rt = spacing 8 $ lay
   tile = renamed [Replace "tile"] $ smartBorders rt
   mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
   btile = renamed [Replace "btile" ] $ noBorders $ lay
@@ -283,14 +283,14 @@ myStartupHook = do
 myDzenLeftBar = "dzen2 -ta l -w 500" ++ myDzenPost
 myDzenRightBar = myConky ++ " | dzen2 -ta r -x 500" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-`hostname`"
-myDzenPost=" -bg '#2a1f1d' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
+myDzenPost=" -bg '#383838' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ defaultPP {
-	ppCurrent = dzenColor "#9b6c4a" "" 
-	, ppHidden = dzenColor "#e0dbb7" "" 
- 	, ppUrgent = dzenColor "#9b6c4a" "#573d26" 
-  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#9b6c4a" "" .
+	ppCurrent = dzenColor "#5588ee" "" 
+	, ppHidden = dzenColor "#dedede" "" 
+ 	, ppUrgent = dzenColor "#5588ee" "#573d26" 
+  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#5588ee" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
                   "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
@@ -299,7 +299,7 @@ myLogHook h = dynamicLogWithPP $ defaultPP {
                   )
  	, ppSep = dzenColor "#573d26" "" " · "
  	, ppWsSep = dzenColor "#573d26" "" " "
- 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#9b6c4a" "" . shorten 50
+ 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#5588ee" "" . shorten 50
   , ppOutput = hPutStrLn h
 }
 
