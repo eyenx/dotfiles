@@ -264,8 +264,8 @@ myManageHook = composeAll . concat $
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = ["ts3client_linux_amd64","Pidgin","crx_nckgahadagoaajjgafhacjanaoiihapd"]
-  my3Shifts = ["Wfica","xfreerdp"]
-  my4Shifts = ["Gimp","MPlayer","vmware-view"]
+  my3Shifts = ["Wfica","xfreerdp","Atom"]
+  my4Shifts = ["Gimp","MPlayer","vmware-view","Thunderbird"]
   my5Shifts = ["VirtualBox"]
 
 -- event handling

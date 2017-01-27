@@ -27,5 +27,6 @@ mkdir /tmp/dwn
 mkdir ~/.cache/omzsh
 rm -rf ~/.cache/chromium
 #windowmanager
+xinput disable 12
 ~/bin/emulatewheel.sh
 xmonad
