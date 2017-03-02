@@ -192,10 +192,10 @@ myKeys = \c -> mkKeymap c $
 
   -- push window into tiling if not floating - float if tiling
   , ("M-t",
-	withFocused (\windowId -> do { floats <- gets (W.floating . windowset);
-	if windowId `M.member`floats
-	then withFocused $ windows. W.sink
-	else float windowId }))
+        withFocused (\windowId -> do { floats <- gets (W.floating . windowset);
+        if windowId `M.member`floats
+        then withFocused $ windows. W.sink
+        else float windowId }))
   -- moving / shrinking Floating Windows (thanks to FloatSnap Module)
   , ("M-<L>",  withFocused $ snapMove L Nothing)
   , ("M-<R>", withFocused $ snapMove R Nothing)
@@ -277,6 +277,7 @@ myEventHook = mconcat [ docksEventHook ]
 myStartupHook = do 
   setWMName "LG3D" 
   setDefaultCursor xC_left_ptr
+  docksStartupHook
 
 -- dzen2
 
@@ -286,21 +287,21 @@ myConky="conky -qc /home/eye/.dzen/conkyrc-`hostname`"
 myDzenPost=" -bg '#383838' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
-myLogHook h = dynamicLogWithPP $ defaultPP {
-	ppCurrent = dzenColor "#749ceb" "" 
-	, ppHidden = dzenColor "#eeeeee" "" 
- 	, ppUrgent = dzenColor "#749ceb" "#573d26" 
-  , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#eeeeee" "" .
+myLogHook h = dynamicLogWithPP $ def {
+        ppCurrent = dzenColor "#749ceb" "" 
+        , ppHidden = dzenColor "#eeeeee" "" 
+        , ppUrgent = dzenColor "#749ceb" "#573d26" 
+        , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#eeeeee" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
                   "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
                   "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
                   "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
                   )
- 	, ppSep = dzenColor "#999999" "" " · "
- 	, ppWsSep = dzenColor "#999999" "" " "
- 	, ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#eeeeee" "" . shorten 50
-  , ppOutput = hPutStrLn h
+        , ppSep = dzenColor "#999999" "" " · "
+        , ppWsSep = dzenColor "#999999" "" " "
+        , ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#eeeeee" "" . shorten 50
+        , ppOutput = hPutStrLn h
 }
 
 -- main function
@@ -308,7 +309,7 @@ main = do
   barLeft <- spawnPipe myDzenLeftBar
   barRight <- spawnPipe myDzenRightBar
 --my config
-  xmonad $  defaultConfig {
+  xmonad $ def {
   --simple stuff
     terminal       = myTerm
     ,focusFollowsMouse  = myFocusFollowsMouse
