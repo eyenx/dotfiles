@@ -270,7 +270,7 @@ myManageHook = composeAll . concat $
 
 -- event handling
 
-myEventHook = mempty
+myEventHook = mconcat [ docksEventHook ]
 
 -- startup
 
