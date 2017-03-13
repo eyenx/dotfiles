@@ -134,7 +134,8 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 # xrandr
 
 alias xr='xrandr'
-alias xr-office='xrandr --output HDMI3 --auto --rotate left --left-of LVDS1'
+alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP1 --off'
+alias xrundock='xrandr --output HDMI1 --off && xrandr --output eDP1 --auto'
 
 
 # dotfiles git alias
