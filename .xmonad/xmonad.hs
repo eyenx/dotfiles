@@ -1,4 +1,4 @@
--- gnomeye's xmonad.hs
+
 
 -- imports
 import XMonad
@@ -58,7 +58,7 @@ myRest="killall conky dzen2 trayer && ~/bin/mytrayer.sh && xmonad --restart; not
 myStream="mplayer -nocache http://roach:8000" 
 myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
 myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
--- myShowDate="echo \"^fg(#81bac8)$(date '+%a, %b %d | %H:%M')\" | dzen2 -ta r -x 500 -bg '#303030' -fn 'Liberation Mono:size=8' -h 16 -p 2"
+myShowDate="echo \"^fg(#749ceb)$(date '+%a, %b %d | %H:%M  ')\" | dzen2 -ta c -fn 'Liberation Mono:size=8' -h 16 -p 1"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
@@ -147,6 +147,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-S-r", spawn myRecomp)
   -- restart w/o recompile
   , ("M-r", spawn myRest)
+  -- show date
+  , ("M-d", spawn myShowDate)
   -- lock
   , ("M1-C-l", spawn myLock)
   -- xclip switch
