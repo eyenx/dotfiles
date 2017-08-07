@@ -130,7 +130,7 @@ alias killmp='killall mplayer'
 #archlinux/pacman specific
 alias pacman='apacman'
 alias pacups='pacman -Qu'
-alias pacupg='pacman -Su'
+alias pacupg='pacman -Su --noedit'
 alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
 
 # xrandr

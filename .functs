@@ -2,11 +2,11 @@
 aurd(){
 	[[ -z $@ ]] && lcho -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
 	pkg=$1
-	url="https://aur.archlinux.org/packages/"
+	url="https://aur.archlinux.org/"
 	build="/tmp/aurd/"
 	[[ -d $build ]] || mkdir -pv $build
 	cd $build
-	wget -qO- "${url}${pkg:0:2}/$pkg/$pkg.tar.gz" | tar xzf -
+	wget -qO- "${url}/cgit/aur.git/snapshot/$pkg.tar.gz" | tar xzf -
 	cd ${build}${pkg}
 }
 
