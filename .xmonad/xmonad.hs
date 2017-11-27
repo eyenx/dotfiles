@@ -36,8 +36,8 @@ import qualified Data.Map    as M
 
 myTerm    = "urxvtc"
 myTmux = "~/bin/tmuxsess"
-myBrowser = "chromium"
-mySecBrowser = "firefox"
+myBrowser = "firefox"
+mySecBrowser = "chromium"
 myMail = "mimeo http://inbox.google.com"
 myWpChgr = "perl -e 'use LWP::Simple;use JSON;print get(from_json(get(\"https://api.desktoppr.co/1/wallpapers/random\"),{utf8 => 1})->{\"response\"}->{\"image\"}->{\"url\"})' | feh --bg-scale --no-fehbg -"
 myWpPattern = "~/bin/randompatternsvg.rb > /tmp/.w.svg && feh --magick-timeout 1 --bg-tile --no-fehbg /tmp/.w.svg"
