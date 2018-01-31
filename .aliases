@@ -131,16 +131,16 @@ alias killmpd='killall mpd && killall mpdscribble'
 alias killmp='killall mplayer'
 
 #archlinux/pacman specific
-alias pacman='apacman'
+alias pacman='yay'
 alias pacups='pacman -Qu'
-alias pacupg='pacman -Su --noedit'
+alias pacupg='pacman -Su'
 alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
 
 # xrandr
 
 alias xr='xrandr'
-alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP1 --off'
-alias xrundock='xrandr --output HDMI1 --off && xrandr --output eDP1 --auto'
+alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrundock='xrandr --output HDMI1 --off && xrandr --output eDP1 --auto && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 
 # dotfiles git alias
