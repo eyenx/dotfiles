@@ -1,7 +1,8 @@
 
 gtk-theme-name = "SimpleDark"
 gtk-icon-theme-name = "Flattr Dark"
-gtk-theme = "SimpleDark"
+gtk-theme = "Blackbird"
+gtk-theme-name="Blackbird"
 gtk-cursor-theme-name="aterred"
 gtk-cursor-theme-size=0
 
