@@ -38,12 +38,10 @@ myTerm    = "urxvtc"
 myTmux = "~/bin/tmuxsess"
 myBrowser = "firefox"
 mySecBrowser = "chromium"
-myMail = "mimeo http://inbox.google.com"
-myWpChgr = "perl -e 'use LWP::Simple;use JSON;print get(from_json(get(\"https://api.desktoppr.co/1/wallpapers/random\"),{utf8 => 1})->{\"response\"}->{\"image\"}->{\"url\"})' | feh --bg-scale --no-fehbg -"
-myWpPattern = "~/bin/randompatternsvg.rb > /tmp/.w.svg && feh --magick-timeout 1 --bg-tile --no-fehbg /tmp/.w.svg"
-mySkype = "/usr/bin/skype"
-myXdotoolFlashOut = "xdotool mousemove 10 90;xdotool keyup Super_L;xdotool click 1"
-myXdotoolFlashIn = "xdotool mousemove 940 370;xdotool keyup Super_L;xdotool click 1"
+myMail = "thunderbird"
+myIM = "riot-desktop"
+myVOIP = "blink"
+myVirtualBox = "virtualbox"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
 myScrShot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
@@ -55,10 +53,6 @@ myVolMute="ponymix toggle"
 myDmenu="~/bin/dm"
 myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall conky dzen2 trayer && ~/bin/mytrayer.sh && xmonad --restart; notify-send 'xmonad restarted'"
-myStream="mplayer -nocache http://roach:8000" 
-myXBackLightUp="/usr/bin/xbacklight -inc 10 -time 0 -steps 1"
-myXBackLightDwn="/usr/bin/xbacklight -dec 10 -time 0 -steps 1"
---myShowDate="echo \"^fg(#749ceb)$(date '+%a, %b %d | %H:%M  ')\" | dzen2 -ta c -fn 'Liberation Mono:size=8' -h 16 -p 1 -y -1"
 myShowDate="notify-send \"$(date '+%a, %b %d | %H:%M')\""
 
 -- mouse move relative and click with xdotool
@@ -162,18 +156,12 @@ myKeys = \c -> mkKeymap c $
   , ("M-<F2>", spawn myMail)
   -- start tmux
   , ("M-<F3>", spawn myTmux)
-  -- xdotool to move mouse away from flash
-  , ("M-<F4>", spawn myXdotoolFlashOut)
-  -- xdotool to move mouse inside flash
-  , ("M-S-<F4>", spawn myXdotoolFlashIn)
-  -- change wallpaper over net
-  , ("M-<F5>", spawn myWpChgr)
-  -- change to random pattern wallpaper
-  , ("M-<F6>", spawn myWpPattern)
-  -- start skype 
-  , ("M-<F7>", spawn mySkype)
-  -- start mplayer stream
-  , ("M-<F8>", spawn myStream)
+  -- riot-deksktop
+  , ("M-<F4>", spawn myIM)
+  -- riot-deksktop
+  , ("M-<F5>", spawn myVOIP)
+  -- riot-deksktop
+  , ("M-<F6>", spawn myVirtualBox)
   -- VolDown
   , ("<XF86AudioLowerVolume>", spawn myVolDown)
   -- VolUp
@@ -266,10 +254,10 @@ myManageHook = composeAll . concat $
   myRFloats = []
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
   my1Shifts = ["Firefox","Chromium"]
-  my2Shifts = ["ts3client_linux_amd64","Pidgin","crx_nckgahadagoaajjgafhacjanaoiihapd"]
-  my3Shifts = ["Wfica","xfreerdp","Atom"]
-  my4Shifts = ["Gimp","MPlayer","vmware-view","Thunderbird"]
-  my5Shifts = ["VirtualBox"]
+  my2Shifts = []
+  my3Shifts = ["xfreerdp","Atom"]
+  my4Shifts = ["Gimp","MPlayer","Thunderbird"]
+  my5Shifts = ["VirtualBox Manager","VirtualBox"]
 
 -- event handling
 
