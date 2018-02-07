@@ -1,0 +1,85 @@
+@constants {
+	background-base-color: #424141;
+	background: @background-base-color;
+	color-border: #000000ff;
+	hilight-color: #0076e2;
+	missing-icon: @try_icons("unknown", "image-missing", "gtk-missing-image");
+	view-icon: @try_icons("xfwm", "preferences-windows", @missing-icon);}
+
+/* Stage */
+XfdashboardStageInterface {
+	background-color: rgba(0,0,0,0.3);
+	background-image-type: desktop;}
+
+/* Image content */
+XfdashboardImageContent {
+	missing-icon-name: "image-missing";}
+
+/* Window content */
+XfdashboardWindowContent {
+	include-window-frame: true;}
+
+/* Live windows */
+XfdashboardLiveWindow {
+	spacing: 4.0;
+	background-type: outline rounded-corners;
+	outline-color: @color-border;
+	outline-width: 1;
+	title-padding: 4.0;
+	close-padding: 0.0;
+	effects: normal;}
+XfdashboardLiveWindow:hover {
+	effects: colorize;}
+XfdashboardLiveWindow .title,
+XfdashboardLiveWindow .window-number {
+	text-color: rgba(255,255,255,0.0);
+	color: rgba(255,255,255,0.0);}
+XfdashboardLiveWindow .close-button{
+	background-type: fill rounded-corners;
+	background-fill-color: black;
+	icon-sync-size: false;
+	icon-name: close.svg;
+	icon-size: 22.0;
+	sync-icon-size: false;
+	button-style: icon;
+	corners: all;
+	corner-radius: 2.0;}
+.drag-actor-XfdashboardLiveWindow:drag-handle{
+	background-type: outline fill rounded-corners;
+	background-fill-color: @hilight-color;
+	icon-size: 48.0;
+	outline-color: @hilight-color;
+	outline-width: 1.0;
+	corner-radius: 1.0;}
+
+/* Scrollbars */
+XfdashboardScrollbar{
+	spacing: 4.0;
+	page-size-factor: 0.2;
+	slider-width: 15.0;
+	slider-radius: 5.0;
+	slider-color: rgba(0,0,0,0.6);}
+XfdashboardScrollbar:hover,
+XfdashboardScrollbar:pressed{
+	slider-color: @hilight-color;}
+
+/* Viewpad */
+#viewpad{
+	spacing: 4.0;
+	horizontal-scrollbar-policy: automatic;
+	vertical-scrollbar-policy: automatic;}
+
+/* Windows view */
+XfdashboardWindowsView{
+	spacing: 8.0;
+	prevent-upscaling: true;
+	icon-name: @view-icon;
+	button-style: icon;
+	filter-monitor-windows:false;}
+
+/* Focus */
+#view-selector.focus,
+#quicklaunch.focus,
+#workspace-selector.focus{
+	effects: colorize;}
+

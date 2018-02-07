@@ -1,0 +1,9 @@
+style"progressbar"{
+xthickness=0
+ythickness=0
+GtkProgressBar::min-horizontal-bar-height=14
+GtkProgressBar::min-vertical-bar-width=14
+bg[NORMAL]=shade(0.65,@bg_color)
+bg[PRELIGHT]=@selected_bg_color
+bg[INSENSITIVE]=@selected_bg_color}
+class"GtkProgressBar"style"progressbar"

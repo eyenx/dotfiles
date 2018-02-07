@@ -1,0 +1,42 @@
+/***********************************************************************
+### Enable or disable Scrollbar steppers
+### default is: bottom NEXT style(fwd + sbwd)
+***********************************************************************/
+
+scrollbar {
+-GtkScrollbar-has-backward-stepper:false;
+-GtkScrollbar-has-forward-stepper:true;
+-GtkScrollbar-has-secondary-backward-stepper:true;
+-GtkScrollbar-has-secondary-forward-stepper:false;}
+
+/***********************************************************************
+### Enable or disable Notebook steppers
+### (If the notebook is bigger than the host window)
+### default is both on left(fwd + sbwd)
+***********************************************************************/
+
+notebook{
+-GtkNotebook-has-backward-stepper:false;
+-GtkNotebook-has-forward-stepper:true;
+-GtkNotebook-has-secondary-backward-stepper:true;
+-GtkNotebook-has-secondary-forward-stepper:false;}
+
+/***********************************************************************
+### Make Menubar Text bold
+### disabled by default
+***********************************************************************/
+
+/*
+menubar{
+font-weight:bold;}
+*/
+
+/***********************************************************************
+### Make Menu Text bold
+### disabled by default
+***********************************************************************/
+
+/*
+menu{
+font-weight:bold;}
+*/

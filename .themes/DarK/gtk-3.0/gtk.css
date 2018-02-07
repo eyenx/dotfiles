@@ -1,0 +1,4 @@
+@define-color selected_bg_color #0076e2;
+@define-color selected_fg_color #f2f1f1;
+@import url("resource:///org/gnome/gtk-main.css");
+@import url("settings.css");

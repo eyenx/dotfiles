@@ -1,0 +1,17 @@
+style"checks"{
+GtkWidget::focus-padding=1
+GtkWidget::interior-focus=0
+xthickness=0
+ythickness=0
+fg[NORMAL]=@fg_color
+fg[PRELIGHT]=@fg_color
+fg[SELECTED]=@fg_color
+fg[ACTIVE]=@fg_color
+fg[INSENSITIVE]=shade(0.5,@fg_color)
+text[NORMAL]=@fg_color
+text[PRELIGHT]=@fg_color
+text[SELECTED]=@fg_color
+text[ACTIVE]=@fg_color
+text[INSENSITIVE]=shade(0.5,@fg_color)
+}widget_class"*.GtkCheckButton*"style"checks"
+widget_class"*.GtkRadioButton*"style"checks"
