@@ -1,7 +1,7 @@
 
-gtk-theme-name = "Equilux"
-gtk-icon-theme-name = "Flattr Dark"
-gtk-theme = "Equilux"
+gtk-theme-name = "DarK"
+gtk-icon-theme-name = "DarK"
+gtk-theme = "DarK"
 gtk-cursor-theme-name="aterred"
 gtk-cursor-theme-size=0
 

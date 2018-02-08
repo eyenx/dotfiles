@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/eye/.gtkrc-2.0.mine"
-gtk-theme-name="DarK"
-gtk-icon-theme-name="DarK"
+gtk-theme-name="Equilux"
+gtk-icon-theme-name="Zafiro"
 gtk-font-name="Liberation Sans 8"
 gtk-cursor-theme-name="ATER-Red-Mouse-Theme"
 gtk-cursor-theme-size=0

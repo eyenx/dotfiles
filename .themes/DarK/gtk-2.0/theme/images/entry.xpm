@@ -1,9 +1,0 @@
-/* XPM */
-static char * buttonpressed_xpm[] = {
-"3 3 3 1",
-" 	c None",
-".	c #000000",
-"+	c #0076e2",
-"...",
-".+.",
-"..."};

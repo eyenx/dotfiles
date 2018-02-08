@@ -244,6 +244,7 @@ myManageHook = composeAll . concat $
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 2) | x <- my3Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my6Shifts]
   ]
   where
 --classes / titles / resources
@@ -255,7 +256,8 @@ myManageHook = composeAll . concat $
   my2Shifts = []
   my3Shifts = ["xfreerdp","Atom"]
   my4Shifts = ["Gimp","MPlayer","Thunderbird"]
-  my5Shifts = ["VirtualBox Manager","VirtualBox"]
+  my5Shifts = ["blink"]
+  my6Shifts = ["VirtualBox Manager","VirtualBox"]
 
 -- event handling
 
