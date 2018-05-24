@@ -4,7 +4,7 @@ total_run_times 0
 default_color eeeeee
 no_buffers yes
 uppercase no
-cpu_avg_samples 2
+cpu_avg_samples 2 
 net_avg_samples 2
 use_spacer none
 out_to_x no
@@ -18,9 +18,9 @@ ${if_match ${cpu cpu4}>80}^fg(\#be2d26)${cpu cpu4}%^fg()$else^fg(\#eeeeee)${cpu 
 ^fg(\#999999) · ^fg()\
 $endif\
 ${if_match $memperc>70}^i(/home/eye/.dzen/xbm/mem1.xbm) ^fg(\#be2d26)$memperc%^fg(\#999999) · ^fg()$endif\
-${if_match ${fs_used_perc /}>80}root ^fg(\#be2d26)${fs_used_perc /}%^fg(\#999999) · ^fg()$endif\
-${if_match ${fs_used_perc /var}>80}var ^fg(\#be2d26)${fs_used_perc /var}%^fg(\#999999) · ^fg()$endif\
-${if_match ${fs_used_perc /home}>80}home ^fg(\#be2d26)${fs_used_perc /home}%^fg(\#999999) · ^fg()$endif\
+${if_match ${fs_used_perc /}>80}^i(/home/eye/.dzen/xbm/file2.xbm) / ^fg(\#be2d26)${fs_used_perc /}%^fg(\#999999) · ^fg()$endif\
+${if_match ${fs_used_perc /var}>80}^i(/home/eye/.dzen/xbm/file2.xbm) /var ^fg(\#be2d26)${fs_used_perc /var}%^fg(\#999999) · ^fg()$endif\
+${if_match ${fs_used_perc /home}>80}^i(/home/eye/.dzen/xbm/file2.xbm) /home ^fg(\#be2d26)${fs_used_perc /home}%^fg(\#999999) · ^fg()$endif\
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>60}\
 ^i(/home/eye/.dzen/xbm/batt1full.xbm) ^fg(\#eeeeee) ${execi 120 ~/.conky/batmerge.sh}%^fg(\#999999) · ^fg()\
@@ -38,6 +38,6 @@ ${if_existing /sys/class/net/wlp2s0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wir
 ^fg(\#eeeeee)${wireless_link_qual_perc wlp2s0}%^fg(\#eeeeee) · ^fg()\
 ^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/net_up_01.xbm) ${execi 5 ~/.conky/latence.sh}^fg(\#eeeeee) · ^fg()\
 $endif\
-^fg(\#eeeeee) ${time %H%M  }\
+^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/clock.xbm) ${time %H%M  }\
 $endif\
 ${execi 3 ~/.conky/spacer.sh}
