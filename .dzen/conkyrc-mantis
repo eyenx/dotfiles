@@ -32,12 +32,11 @@ ${else}\
 $endif\
 $endif\
 ${if_existing /sys/class/net/eth0/operstate up}^i(/home/eye/.dzen/xbm/net_wired.xbm)^fg(\#999999) · ^fg()\
-^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/net_up_01.xbm) ${execi 5 ~/.conky/latence.sh}^fg(\#eeeeee) · ^fg()\
 $else\
 ${if_existing /sys/class/net/wlp2s0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlp2s0} \
 ^fg(\#eeeeee)${wireless_link_qual_perc wlp2s0}%^fg(\#eeeeee) · ^fg()\
-^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/net_up_01.xbm) ${execi 5 ~/.conky/latence.sh}^fg(\#eeeeee) · ^fg()\
 $endif\
+^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/net_up_01.xbm) ${execi 5 ~/.conky/latence.sh}^fg(\#eeeeee) · ^fg()\
 ^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/clock.xbm) ${time %H%M  }\
 $endif\
 ${execi 3 ~/.conky/spacer.sh}
