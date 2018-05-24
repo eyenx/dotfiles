@@ -141,7 +141,7 @@ myKeys = \c -> mkKeymap c $
   -- restart w/o recompile
   , ("M-r", spawn myRest)
   -- show date
-  , ("M-d", spawn myShowDate)
+--  , ("M-d", spawn myShowDate)
   -- lock
   , ("M1-C-l", spawn myLock)
   -- xclip switch
