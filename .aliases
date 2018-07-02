@@ -5,8 +5,7 @@ alias clr='clear'
 alias dt='date "+%H:%M:%S %d.%m.%y"'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias igrep='grep -i --color=auto'
+alias egrep='egrep --color=auto' alias igrep='grep -i --color=auto'
 alias grp='grep'
 alias diff='colordiff'
 alias cl='tr -s " " | cut -d " " -f $1'
@@ -116,7 +115,7 @@ alias wee='weechat-curses'
 alias pm='ponymix'
 alias pmd='ponymix decrease 5'
 alias pmu='ponymix increase 5'
-alias sa='ssh-add && ssh-add ~/.ssh/id_rsa_ophion'
+alias sa='ssh-add'
 alias s='ssh'
 alias teleglaz='vmware-view'
 #tmux
@@ -140,10 +139,10 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 # xrandr
 
 alias xr='xrandr'
-alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
-alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP1 --auto --left-of HDMI1'
-alias xroffice='xrandr --output HDMI1 --auto && xrandr --output eDP1 --auto --left-of HDMI1'
-alias xrundock='xrandr --output HDMI1 --off && xrandr --output eDP1 --auto && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
+alias xroffice='xrandr --output DP-2-2 --left-of DP-2-1 --auto  && xrandr --output DP-2-1 && xrandr --output eDP-1 --off'
+alias xrundock='xrandr --output HDMI1 --off || xrandr --output eDP-1 --auto && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 
 # dotfiles git alias
