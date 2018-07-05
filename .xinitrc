@@ -22,6 +22,7 @@ unclutter &
 twmnd &
 urxvtd -f -o -q
 ~/bin/mytrayer.sh
+~/bin/snom-eventd.py &
 # create download folder
 mkdir /tmp/dwn
 mkdir ~/.cache/omzsh

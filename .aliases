@@ -59,6 +59,7 @@ alias psu='psa'
 alias psx='psa'
 alias renet-wasp='sc-restart netctl-auto@wlp2s0.service; sc-restart netctl-ifplugd@eno1.service'
 alias renet-mantis='sudo killall dhcpcd && sc-restart netctl-auto@wlp2s0.service; sc-restart netctl-ifplugd@eno1.service'
+alias renet-hornet='sudo killall dhcpcd ; sc-restart netctl-auto@wlp3s0.service; sc-restart netctl-ifplugd@enp0s25.service'
 alias renet=renet-$(hostname)
 alias epson_print='lp -d EPSON_WF-3620_Series -o media=A4 $1'
 #alias mbstart='ls /dev/cdc-wdm? && wdm=$(ls /dev/cdc-wdm?) && sudo rm -f /tmp/mbim-network-state-cdc-wdm? ; sudo mbim-network ${wdm} start && sudo killall dhcpcd ; sudo rm /run/dhcpcd-* ; sudo dhcpcd wwp0s20u8c2i12'
@@ -141,8 +142,8 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 alias xr='xrandr'
 alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
-alias xroffice='xrandr --output DP-2-2 --left-of DP-2-1 --auto  && xrandr --output DP-2-1 && xrandr --output eDP-1 --off'
-alias xrundock='xrandr --output HDMI1 --off || xrandr --output eDP-1 --auto && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xroffice='xrandr --output DP-2-1 --auto && xr --output DP-2-2 --left-of DP-2-1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrundock='xrandr --output HDMI-1 --off ;xxrandr --output HDMI-2 --off ; randr --output DP-2-2 --off ;xrandr --output DP-2-1 --off ; xrandr --output eDP-1 --auto && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 
 # dotfiles git alias
@@ -153,3 +154,5 @@ alias gitgraph="git log --graph --abbrev-commit --decorate --format=format:'%C(b
 # shutdown aliases
 alias reboot='sudo systemctl reboot'
 alias shutdown='sudo systemctl poweroff'
+
+
