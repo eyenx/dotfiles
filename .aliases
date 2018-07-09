@@ -113,6 +113,7 @@ alias :q='exit'
 alias witch='which'
 alias mu='mutt'
 alias wee='weechat-curses'
+alias wb='whalebrew'
 alias pm='ponymix'
 alias pmd='ponymix decrease 5'
 alias pmu='ponymix increase 5'
@@ -142,7 +143,7 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 alias xr='xrandr'
 alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
-alias xroffice='xrandr --output DP-2-1 --auto && xr --output DP-2-2 --left-of DP-2-1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xroffice='xrandr --output DP-2-1 --auto && xr --output DP-2-2 --left-of DP-2-1 --auto && xrandr --output eDP-1 --right-of DP-2-1 && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrundock='xrandr --output HDMI-1 --off ;xxrandr --output HDMI-2 --off ; randr --output DP-2-2 --off ;xrandr --output DP-2-1 --off ; xrandr --output eDP-1 --auto && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 
