@@ -273,7 +273,7 @@ myStartupHook = do
 -- dzen2
 
 myDzenLeftBar = "dzen2 -y -1 -ta l -w 500" ++ myDzenPost
-myDzenRightBar = myConky ++ " | dzen2 -y -1 -ta r -x 500" ++ myDzenPost
+myDzenRightBar = myConky ++ " | dzen2 -y -1 -ta r -x 500 -xs 1" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-`hostname`"
 myDzenPost=" -dock -bg '#383838' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 

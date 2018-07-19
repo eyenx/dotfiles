@@ -36,7 +36,6 @@ $else\
 ${if_existing /sys/class/net/wlp3s0/operstate up}^fg()^i(/home/eye/.dzen/xbm/wireless8.xbm) ${wireless_essid wlp3s0} \
 ^fg(\#eeeeee)${wireless_link_qual_perc wlp3s0}%^fg(\#eeeeee) · ^fg()\
 $endif\
-^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/net_up_01.xbm) ${execi 5 ~/.conky/latence.sh}^fg(\#eeeeee) · ^fg()\
 ^fg(\#eeeeee)^i(/home/eye/.dzen/xbm/clock.xbm) ${time %H%M  }\
 $endif\
 ${execi 3 ~/.conky/spacer.sh}
