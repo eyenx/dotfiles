@@ -2,6 +2,13 @@ set $mod Mod4
 
 hide_edge_borders smart
 
+default_border pixel 2
+default_floating_border pixel 2
+
+focus_follows_mouse no
+
+popup_during_fullscreen smart
+
 font pango:Liberation Mono 8
 
 floating_modifier $mod
@@ -96,7 +103,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-msg exit"
 # lock screen
-bindsym Ctrl+Mod1+l exec i3lock -u -i .lock.png
+bindsym Ctrl+Mod1+l exec i3lock -u -c 383838
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -160,6 +167,7 @@ bar {
         focused_workspace #749ceb #749ceb #383838
         active_workspace #383838 #383838 #eee
         inactive_workspace  #383838 #383838 #eee
+        binding_mode #383838 #383838 #749ceb
         background #383838
         statusline #eee
         }
@@ -167,8 +175,8 @@ bar {
 
 # colors
 
-client.focused #749ceb #749ceb #383838 #e84627 #749ceb
-client.unfocused #383838 #383838 #eee #e84627 #383838
-client.focused_inactive #383838 #383838 #eee #e84627 #383838
-client.background #383838 #383838 #eee #e84627 #383838
+client.focused #383838 #383838 #749ceb #e84627 #749ceb
+client.unfocused #383838 #383838 #eee #eee #eee
+client.focused_inactive #383838 #383838 #eee #e84627 #eee
+client.background #383838 #383838 #eee #e84627 #eee
 client.urgent #383838 #383838 #e84627 e84627 #383838

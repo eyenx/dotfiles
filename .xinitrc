@@ -13,7 +13,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 #/usr/bin/xautolock -time 15 -locker slock &
-/usr/bin/xautolock -time 15 -locker i3lock -u -i ~/.lock.png &
+/usr/bin/xautolock -time 15 -locker i3lock -u -c 383838 &
 #perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg - &
 #~/bin/randompatternsvg.rb > /tmp/.w.svg && feh --magick-timeout 1 --bg-tile --no-fehbg /tmp/.w.svg
 feh --bg-scale --no-fehbg ~/.wp.jpg
