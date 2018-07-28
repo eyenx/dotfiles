@@ -10,7 +10,7 @@ secondary = #e60053
 alert = #e84627
 
 [bar/mybar]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 bottom=true
 width = 100%
 height = 16
@@ -38,7 +38,7 @@ font-0 = liberationmono:pixelsize=8;1
 font-1 = wunconsiji:pixelsize=8;1
 
 modules-left = i3
-modules-center = 
+modules-center =  mpd
 modules-right = filesystem0 filesystem1 filesystem2 pulseaudio memory cpu wlan eth battery0 battery1 temperature date
 
 tray-position = right
@@ -140,7 +140,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -174,6 +174,8 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+host = sr-adsy-musik-bsgue-01.sygroup-int.ch
 
 icon-prev = 
 icon-stop = 
