@@ -46,3 +46,4 @@ unset GREP_OPTIONS
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/eye/dev/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/eye/dev/serverless/node_modules/tabtab/.completions/sls.zsh
+

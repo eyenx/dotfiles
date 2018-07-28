@@ -124,6 +124,18 @@ mode "resize" {
 }
 
 
+# resize 80/20 
+
+bindsym Mod1+Shift+9 exec "~/bin/i3_resize.py 90"
+bindsym Mod1+Shift+8 exec "~/bin/i3_resize.py 80"
+bindsym Mod1+Shift+7 exec "~/bin/i3_resize.py 70"
+bindsym Mod1+Shift+6 exec "~/bin/i3_resize.py 60"
+bindsym Mod1+Shift+5 exec "~/bin/i3_resize.py 50"
+bindsym Mod1+Shift+4 exec "~/bin/i3_resize.py 40"
+bindsym Mod1+Shift+3 exec "~/bin/i3_resize.py 30"
+bindsym Mod1+Shift+2 exec "~/bin/i3_resize.py 20"
+bindsym Mod1+Shift+1 exec "~/bin/i3_resize.py 10"
+
 
 bindsym Mod1+Shift+r mode "resize"
 
@@ -160,19 +172,20 @@ assign [Class="Spotify"] 7
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks
-        font pango:Liberation Mono 8
-        colors {
-        focused_workspace #749ceb #749ceb #383838
-        active_workspace #383838 #383838 #eee
-        inactive_workspace  #383838 #383838 #eee
-        binding_mode #383838 #383838 #749ceb
-        background #383838
-        statusline #eee
-        }
-}
+#bar {
+#        status_command i3blocks
+#        font pango:Liberation Mono 8
+#        colors {
+#        focused_workspace #749ceb #749ceb #383838
+#        active_workspace #383838 #383838 #eee
+#        inactive_workspace  #383838 #383838 #eee
+#        binding_mode #383838 #383838 #749ceb
+#        background #383838
+#        statusline #eee
+#        }
+#}
 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
 # colors
 
 client.focused #383838 #383838 #749ceb #e84627 #749ceb
