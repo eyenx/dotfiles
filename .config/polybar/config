@@ -38,8 +38,8 @@ font-0 = liberationmono:pixelsize=8;1
 font-1 = wunconsiji:pixelsize=8;1
 
 modules-left = i3
-modules-center =  mpd
-modules-right = filesystem0 filesystem1 filesystem2 pulseaudio memory cpu wlan eth battery0 battery1 temperature date
+modules-center =  xwindow
+modules-right = spotify mpd filesystem0 filesystem1 filesystem2 pulseaudio memory cpu wlan eth battery0 battery1 temperature date
 
 tray-position = right
 tray-padding = 2
@@ -62,7 +62,8 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:60:...%
+format-underline=#eeeeee
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -86,9 +87,13 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+format-connected-underline=#0a6cf5
+format-mounted-underline=#0a6cf5
+
 
 [module/filesystem1]
 type = internal/fs
@@ -96,10 +101,13 @@ interval = 25
 
 mount-0 = /home
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+
+label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
+format-connected-underline=#0a6cf5
+format-mounted-underline=#0a6cf5
 
 [module/filesystem2]
 type = internal/fs
@@ -107,9 +115,12 @@ interval = 25
 
 mount-0 = /var
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+format-connected-underline=#0a6cf5
+format-mounted-underline=#0a6cf5
 
 [module/bspwm]
 type = internal/bspwm
@@ -173,7 +184,8 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online = <label-song>
+format-online-underline = #1db954
 
 host = sr-adsy-musik-bsgue-01.sygroup-int.ch
 
@@ -183,8 +195,17 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song-maxlen = 25
+label-song-maxlen = 250
+label-song=" %title%"
 label-song-ellipsis = true
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python .config/polybar/spotify_status.py
+format-underline = #1db954
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -281,7 +302,8 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
+format-volume-underline = #55aa55
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
