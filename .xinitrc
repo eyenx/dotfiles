@@ -13,7 +13,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 #/usr/bin/xautolock -time 15 -locker slock &
-/usr/bin/xautolock -time 15 -locker "i3lock -u -c 383838" &
+/usr/bin/xautolock -time 15 -locker ~/bin/lock.sh & 
 #perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg - &
 #~/bin/randompatternsvg.rb > /tmp/.w.svg && feh --magick-timeout 1 --bg-tile --no-fehbg /tmp/.w.svg
 feh --bg-scale --no-fehbg ~/.wp.jpg
@@ -25,7 +25,9 @@ urxvtd -f -o -q
 #~/bin/mytrayer.sh
 ~/bin/snom-eventd.py &
 #windowmanager
-xinput disable $(xinput list --id-only "AlpsPS/2 ALPS DualPoint TouchPad")
+xinput disable $(xinput list --id-only "SynPS/2 Synaptics TouchPad")
+# gnome keyring
+eval $(usr/bin/gnome-keyring-daemon --start --components=secrets)
 #~/bin/emulatewheel.sh
 i3
 #xmonad

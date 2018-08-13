@@ -36,10 +36,12 @@ module-margin-right = 2
 
 font-0 = liberationmono:pixelsize=8;1
 font-1 = wunconsiji:pixelsize=8;1
+font-2 = Weather Icons:size=12;1
+font-3 = fontawesome:pizelsize=8;1
 
 modules-left = i3
-modules-center =  xwindow
-modules-right = spotify mpd filesystem0 filesystem1 filesystem2 pulseaudio memory cpu wlan eth battery0 battery1 temperature date
+modules-center =  spotify mpd
+modules-right = filesystem0 filesystem1 filesystem2 memory cpu wlan eth battery0 battery1 temperature pulseaudio bitcoin weather date
 
 tray-position = right
 tray-padding = 2
@@ -204,7 +206,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python .config/polybar/spotify_status.py
+exec = python ~/.config/polybar/spotify_status.py
 format-underline = #1db954
 
 [module/xbacklight]
@@ -480,4 +482,30 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-; vim:ft=dosini
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/openweathermap-simple.sh
+interval = 600
+label-font = 3
+format-underline = #ffb52a
+
+[module/bitcoin]
+type = custom/script
+exec = ~/.config/polybar/bitcoin.sh
+interval = 600
+label-font = 4
+format-underline = #f50a4d
+
+[module/ping]
+type = custom/script
+exec = ~/.config/polybar/info-pingrtt.sh
+interval = 10
+label-font = 4
+format-underline = #4bffdc
+
+[module/claws]
+type = custom/script
+exec = ~/.config/polybar/info-claws.sh
+interval = 60
+label-font = 4
+format-underline = #4bffdc

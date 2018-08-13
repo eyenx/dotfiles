@@ -103,7 +103,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-msg exit"
 # lock screen
-bindsym Ctrl+Mod1+l exec i3lock -u -c 383838
+bindsym Ctrl+Mod1+l exec ~/bin/lock.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -136,6 +136,10 @@ bindsym Mod1+Shift+3 exec "~/bin/i3_resize.py 30"
 bindsym Mod1+Shift+2 exec "~/bin/i3_resize.py 20"
 bindsym Mod1+Shift+1 exec "~/bin/i3_resize.py 10"
 
+# span out master window
+
+bindsym Mod1+Shift+Return exec "~/bin/i3_resize.py 99"
+
 
 bindsym Mod1+Shift+r mode "resize"
 
@@ -166,6 +170,7 @@ bindsym --release Shift+Print exec scrot -q100 -s -b /tmp/screen%H%M%S.png
 assign [Class="Firefox"] 1
 assign [Class="Chromium"] 1
 assign [Class="Thunderbird"] 4
+assign [Class="Evolution"] 4
 assign [Class="xfreerdp"] 5
 assign [Class="VirtualBox"] 6
 assign [Class="Spotify"] 7
