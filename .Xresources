@@ -139,3 +139,60 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.antialias: 1
 
+
+! --- special colors ---
+!
+*background: #2a1f1d
+*foreground: #e0dbb7
+!
+! ! --- standard colors ---
+!
+! ! black
+*color0: #573d26
+!
+! ! bright_black
+*color8: #9b6c4a
+!
+! ! red
+*color1: #be2d26
+!
+! ! bright_red
+*color9: #e84627
+!
+! ! green
+*color2: #6ba18a
+!
+! ! bright_green
+*color10: #95d8ba
+!
+! ! yellow
+*color3: #e99d2a
+!
+! ! bright_yellow
+*color11: #d0d150
+!
+! ! blue
+*color4: #5a86ad
+!
+! ! bright_blue
+*color12: #b8d3ed
+!
+! ! magenta
+*color5: #ac80a6
+!
+! ! bright_magenta
+*color13: #d19ecb
+!
+! ! cyan
+*color6: #74a6ad
+!
+! ! bright_cyan
+*color14: #93cfd7
+!
+! ! white
+*color7: #e0dbb7
+!
+! ! bright_white
+*color15: #fff9d5
+!
+!

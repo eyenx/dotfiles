@@ -175,26 +175,32 @@ assign [Class="xfreerdp"] 5
 assign [Class="VirtualBox"] 6
 assign [Class="Spotify"] 7
 
+# floating rules
+
+for_window [class='^Wfica"] floating enable
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#        status_command i3blocks
-#        font pango:Liberation Mono 8
-#        colors {
-#        focused_workspace #749ceb #749ceb #383838
-#        active_workspace #383838 #383838 #eee
-#        inactive_workspace  #383838 #383838 #eee
-#        binding_mode #383838 #383838 #749ceb
-#        background #383838
-#        statusline #eee
-#        }
-#}
+bar {
+        status_command i3blocks
+        font pango:Liberation Mono 8
+        colors {
+        focused_workspace #9b6c4a #9b6c4a #2a1f1d
+        active_workspace #2a1f1d #2a1f1d #e0dbb7
+        inactive_workspace  #2a1f1d #2a1f1d #e0dbb7
+        binding_mode #2a1f1d #2a1f1d #9b6c4a
+        background #2a1f1d
+        statusline #e0dbb7
+        }
+}
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
 # colors
 
-client.focused #383838 #383838 #749ceb #e84627 #749ceb
-client.unfocused #383838 #383838 #eee #eee #eee
-client.focused_inactive #383838 #383838 #eee #e84627 #eee
-client.background #383838 #383838 #eee #e84627 #eee
-client.urgent #383838 #383838 #e84627 e84627 #383838
+client.focused #2a1f1d #2a1f1d #9b6c4a #e84627 #9b6c4a
+client.unfocused #2a1f1d #2a1f1d #e0dbb7 #e0dbb7 #e0dbb7
+client.focused_inactive #2a1f1d #2a1f1d #e0dbb7 #e84627 #e0dbb7
+client.background #2a1f1d #2a1f1d #e0dbb7 #e84627 #e0dbb7
+client.urgent #2a1f1d #2a1f1d #e84627 e84627 #2a1f1d
+
+

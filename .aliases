@@ -35,10 +35,16 @@ alias srcz='source ~/.zshrc'
 alias sl='ls'
 alias top='htop'
 alias c='pygmentize -O style=monokai -f console256 -g'
-# misc
 
+# misc
+alias pjrnl='jrnl priv'
+alias wjrnl='jrnl work'
+alias wifistart='sc-start netctl-auto@wlp3s0'
+alias wifistop='sc-stop netctl-auto@wlp3s0'
+alias t=todo.sh
 alias incognito='chromium --incognito'
-alias pw='lpass show --basic-regexp .*$1.*'
+alias pw='pass show -c $1'
+alias pass=gopass
 alias snet='sudo netctl'
 alias sduck='sr duckduckgo'
 alias swiki='sr wikipedia'
@@ -111,7 +117,7 @@ alias difm='mp "http://pub4.di.fm/di_minimal_aac?type=.flv" -nocache'
 alias clock='tty-clock -s -c -C 6 -B'
 alias :q='exit'
 alias witch='which'
-alias mu='mutt'
+alias mu='neomutt'
 alias wee='weechat-curses'
 alias wb='whalebrew'
 alias pm='ponymix'
@@ -143,8 +149,8 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 alias xr='xrandr'
 alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
-alias xroffice='~/.screenlayout/office.sh && feh --bg-scale --no-fehbg ~/.wp.jpg && ~/.config/polybar/launch.sh'
-alias xrundock='~/.screenlayout/undocked.sh && feh --bg-scale --no--fehbg ~/.wp.jpg && ~/.config/polybar/launch.sh'
+alias xroffice='~/.screenlayout/office.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrundock='~/.screenlayout/undocked.sh && feh --bg-scale --no--fehbg ~/.wp.jpg'
 
 
 # dotfiles git alias
