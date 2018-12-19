@@ -123,6 +123,7 @@ alias wb='whalebrew'
 alias pm='ponymix'
 alias pmd='ponymix decrease 5'
 alias pmu='ponymix increase 5'
+alias khali='khal interactive'
 alias sa='ssh-add'
 alias s='ssh'
 alias teleglaz='vmware-view'
@@ -151,11 +152,12 @@ alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh
 alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
 alias xroffice='~/.screenlayout/office.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrundock='~/.screenlayout/undocked.sh && feh --bg-scale --no--fehbg ~/.wp.jpg'
-
+alias xrhome='~/.screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 # dotfiles git alias
 
 alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias pit='git --git-dir=$HOME/.privdotfiles.git/ --work-tree=$HOME'
 alias gitgraph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" 
 
 # shutdown aliases

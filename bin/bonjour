@@ -1,0 +1,15 @@
+#!/bin/bash
+#autostart
+
+nextcloud &
+gajim &
+slack &
+firefox &
+#Blink &
+#LD_LIBRARY_PATH=/usr/local/lib:/usr/lib linphone &
+linphonecsh init -c /home/eye/.config/linphone/linphonerc
+ph notify &
+mattermost-desktop &
+remmina &
+thunderbird &
+
