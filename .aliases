@@ -133,6 +133,13 @@ alias txk='tmux kill-session -t $1'
 alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
+# tools
+alias tf=terraform
+alias az='docker run -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
+alias azd='docker run -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
+alias k=kubectl
+alias kc=kubectl
+alias kn=kubens
 # kill aliases
 alias ka='killall'
 alias killf='killall firefox'
