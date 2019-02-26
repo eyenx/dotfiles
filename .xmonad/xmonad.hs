@@ -23,6 +23,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders 
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.Tabbed
 import XMonad.Layout.ToggleLayouts
 
 import System.Exit
@@ -68,7 +69,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 3
+myBorderWidth   = 1
 
 -- my metas
 myModMask   = mod4Mask
@@ -86,8 +87,8 @@ getIcon i = "^i("++icondir++i++".xbm"++")"
   where icondir = "/home/eye/.dzen/xbm/"
 
 -- border colors
-myNormalBorderColor  = "#383838"
-myFocusedBorderColor = "#749ceb"
+myNormalBorderColor  = "#2a1f1d"
+myFocusedBorderColor = "#9b6c4a"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -216,14 +217,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
   ]
 
 --layouts
-myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| btile ||| full 
+myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| tab ||| full 
   where
   -- tiling profiles
   lay = ResizableTall nmaster delta ratio []
-  rt = spacing 4 $ lay
+  rt = spacing 1 $ lay
   tile = renamed [Replace "tile"] $ smartBorders rt
   mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
   btile = renamed [Replace "btile" ] $ noBorders $ lay
+  tab = renamed [Replace "tab" ] $ tabbed
   full =  renamed [Replace "full"] $ noBorders $ fullscreenFull Full
   -- default #windows in master
   nmaster = 1
@@ -275,14 +277,14 @@ myStartupHook = do
 myDzenLeftBar = "dzen2 -y -1 -ta l -w 500" ++ myDzenPost
 myDzenRightBar = myConky ++ " | dzen2 -y -1 -ta r -x 500 -xs 1" ++ myDzenPost
 myConky="conky -qc /home/eye/.dzen/conkyrc-`hostname`"
-myDzenPost=" -dock -bg '#383838' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
+myDzenPost=" -dock -bg '#2a1f1d' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ def {
-        ppCurrent = dzenColor "#749ceb" "" 
-        , ppHidden = dzenColor "#eeeeee" "" 
-        , ppUrgent = dzenColor "#749ceb" "#573d26" 
-        , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#eeeeee" "" .
+        ppCurrent = dzenColor "#9b6c4a" "" 
+        , ppHidden = dzenColor "#e0dbb7" "" 
+        , ppUrgent = dzenColor "#9b6c4a" "#573d26" 
+        , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#e0dbb7" "" .
               (\x -> case x of
                   "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
                   "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
@@ -291,7 +293,7 @@ myLogHook h = dynamicLogWithPP $ def {
                   )
         , ppSep = dzenColor "#999999" "" " · "
         , ppWsSep = dzenColor "#999999" "" " "
-        , ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#eeeeee" "" . shorten 50
+        , ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#e0dbb7" "" . shorten 50
         , ppOutput = hPutStrLn h
 }
 

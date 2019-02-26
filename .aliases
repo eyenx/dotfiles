@@ -5,7 +5,8 @@ alias clr='clear'
 alias dt='date "+%H:%M:%S %d.%m.%y"'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto' alias igrep='grep -i --color=auto'
+alias egrep='egrep --color=auto' 
+alias igrep='grep -i --color=auto'
 alias grp='grep'
 alias diff='colordiff'
 alias cl='tr -s " " | cut -d " " -f $1'
@@ -110,7 +111,7 @@ alias chromgl='chromium --ignore-gpu-blacklist'
 alias pubip='curl "ipinfo.io/ip"'
 alias wttr='curl wttr.in'
 alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null && echo -ne "\033[32mCache purged.\n\007"'
-alias uzic='mp http://128.179.101.9:9010 -nocache'
+alias uzic='mp http://stream03.uzic.ch:9010/ -nocache'
 alias gbfm='mp http://gbs03.de:7220/ -nocache'
 alias radio32='mp http://rstreaming.solnet.ch:8000/radio32 -nocache'
 alias difm='mp "http://pub4.di.fm/di_minimal_aac?type=.flv" -nocache'
@@ -135,8 +136,8 @@ alias txa='tmux attach-session -t $1'
 
 # tools
 alias tf=terraform
-alias az='docker run -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
-alias azd='docker run -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
+alias az='docker run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
+alias azd='docker run --rm -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
 alias k=kubectl
 alias kc=kubectl
 alias kn=kubens

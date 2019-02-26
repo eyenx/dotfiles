@@ -2,7 +2,7 @@
 #autostart
 
 nextcloud &
-gajim &
+#gajim &
 slack &
 firefox &
 #Blink &
@@ -11,5 +11,7 @@ linphonecsh init -c /home/eye/.config/linphone/linphonerc
 ph notify &
 mattermost-desktop &
 remmina &
+skypeforlinux &
+glowing-bear &
 thunderbird &
-
+#rambox &
