@@ -160,7 +160,6 @@ bindsym $mod+Shift+F1 exec chromium
 bindsym $mod+F2 exec thunderbird
 bindsym $mod+F3 exec ~/bin/tmuxsess
 bindsym $mod+F4 exec mattermost-desktop
-bindsym $mod+F5 exec blink
 bindsym $mod+F6 exec virtualbox
 bindsym $mod+F7 exec spotify
 bindsym Print exec scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png
@@ -170,7 +169,9 @@ bindsym --release Shift+Print exec scrot -q100 -s -b /tmp/screen%H%M%S.png
 assign [Class="Firefox"] 1
 assign [Class="Chromium"] 1
 assign [Class="Thunderbird"] 4
-assign [Class="Evolution"] 4
+assign [Class="Slack"] 3
+assign [Class="Mattermost"] 3
+assign [Class="Skype"] 3
 assign [Class="xfreerdp"] 5
 assign [Class="VirtualBox"] 6
 assign [Class="Spotify"] 7
@@ -183,7 +184,7 @@ for_window [class='^Wfica"] floating enable
 # finds out, if available)
 bar {
         height 16
-        position bottom
+        position top
         status_command i3blocks
         font pango:Liberation Mono 8
         colors {
