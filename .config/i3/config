@@ -155,6 +155,7 @@ bindsym $mod+m focus floating; mode "moveit"
 
 # binds for exec
 bindsym $mod+p exec bin/dm
+bindsym $mod+Shift+p exec bin/dmpass
 bindsym $mod+F1 exec firefox
 bindsym $mod+Shift+F1 exec chromium
 bindsym $mod+F2 exec thunderbird

@@ -20,7 +20,7 @@ feh --bg-scale --no-fehbg ~/.wp.jpg
 #xsetroot -solid "#303030"
 udiskie &
 unclutter &
-#twmnd &
+dunst &
 urxvtd -f -o -q
 #~/bin/mytrayer.sh
 ~/bin/snom-eventd.py &
@@ -29,6 +29,7 @@ xinput disable $(xinput list --id-only "SynPS/2 Synaptics TouchPad")
 # gnome keyring
 eval $(usr/bin/gnome-keyring-daemon --start --components=secrets)
 #~/bin/emulatewheel.sh
+redshift-gtk &
 i3
 #2bwm
 #xmonad

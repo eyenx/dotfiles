@@ -40,4 +40,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # JAVA_HOME
 export JAVA_HOME=/usr/lib/jvm/java-10-openjdk
 export WHALEBREW_INSTALL_PATH=~/.whalebrew/bin
-export PATH=$PATH:~/.whalebrew/bin
+export PATH=$PATH:~/.whalebrew/bin:~/go/bin
