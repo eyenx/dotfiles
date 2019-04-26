@@ -35,7 +35,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode git github extract archlinux python perl nyan svn fasd encode64 perl urltools zsh-syntax-highlighting systemd catimg docker docker-compose)
+plugins=(vi-mode git github extract archlinux python perl svn encode64 perl urltools zsh-syntax-highlighting systemd catimg docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 #temporary fix
 unset GREP_OPTIONS
