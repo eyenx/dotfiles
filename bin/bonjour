@@ -5,6 +5,7 @@ nextcloud &
 #gajim &
 slack &
 firefox &
+joplin-desktop &
 #Blink &
 #LD_LIBRARY_PATH=/usr/local/lib:/usr/lib linphone &
 #linphonecsh init -c /home/eye/.config/linphone/linphonerc

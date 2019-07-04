@@ -208,3 +208,7 @@ client.background #2a1f1d #2a1f1d #e0dbb7 #e84627 #e0dbb7
 client.urgent #2a1f1d #2a1f1d #e84627 e84627 #2a1f1d
 
 
+# scratchpad
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
+

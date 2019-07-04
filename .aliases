@@ -42,7 +42,12 @@ alias pjrnl='jrnl priv'
 alias wjrnl='jrnl work'
 alias wifistart='sc-start netctl-auto@wlp3s0'
 alias wifistop='sc-stop netctl-auto@wlp3s0'
-alias t=todo.sh
+alias wl='wunderline'
+alias wld='wunderline done'
+alias wli='wunderline list inbox'
+alias wlw='wunderline list work'
+alias wla='wunderline add'
+alias wlaw='wunderline add --list=work'
 alias incognito='chromium --incognito'
 alias pw='pass show -c $1'
 alias pass=gopass
