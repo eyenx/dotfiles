@@ -6,7 +6,7 @@ set nocompatible
 autocmd! bufwritepost .vimrc source %
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-set backup		" keep a backup file
+"set backup		" keep a backup file
 set history=700		 
 set undolevels=700
 set ruler		" show the cursor position all the time
@@ -70,7 +70,7 @@ set number
 colorscheme neverland
 
 " set backupdir
-set backupdir=~/.vim/bak
+"set backupdir=~/.vim/bak
 set directory=/tmp
 " plugins
 "vim-latexsuite

@@ -3,7 +3,7 @@
 
 nextcloud &
 #gajim &
-slack &
+#slack &
 firefox &
 joplin-desktop &
 #Blink &
@@ -12,8 +12,11 @@ joplin-desktop &
 #ph notify &
 linphone &
 mattermost-desktop &
-remmina &
-skypeforlinux &
-glowing-bear &
+#remmina &
+#skypeforlinux &
+#glowing-bear &
 thunderbird &
 #rambox &
+systemctl start --user fetchmail.service
+systemctl start --user taskwarrior.service
+systemctl start --user vdirsyncer.service
