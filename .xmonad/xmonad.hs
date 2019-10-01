@@ -9,21 +9,21 @@ import Data.List
 import XMonad.Util.Cursor
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig
+--import XMonad.Util.ScratchPad
 
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers 
+import XMonad.Hooks.ManageHelpers
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.FlexibleManipulate as Flex
 import XMonad.Actions.CycleWS
 
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.Spacing
 import XMonad.Layout.Renamed
-import XMonad.Layout.NoBorders 
+import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
-import XMonad.Layout.Tabbed
+--import XMonad.Layout.Tabbed
 import XMonad.Layout.ToggleLayouts
 
 import System.Exit
@@ -36,23 +36,18 @@ import qualified Data.Map    as M
 myTerm    = "urxvtc"
 myTmux = "~/bin/tmuxsess"
 myBrowser = "firefox"
-mySecBrowser = "chromium"
+myAltBrowser = "chromium"
 myMail = "thunderbird"
-myIM = "riot-desktop"
-myVOIP = "blink"
-myVirtualBox = "virtualbox"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
-myScrShot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
+myScreenshot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
 -- because chromium doesn't support shift+insert as primary selection switch from primary to clipboard
-myXclipSwitch="xclip -o -se p | xclip -i -se c" 
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
 myDmenu="~/bin/dm"
-myRecomp="killall conky dzen2 && xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
-myRest="killall conky dzen2 trayer && ~/bin/mytrayer.sh && xmonad --restart; notify-send 'xmonad restarted'"
-myShowDate="notify-send \"$(date '+%a, %b %d | %H:%M')\""
+myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
+myRest="xmonad --restart; notify-send 'xmonad restarted'"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
@@ -62,7 +57,6 @@ myMouseMoveDown="xdotool mousemove_relative -- 0 20"
 myMouseClickLeft="xdotool click 1"
 myMouseClickMiddle="xdotool click 2"
 myMouseClickRight="xdotool click 3"
-
 
 -- get focus on mouse 
 myFocusFollowsMouse :: Bool
@@ -76,15 +70,7 @@ myModMask   = mod4Mask
 altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
-myWorkspaces  = click $ ["1","2","3","4","5","6","7"]
-              where click w = [ "^ca(1,xdotool key super+"++show(n)++")"++ws++"^ca()" |
-                      (i,ws) <- zip [1..] w,
-                      let n = i ]
-
--- get icon function
-
-getIcon i = "^i("++icondir++i++".xbm"++")"
-  where icondir = "/home/eye/.dzen/xbm/"
+myWorkspaces  = ["1","2","3","4","5","6","7","8","9","10"]
 
 -- border colors
 myNormalBorderColor  = "#2a1f1d"
@@ -145,22 +131,14 @@ myKeys = \c -> mkKeymap c $
 --  , ("M-d", spawn myShowDate)
   -- lock
   , ("M1-C-l", spawn myLock)
-  -- xclip switch
-  , ("M-y", spawn myXclipSwitch)
   -- start browser
   , ("M-<F1>", spawn myBrowser)
   -- start second browser
-  , ("M-S-<F1>", spawn mySecBrowser)
+  , ("M-S-<F1>", spawn myAltBrowser)
   -- start mail app
   , ("M-<F2>", spawn myMail)
   -- start tmux
   , ("M-<F3>", spawn myTmux)
-  -- riot-deksktop
-  , ("M-<F4>", spawn myIM)
-  -- riot-deksktop
-  , ("M-<F5>", spawn myVOIP)
-  -- riot-deksktop
-  , ("M-<F6>", spawn myVirtualBox)
   -- VolDown
   , ("<XF86AudioLowerVolume>", spawn myVolDown)
   -- VolUp
@@ -170,7 +148,7 @@ myKeys = \c -> mkKeymap c $
   -- Screenshot full display
   , ("<Print>", spawn myScreenFull)
   -- Screenshot with selection
-  , ("S-<Print>", spawn myScrShot)
+  , ("S-<Print>", spawn myScreenshot)
   -- mouse move relative 
   , ("M-M1-k", spawn myMouseMoveUp)
   , ("M-M1-j", spawn myMouseMoveDown)
@@ -186,15 +164,6 @@ myKeys = \c -> mkKeymap c $
         if windowId `M.member`floats
         then withFocused $ windows. W.sink
         else float windowId }))
-  -- moving / shrinking Floating Windows (thanks to FloatSnap Module)
-  , ("M-<L>",  withFocused $ snapMove L Nothing)
-  , ("M-<R>", withFocused $ snapMove R Nothing)
-  , ("M-<U>",  withFocused $ snapMove U Nothing)
-  , ("M-<D>",  withFocused $ snapMove D Nothing)
-  , ("M-S-<L>",  withFocused $ snapShrink R Nothing)
-  , ("M-S-<R>", withFocused $ snapGrow R Nothing)
-  , ("M-S-<U>",  withFocused $ snapShrink D Nothing)
-  , ("M-S-<D>",  withFocused $ snapGrow D Nothing)
   ] ++
   -- mod-[1..9], go to workspace n
   -- mod-shift-[1..9], send window to workspace n
@@ -207,26 +176,22 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- mod-button1, Set the window to floating mode and move by dragging
   [ ((modm, button1), (\w -> focus w >> Flex.mouseWindow Flex.position w
                    >> windows W.shiftMaster))
-
 -- mod-button2, Raise the window to the top of the stack
   , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
-
 -- mod-button3, Set the window to floating mode and resize by dragging
   , ((modm, button3), (\w -> focus w >> Flex.mouseWindow Flex.resize w
                   >> windows W.shiftMaster))
   ]
 
 --layouts
-myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ tile ||| mtile ||| tab ||| full 
+myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ rt ||| mt ||| full
   where
   -- tiling profiles
-  lay = ResizableTall nmaster delta ratio []
-  rt = spacing 1 $ lay
-  tile = renamed [Replace "tile"] $ smartBorders rt
-  mtile = renamed [Replace "mtile"] $ smartBorders $ Mirror rt
-  btile = renamed [Replace "btile" ] $ noBorders $ lay
-  tab = renamed [Replace "tab" ] $ tabbed
-  full =  renamed [Replace "full"] $ noBorders $ fullscreenFull Full
+  def = ResizableTall nmaster delta ratio []
+  rt =  renamed [Replace "r" ] $ def
+  mt =  renamed [Replace "m" ] $ Mirror rt
+--  tab = renamed [Replace "t" ] $ simpleTabbedAlways
+  full =  renamed [Replace "f"] $ noBorders $ fullscreenFull Full
   -- default #windows in master
   nmaster = 1
   -- proportion size of master
@@ -256,9 +221,9 @@ myManageHook = composeAll . concat $
   myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = []
-  my3Shifts = ["xfreerdp","Atom"]
+  my3Shifts = ["Atom"]
   my4Shifts = ["Gimp","MPlayer","Thunderbird"]
-  my5Shifts = ["blink"]
+  my5Shifts = ["remmina","xfreerdp"]
   my6Shifts = ["VirtualBox Manager","VirtualBox"]
 
 -- event handling
@@ -272,35 +237,24 @@ myStartupHook = do
   setDefaultCursor xC_left_ptr
   docksStartupHook
 
--- dzen2
+-- xmobar
 
-myDzenLeftBar = "dzen2 -y -1 -ta l -w 500" ++ myDzenPost
-myDzenRightBar = myConky ++ " | dzen2 -y -1 -ta r -x 500 -xs 1" ++ myDzenPost
-myConky="conky -qc /home/eye/.dzen/conkyrc-`hostname`"
-myDzenPost=" -dock -bg '#2a1f1d' -fn 'Liberation Mono:size=8' -h 16 -e 'onstart=lower'"
+myXmobar = "xmobar /home/eye/.xmobarrc"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ def {
-        ppCurrent = dzenColor "#9b6c4a" "" 
-        , ppHidden = dzenColor "#e0dbb7" "" 
-        , ppUrgent = dzenColor "#9b6c4a" "#573d26" 
-        , ppLayout = wrap "^ca(1,xdotool key super+space)" "^ca()" . dzenColor "#e0dbb7" "" .
-              (\x -> case x of
-                  "tile" -> "^i(/home/eye/.dzen/xbm/tile.xbm)"
-                  "mtile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) M"
-                  "btile" -> "^i(/home/eye/.dzen/xbm/tile.xbm) B"
-                  "full" -> "^i(/home/eye/.dzen/xbm/full.xbm)"
-                  )
-        , ppSep = dzenColor "#999999" "" " · "
-        , ppWsSep = dzenColor "#999999" "" " "
-        , ppTitle = wrap "^ca(2,xdotool key super+c)" "^ca()" . dzenColor "#e0dbb7" "" . shorten 50
+        ppCurrent = xmobarColor "#9b6c4a" ""
+        , ppHidden = xmobarColor "#e0dbb7" "" 
+        , ppUrgent = xmobarColor "#9b6c4a" "#573d26" 
+        , ppSep = xmobarColor "#999999" "" " · "
+        , ppWsSep = xmobarColor "#999999" "" " "
+        , ppTitle = xmobarColor "#e0dbb7" "" . shorten 50
         , ppOutput = hPutStrLn h
 }
 
 -- main function
 main = do 
-  barLeft <- spawnPipe myDzenLeftBar
-  barRight <- spawnPipe myDzenRightBar
+  myBar <- spawnPipe myXmobar
 --my config
   xmonad $ def {
   --simple stuff
@@ -316,8 +270,8 @@ main = do
     ,mouseBindings    = myMouseBindings
     --hooks, layouts
     ,layoutHook     = myLayout
-    ,manageHook     = myManageHook <+> manageDocks
+    ,manageHook     = myManageHook <+> manageDocks 
     ,handleEventHook  = myEventHook
-    ,logHook      = myLogHook barLeft
+    ,logHook      = myLogHook myBar 
     ,startupHook    = myStartupHook
 }
