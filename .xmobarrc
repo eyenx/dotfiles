@@ -3,10 +3,12 @@ Config {
 	, bgColor= "#2a1f1d"
 	, fgColor= "#e0dbb7"
 	, position = Top
+    , pickBroadest = True
 	, border = NoBorder
 	, borderColor = "#1a1f1d"
 	, lowerOnStart = True
 	, commands = [
+         Run Com "conky" ["-q","-i","1","-c",".xmobar/conkyrc-xmobar"] "conky" 10,
          Run DiskU [("/", "root <usedp>% ·"), ("/var", "var <usedp>% ·"), ("/home","home <usedp>%") ] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"]  30,
          Run Battery ["BAT0","BAT1"] 60,
          Run MultiCpu ["-t","cpu <total>%"] 10,
@@ -20,4 +22,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %disku% %sep% %multicpu% %sep% %memory% %sep% %dynnetwork% %sep% %battery% %mydate% %sep% %space% }"
+	, template = "%StdinReader% }{ %conky% "

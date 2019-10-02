@@ -13,23 +13,27 @@ import XMonad.Util.EZConfig
 
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.DynamicBars
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Actions.FloatSnap
 import XMonad.Actions.FlexibleManipulate as Flex
 import XMonad.Actions.CycleWS
+import XMonad.Actions.PhysicalScreens
 
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
---import XMonad.Layout.Tabbed
+import XMonad.Layout.Tabbed
+import XMonad.Layout.TwoPane
 import XMonad.Layout.ToggleLayouts
+import XMonad.Layout.SimpleDecoration (shrinkText)
 
 import System.Exit
 
 import qualified XMonad.StackSet as W
-import qualified Data.Map    as M
+import qualified Data.Map as M
 
 -- shortkeys
 
@@ -46,6 +50,7 @@ myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
 myDmenu="~/bin/dm"
+myDmenuPass="~/bin/dmpass"
 myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="xmonad --restart; notify-send 'xmonad restarted'"
 
@@ -70,7 +75,8 @@ myModMask   = mod4Mask
 altMask     = mod1Mask
 
 -- my workspaces - clickable http://github.com/windelicato/dotfiles
-myWorkspaces  = ["1","2","3","4","5","6","7","8","9","10"]
+
+myWorkspaces =  ["1","2","3","4","5","6","7","8","9"]
 
 -- border colors
 myNormalBorderColor  = "#2a1f1d"
@@ -82,6 +88,8 @@ myKeys = \c -> mkKeymap c $
   [ ("M-S-<Return>", spawn $ XMonad.terminal c)
   -- launch dmenu
   , ("M-p", spawn myDmenu)
+  -- launch dmpass
+  , ("M-S-p", spawn myDmenuPass)
   -- close focused window
   , ("M-c", kill)
    -- rotate through layouts
@@ -124,9 +132,9 @@ myKeys = \c -> mkKeymap c $
   -- quit xmonad
   , ("M-S-q", io (exitWith ExitSuccess))
   -- restart xmonad
-  , ("M-S-r", spawn myRecomp)
+  , ("M1-r", spawn myRest)
   -- restart w/o recompile
-  , ("M-r", spawn myRest)
+  , ("M1-S-r", spawn myRecomp)
   -- show date
 --  , ("M-d", spawn myShowDate)
   -- lock
@@ -170,6 +178,11 @@ myKeys = \c -> mkKeymap c $
   [(m ++ k, windows $ f w)
     | (w, k) <- zip (XMonad.workspaces c) (map show [1..9])
     , (m, f) <- [("M-",W.view), ("M-S-",W.shift)]] -- was W.greedyView
+  -- physical screens
+--  ++
+ -- [ (mask ++ key, f sc)
+  --  | (key, sc)  <- zip "wer" [0..] -- was [0..] *** change to match your screen order ***
+   -- , (f, mask) <- [(viewScreen def, 0), (sendToScreen def, shiftMask)]]
 
 -- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -183,14 +196,28 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                   >> windows W.shiftMaster))
   ]
 
+-- TabConfig
+
+myTabConfig = def { activeColor = "#2a1f1d"
+                  , inactiveColor = "#2a1f1d"
+                  , urgentColor = "#9b6c4a"
+                  , activeBorderColor = "#2a1f1d"
+                  , inactiveBorderColor = "#2a1f1d"
+                  , urgentBorderColor = "#9b6c4a"
+                  , activeTextColor = "#9b6c4a"
+                  , inactiveTextColor = "#e0dbb7"
+                  , urgentTextColor = "#2a1f1d"
+                  , fontName = "xft:Liberation Mono:size=8"
+                  }
 --layouts
-myLayout = avoidStruts $ smartBorders $ toggleLayouts full $ rt ||| mt ||| full
+myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
   where
   -- tiling profiles
   def = ResizableTall nmaster delta ratio []
   rt =  renamed [Replace "r" ] $ def
   mt =  renamed [Replace "m" ] $ Mirror rt
---  tab = renamed [Replace "t" ] $ simpleTabbedAlways
+  tab = renamed [Replace "t" ] $ tabbed shrinkText myTabConfig
+  tp = renamed [Replace "2" ] $ TwoPane delta ratio
   full =  renamed [Replace "f"] $ noBorders $ fullscreenFull Full
   -- default #windows in master
   nmaster = 1
@@ -212,6 +239,9 @@ myManageHook = composeAll . concat $
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my6Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my7Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my8Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my9Shifts]
   ]
   where
 --classes / titles / resources
@@ -225,6 +255,9 @@ myManageHook = composeAll . concat $
   my4Shifts = ["Gimp","MPlayer","Thunderbird"]
   my5Shifts = ["remmina","xfreerdp"]
   my6Shifts = ["VirtualBox Manager","VirtualBox"]
+  my7Shifts = []
+  my8Shifts = []
+  my9Shifts = []
 
 -- event handling
 
@@ -254,8 +287,10 @@ myLogHook h = dynamicLogWithPP $ def {
 
 -- main function
 main = do 
-  myBar <- spawnPipe myXmobar
---my config
+  n <- countScreens
+--  xmprocs <- mapM (\i -> spawnPipe $ "xmobar /home/eye/.xmobarrc-" ++ show i ++ " -x " ++ show i) [0..n-1]
+  myBar <- spawnPipe myXmobar 
+-- my config
   xmonad $ def {
   --simple stuff
     terminal       = myTerm
@@ -272,6 +307,6 @@ main = do
     ,layoutHook     = myLayout
     ,manageHook     = myManageHook <+> manageDocks 
     ,handleEventHook  = myEventHook
-    ,logHook      = myLogHook myBar 
+    ,logHook      = myLogHook myBar
     ,startupHook    = myStartupHook
 }
