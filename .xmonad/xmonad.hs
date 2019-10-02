@@ -178,11 +178,12 @@ myKeys = \c -> mkKeymap c $
   [(m ++ k, windows $ f w)
     | (w, k) <- zip (XMonad.workspaces c) (map show [1..9])
     , (m, f) <- [("M-",W.view), ("M-S-",W.shift)]] -- was W.greedyView
-  -- physical screens
---  ++
- -- [ (mask ++ key, f sc)
-  --  | (key, sc)  <- zip "wer" [0..] -- was [0..] *** change to match your screen order ***
-   -- , (f, mask) <- [(viewScreen def, 0), (sendToScreen def, shiftMask)]]
+  ++
+  -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+  -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+  [(m ++ "M-" ++ [k], screenWorkspace sc >>= flip whenJust (windows . f))
+     | (k, sc) <- zip "wer" [0..]
+     , (f, m) <- [(W.view, ""), (W.shift, "S-")]]
 
 -- Mouse bindings
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -287,7 +288,7 @@ myLogHook h = dynamicLogWithPP $ def {
 
 -- main function
 main = do 
-  n <- countScreens
+--  n <- countScreens
 --  xmprocs <- mapM (\i -> spawnPipe $ "xmobar /home/eye/.xmobarrc-" ++ show i ++ " -x " ++ show i) [0..n-1]
   myBar <- spawnPipe myXmobar 
 -- my config
