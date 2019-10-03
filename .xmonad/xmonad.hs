@@ -223,7 +223,7 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
   -- default #windows in master
   nmaster = 1
   -- proportion size of master
-  ratio   = 5/10
+  ratio   = 7/10
   -- incrementation on resizing
   delta   = 2/100
 

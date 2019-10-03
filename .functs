@@ -16,6 +16,7 @@ aurdwn(){
     [[ -d $cowb ]] || mkdir -p $cowb
     cower -dut $cowb
 }
+
 aurup(){
 	[[ -n $@ ]] && echo -e "use cower to build updates for all aur pkgs\nusage: aurup" && return 1
     cowb="/tmp/cow"
@@ -47,7 +48,7 @@ cowd(){
 }
 
 mymem() {
-ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g
+  ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g
 }
 
 cpssh() {
@@ -82,8 +83,8 @@ sshtrns(){
 calc() { 
 	par=$*
 	echo -e "$par ="
-        calc=$(ghc -e $par)
-    	echo $calc
+    calc=$(ghc -e $par)
+  	echo $calc
 }
 
 pstop(){
@@ -95,7 +96,6 @@ pstop(){
 }
 
 qload() {
-
 	uptime|sed 's/.*rage:\ \(.*\)/load:\ \1/'|sed 's/,//g'
 }
 
@@ -104,38 +104,11 @@ psg(){
     pid=`pgrep -f $1`
     ps up $(echo $pid) 2>/dev/null
 }
-
-wiki() {
-	[[ -z $@ ]] && echo -e "dig wiki +short txt through console\nusage: wiki <string>" && return 1
-	str=$(echo $@|sed 's, ,_,g'); dig +short txt ${str}.wp.dg.cx
-}
-
-gsay() {
-	[[ -z $@ ]] && echo -e "download and play google translate phrase\nusage: gsay <lang> <text>" && return 1
-	lang=${1}
-	shift
-	text=$@
-	text=${text//\ /\+}
-	mplayer "http://translate.google.com/translate_tts?tl=$lang&q=$text"}
-gsay_trnsl() {
-    [[ -z $@ ]] && echo -e "say something translated into a language\nusage: gsay_trnsl <tolang> <text>" && return 1
-    lang=$1;shift;text=$@
-    trad=`trnsl $lang $text`
-    gsay $lang $trad
-}
 	
 chkhp()	{
 	[[ -z $@ ]] && echo -e "check if homepage is up or down with downforeveryoneorjustme.com\nusage: chkhp <url>" && return 1
 	url=$1
 	wget -qO - "http://downforeveryoneorjustme.com/$url" | sed '/just you/!d;s/.*<a href[^>]*>//g;s/<[^>]*>//g'
-}
-
-trnsl() {
-	[[ -z $@ ]] && echo -e "translate to any language - auto recognition of source language\nusage: trnsl <tolang> <text>" && return 1
-	tgl=$1
-	shift
-	text=${@//\ /\+}
-	wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text=$text&sl=auto&tl=$tgl" | sed 's#\[\[\[\"##' | cut -d \" -f1
 }
 
 dwnlft() {
@@ -151,42 +124,11 @@ expurl() {
 	curl -sIL $url &>/dev/null|egrep "^Location"
 }
 
-bmi() {
-	[[ -z $@ ]] && echo -e "calculate the body mass index\nusage: bmi <weight kg> <height in cm>" && return 1
-	wgh=$1
-	hgh=$2
-	bmi=$(echo "$wgh/($hgh/100*$hgh/100)"|bc -l)
-	if [[ $bmi -ge 18 ]] && [[ $bmi -le 25 ]]; then
-		res="normal"
-	elif [[ $bmi -lt 18 ]]; then
-		res="underweight"
-	elif [[ $bmi -gt 25 ]]; then
-		res="overweight"	
-	fi
-	printf "Your BMI is %.2f.\nYou are in the %s range.\n" $bmi $res
-}
-
-weather() {
-	### Yahoo weather RSS
-	RSS='http://weather.yahooapis.com/forecastrss'
-	WOEID='785728'
-	METR='c'
-	URL="${RSS}?w=${WOEID}&u=${METR}"
-	RET=$(curl -s "$URL" | grep "C<BR" | sed 's/^\(.*\)<.*$/\1/')
-	echo $RET
-}
-
 bak() {
 	[[ -z $@ ]] && echo -e "backup file with date\nusage: bak <filename>" && return 1
 	fl=$1
 	date=$(date +%Y%m%d)
 	cp $1{,.$date.bak}
-}
-
-mpyt() {
-	[[ -z $@ ]] && echo -e "stream yt videos in full quality directly into mplayer\nusage: mpyt <yturl>" && return 1
-	url=$1
-	mplayer -cache-min 1 $(youtube-dl -g --no-playlist $url)
 }
 
 tyurl() {
@@ -212,45 +154,6 @@ cdup() {
 	cd $x
 }
 
-title() {
-	[ "$DISABLE_AUTO_TITLE" != "true" ] || return
-	if [[ "$TERM" = xterm* ]] || [[ $TERM = rxvt* ]] || [[ "$TERM_PROGRAM" = "iTerm.app" ]] || [[ -n "$TMUX" ]]
-	then
-		print -Pn "\e]2;$2:q\a"
-		print -Pn "\e]1;$1:q\a"
-	elif [[ "$TERM" = screen* ]]
-	then
-		print -Pn "\ek$1:q\e\\"
-fi
-}
-
-rwp() {
-	[[ -n $@ ]] && echo -e "change wallpaper randomly\nusage: rwp" && return 1
-        perl -e 'use LWP::Simple;use JSON;print get(from_json(get("https://api.desktoppr.co/1/wallpapers/random"),{utf8 => 1})->{"response"}->{"image"}->{"url"})' | feh --bg-scale --no-fehbg -
-}
-
-clntrns() { 
-    trns="/usr/bin/transmission-remote" 
-    hst=roach
-    ids=$($trns $hst -l | awk '{if ($1~/[0-9]+/ && $2=="100%") print $1}')
-    for id in $ids;
-        do
-            $trns $hst -t $id -r
-        done
-}
-
-toavi() {
-	[[ -z $@ ]] && echo -e "ffmpeg a file to avi\nusage: toavi <filename>" && return 1
-	fl=$1
-	ffmpeg -i $fl -vcodec copy -acodec ac3 ${fl:0:-4}.avi
-}
-
-gdrv() {
-	[[ -n $@ ]] && echo -e "use grive-sync in your grive folder" && return 1
-	g="$HOME/.g"
-	cd $g; grive2;cd - >/dev/null
-}
-
 ## good gotbletu rtmp functions
 rtmp_sniff(){
     [[ -n $@ ]] && echo -e "rtmp sniff w/ iptables rules to get rtmp url\nusage: rtmp_sniff" && return 1;
@@ -258,6 +161,7 @@ rtmp_sniff(){
     rtmpsrv
     sudo iptables -t nat -D OUTPUT -p tcp --dport 1935 -m owner \! --uid-owner root -j REDIRECT
 }
+
 # transfer
 transfer() { 
     if [ $# -eq 0 ]; then 
@@ -279,6 +183,7 @@ transfer() {
 
     cat $tmpfile; rm -f $tmpfile; 
 } 
+
 #iotek vps
 io(){
     if tty -s; then
@@ -292,6 +197,7 @@ io(){
     echo "http://d.eyenx.ch/${fn}" 
     echo "http://d.eyenx.ch/${fn}" |xclip -i
 }
+
 cmdfm(){
     # taken from https://github.com/llaine/cmdfm
     CLIENTID=2cd0c4a7a6e5992167a4b09460d85ece
