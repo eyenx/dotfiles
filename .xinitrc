@@ -18,10 +18,10 @@ udiskie &
 unclutter &
 dunst &
 urxvtd -f -o -q
-~/bin/snom-eventd.py &
 #windowmanager
 xinput disable $(xinput list --id-only "SynPS/2 Synaptics TouchPad")
 # gnome keyring
 eval $(usr/bin/gnome-keyring-daemon --start --components=secrets)
 redshift-gtk &
+~/bin/mytrayer.sh &
 xmonad

@@ -9,7 +9,7 @@ import Data.List
 import XMonad.Util.Cursor
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig
---import XMonad.Util.ScratchPad
+import XMonad.Util.NamedScratchpad
 
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
@@ -51,8 +51,8 @@ myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
 myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
-myRecomp="xmonad --recompile; xmonad --restart; notify-send 'xmonad recompiled'"
-myRest="xmonad --restart; notify-send 'xmonad restarted'"
+myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
+myRest="killall xmobar; xmonad --restart; notify-send 'xmonad restarted'"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
@@ -127,6 +127,12 @@ myKeys = \c -> mkKeymap c $
   -- dual monitor setup
   , ("M-o", swapNextScreen)
   , ("M-S-o", shiftNextScreen)
+  -- scratchPad term
+  , ("M-S-/", namedScratchpadAction scratchpads "term")
+  -- scratchPad joplin-desktop
+  , ("M-/", namedScratchpadAction scratchpads "joplin")
+  -- scratchPad pavucontrol
+  , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -234,22 +240,22 @@ myManageHook = composeAll . concat $
   , [title =? t --> doFloat | t <- myTFloats]
   , [resource =? r --> doFloat | r <- myRFloats]
   , [(className =? i <||> title =? i <||> resource =? i) --> doIgnore | i <- myIgnores]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 1) | x <- my2Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 0) | x <- my1Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 1) | x <- my2Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 2) | x <- my3Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 4) | x <- my5Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my6Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my7Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my8Shifts]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 5) | x <- my9Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 6) | x <- my7Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 7) | x <- my8Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 8) | x <- my9Shifts]
   ]
   where
 --classes / titles / resources
   myCFloats = []
   myTFloats = []
   myRFloats = []
-  myIgnores = ["desktop_window", "kdesktop","stalonetray","Xfce4-notifyd"]
+  myIgnores = []
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = []
   my3Shifts = ["Atom"]
@@ -280,11 +286,27 @@ myLogHook h = dynamicLogWithPP $ def {
         ppCurrent = xmobarColor "#9b6c4a" ""
         , ppHidden = xmobarColor "#e0dbb7" "" 
         , ppUrgent = xmobarColor "#9b6c4a" "#573d26" 
-        , ppSep = xmobarColor "#999999" "" " · "
+        , ppSep = xmobarColor "#9b6c4a" "" " · "
         , ppWsSep = xmobarColor "#999999" "" " "
         , ppTitle = xmobarColor "#e0dbb7" "" . shorten 50
+        -- do not show NSP at end of workspace list
+        , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
         , ppOutput = hPutStrLn h
 }
+
+-- scratchPads
+scratchpads :: [NamedScratchpad]
+scratchpads = [
+-- run htop in xterm, find it by title, use default floating window placement
+    NS "joplin" "joplin-desktop" (className =? "Joplin") 
+        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
+
+    NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
+        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
+
+    NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4))
+  ] 
 
 -- main function
 main = do 
@@ -306,7 +328,7 @@ main = do
     ,mouseBindings    = myMouseBindings
     --hooks, layouts
     ,layoutHook     = myLayout
-    ,manageHook     = myManageHook <+> manageDocks 
+    ,manageHook     = (myManageHook <+> manageDocks ) <+> namedScratchpadManageHook scratchpads
     ,handleEventHook  = myEventHook
     ,logHook      = myLogHook myBar
     ,startupHook    = myStartupHook

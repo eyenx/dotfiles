@@ -15,32 +15,31 @@ TEXT
 ${if_match ${cpu cpu2}>80}<fc=\#9b6c4a>${cpu cpu2}%</fc>$else<fc=\#e0dbb7>${cpu cpu2}%</fc>$endif \
 ${if_match ${cpu cpu3}>80}<fc=\#9b6c4a>${cpu cpu3}%</fc>$else<fc=\#e0dbb7>${cpu cpu3}%</fc>$endif \
 ${if_match ${cpu cpu4}>80}<fc=\#9b6c4a>${cpu cpu4}%</fc>$else<fc=\#e0dbb7>${cpu cpu4}%</fc>$endif \
-<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#9b6c4a>$memperc%</fc>$else<fc=\#e0dbb7>$memperc%</fc>$endif \
-<fc=\#e0dbb7>· </fc>/ ${if_match ${fs_used_perc /}>80}<fc=\#9b6c4a>${fs_used_perc /}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /}%</fc>$endif <fc=\#e0dbb7></fc> \
-<fc=\#e0dbb7>· </fc>/var ${if_match ${fs_used_perc /var}>80}<fc=\#9b6c4a>${fs_used_perc /var}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /var}%</fc>$endif <fc=\#e0dbb7></fc> \
-<fc=\#e0dbb7>· </fc>/home ${if_match ${fs_used_perc /home}>90}<fc=\#9b6c4a>${fs_used_perc /home}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /home}%</fc>$endif <fc=\#e0dbb7></fc> \
+<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#9b6c4a>$memperc%</fc>$else<fc=\#e0dbb7>$memperc%</fc>$endif \
+<fc=\#9b6c4a>· </fc>/ ${if_match ${fs_used_perc /}>80}<fc=\#9b6c4a>${fs_used_perc /}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /}%</fc>$endif <fc=\#e0dbb7></fc> \
+<fc=\#9b6c4a>· </fc>/var ${if_match ${fs_used_perc /var}>80}<fc=\#9b6c4a>${fs_used_perc /var}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /var}%</fc>$endif <fc=\#e0dbb7></fc> \
+<fc=\#9b6c4a>· </fc>/home ${if_match ${fs_used_perc /home}>90}<fc=\#9b6c4a>${fs_used_perc /home}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /home}%</fc>$endif <fc=\#e0dbb7></fc> \
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
-${if_match ${execi 120 ~/.conky/batmerge.sh}>65}}\
-<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
+<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 ${else}\
-${if_match ${execi 120 ~/.conky/batmerge.sh}>20}}\
-<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
+<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 ${else}\
-<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#9b6c4a> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#9b6c4a> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 $endif\
 $endif\
 ${else}\
-<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 $endif\
 ${if_match ${execi 60 ~/.conky/chkmail_maildir | wc -w}>0}\
-<fc=\#e0dbb7>· </fc><fc=\#9b6c4a><icon=/home/eye/.xmobar/xbm/mail.xbm/> ${execi 120 ~/.conky/chkmail_maildir}</fc>\
+<fc=\#9b6c4a>· </fc><fc=\#9b6c4a><icon=/home/eye/.xmobar/xbm/mail.xbm/> ${execi 120 ~/.conky/chkmail_maildir}</fc> \
 $endif\
-${if_existing /sys/class/net/eth0/operstate up}<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#e0dbb7> ${upspeed eth0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#e0dbb7>${downspeed eth0}</fc> \
+${if_existing /sys/class/net/enp0s25/operstate up}<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> ${addr enp0s25} \
 $else \
-${if_existing /sys/class/net/wlp3s0/operstate up}<fc=\#e0dbb7>· </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlp3s0} \
-<fc=\#e0dbb7>${wireless_link_qual_perc wlp3s0}%</fc> <fc=\#e0dbb7>·</fc>\
-<icon=/home/eye/.xmobar/xbm/uparrow8.xbm/><fc=\#e0dbb7> ${upspeed wlp3s0} </fc><icon=/home/eye/.xmobar/xbm/downarrow8.xbm/> <fc=\#e0dbb7>${downspeed wlp3s0}</fc> \
+${if_existing /sys/class/net/wlp3s0/operstate up}<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlp3s0} \
+<fc=\#e0dbb7>${wireless_link_qual_perc wlp3s0}%</fc> ${addr wlp3s0} \
 $endif\
 $endif\
-<fc=\#e0dbb7>· ${execi 60 date +%H%M}</fc>\
+<fc=\#9b6c4a>· </fc><fc=\#e0dbb7><icon=/home/eye/.xmobar/xbm/clock2.xbm/> ${execi 60 date +%H%M}</fc>\
 ${execi 10 .conky/spacer.sh}
