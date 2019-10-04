@@ -38,10 +38,10 @@ import qualified Data.Map as M
 -- shortkeys
 
 myTerm    = "urxvtc"
-myTmux = "~/bin/tmuxsess"
+myTmux = "~/bin/tmuxsess default"
 myBrowser = "firefox"
 myAltBrowser = "chromium"
-myMail = "thunderbird"
+myMail = "~/bin/tmuxsess mail"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
 myScreenshot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
@@ -128,9 +128,9 @@ myKeys = \c -> mkKeymap c $
   , ("M-o", swapNextScreen)
   , ("M-S-o", shiftNextScreen)
   -- scratchPad term
-  , ("M-S-/", namedScratchpadAction scratchpads "term")
+  , ("M-S-\\", namedScratchpadAction scratchpads "term")
   -- scratchPad joplin-desktop
-  , ("M-/", namedScratchpadAction scratchpads "joplin")
+  , ("M-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad pavucontrol
   , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
   -- togglestruts
@@ -235,10 +235,10 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
 
 --managehook
 myManageHook = composeAll . concat $
-  [ [isDialog --> doFloat]
-  , [className =? c --> doFloat | c <- myCFloats]
-  , [title =? t --> doFloat | t <- myTFloats]
-  , [resource =? r --> doFloat | r <- myRFloats]
+  [ [isDialog --> doCenterFloat]
+  , [className =? c --> doCenterFloat | c <- myCFloats]
+  , [title =? t --> doCenterFloat | t <- myTFloats]
+  , [resource =? r --> doCenterFloat | r <- myRFloats]
   , [(className =? i <||> title =? i <||> resource =? i) --> doIgnore | i <- myIgnores]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 0) | x <- my1Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 1) | x <- my2Shifts]
@@ -257,11 +257,11 @@ myManageHook = composeAll . concat $
   myRFloats = []
   myIgnores = []
   my1Shifts = ["Firefox","Chromium"]
-  my2Shifts = []
-  my3Shifts = ["Atom"]
-  my4Shifts = ["Gimp","MPlayer","Thunderbird"]
-  my5Shifts = ["remmina","xfreerdp"]
-  my6Shifts = ["VirtualBox Manager","VirtualBox"]
+  my2Shifts = [""]
+  my3Shifts = ["Atom","mattermost"]
+  my4Shifts = ["Gimp","MPlayer","Thunderbird","linphone","mail"]
+  my5Shifts = ["remmina","xfreerdp","rdesktop"]
+  my6Shifts = ["VirtualBox Manager","VirtualBox","virt-manager"]
   my7Shifts = []
   my8Shifts = []
   my9Shifts = []
@@ -290,7 +290,7 @@ myLogHook h = dynamicLogWithPP $ def {
         , ppWsSep = xmobarColor "#999999" "" " "
         , ppTitle = xmobarColor "#e0dbb7" "" . shorten 50
         -- do not show NSP at end of workspace list
-        , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
+        , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort def
         , ppOutput = hPutStrLn h
 }
 

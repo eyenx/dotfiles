@@ -1,22 +1,12 @@
 #!/bin/bash
 #autostart
-
 nextcloud &
-#gajim &
-#slack &
 firefox &
 joplin-desktop &
-#Blink &
-#LD_LIBRARY_PATH=/usr/local/lib:/usr/lib linphone &
-#linphonecsh init -c /home/eye/.config/linphone/linphonerc
-#ph notify &
 linphone &
 mattermost-desktop &
-#remmina &
-#skypeforlinux &
-#glowing-bear &
 thunderbird &
-#rambox &
+tmuxinator start mail &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service
 systemctl start --user vdirsyncer.service

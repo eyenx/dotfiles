@@ -1,6 +1,12 @@
 #!/bin/bash
 #urxvtc --geometry=80x50-0+16
-txnr=$(tmux list-sessions|grep -v attached|cut -d\: -f1)
-#echo $txnr
-[[ -z $txnr ]] && com="tmux new-session" || com="tmux attach-session -t $txnr" 
-urxvtc -g 90x50-0+16 -e zsh -c "$com"
+if [[ $1 == "default" ]]
+then
+  txnr=$(tmux list-sessions|grep -v attached|grep -v mail|cut -d\: -f1)
+  [[ -z $txnr ]] && com="tmux new-session" || com="tmux attach-session -t $txnr" 
+  urxvtc -name tmux -e zsh -c "$com"
+elif [[ $1 == "mail" ]]
+then
+  txnr=$(tmux list-sessions|grep attached|grep mail|cut -d\: -f1)
+  [[ -n $txnr ]] && exit 1 || urxvtc -name mail -e zsh -c "tmuxinator start mail"
+fi
