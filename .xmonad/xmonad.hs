@@ -23,6 +23,7 @@ import XMonad.Actions.PhysicalScreens
 
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Renamed
+import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Tabbed
@@ -221,17 +222,19 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
   where
   -- tiling profiles
   def = ResizableTall nmaster delta ratio []
-  rt =  renamed [Replace "r" ] $ def
-  mt =  renamed [Replace "m" ] $ Mirror rt
+  rt =  renamed [Replace "r" ] $ mySpacer $ def
+  mt =  renamed [Replace "m" ] $ mySpacer $ Mirror rt
   tab = renamed [Replace "t" ] $ tabbed shrinkText myTabConfig
-  tp = renamed [Replace "2" ] $ TwoPane delta ratio
+  tp = renamed [Replace "2" ] $ mySpacer $ TwoPane delta ratiotp
   full =  renamed [Replace "f"] $ noBorders $ fullscreenFull Full
   -- default #windows in master
   nmaster = 1
   -- proportion size of master
   ratio   = 7/10
+  ratiotp = 5/10
   -- incrementation on resizing
   delta   = 2/100
+  mySpacer = spacingRaw True (Border 1 1 1 1) True (Border 1 1 1 1) True
 
 --managehook
 myManageHook = composeAll . concat $
