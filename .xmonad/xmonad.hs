@@ -126,8 +126,8 @@ myKeys = \c -> mkKeymap c $
   -- number of windows in master area -1
   , ("M-.", sendMessage (IncMasterN (-1)))
   -- dual monitor setup
-  , ("M-o", swapNextScreen)
-  , ("M-S-o", shiftNextScreen)
+  , ("M-o", sequence_ [swapNextScreen,nextScreen])
+  , ("M-i", sequence_ [swapPrevScreen,prevScreen])
   -- scratchPad term
   , ("M-S-\\", namedScratchpadAction scratchpads "term")
   -- scratchPad joplin-desktop
@@ -189,7 +189,7 @@ myKeys = \c -> mkKeymap c $
   -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
   -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
   [(m ++ "M-" ++ [k], screenWorkspace sc >>= flip whenJust (windows . f))
-     | (k, sc) <- zip "wer" [0..]
+     | (k, sc) <- zip "wer" [1,2,0]
      , (f, m) <- [(W.view, ""), (W.shift, "S-")]]
 
 -- Mouse bindings
