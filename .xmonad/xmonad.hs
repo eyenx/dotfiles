@@ -237,8 +237,10 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
   mySpacer = spacingRaw True (Border 1 1 1 1) True (Border 1 1 1 1) True
 
 --managehook
+
+myDFloat = doRectFloat (W.RationalRect (1/6) (1/6) (2/3) (2/3))
 myManageHook = composeAll . concat $
-  [ [isDialog --> doCenterFloat]
+  [ [isDialog --> myDFloat]
   , [className =? c --> doCenterFloat | c <- myCFloats]
   , [title =? t --> doCenterFloat | t <- myTFloats]
   , [resource =? r --> doCenterFloat | r <- myRFloats]
