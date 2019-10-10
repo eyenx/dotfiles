@@ -50,6 +50,8 @@ myScreenshot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
+myBrightUp="brightnessctl s +5%"
+myBrightDown="brightnessctl s 5%-"
 myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
 myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
@@ -160,6 +162,10 @@ myKeys = \c -> mkKeymap c $
   , ("<XF86AudioRaiseVolume>", spawn myVolUp)
   -- Mute 
   , ("<XF86AudioMute>", spawn myVolMute)
+  -- brightness up
+  , ("<XF86MonBrightnessUp>", spawn myBrightUp)
+  -- brightness down
+  , ("<XF86MonBrightnessDown>", spawn myBrightDown)
   -- Screenshot full display
   , ("<Print>", spawn myScreenFull)
   -- Screenshot with selection
