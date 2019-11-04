@@ -11,22 +11,14 @@ out_to_x no
 out_to_console yes
 
 TEXT
-<icon=/home/eye/.xmobar/xbm/cpu13.xbm/> ${if_match ${cpu cpu1}>80}<fc=\#9b6c4a>${cpu cpu1}%</fc>$else<fc=\#e0dbb7>${cpu cpu1}%</fc>$endif \
-${if_match ${cpu cpu2}>80}<fc=\#9b6c4a>${cpu cpu2}%</fc>$else<fc=\#e0dbb7>${cpu cpu2}%</fc>$endif \
-${if_match ${cpu cpu3}>80}<fc=\#9b6c4a>${cpu cpu3}%</fc>$else<fc=\#e0dbb7>${cpu cpu3}%</fc>$endif \
-${if_match ${cpu cpu4}>80}<fc=\#9b6c4a>${cpu cpu4}%</fc>$else<fc=\#e0dbb7>${cpu cpu4}%</fc>$endif \
-<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/mem1.xbm/> ${if_match $memperc>70}<fc=\#9b6c4a>$memperc%</fc>$else<fc=\#e0dbb7>$memperc%</fc>$endif \
-<fc=\#9b6c4a>· </fc>/ ${if_match ${fs_used_perc /}>80}<fc=\#9b6c4a>${fs_used_perc /}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /}%</fc>$endif <fc=\#e0dbb7></fc> \
-<fc=\#9b6c4a>· </fc>/var ${if_match ${fs_used_perc /var}>80}<fc=\#9b6c4a>${fs_used_perc /var}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /var}%</fc>$endif <fc=\#e0dbb7></fc> \
-<fc=\#9b6c4a>· </fc>/home ${if_match ${fs_used_perc /home}>90}<fc=\#9b6c4a>${fs_used_perc /home}%</fc>$else<fc=\#e0dbb7>${fs_used_perc /home}%</fc>$endif <fc=\#e0dbb7></fc> \
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
-<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 ${else}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
-<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 ${else}\
-<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#9b6c4a> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#9b6c4a> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 $endif\
 $endif\
 ${else}\

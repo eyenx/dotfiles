@@ -6,7 +6,6 @@ joplin-desktop &
 linphone &
 mattermost-desktop &
 thunderbird &
-tmuxinator start mail &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service
 systemctl start --user vdirsyncer.service

@@ -128,8 +128,8 @@ myKeys = \c -> mkKeymap c $
   -- number of windows in master area -1
   , ("M-.", sendMessage (IncMasterN (-1)))
   -- dual monitor setup
-  , ("M-o", sequence_ [swapNextScreen,nextScreen])
-  , ("M-i", sequence_ [swapPrevScreen,prevScreen])
+  , ("M-o", sequence_ [prevScreen,swapNextScreen])
+  , ("M-i", sequence_ [nextScreen,swapPrevScreen])
   -- scratchPad term
   , ("M-S-\\", namedScratchpadAction scratchpads "term")
   -- scratchPad joplin-desktop
@@ -269,9 +269,9 @@ myManageHook = composeAll . concat $
   myIgnores = []
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = [""]
-  my3Shifts = ["Atom","mattermost"]
+  my3Shifts = ["mattermost"]
   my4Shifts = ["Gimp","MPlayer","Thunderbird","linphone","mail"]
-  my5Shifts = ["remmina","xfreerdp","rdesktop"]
+  my5Shifts = ["Atom","remmina","xfreerdp","rdesktop"]
   my6Shifts = ["VirtualBox Manager","VirtualBox","virt-manager"]
   my7Shifts = []
   my8Shifts = []

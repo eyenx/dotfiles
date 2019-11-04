@@ -8,16 +8,7 @@ Config {
 	, borderColor = "#1a1f1d"
 	, lowerOnStart = True
 	, commands = [
-         Run Com "conky" ["-q","-i","1","-c",".xmobar/conkyrc-xmobar"] "conky" 10,
-         Run DiskU [("/", "root <usedp>% ·"), ("/var", "var <usedp>% ·"), ("/home","home <usedp>%") ] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"]  30,
-         Run Battery ["BAT0","BAT1"] 60,
-         Run MultiCpu ["-t","cpu <total>%"] 10,
-         Run Memory  ["-t","mem <usedratio>%"] 10,
-         Run MBox [("w","~/.mail/adsy","red"),("priv","~/.mail/tauro","blue")] [] "mbox",
-         Run DynNetwork ["-t","<dev> <rx>-<tx>"] 30,
-         Run Com "date" ["+%H%M "] "mydate" 30,
-         Run Com "echo" ["·"] "sep" 60,
-         Run Com "printf" ["%10s"] "space" 10,
+         Run Com "conky" ["-q","-i","1","-c","/home/eye/.xmobar/conkyrc-xmobar"] "conky" 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"

@@ -49,4 +49,3 @@ windows:
         - mu
         - tw
         - wee
-        - vdirsyncer sync && khali

@@ -91,5 +91,5 @@ vnoremap <silent> <C-s> <esc><esc>:w<CR>
 vnoremap <S-s> :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv 
-let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_python_checkers=['flake8','pylint']
 let g:vim_markdown_folding_disabled=1

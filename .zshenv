@@ -12,8 +12,9 @@ export EDITOR=vim
 #export BROWSER=firefox
 export BROWSER=chromium
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
-systemctl --user status ssh-agent &>/dev/null  || systemctl --user start ssh-agent &>/dev/null
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+#systemctl --user status ssh-agent &>/dev/null  || systemctl --user start ssh-agent &>/dev/null
+#export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
 #export TERM="rxvt-unicode"
 if [[ -n $TMUX ]]
     then

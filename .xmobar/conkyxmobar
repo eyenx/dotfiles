@@ -1,6 +1,0 @@
-#!/bin/bash
-csfl="/tmp/.inxmobar"
->$csfl
-conky -qc ~/.xmobar/conkyrc-xmobar| while read line; do
-	echo -n "$line" >$csfl;
-done
