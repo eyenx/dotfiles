@@ -41,8 +41,8 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias sncmail='systemctl start --user fetchmail.service'
 alias pjrnl='jrnl priv'
 alias wjrnl='jrnl work'
-alias wifistart='sc-start netctl-auto@wlp3s0'
-alias wifistop='sc-stop netctl-auto@wlp3s0'
+alias wifion='nmcli r wifi on'
+alias wifioff='nmcli r wifi off'
 alias tw='vi -c TW'
 alias wl='wunderline'
 alias wld='wunderline done'
@@ -167,5 +167,4 @@ alias gitgraph="git log --graph --abbrev-commit --decorate --format=format:'%C(b
 # shutdown aliases
 alias reboot='sudo systemctl reboot'
 alias shutdown='sudo systemctl poweroff'
-
-
+alias fyyrobig='shutdown'

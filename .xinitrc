@@ -24,4 +24,5 @@ xinput disable $(xinput list --id-only "SynPS/2 Synaptics TouchPad")
 eval $(usr/bin/gnome-keyring-daemon --start --components=secrets)
 redshift-gtk &
 ~/bin/mytrayer.sh &
+~/bin/gotify-send.py &
 xmonad
