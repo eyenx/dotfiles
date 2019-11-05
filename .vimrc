@@ -67,7 +67,8 @@ set guifont=Liberation\ Mono
 set number
 
 " set colorscheme
-colorscheme neverland
+"colorscheme neverland
+colorscheme mocha
 
 " set backupdir
 "set backupdir=~/.vim/bak

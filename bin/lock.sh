@@ -9,5 +9,5 @@
 #convert ~/.solid.png ~/.lock.png -gravity center -composite -matte ~/.solid.png
 #convert ~/.solid.png ~/.lock.png -geometry +50+800 -composite ~/.solid.png
 #i3lock -u -i ~/.solid.png
-i3lock -u -c 2c2422
+i3lock -u -c 362d24
 #i3lock -u -i ~/.wp.png

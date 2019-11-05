@@ -1,11 +1,11 @@
 Config {
 	font = "xft:liberation mono-8"
-	, bgColor= "#2a1f1d"
-	, fgColor= "#e0dbb7"
+	, bgColor= "#362d24"
+	, fgColor= "#dbd3d1"
 	, position = Top
     , pickBroadest = True
 	, border = NoBorder
-	, borderColor = "#1a1f1d"
+	, borderColor = "#362d24"
 	, lowerOnStart = True
 	, commands = [
          Run Com "conky" ["-q","-i","1","-c","/home/eye/.xmobar/conkyrc-xmobar"] "conky" 100,

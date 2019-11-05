@@ -1,73 +1,36 @@
 ! terminal colors ------------------------------------------------------------
-*fading: 20
-*fadeColor: #2a1f1d
-! --- ~/.Xresources ------------------------------------------------------------
-! ------------------------------------------------------------------------------
-! --- generated with 4bit Terminal Color Scheme Designer -----------------------
-! ------------------------------------------------------------------------------
-! --- http://ciembor.github.com/4bit -------------------------------------------
-! ------------------------------------------------------------------------------
-! --- special colors ---
-*background: #2a1f1d
-*foreground: #e0dbb7
-!
-! ! --- standard colors ---
-!
-! ! black
-*color0: #573d26
-!
-! ! bright_black
-*color8: #9b6c4a
-!
-! ! red
-*color1: #be2d26
-!
-! ! bright_red
-*color9: #e84627
-!
-! ! green
-*color2: #6ba18a
-!
-! ! bright_green
-*color10: #95d8ba
-!
-! ! yellow
-*color3: #e99d2a
-!
-! ! bright_yellow
-*color11: #d0d150
-!
-! ! blue
-*color4: #5a86ad
-!
-! ! bright_blue
-*color12: #b8d3ed
-!
-! ! magenta
-*color5: #ac80a6
-!
-! ! bright_magenta
-*color13: #d19ecb
-!
-! ! cyan
-*color6: #74a6ad
-!
-! ! bright_cyan
-*color14: #93cfd7
-!
-! ! white
-*color7: #e0dbb7
-!
-! ! bright_white
-*color15: #fff9d5
-!
-!
-*color234: #2a1f1d
+! mocha.dark / custom eyenx
+! Scheme: Chris Kempson (http://chriskempson.com)
+! special
+*.foreground:   #dbd3d1
+*.background:   #362d24
+*.cursorColor:  #dbd3d1
+! black
+*.color0:       #362d24
+*.color8:       #7e705a
+! red
+*.color1:       #cb6077
+*.color9:       #cb6077
+! green
+*.color2:       #beb55b
+*.color10:      #beb55b
+! yellow
+*.color3:       #f4bc87
+*.color11:      #f4bc87
+! blue
+*.color4:       #8ab3b5
+*.color12:      #8ab3b5
+! magenta
+*.color5:       #a89bb9
+*.color13:      #a89bb9
+! cyan
+*.color6:       #7bbda4
+*.color14:      #7bbda4
+! white
+*.color7:       #dbd3d1
+*.color15:      #f5eeeb
 
-! ------------------------------------------------------------------------------
-! --- end of terminal colors section -------------------------------------------
-! ------------------------------------------------------------------------------
-! other urxvt options
+! other urxvt options ------------------------------------------------------
 URxvt.perl-ext: default,url-select
 !,font-size
 !URxvt.keysym.C-Up:     perl:font-size:increase
@@ -102,34 +65,7 @@ URxvt*underlineColor: #A3583B
 Xcursor.theme: aterred
 Xcursor.size: 16
 
-
-! xscreensaver --------------------------------------------------------------
-!font settings
-xscreensaver.Dialog.headingFont: xft:zekton:size=7
-xscreensaver.Dialog.bodyFont: xft:zekton:size=7
-xscreensaver.Dialog.labelFont: xft:zekton:size=7
-xscreensaver.Dialog.unameFont: xft:zekton:size=7
-xscreensaver.Dialog.buttonFont: xft:zekton:size=7
-xscreensaver.Dialog.dateFont: xft:zekton:size=7
-xscreensaver.passwd.passwdFont: xft:zekton:size=7
-!general dialog box
-xscreensaver.Dialog.foreground: #9e9c96
-xscreensaver.Dialog.background: #1f1f1b
-xscreensaver.Dialog.topShadowColor: #1f1f1b
-xscreensaver.Dialog.bottomShadowColor: #1f1f1b
-xscreensaver.Dialog.Button.foreground:  #9e9c96
-xscreensaver.Dialog.Button.background:  #1f1f1b
-!username/password input box and date text colour
-xscreensaver.Dialog.text.foreground:    #9e9c96
-xscreensaver.Dialog.text.background: #1f1f1b
-xscreensaver.Dialog.borderWidth:        0
-xscreensaver.Dialog.shadowThickness:    0
-xscreensaver.passwd.thermometer.foreground: #1f1f1b
-xscreensaver.passwd.thermometer.background: #1f1f1b
-xscreensaver.passwd.thermometer.width: 0
-!datestamp format--see the strftime(3) manual page for details
-xscreensaver.dateFormat:    %H:%M - %a %d. %b %Y
-
+! Xft -----------------------------------------------------------------------
 Xft.dpi: 96
 Xft.autohint: 0
 Xft:lcdfilter: lcddefault
@@ -140,41 +76,3 @@ Xft.hintstyle: hintfull
 Xft.antialias: 1
 
 
-
-! special mocha.dark
-!*.foreground:   #d0c8c6
-!*.foreground:   #dbd3d1
-!*.background:   #3b3228
-!*.cursorColor:  #d0c8c6
-!
-!! black
-!*.color0:       #3b3228
-!*.color8:       #7e705a
-!
-!! red
-!*.color1:       #cb6077
-!*.color9:       #cb6077
-!
-!! green
-!*.color2:       #beb55b
-!*.color10:      #beb55b
-!
-!! yellow
-!*.color3:       #f4bc87
-!*.color11:      #f4bc87
-!
-!! blue
-!*.color4:       #8ab3b5
-!*.color12:      #8ab3b5
-!
-!! magenta
-!*.color5:       #a89bb9
-!*.color13:      #a89bb9
-!
-!! cyan
-!*.color6:       #7bbda4
-!*.color14:      #7bbda4
-!
-!! white
-!*.color7:       #d0c8c6
-!!!*.color15:      #f5eeeb

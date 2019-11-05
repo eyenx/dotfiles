@@ -1,7 +1,7 @@
 # FULL ##itext_buffer_size 2048
 update_interval 3
 total_run_times 0
-default_color C2BFB8 
+default_color dbd3d1 
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -13,25 +13,25 @@ out_to_console yes
 TEXT
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
-<icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#dbd3d1> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 ${else}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>20}\
-<icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/batt1half.xbm/> <fc=\#dbd3d1> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 ${else}\
-<icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#9b6c4a> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/batt1empty.xbm/> <fc=\#f4bc87> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 $endif\
 $endif\
 ${else}\
-<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#e0dbb7> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
+<icon=/home/eye/.xmobar/xbm/ac8.xbm/> <fc=\#dbd3d1> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
 $endif\
 ${if_match ${execi 60 ~/.conky/chkmail_maildir | wc -w}>0}\
-<fc=\#9b6c4a>· </fc><fc=\#9b6c4a><icon=/home/eye/.xmobar/xbm/mail.xbm/> ${execi 120 ~/.conky/chkmail_maildir}</fc> \
+<fc=\#f4bc87>· </fc><fc=\#f4bc87><icon=/home/eye/.xmobar/xbm/mail.xbm/> ${execi 120 ~/.conky/chkmail_maildir}</fc> \
 $endif\
-${if_existing /sys/class/net/enp0s25/operstate up}<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> ${addr enp0s25} \
+${if_existing /sys/class/net/enp0s25/operstate up}<fc=\#f4bc87>· </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> ${addr enp0s25} \
 $else \
-${if_existing /sys/class/net/wlp3s0/operstate up}<fc=\#9b6c4a>· </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlp3s0} \
-<fc=\#e0dbb7>${wireless_link_qual_perc wlp3s0}%</fc> ${addr wlp3s0} \
+${if_existing /sys/class/net/wlp3s0/operstate up}<fc=\#f4bc87>· </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlp3s0} \
+<fc=\#dbd3d1>${wireless_link_qual_perc wlp3s0}%</fc> ${addr wlp3s0} \
 $endif\
 $endif\
-<fc=\#9b6c4a>· </fc><fc=\#e0dbb7><icon=/home/eye/.xmobar/xbm/clock2.xbm/> ${execi 60 date +%H%M}</fc>\
+<fc=\#f4bc87>· </fc><fc=\#dbd3d1><icon=/home/eye/.xmobar/xbm/clock2.xbm/> ${execi 60 date +%H%M}</fc>\
 ${execi 10 .conky/spacer.sh}
