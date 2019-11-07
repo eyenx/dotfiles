@@ -154,7 +154,7 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 alias xr='xrandr'
 alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
-alias xroffice='~/.screenlayout/office_inv.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xroffice='~/.screenlayout/office_inv_2mon.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrundock='~/.screenlayout/undocked.sh && feh --bg-scale --no--fehbg ~/.wp.jpg'
 alias xrhome='~/.screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 

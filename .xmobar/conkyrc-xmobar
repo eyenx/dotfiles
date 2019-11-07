@@ -1,16 +1,15 @@
-# FULL ##itext_buffer_size 2048
-update_interval 3
-total_run_times 0
-default_color dbd3d1 
-no_buffers yes
-uppercase no
-cpu_avg_samples 2
-net_avg_samples 2
-use_spacer none
-out_to_x no
-out_to_console yes
+conky.config = { 
+update_interval = 3,
+total_run_times =  0,
+no_buffers = true,
+uppercase = false,
+cpu_avg_samples = 2,
+net_avg_samples = 2,
+use_spacer = none,
+out_to_console = true
+};
 
-TEXT
+conky.text = [[
 ${if_match ${execi 30 cat /sys/class/power_supply/AC/online}==0}\
 ${if_match ${execi 120 ~/.conky/batmerge.sh}>65}\
 <icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <fc=\#dbd3d1> ${execi 120 ~/.conky/batmerge.sh}% </fc>\
@@ -35,3 +34,4 @@ $endif\
 $endif\
 <fc=\#f4bc87>· </fc><fc=\#dbd3d1><icon=/home/eye/.xmobar/xbm/clock2.xbm/> ${execi 60 date +%H%M}</fc>\
 ${execi 10 .conky/spacer.sh}
+]];
