@@ -52,6 +52,9 @@ myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
 myBrightUp="brightnessctl s +5%"
 myBrightDown="brightnessctl s 5%-"
+myPauseMusic="playerctl play-pause"
+myNextMusic="playerctl next"
+myPrevMusic="playerctl previous"
 myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
 myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
@@ -158,14 +161,25 @@ myKeys = \c -> mkKeymap c $
   , ("M-<F3>", spawn myTmux)
   -- VolDown
   , ("<XF86AudioLowerVolume>", spawn myVolDown)
+  , ("M-<Page_Down>", spawn myVolDown)
   -- VolUp
   , ("<XF86AudioRaiseVolume>", spawn myVolUp)
+  , ("M-<Page_Up>", spawn myVolUp)
   -- Mute 
   , ("<XF86AudioMute>", spawn myVolMute)
+  , ("M-<Pause>", spawn myVolMute)
   -- brightness up
   , ("<XF86MonBrightnessUp>", spawn myBrightUp)
+  , ("M-S-<Page_Up>", spawn myBrightUp)
   -- brightness down
   , ("<XF86MonBrightnessDown>", spawn myBrightDown)
+  , ("M-S-<Page_Down>", spawn myBrightDown)
+  -- Pause Music with playerctl
+  , ("M-S-<Pause>", spawn myPauseMusic)
+  -- Next Music with playerctl
+  , ("M-S-<End>", spawn myNextMusic)
+  -- Prev Music with playerctl
+  , ("M-S-<Home>", spawn myPrevMusic)
   -- Screenshot full display
   , ("<Print>", spawn myScreenFull)
   -- Screenshot with selection
