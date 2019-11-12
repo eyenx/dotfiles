@@ -26,6 +26,9 @@ $endif\
 ${if_match ${execi 60 ~/.conky/chkmail_maildir | wc -w}>0}\
 <fc=\#f4bc87>· </fc><fc=\#f4bc87><icon=/home/eye/.xmobar/xbm/mail.xbm/> ${execi 120 ~/.conky/chkmail_maildir}</fc> \
 $endif\
+${if_match ${execi 60 ~/bin/gotify-check.py count}>0}\
+<fc=\#f4bc87>· </fc><fc=\#f4bc87><icon=/home/eye/.xmobar/xbm/messenger1.xbm/> ${execi 60 ~/bin/gotify-check.py count}</fc> \
+$endif\
 ${if_existing /sys/class/net/enp0s25/operstate up}<fc=\#f4bc87>· </fc><icon=/home/eye/.xmobar/xbm/net_wired.xbm/> ${addr enp0s25} \
 $else \
 ${if_existing /sys/class/net/wlp3s0/operstate up}<fc=\#f4bc87>· </fc><icon=/home/eye/.xmobar/xbm/wireless8.xbm/> ${wireless_essid wlp3s0} \
