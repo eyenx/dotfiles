@@ -4,7 +4,6 @@ nextcloud &
 firefox &
 joplin-desktop &
 linphone &
-mattermost-desktop &
 thunderbird &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service

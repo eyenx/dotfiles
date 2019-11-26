@@ -10,42 +10,6 @@ aurd(){
 	cd ${build}${pkg}
 }
 
-aurdwn(){
-    [[ -n $@ ]] && echo -e "use cower to download all new aur pkgs\nusage: aurdwn" && return 1
-    cowb="/tmp/cow"
-    [[ -d $cowb ]] || mkdir -p $cowb
-    cower -dut $cowb
-}
-
-aurup(){
-	[[ -n $@ ]] && echo -e "use cower to build updates for all aur pkgs\nusage: aurup" && return 1
-    cowb="/tmp/cow"
-    [[ -d $cowb ]] || mkdir -p $cowb
-    cower -dut $cowb
-    [[ $? == 0 ]] || return 1
-    cd $cowb
-    for i in *; 
-        do cd $i; 
-        makepkg -s &;
-        cd $cowb;
-    done
-}
-
-pacinsaur(){
-    [[ -n $@ ]] && echo -e "install all build aur pkgs under /tmp/cow\nusage: pacinsaur" && return 1
-    sudo pacman -U $(find /tmp/cow -iname "*pkg*z") && rm -rf /tmp/cow
-}
-        
-cowd(){
-	[[ -z $@ ]] && echo -e "use cower to download an aur pkgs\nusage: cowd <pkgname>" && return 1
-    pkg=$1
-    cowb="/tmp/cow"
-    [[ -d $cowb ]] || mkdir -p $cowb
-    cower -dt $cowb $pkg
-    [[ $? == 0 ]] || return 1
-    cd $cowb/$pkg
-    makepkg -si
-}
 
 mymem() {
   ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g

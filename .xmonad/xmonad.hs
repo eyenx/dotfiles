@@ -74,7 +74,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- my metas
 myModMask   = mod4Mask
@@ -147,8 +147,6 @@ myKeys = \c -> mkKeymap c $
   , ("M1-r", spawn myRest)
   -- restart w/o recompile
   , ("M1-S-r", spawn myRecomp)
-  -- show date
---  , ("M-d", spawn myShowDate)
   -- lock
   , ("M1-C-l", spawn myLock)
   -- start browser
@@ -335,10 +333,8 @@ scratchpads = [
 
 -- main function
 main = do 
---  n <- countScreens
---  xmprocs <- mapM (\i -> spawnPipe $ "xmobar /home/eye/.xmobarrc-" ++ show i ++ " -x " ++ show i) [0..n-1]
   myBar <- spawnPipe myXmobar 
--- my config
+  -- my config
   xmonad $ def {
   --simple stuff
     terminal       = myTerm

@@ -12,7 +12,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-/usr/bin/xautolock -time 15 -locker slock &
+/usr/bin/xautolock -time 15 -locker bin/lock.sh &
 feh --bg-scale --no-fehbg ~/.wp.png
 udiskie &
 unclutter &
@@ -25,4 +25,5 @@ eval $(usr/bin/gnome-keyring-daemon --start --components=secrets)
 redshift-gtk &
 ~/bin/mytrayer.sh &
 ~/bin/gotify-send.py &
+xmodmap ~/.Xmodmap
 xmonad
