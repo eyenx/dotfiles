@@ -131,9 +131,9 @@ alias txa='tmux attach-session -t $1'
 
 # tools
 alias tf=terraform
-alias az='docker run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
-alias azd='docker run --rm -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
-alias oci='docker run --rm -v /home/eye/.oci:/root/.oci -v $(pwd):/tmp eyenx/oci'
+alias az='podman run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
+alias azd='podman run --rm -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
+alias oci='podman run --rm -v /home/eye/.oci:/root/.oci -v $(pwd):/tmp eyenx/oci'
 alias k=kubectl
 alias kc=kubectl
 alias kn=kubens
