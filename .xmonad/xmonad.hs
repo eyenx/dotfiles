@@ -57,6 +57,8 @@ myNextMusic="playerctl next"
 myPrevMusic="playerctl previous"
 myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
+myGotifyCheck="~/bin/gotify-check.py"
+myGotifyPurge="~/bin/gotify-check.py purge"
 myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall xmobar; xmonad --restart; notify-send 'xmonad restarted'"
 
@@ -143,6 +145,10 @@ myKeys = \c -> mkKeymap c $
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
   , ("M-S-q", io (exitWith ExitSuccess))
+  -- gotify-check print
+  , ("M1-<F1>", spawn myGotifyCheck)
+  -- gotify-check purge
+  , ("M1-<F2>", spawn myGotifyPurge)
   -- restart xmonad
   , ("M1-r", spawn myRest)
   -- restart w/o recompile
