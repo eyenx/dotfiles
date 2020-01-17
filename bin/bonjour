@@ -3,8 +3,7 @@
 nextcloud &
 firefox &
 joplin-desktop &
-linphone &
-thunderbird &
+jami &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service
 systemctl start --user vdirsyncer.service

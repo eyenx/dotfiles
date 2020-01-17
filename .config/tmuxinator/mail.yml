@@ -48,5 +48,5 @@ windows:
       panes:
         - mu
         - vdirsyncer sync && khali
-        - wee
+        - irssi
         - tw
