@@ -9,7 +9,17 @@ Config {
 	, lowerOnStart = True
 	, commands = [
          Run Com "/home/eye/bin/gotify-check.py" ["count"] "gotify-check" 100,
-         Run BatteryP ["BAT0","BAT1"] ["-t","<icon=/home/eye/.xmobar/xbm/batt1full.xbm/> <acstatus>: <left>%","-l","#cb6077","-a","notify-send '>>> BAT LOW <<<'"] 100,
+         Run BatteryP ["BAT0","BAT1"] ["-t","<acstatus> <left>%"
+         ,"--"
+         ,"-l","#cb6077"
+         ,"-a","notify-send 'battery low'"
+         ,"-i","<icon=/home/eye/.xmobar/xbm/ac1.xbm/>"
+         ,"-O","<icon=/home/eye/.xmobar/xbm/ac1.xbm/>"
+         ,"-o",""
+         ,"--lows","<icon=/home/eye/.xmobar/xbm/batt1empty.xbm/>"
+         ,"--mediums","<icon=/home/eye/.xmobar/xbm/batt1half.xbm/>"
+         ,"--high","<icon=/home/eye/.xmobar/xbm/batt1full.xbm/>"
+         ] 100,
          Run Network "enp0s25" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>"] 100,
          Run Wireless "wlp3s0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid>: <quality>%"] 100,
          Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#cb6077"] 100,
