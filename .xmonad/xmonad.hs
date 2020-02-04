@@ -76,7 +76,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- my metas
 myModMask   = mod4Mask
@@ -327,7 +327,7 @@ myLogHook h = dynamicLogWithPP $ def {
 scratchpads :: [NamedScratchpad]
 scratchpads = [
 -- run htop in xterm, find it by title, use default floating window placement
-    NS "joplin" "joplin-desktop" (className =? "Joplin") 
+    NS "joplin" "urxvtc -name joplin -e joplin" (resource =? "joplin") 
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
 
     NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")

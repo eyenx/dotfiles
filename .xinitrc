@@ -20,8 +20,9 @@ dunst &
 urxvtd -f -o -q
 #windowmanager
 xinput disable $(xinput list --id-only "SynPS/2 Synaptics TouchPad")
+~/bin/emulatewheel.sh &
 # gnome keyring
-eval $(usr/bin/gnome-keyring-daemon --start --components=secrets)
+#eval $(/usr/bin/env gnome-keyring-daemon --start --components=secrets)
 redshift-gtk &
 ~/bin/mytrayer.sh &
 ~/bin/gotify-send.py &

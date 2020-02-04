@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #urxvtc --geometry=80x50-0+16
 if [[ $1 == "default" ]]
 then

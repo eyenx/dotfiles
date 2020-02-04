@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # a lot taken from https://github.com/xero/glitchlock
 
 # get screen measures
