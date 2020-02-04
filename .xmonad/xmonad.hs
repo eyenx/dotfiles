@@ -87,7 +87,7 @@ altMask     = mod1Mask
 myWorkspaces =  ["1","2","3","4","5","6","7","8","9"]
 
 -- border colors
-myNormalBorderColor  = "#362d24"
+myNormalBorderColor  = "#dbd3d1"
 myFocusedBorderColor = "#f4bc87"
 
 --key bindings
