@@ -23,9 +23,9 @@ Config {
          Run Network "enp0s25" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>"] 100,
          Run Wireless "wlp3s0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid>: <quality>%"] 100,
          Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#cb6077"] 100,
-         Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/adsy/INBOX")] "maila",
-         Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> e:","~/.mail/eyenx/INBOX")] "maile",
-         Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> p:","~/.mail/tauro/INBOX")] "mailp",
+         Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/adsy/INBOX")
+                  ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> e:","~/.mail/eyenx/INBOX")
+                  ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> p:","~/.mail/tauro/INBOX")] "mail",
          Run Memory ["--high","#cb6077","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
          Run Date "<icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M" "date" 300,
          Run Com "/home/eye/.conky/spacer.sh" [] "spacer" 100,
@@ -33,4 +33,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %multicpu% %memory% %battery% %maila% %maile% %mailp% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %enp0s25% %wlp3s0wi% %date% %spacer%"
+	, template = "%StdinReader% }{ %multicpu% %memory% %battery% %mail% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %enp0s25% %wlp3s0wi% %date% %spacer%"
