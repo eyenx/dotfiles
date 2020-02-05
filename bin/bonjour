@@ -2,7 +2,6 @@
 #autostart
 nextcloud &
 firefox &
-joplin-desktop &
 jami &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service

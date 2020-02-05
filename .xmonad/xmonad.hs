@@ -141,6 +141,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad pavucontrol
   , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
+  -- scratchPad spotify
+  , ("M-s", namedScratchpadAction scratchpads "spotify")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -334,7 +336,10 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
 
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
-        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4))
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+
+    NS "spotify" "spotify" (className =? "Spotify")
+        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
   ] 
 
 -- main function

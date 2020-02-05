@@ -34,8 +34,9 @@ Config {
          Run Memory ["--high","#cb6077","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
          Run Date "<icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M" "date" 300,
          Run Com "/home/eye/.conky/spacer.sh" [] "spacer" 100,
+         Run Mpris2 "spotify" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title>"] 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %multicpu% %memory% %battery% %mail% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %enp0s25% %wlp3s0wi% %date% %spacer%"
+	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %enp0s25% %wlp3s0wi% %date% %spacer%"
