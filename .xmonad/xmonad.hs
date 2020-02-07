@@ -59,8 +59,8 @@ myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
 myGotifyCheck="~/bin/gotify-check.py"
 myGotifyPurge="~/bin/gotify-check.py purge"
-myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'recompiled'"
-myRest="killall xmobar; xmonad --restart; notify-send 'restarted'"
+myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
+myRest="killall xmobar; xmonad --restart; notify-send 'xmonad restarted'"
 
 -- mouse move relative and click with xdotool
 myMouseMoveLeft="xdotool mousemove_relative -- -20 0"
@@ -76,7 +76,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- my metas
 myModMask   = mod4Mask
