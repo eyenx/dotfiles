@@ -143,6 +143,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
   -- scratchPad spotify
   , ("M-s", namedScratchpadAction scratchpads "spotify")
+  -- scratchPad jitsi
+  , ("M-S-v", namedScratchpadAction scratchpads "jitsi")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -339,6 +341,9 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "spotify" "spotify" (className =? "Spotify")
+        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
+
+    NS "jitsi" "JAVA_HOME='' jitsi" (className =? "Jitsi")
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
   ] 
 

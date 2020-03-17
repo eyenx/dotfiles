@@ -158,7 +158,7 @@ alias xr='xrandr'
 alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
 alias xroffice='~/.screenlayout/office_inv_2mon.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
-alias xrundock='~/.screenlayout/undocked.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrundock='~/.screenlayout/undocked.sh && mons -o && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrhome='~/.screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 # dotfiles git alias
