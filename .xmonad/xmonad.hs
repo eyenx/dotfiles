@@ -234,15 +234,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- TabConfig
 
-myTabConfig = def { activeColor = "#362d24"
-                  , inactiveColor = "#362d24"
+myTabConfig = def { activeColor = "#30200f"
+                  , inactiveColor = "#30200f"
                   , urgentColor = "#9f155"
-                  , activeBorderColor = "#362d24"
-                  , inactiveBorderColor = "#362d24"
+                  , activeBorderColor = "#30200f"
+                  , inactiveBorderColor = "#30200f"
                   , urgentBorderColor = "#9f155"
                   , activeTextColor = "#9f7155"
                   , inactiveTextColor = "#e6c6b0"
-                  , urgentTextColor = "#362d24"
+                  , urgentTextColor = "#30200f"
                   , fontName = "xft:Liberation Mono:size=8"
                   }
 --layouts
