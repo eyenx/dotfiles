@@ -76,7 +76,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- my metas
 myModMask   = mod4Mask
@@ -88,7 +88,7 @@ myWorkspaces =  ["1","2","3","4","5","6","7","8","9"]
 
 -- border colors
 myNormalBorderColor  = "#e6c6b0"
-myFocusedBorderColor = "#756f7b"
+myFocusedBorderColor = "#9f7155"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -240,7 +240,7 @@ myTabConfig = def { activeColor = "#362d24"
                   , activeBorderColor = "#362d24"
                   , inactiveBorderColor = "#362d24"
                   , urgentBorderColor = "#9f155"
-                  , activeTextColor = "#756f7b"
+                  , activeTextColor = "#9f7155"
                   , inactiveTextColor = "#e6c6b0"
                   , urgentTextColor = "#362d24"
                   , fontName = "xft:Liberation Mono:size=8"
@@ -316,10 +316,10 @@ myXmobar = "xmobar /home/eye/.xmobarrc"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ def {
-        ppCurrent = xmobarColor "#756f7b" ""
+        ppCurrent = xmobarColor "#9f7155" ""
         , ppHidden = xmobarColor "#e6c6b0" "" 
         , ppUrgent = xmobarColor "#9f155" "#573d26" 
-        , ppSep = xmobarColor "#756f7b" "" " · "
+        , ppSep = xmobarColor "#9f7155" "" " · "
         , ppWsSep = xmobarColor "#999999" "" " "
         , ppTitle = xmobarColor "#e6c6b0" "" . shorten 50
         -- do not show NSP at end of workspace list

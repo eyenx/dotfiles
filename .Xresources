@@ -4,8 +4,8 @@
 *cursorColor: #93a1a1
 
 !! black dark/light
-*color0: #332d29
-*color8: #817267
+*color0: #30200f
+*color8: #362411
 
 !! red dark/light
 *color1: #8c644c
@@ -32,8 +32,8 @@
 *color14: #444d4e
 
 !! white dark/light
-*color7: #504339
-*color15: #9a875f
+*color7: #a68f7f
+*color15: #e6c6b0
 
 ! other urxvt options ------------------------------------------------------
 URxvt.perl-ext: default,url-select
