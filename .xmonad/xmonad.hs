@@ -87,8 +87,8 @@ altMask     = mod1Mask
 myWorkspaces =  ["1","2","3","4","5","6","7","8","9"]
 
 -- border colors
-myNormalBorderColor  = "#dbd3d1"
-myFocusedBorderColor = "#f4bc87"
+myNormalBorderColor  = "#e6c6b0"
+myFocusedBorderColor = "#756f7b"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -236,12 +236,12 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 myTabConfig = def { activeColor = "#362d24"
                   , inactiveColor = "#362d24"
-                  , urgentColor = "#cb6077"
+                  , urgentColor = "#9f155"
                   , activeBorderColor = "#362d24"
                   , inactiveBorderColor = "#362d24"
-                  , urgentBorderColor = "#cb6077"
-                  , activeTextColor = "#f4bc87"
-                  , inactiveTextColor = "#dbd3d1"
+                  , urgentBorderColor = "#9f155"
+                  , activeTextColor = "#756f7b"
+                  , inactiveTextColor = "#e6c6b0"
                   , urgentTextColor = "#362d24"
                   , fontName = "xft:Liberation Mono:size=8"
                   }
@@ -316,12 +316,12 @@ myXmobar = "xmobar /home/eye/.xmobarrc"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ def {
-        ppCurrent = xmobarColor "#f4bc87" ""
-        , ppHidden = xmobarColor "#dbd3d1" "" 
-        , ppUrgent = xmobarColor "#cb6077" "#573d26" 
-        , ppSep = xmobarColor "#f4bc87" "" " · "
+        ppCurrent = xmobarColor "#756f7b" ""
+        , ppHidden = xmobarColor "#e6c6b0" "" 
+        , ppUrgent = xmobarColor "#9f155" "#573d26" 
+        , ppSep = xmobarColor "#756f7b" "" " · "
         , ppWsSep = xmobarColor "#999999" "" " "
-        , ppTitle = xmobarColor "#dbd3d1" "" . shorten 50
+        , ppTitle = xmobarColor "#e6c6b0" "" . shorten 50
         -- do not show NSP at end of workspace list
         , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort def
         , ppOutput = hPutStrLn h

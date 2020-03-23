@@ -67,7 +67,6 @@ set guifont=Liberation\ Mono
 set number
 
 " set colorscheme
-"colorscheme neverland
 colorscheme mocha
 
 " set backupdir
