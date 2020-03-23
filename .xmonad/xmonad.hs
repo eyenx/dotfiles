@@ -76,7 +76,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- my metas
 myModMask   = mod4Mask

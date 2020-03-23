@@ -47,6 +47,3 @@ unset GREP_OPTIONS
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/eye/dev/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/eye/dev/serverless/node_modules/tabtab/.completions/sls.zsh
 
-
-# add Pulumi to the PATH
-export PATH=$PATH:$HOME/.pulumi/bin
