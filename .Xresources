@@ -1,34 +1,39 @@
 ! terminal colors ------------------------------------------------------------
-! mocha.dark / custom eyenx
-! Scheme: Chris Kempson (http://chriskempson.com)
-! special
-*.foreground:   #dbd3d1
-*.background:   #362d24
-*.cursorColor:  #dbd3d1
-! black
-*.color0:       #362d24
-*.color8:       #7e705a
-! red
-*.color1:       #cb6077
-*.color9:       #cb6077
-! green
-*.color2:       #beb55b
-*.color10:      #beb55b
-! yellow
-*.color3:       #f4bc87
-*.color11:      #f4bc87
-! blue
-*.color4:       #8ab3b5
-*.color12:      #8ab3b5
-! magenta
-*.color5:       #a89bb9
-*.color13:      #a89bb9
-! cyan
-*.color6:       #7bbda4
-*.color14:      #7bbda4
-! white
-*.color7:       #dbd3d1
-*.color15:      #f5eeeb
+*background: #30200f
+*foreground: #e6c6b0
+*cursorColor: #93a1a1
+
+!! black dark/light
+*color0: #30200f
+*color8: #362411
+
+!! red dark/light
+*color1: #8c644c
+*color9: #9f7155
+
+!! green dark/light
+*color2: #c4be90
+*color10: #bec17e
+
+!! yellow dark/light
+*color3: #bfba92
+*color11: #fafac0
+
+!! blue dark/light
+*color4: #646a6d
+*color12: #626e74
+
+!! magenta dark/light
+*color5: #6d6871
+*color13: #756f7b
+
+!! cyan dark/light
+*color6: #3b484a
+*color14: #444d4e
+
+!! white dark/light
+*color7: #a68f7f
+*color15: #e6c6b0
 
 ! other urxvt options ------------------------------------------------------
 URxvt.perl-ext: default,url-select
@@ -74,5 +79,4 @@ Xft.rgba: rgb
 Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.antialias: 1
-
 

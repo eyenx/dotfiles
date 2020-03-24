@@ -87,8 +87,8 @@ altMask     = mod1Mask
 myWorkspaces =  ["1","2","3","4","5","6","7","8","9"]
 
 -- border colors
-myNormalBorderColor  = "#dbd3d1"
-myFocusedBorderColor = "#f4bc87"
+myNormalBorderColor  = "#e6c6b0"
+myFocusedBorderColor = "#9f7155"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -234,15 +234,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- TabConfig
 
-myTabConfig = def { activeColor = "#362d24"
-                  , inactiveColor = "#362d24"
-                  , urgentColor = "#cb6077"
-                  , activeBorderColor = "#362d24"
-                  , inactiveBorderColor = "#362d24"
-                  , urgentBorderColor = "#cb6077"
-                  , activeTextColor = "#f4bc87"
-                  , inactiveTextColor = "#dbd3d1"
-                  , urgentTextColor = "#362d24"
+myTabConfig = def { activeColor = "#30200f"
+                  , inactiveColor = "#30200f"
+                  , urgentColor = "#9f155"
+                  , activeBorderColor = "#30200f"
+                  , inactiveBorderColor = "#30200f"
+                  , urgentBorderColor = "#9f155"
+                  , activeTextColor = "#9f7155"
+                  , inactiveTextColor = "#e6c6b0"
+                  , urgentTextColor = "#30200f"
                   , fontName = "xft:Liberation Mono:size=8"
                   }
 --layouts
@@ -316,12 +316,12 @@ myXmobar = "xmobar /home/eye/.xmobarrc"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ def {
-        ppCurrent = xmobarColor "#f4bc87" ""
-        , ppHidden = xmobarColor "#dbd3d1" "" 
-        , ppUrgent = xmobarColor "#cb6077" "#573d26" 
-        , ppSep = xmobarColor "#f4bc87" "" " · "
+        ppCurrent = xmobarColor "#9f7155" ""
+        , ppHidden = xmobarColor "#e6c6b0" "" 
+        , ppUrgent = xmobarColor "#9f155" "#573d26" 
+        , ppSep = xmobarColor "#9f7155" "" " · "
         , ppWsSep = xmobarColor "#999999" "" " "
-        , ppTitle = xmobarColor "#dbd3d1" "" . shorten 50
+        , ppTitle = xmobarColor "#e6c6b0" "" . shorten 50
         -- do not show NSP at end of workspace list
         , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort def
         , ppOutput = hPutStrLn h

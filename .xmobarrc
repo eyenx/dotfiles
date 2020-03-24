@@ -1,18 +1,18 @@
 Config {
 	font = "xft:liberation mono-8"
-	, bgColor= "#362d24"
-	, fgColor= "#dbd3d1"
+	, bgColor= "#30200f"
+	, fgColor= "#e6c6b0"
 	, position = Top
     , pickBroadest = True
 	, border = NoBorder
-	, borderColor = "#362d24"
+	, borderColor = "#30200f"
 	, lowerOnStart = True
 	, commands = [
          Run Com "/home/eye/bin/gotify-check.py" ["count"] "gotify-check" 100,
          Run BatteryP ["BAT0","BAT1"] ["-t","<acstatus> <left>"
          ,"-L","10"
          ,"-H","70"
-         ,"-l","#cb6077"
+         ,"-l","#9f155"
          ,"--"
          ,"-P"
          ,"-a","notify-send 'battery low'"
@@ -27,11 +27,11 @@ Config {
          ] 100,
          Run Network "enp0s25" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>"] 100,
          Run Wireless "wlp3s0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid> <quality>%","-x",""] 100,
-         Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#cb6077"] 100,
+         Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#9f155"] 100,
          Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/adsy/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> e:","~/.mail/eyenx/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> p:","~/.mail/tauro/INBOX")] "mail",
-         Run Memory ["--high","#cb6077","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
+         Run Memory ["--high","#9f155","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
          Run Date "<icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M" "date" 300,
          Run Com "/home/eye/.conky/spacer.sh" [] "spacer" 10,
          Run Mpris2 "spotify" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title>","-x",""] 100,
