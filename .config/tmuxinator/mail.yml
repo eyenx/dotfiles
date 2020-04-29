@@ -41,12 +41,12 @@ root: ~/
 
 windows:
   - mail:
-      layout: tiled
+    #layout: tiled
+      layout: a962,273x80,0,0[273x40,0,0,0,273x39,0,41{176x39,0,41,5,96x39,177,41,6}]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
         - mu
-        - vdirsyncer sync && khali
         - irssi
-        - tw
+        - vdirsyncer sync && khali

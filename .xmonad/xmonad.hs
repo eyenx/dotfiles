@@ -137,6 +137,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-i", sequence_ [nextScreen,swapPrevScreen])
   -- scratchPad term
   , ("M-S-\\", namedScratchpadAction scratchpads "term")
+  -- scratchPad taskwarrior
+  , ("M-S-t", namedScratchpadAction scratchpads "taskwarrior")
   -- scratchPad joplin-desktop
   , ("M-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad pavucontrol
@@ -291,8 +293,8 @@ myManageHook = composeAll . concat $
   myIgnores = []
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = [""]
-  my3Shifts = ["mattermost"]
-  my4Shifts = ["Gimp","MPlayer","Thunderbird","linphone","mail"]
+  my3Shifts = ["mail","mumble"]
+  my4Shifts = ["Gimp","MPlayer"]
   my5Shifts = ["Atom","remmina","xfreerdp","rdesktop"]
   my6Shifts = ["VirtualBox Manager","VirtualBox","virt-manager"]
   my7Shifts = []
@@ -334,14 +336,17 @@ scratchpads = [
     NS "joplin" "urxvtc -name joplin -e joplin" (resource =? "joplin") 
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
 
+    NS "taskwarrior" "urxvtc -name taskwarrior -e ~/bin/tw" (resource =? "taskwarrior")
+        (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
+
     NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
+        (customFloating $ W.RationalRect (3/5) (4/6) (1/5) (1/6)),
 
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "spotify" "spotify" (className =? "Spotify")
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "jitsi" "JAVA_HOME='' jitsi" (className =? "Jitsi")
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
