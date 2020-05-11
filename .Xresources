@@ -1,41 +1,3 @@
-! terminal colors ------------------------------------------------------------
-*background: #30200f
-*foreground: #e6c6b0
-*cursorColor: #996630
-
-!! black dark/light
-*color0: #30200f
-!*color8: #362411
-*color8: #996630
-
-!! red dark/light
-*color1: #8c644c
-*color9: #9f7155
-
-!! green dark/light
-*color2: #c4be90
-*color10: #bec17e
-
-!! yellow dark/light
-*color3: #bfba92
-*color11: #fafac0
-
-!! blue dark/light
-*color4: #646a6d
-*color12: #626e74
-
-!! magenta dark/light
-*color5: #6d6871
-*color13: #756f7b
-
-!! cyan dark/light
-*color6: #3b484a
-*color14: #444d4e
-
-!! white dark/light
-*color7: #a68f7f
-*color15: #e6c6b0
-
 ! other urxvt options ------------------------------------------------------
 URxvt.perl-ext: default,url-select
 !,font-size
@@ -81,3 +43,48 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.antialias: 1
 
+! Base16 Mocha
+! Scheme: Chris Kempson (http://chriskempson.com)
+
+#define base00 #3b3228
+#define base01 #534636
+#define base02 #645240
+#define base03 #7e705a
+#define base04 #b8afad
+#define base05 #d0c8c6
+#define base06 #e9e1dd
+#define base07 #f5eeeb
+#define base08 #cb6077
+#define base09 #d28b71
+#define base0A #f4bc87
+#define base0B #beb55b
+#define base0C #7bbda4
+#define base0D #8ab3b5
+#define base0E #a89bb9
+#define base0F #bb9584
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07
