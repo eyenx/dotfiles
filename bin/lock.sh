@@ -7,7 +7,7 @@ scrot /tmp/lock.png
 W=`identify -ping -format '%w' /tmp/lock.png`
 H=`identify -ping -format '%h' /tmp/lock.png`
 
-convert -size ${W}x${H} canvas:\#362d24 /tmp/lock.png
+convert -size ${W}x${H} canvas:\#3b3228 /tmp/lock.png
 
 ICON="/home/eye/img/stop.png"
 LOCK=()
@@ -34,4 +34,4 @@ convert "$file" "${LOCK[@]}" "$file"
 
 
 # lock 
-i3lock -n --bar-indicator --bar-position h --bar-direction 1 --redraw-thread -t "" --bar-step 50 --bar-width 250 --bar-base-width 50 --bar-max-height 100 --bar-periodic-step 50 --bar-color 362d24ff --keyhlcolor 00666666 --ringvercolor cc87875f --wrongcolor ffff0000 --veriftext="" --wrongtext="" --noinputtext="" -i "$file"
+i3lock -n --bar-indicator --bar-position h --bar-direction 1 --redraw-thread -t "" --bar-step 50 --bar-width 250 --bar-base-width 50 --bar-max-height 100 --bar-periodic-step 50 --bar-color 3b3228ff --keyhlcolor 00666666 --ringvercolor cc87875f --wrongcolor ffff0000 --veriftext="" --wrongtext="" --noinputtext="" -i "$file"

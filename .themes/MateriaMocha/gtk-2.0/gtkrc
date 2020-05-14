@@ -1,8 +1,8 @@
 # Based on Bridge by ScionicSpectre and Adwaita by GNOME
 # vim:set ts=2 sw=2 sts=2 ai et:
 #
-# This is the GTK+ 2 version of MateriaMocha. It's whole purpose is to look as the
-# GTK+ 3 version as much as possible until GTK+ 2 dies completely.
+# This is the GTK 2 version of MateriaMocha. It's whole purpose is to look as the
+# GTK 3 version as much as possible until GTK 2 dies completely.
 #
 # Note: comments for explaining styles are on the bottom of each file beside the
 # widget matches.
@@ -12,17 +12,25 @@
 # order to not mess up the dark theme.
 
 # Text/base
-gtk-color-scheme = "text_color:#dbd3d1\nbase_color:#40352b"
+gtk-color-scheme = "base_color:#40362b"
+gtk-color-scheme = "text_color:#d0c8c6"
 # Foreground/background
-gtk-color-scheme = "fg_color:#dbd3d1\nbg_color:#362d24"
+gtk-color-scheme = "bg_color:#3b3228"
+gtk-color-scheme = "fg_color:#d0c8c6"
 # Selected foreground/background
-gtk-color-scheme = "selected_fg_color:#dbd3d1\nselected_bg_color:#695546"
+gtk-color-scheme = "selected_bg_color:#bb9584"
+gtk-color-scheme = "selected_fg_color:#212121"
 # Titlebar foreground/background
-gtk-color-scheme = "titlebar_fg_color:#dbd3d1\ntitlebar_bg_color:#362d24"
+gtk-color-scheme = "titlebar_bg_color:#3b3228"
+gtk-color-scheme = "titlebar_fg_color:#d0c8c6"
+# Menus
+gtk-color-scheme = "menu_color:#40362b"
 # Tooltips foreground/background
-gtk-color-scheme = "tooltip_fg_color:#dbd3d1\ntooltip_bg_color:#616161"
+gtk-color-scheme = "tooltip_bg_color:#616161"
+gtk-color-scheme = "tooltip_fg_color:#d0c8c6"
 # Links
-gtk-color-scheme = "link_color:#695546\nvisited_link_color:#E040FB"
+gtk-color-scheme = "link_color:#bb9584"
+gtk-color-scheme = "visited_link_color:#ce93d8"
 
 # Set GTK settings
 gtk-auto-mnemonics              = 1

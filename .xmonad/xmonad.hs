@@ -87,8 +87,8 @@ altMask     = mod1Mask
 myWorkspaces =  ["1","2","3","4","5","6","7","8","9"]
 
 -- border colors
-myNormalBorderColor  = "#e6c6b0"
-myFocusedBorderColor = "#9f7155"
+myNormalBorderColor  = "#d0c8c6"
+myFocusedBorderColor = "#bb9584"
 
 --key bindings
 myKeys = \c -> mkKeymap c $ 
@@ -137,6 +137,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-i", sequence_ [nextScreen,swapPrevScreen])
   -- scratchPad term
   , ("M-S-\\", namedScratchpadAction scratchpads "term")
+  -- scratchPad taskwarrior
+  , ("M-S-t", namedScratchpadAction scratchpads "taskwarrior")
   -- scratchPad joplin-desktop
   , ("M-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad pavucontrol
@@ -234,15 +236,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- TabConfig
 
-myTabConfig = def { activeColor = "#30200f"
-                  , inactiveColor = "#30200f"
-                  , urgentColor = "#9f155"
-                  , activeBorderColor = "#30200f"
-                  , inactiveBorderColor = "#30200f"
-                  , urgentBorderColor = "#9f155"
-                  , activeTextColor = "#9f7155"
-                  , inactiveTextColor = "#e6c6b0"
-                  , urgentTextColor = "#30200f"
+myTabConfig = def { activeColor = "#3b3228"
+                  , inactiveColor = "#3b3228"
+                  , urgentColor = "#bb9584"
+                  , activeBorderColor = "#3b3228"
+                  , inactiveBorderColor = "#3b3228"
+                  , urgentBorderColor = "#bb9584"
+                  , activeTextColor = "#bb9584"
+                  , inactiveTextColor = "#b8afad"
+                  , urgentTextColor = "#3b3228"
                   , fontName = "xft:Liberation Mono:size=8"
                   }
 --layouts
@@ -291,8 +293,8 @@ myManageHook = composeAll . concat $
   myIgnores = []
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = [""]
-  my3Shifts = ["mattermost"]
-  my4Shifts = ["Gimp","MPlayer","Thunderbird","linphone","mail"]
+  my3Shifts = ["mail","mumble"]
+  my4Shifts = ["Gimp","MPlayer"]
   my5Shifts = ["Atom","remmina","xfreerdp","rdesktop"]
   my6Shifts = ["VirtualBox Manager","VirtualBox","virt-manager"]
   my7Shifts = []
@@ -316,12 +318,12 @@ myXmobar = "xmobar /home/eye/.xmobarrc"
 
 -- statusbar / logging
 myLogHook h = dynamicLogWithPP $ def {
-        ppCurrent = xmobarColor "#9f7155" ""
-        , ppHidden = xmobarColor "#e6c6b0" "" 
-        , ppUrgent = xmobarColor "#9f155" "#573d26" 
-        , ppSep = xmobarColor "#9f7155" "" " · "
+        ppCurrent = xmobarColor "#bb9584" ""
+        , ppHidden = xmobarColor "#b8afad" "" 
+        , ppUrgent = xmobarColor "#bb9584" "#573d26" 
+        , ppSep = xmobarColor "#bb9584" "" " · "
         , ppWsSep = xmobarColor "#999999" "" " "
-        , ppTitle = xmobarColor "#e6c6b0" "" . shorten 50
+        , ppTitle = xmobarColor "#b8afad" "" . shorten 50
         -- do not show NSP at end of workspace list
         , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort def
         , ppOutput = hPutStrLn h
@@ -334,14 +336,17 @@ scratchpads = [
     NS "joplin" "urxvtc -name joplin -e joplin" (resource =? "joplin") 
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
 
+    NS "taskwarrior" "urxvtc -name taskwarrior -e vit" (resource =? "taskwarrior")
+        (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
+
     NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
+        (customFloating $ W.RationalRect (3/5) (4/6) (1/5) (1/6)),
 
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "spotify" "spotify" (className =? "Spotify")
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
+        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "jitsi" "JAVA_HOME='' jitsi" (className =? "Jitsi")
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
