@@ -336,7 +336,7 @@ scratchpads = [
     NS "joplin" "urxvtc -name joplin -e joplin" (resource =? "joplin") 
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
 
-    NS "taskwarrior" "urxvtc -name taskwarrior -e ~/bin/tw" (resource =? "taskwarrior")
+    NS "taskwarrior" "urxvtc -name taskwarrior -e vit" (resource =? "taskwarrior")
         (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
 
     NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
