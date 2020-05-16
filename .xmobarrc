@@ -28,7 +28,7 @@ Config {
          Run Network "enp0s25" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>"] 100,
          Run Wireless "wlp3s0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid> <quality>%","-x","n/a"] 100,
          Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#bb9584"] 100,
-         Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/adsy/INBOX")
+         Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/work/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> e:","~/.mail/eyenx/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> p:","~/.mail/tauro/INBOX")] "mail",
          Run Memory ["--high","#bb9584","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
