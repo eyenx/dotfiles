@@ -34,7 +34,7 @@ Config {
          Run Memory ["--high","#bb9584","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
          Run Date "<icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M" "date" 300,
          Run Com "/home/eye/.conky/spacer.sh" [] "spacer" 10,
-         Run Mpris2 "spotify" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title>","-x",""] 100,
+         Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title>","-x",""] 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"
