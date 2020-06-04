@@ -25,8 +25,8 @@ Config {
          ,"--mediums","<icon=/home/eye/.xmobar/xbm/batt1half.xbm/>"
          ,"--highs","<icon=/home/eye/.xmobar/xbm/batt1full.xbm/>"
          ] 100,
-         Run Network "enp0s25" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>"] 100,
-         Run Wireless "wlp3s0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid> <quality>%","-x","n/a"] 100,
+         Run Network "eth0" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>","-x",""] 100,
+         Run Wireless "wlan0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid> <quality>%","-x","n/a"] 100,
          Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#bb9584"] 100,
          Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/work/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> e:","~/.mail/eyenx/INBOX")
@@ -39,4 +39,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %enp0s25% %wlp3s0wi% %date% %spacer%"
+	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %eth0% %wlan0wi% %date% %spacer%"
