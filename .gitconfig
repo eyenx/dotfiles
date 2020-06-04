@@ -28,3 +28,5 @@
 	default = simple
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
