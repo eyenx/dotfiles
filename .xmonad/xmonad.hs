@@ -143,8 +143,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad pavucontrol
   , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
-  -- scratchPad spotify
-  , ("M-s", namedScratchpadAction scratchpads "spotify")
+  -- scratchPad ncspot
+  , ("M-s", namedScratchpadAction scratchpads "ncspot")
   -- scratchPad jitsi
   , ("M-S-v", namedScratchpadAction scratchpads "jitsi")
   -- togglestruts
@@ -345,7 +345,7 @@ scratchpads = [
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
-    NS "spotify" "spotify" (className =? "Spotify")
+    NS "ncspot" "urxvtc -name ncspot -e ncspot" (resource =? "ncspot")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "jitsi" "JAVA_HOME='' jitsi" (className =? "Jitsi")
