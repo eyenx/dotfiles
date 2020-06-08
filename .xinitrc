@@ -19,7 +19,7 @@ unclutter &
 dunst &
 urxvtd -f -o -q
 #windowmanager
-xinput disable $(xinput list --id-only "SynPS/2 Synaptics TouchPad")
+xinput disable $(xinput list --id-only "Elan Touchpad")
 ~/bin/emulatewheel.sh &
 # gnome keyring
 #eval $(/usr/bin/env gnome-keyring-daemon --start --components=secrets)
