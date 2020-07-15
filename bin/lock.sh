@@ -9,7 +9,7 @@ H=`identify -ping -format '%h' /tmp/lock.png`
 
 convert -size ${W}x${H} canvas:\#3b3228 /tmp/lock.png
 
-ICON="/home/eye/img/stop.png"
+ICON="/home/eye/img/stop_256.png"
 LOCK=()
 while read LINE
 do
@@ -21,8 +21,8 @@ do
 		if [ ! -z "$ICON" ]; then
 			IW=`identify -ping -format '%w' $ICON`
 			IH=`identify -ping -format '%h' $ICON`
-			MIDXi=$(($W / 2 + $Xoff - $IW / 2))
-			MIDYi=$(($H / 2 + $Yoff - $IH / 2))
+            MIDXi=$(($W*2/100 + $Xoff))
+            MIDYi=$(($H*75/100 + $Yoff)) 
 			LOCK+=($ICON -geometry +$MIDXi+$MIDYi -composite)
 		fi
 	fi
@@ -34,4 +34,4 @@ convert "$file" "${LOCK[@]}" "$file"
 
 
 # lock 
-i3lock -n --bar-indicator --bar-position h --bar-direction 1 --redraw-thread -t "" --bar-step 50 --bar-width 250 --bar-base-width 50 --bar-max-height 100 --bar-periodic-step 50 --bar-color 3b3228ff --keyhlcolor 00666666 --ringvercolor cc87875f --wrongcolor ffff0000 --veriftext="" --wrongtext="" --noinputtext="" -i "$file"
+i3lock -c 3b3228 -u -k --timepos="x+w*0.20:y+h*0.90" --timecolor bb9584 --datecolor bb9584 --datestr="%A, %d. %B %Y" -n --keyhlcolor 00666666 --ringvercolor cc87875f --wrongcolor ffff0000 --veriftext="" --wrongtext="" --noinputtext="" -i "$file"
