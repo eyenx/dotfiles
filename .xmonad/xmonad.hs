@@ -38,7 +38,7 @@ import qualified Data.Map as M
 
 -- shortkeys
 
-myTerm    = "urxvtc"
+myTerm    = "st"
 myTmux = "~/bin/tmuxsess default"
 myBrowser = "firefox"
 myAltBrowser = "chromium"
@@ -333,19 +333,19 @@ myLogHook h = dynamicLogWithPP $ def {
 scratchpads :: [NamedScratchpad]
 scratchpads = [
 -- run htop in xterm, find it by title, use default floating window placement
-    NS "joplin" "urxvtc -name joplin -e joplin" (resource =? "joplin") 
+    NS "joplin" "st -n joplin -e joplin" (resource =? "joplin") 
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
 
-    NS "taskwarrior" "urxvtc -name taskwarrior -e vit" (resource =? "taskwarrior")
+    NS "taskwarrior" "st -n taskwarrior -e vit" (resource =? "taskwarrior")
         (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
 
-    NS "term" "urxvtc -name scratchpad" (resource =? "scratchpad")
+    NS "term" "st -n scratchpad" (resource =? "scratchpad")
         (customFloating $ W.RationalRect (3/5) (4/6) (1/5) (1/6)),
 
     NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
-    NS "ncspot" "urxvtc -name ncspot -e ncspot" (resource =? "ncspot")
+    NS "ncspot" "st -n ncspot -e ncspot" (resource =? "ncspot")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "jitsi" "JAVA_HOME='' jitsi" (className =? "Jitsi")

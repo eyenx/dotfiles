@@ -17,7 +17,6 @@ feh --bg-scale --no-fehbg ~/.wp.png
 udiskie &
 unclutter &
 dunst &
-urxvtd -f -o -q
 #windowmanager
 xinput disable $(xinput list --id-only "Elan Touchpad")
 ~/bin/emulatewheel.sh &

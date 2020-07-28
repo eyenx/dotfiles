@@ -8,7 +8,6 @@ Config {
 	, borderColor = "#3b3228"
 	, lowerOnStart = True
 	, commands = [
-         Run Com "/home/eye/bin/gotify-check.py" ["count"] "gotify-check" 100,
          Run BatteryP ["BAT0","BAT1"] ["-t","<acstatus> <left>"
          ,"-L","10"
          ,"-H","70"
@@ -39,4 +38,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% <icon=/home/eye/.xmobar/xbm/messenger1.xbm/> %gotify-check% %eth0% %wlan0wi% %date% %spacer%"
+	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% %eth0% %wlan0wi% %date% %spacer%"

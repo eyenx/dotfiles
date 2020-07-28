@@ -48,5 +48,5 @@ windows:
       # synchronize: after
       panes:
         - mu
-        - irssi
+        - gomuks
         - vdirsyncer sync && khali
