@@ -34,10 +34,10 @@ convert "$file" "${LOCK[@]}" "$file"
 
 
 # pause dunst
-pkill -u "$USER" -SIGUSR1 dunst
+pkill -SIGUSR1 dunst
 
 # lock 
-i3lock -c 3b3228 -u -k --timepos="x+w*0.20:y+h*0.90" --timecolor bb9584 --datecolor bb9584 --datestr="%A, %d. %B %Y" --keyhlcolor 00666666 --ringvercolor cc87875f --wrongcolor ffff0000 --veriftext="" --wrongtext="" --noinputtext="" -i "$file"
+i3lock -n -c 3b3228 -u -k --timepos="x+w*0.20:y+h*0.90" --timecolor bb9584 --datecolor bb9584 --datestr="%A, %d. %B %Y" --keyhlcolor 00666666 --ringvercolor cc87875f --wrongcolor ffff0000 --veriftext="" --wrongtext="" --noinputtext="" -i "$file"
 
 # resume dunst
-pkill -u "$USER" -SIGUSR2 dunst
+pkill -SIGUSR2 dunst
