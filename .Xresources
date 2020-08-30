@@ -1,45 +1,30 @@
-! other urxvt options ------------------------------------------------------
+! uRxvt
 URxvt.perl-ext: default,url-select
-!,font-size
-!URxvt.keysym.C-Up:     perl:font-size:increase
-!URxvt.keysym.C-Down:   perl:font-size:decrease
-!URxvt.keysym.C-S-Up:   perl:font-size:incglobal
-!URxvt.keysym.C-S-Down: perl:font-size:decglobal
-!URxvt.keysym.C-equal:  perl:font-size:reset
-!URxvt.keysym.C-slash:  perl:font-size:show
-!,tabbed
 URxvt*internalBorder:0
 URxvt.urgentOnBell: true
-!URxvt*tabbed.tabbar-bg:0
-!URxvt*tabbed.tabbar-fg:8
-!URxvt*tabbed.tab-bg:0
-!URxvt*tabbed.tab-fg:8
 URxvt*keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/firefox -new-tab
-!URxvt.url-select.launcher: /usr/bin/chromium
 URxvt.url-select.underline: true
 URxvt*matcher.button: 1
 URxvt*termName:screen-256color
-!URxvt*termName:screen
-!URxvt.font:xft:Liberation Mono for Powerline:size=8
-*.font: Liberation Mono:size=8:antialias=true:autohint=true
-*.alpha:1.0
 URxvt.font:xft:Liberation Mono:size=8
-!URxvt*letterSpace: 0 URxvt.saveLines:10000 URxvt.iconFile:/home/eye/.icons/ACYLBlue/scalable/apps/terminal.svg URxvt.geometry:70x35
 URxvt.scrollBar: off
 URxvt*cursorUnderline: 1
 URxvt*underlineColor: #A3583B
 
-! Xcursor -------------------------------------------------------------------
+! global options 
+*.font: Liberation Mono:size=8:antialias=true:autohint=true
+*.alpha: 1.0
+
+! Xcursor
 
 Xcursor.theme: aterred
 Xcursor.size: 16
 
-! Xft -----------------------------------------------------------------------
+! Xft
 Xft.dpi: 96
 Xft.autohint: 0
 Xft:lcdfilter: lcddefault
-!Xft:lcdfilter: lcdlight
 Xft.rgba: rgb
 Xft.hinting: 1
 Xft.hintstyle: hintfull
