@@ -12,7 +12,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-/usr/bin/xautolock -time 15 -locker bin/lock.sh &
+/usr/bin/xautolock -time 15 -locker slock &
 feh --bg-scale --no-fehbg ~/.wp.png
 udiskie &
 unclutter &
