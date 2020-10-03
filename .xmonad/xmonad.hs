@@ -46,7 +46,6 @@ myMail = "~/bin/tmuxsess mail"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
 myScreenshot = "sleep 0.2; scrot -q100 -s -b /tmp/screen%H%M%S.png"
--- because chromium doesn't support shift+insert as primary selection switch from primary to clipboard
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
@@ -143,10 +142,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
   -- scratchPad ncspot
   , ("M-s", namedScratchpadAction scratchpads "ncspot")
-  -- scratchPad jitsi
-  , ("M-S-v", namedScratchpadAction scratchpads "jitsi")
   -- scratchPad 3cx
-  , ("M1-S-v", namedScratchpadAction scratchpads "3cx")
+  , ("M-S-v", namedScratchpadAction scratchpads "3cx")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -159,7 +156,7 @@ myKeys = \c -> mkKeymap c $
   , ("M1-C-l", spawn myLock)
   -- start browser
   , ("M-<F1>", spawn myBrowser)
-  -- start second browser
+  -- start alternate browser
   , ("M-S-<F1>", spawn myAltBrowser)
   -- start mail app
   , ("M-<F2>", spawn myMail)
@@ -290,8 +287,8 @@ myManageHook = composeAll . concat $
   my1Shifts = ["Firefox","Chromium"]
   my2Shifts = [""]
   my3Shifts = ["mail","mumble"]
-  my4Shifts = ["Gimp","MPlayer"]
-  my5Shifts = ["code-oss","remmina","xfreerdp","rdesktop"]
+  my4Shifts = ["Gimp","MPlayer","code-oss"]
+  my5Shifts = ["remmina","xfreerdp","rdesktop"]
   my6Shifts = ["VirtualBox Manager","VirtualBox","virt-manager"]
   my7Shifts = []
   my8Shifts = []
@@ -343,9 +340,6 @@ scratchpads = [
 
     NS "ncspot" "st -n ncspot -e ncspot" (resource =? "ncspot")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
-
-    NS "jitsi" "JAVA_HOME='' jitsi" (className =? "Jitsi")
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)),
 
     NS "3cx" "gtk-launch 3cx" (resource =? "adf-klixa.3cx.ch__webclient")
         (defaultFloating)

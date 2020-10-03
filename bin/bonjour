@@ -2,7 +2,8 @@
 #autostart
 nextcloud &
 firefox &
-JAVA_HOME="" jitsi &
+gtk-launch 3cx &
+/home/eye/bin/tmuxsess mail &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service
 systemctl start --user vdirsyncer.service
