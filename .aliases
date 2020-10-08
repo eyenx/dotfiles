@@ -131,8 +131,8 @@ alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
 # tools
-alias dckr = docker 
-alias poma = podman
+alias dckr=docker
+alias poma=podman
 alias tf=terraform
 alias azc='podman run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
 alias azcdev='podman run --rm -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
