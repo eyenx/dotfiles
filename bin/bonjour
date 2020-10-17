@@ -4,6 +4,7 @@ nextcloud &
 firefox &
 gtk-launch 3cx &
 /home/eye/bin/tmuxsess mail &
+blueman-applet &
 systemctl start --user fetchmail.service
 systemctl start --user taskwarrior.service
 systemctl start --user vdirsyncer.service
