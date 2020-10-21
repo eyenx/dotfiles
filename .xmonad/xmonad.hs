@@ -56,6 +56,7 @@ myNextMusic="playerctl next"
 myPrevMusic="playerctl previous"
 myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
+myDmenuTOTP="~/bin/dmtotp"
 myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall xmobar; xmonad --restart; notify-send 'xmonad restarted'"
 
@@ -95,6 +96,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-p", spawn myDmenu)
   -- launch dmpass
   , ("M-S-p", spawn myDmenuPass)
+  -- launch dmpass
+  , ("M-S-o", spawn myDmenuTOTP)
   -- close focused window
   , ("M-c", kill)
    -- rotate through layouts
