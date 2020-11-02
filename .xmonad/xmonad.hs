@@ -27,6 +27,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
 import XMonad.Layout.TwoPane
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.SimpleDecoration (shrinkText)
@@ -244,7 +245,7 @@ myTabConfig = def { activeColor = "#3b3228"
                   , fontName = "xft:Liberation Mono:size=8"
                   }
 --layouts
-myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
+myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| tc ||| full
   where
   -- tiling profiles
   def = ResizableTall nmaster delta ratio []
@@ -252,14 +253,16 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| full
   mt =  renamed [Replace "m" ] $ mySpacer $ Mirror rt
   tab = renamed [Replace "t" ] $ tabbed shrinkText myTabConfig
   tp = renamed [Replace "2" ] $ mySpacer $ TwoPane delta ratiotp
+  tc = renamed [Replace "3" ] $ mySpacer $ ThreeColMid nmaster delta ratiotc
   full =  renamed [Replace "f"] $ noBorders $ fullscreenFull Full
   -- default #windows in master
   nmaster = 1
   -- proportion size of master
-  ratio   = 7/10
+  ratio   = 9/10
   ratiotp = 5/10
+  ratiotc = 4/10
   -- incrementation on resizing
-  delta   = 2/100
+  delta   = 1/20
   mySpacer = spacingRaw True (Border 1 1 1 1) True (Border 1 1 1 1) True
 
 --managehook
