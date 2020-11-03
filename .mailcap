@@ -3,6 +3,7 @@
 image/*; gpicview %s
 video/*; mp %s
 audio/*; mp %s
-text/html; firefox %s
+text/html; htmldmp %s; copiousoutput
 text/plain; less %s
 application/pdf; mupdf %s
+

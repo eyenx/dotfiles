@@ -1,0 +1,8 @@
+#!/bin/bash
+
+w=$(tput cols)
+if [ -z "$w" ]  || [ "$w" -gt 120 ]; then
+  w=120
+fi
+
+grep -vE -- '\[-- .* --\]$' | fmt -s -w $w

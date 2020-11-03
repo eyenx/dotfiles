@@ -1,0 +1,7 @@
+#!/bin/bash
+
+charset="$(file -i $1 | sed 's/.* charset=//')"
+iconv -f $charset -t utf-8 $1 \
+  | webdump -al \
+  | sed 'y/ / /;s/^\s*$//' \
+  | cat -s
