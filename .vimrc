@@ -1,11 +1,15 @@
 "disable formatting when pasting
 set pastetoggle=<F2>
+
 "no vim compatibility
 set nocompatible
+
 "autoreload vimrc
 autocmd! bufwritepost .vimrc source %
+
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
 "set backup		" keep a backup file
 set history=700		 
 set undolevels=700
@@ -29,11 +33,13 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
 "wrapping like a boss
 set wrap                " word wrap
 set textwidth=0         " 
 set lbr                 " line break
 set display=lastline    " don't display @ with long paragraphs
+
 "tabs
 set tabstop=4
 set softtabstop=2
@@ -49,19 +55,14 @@ set completeopt+=longest
 set clipboard+=unnamed  " yank and copy to X clipboard
 set showmatch           " show matching brackets (),{},[]
 set mat=5               " show mathine brackets for 0.5 seconds
+
 "copy/pasting for intend
 vmap <c-y> y:call system("xclip -i", getreg("\""))<CR>
 nmap <c-v> :call setreg("\"",system("xclip -o"))<CR>p
-imap <c-v> <Esc><c-v>a
-" powerline
-"set laststatus=2 " Always show the statusline
-"set encoding=utf-8 " Necessary to show Unicode glyphs
-"set t_Co=256
-"set guifont=Liberation\ Mono\ for\ Powerline
+imap <c-v> <Esc><c-v>a 
+
+" set font
 set guifont=Liberation\ Mono
-"let g:Powerline_symbols='fancy'
-"let g:Powerline_cache_dir="/tmp"
-"let $PYTHONPATH="/usr/lib/python3.3/site-packages"
 
 " set number line counting
 set number
@@ -69,19 +70,16 @@ set number
 " set colorscheme
 colorscheme mocha
 
-" set backupdir
-"set backupdir=~/.vim/bak
 set directory=/tmp
-" plugins
-"vim-latexsuite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor ="latex"
+
 " mappings
-"
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
+
 " implementet with standard vim tabs
 map <C-n> <esc>:tabnext<CR>
 map <C-m> <esc>:tabprevious<CR>
@@ -91,6 +89,8 @@ vnoremap <silent> <C-s> <esc><esc>:w<CR>
 vnoremap <S-s> :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv 
+
+" lint
 let g:syntastic_python_checkers=['flake8','pylint']
 let g:vim_markdown_folding_disabled=1
 
