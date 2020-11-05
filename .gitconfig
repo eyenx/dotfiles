@@ -26,6 +26,7 @@
     lg = !"git lg1"
 [push]
 	default = simple
+    gpgSign = if-asked
 [commit]
 	gpgsign = true
 [pull]

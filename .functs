@@ -148,20 +148,6 @@ transfer() {
     cat $tmpfile; rm -f $tmpfile; 
 } 
 
-#iotek vps
-io(){
-    if tty -s; then
-        f=$1
-    else
-        f=$(mktemp -t XXXXXX)
-        cat > ${f}
-    fi
-    fn=`basename $f`
-    cat ${f} | ssh io "cat > pub/${fn}"
-    echo "http://d.eyenx.ch/${fn}" 
-    echo "http://d.eyenx.ch/${fn}" |xclip -i
-}
-
 cmdfm(){
     # taken from https://github.com/llaine/cmdfm
     CLIENTID=2cd0c4a7a6e5992167a4b09460d85ece
@@ -175,4 +161,19 @@ cmdfm(){
         do  STREAMURL=`curl -sk ${APIURL}\?genre=${GENRE}\&limit=1 |  sed 's/.*stream_url\":\"\(http.*stream\)\",.*/\1/g'`
         mplayer -quiet -nocache "${STREAMURL}?client_id=${CLIENTID}" &>/dev/null 
     done
+}
+
+0x0(){
+  if [[ $1 == "rmt" ]]
+    then
+    curl -F "url=$2" https://0x0.st 
+  elif [[ $1 == "shrt" ]]
+    then
+    curl -F "shorten=$2" https://0x0.st 
+  elif [[ $1 == "up" ]]
+    then
+    curl -F "file=@$2" https://0x0.st
+  else
+    curl -F "file=@$1" https://0x0.st
+  fi
 }
