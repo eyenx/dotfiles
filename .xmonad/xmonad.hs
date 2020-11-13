@@ -149,7 +149,7 @@ myKeys = \c -> mkKeymap c $
   -- scratchPad 3cx
   , ("M-S-v", namedScratchpadAction scratchpads "3cx")
   -- scratchPad mattermost
-  , ("M-S-c", namedScratchpadAction scratchpads "mattermost")
+  , ("M-S-m", namedScratchpadAction scratchpads "mattermost")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
