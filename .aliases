@@ -140,6 +140,7 @@ alias ocic='podman run --rm -v /home/eye/.oci:/root/.oci -v $(pwd):/tmp eyenx/oc
 alias k=kubectl
 alias kc=kubectx
 alias kn=kubens
+alias vlt=vault
 
 # kill aliases
 alias ka='killall'
