@@ -353,7 +353,7 @@ scratchpads = [
         (defaultFloating),
 
     NS "mattermost" "gtk-launch mm" (className =? "mattermost")
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+        (customFloating $ W.RationalRect (4/5) (1/2) (1/5) (1/2))
   ] 
 
 -- main function
