@@ -42,7 +42,7 @@ import qualified Data.Map as M
 myTerm    = "st"
 myTmux = "~/bin/tmuxsess default"
 myBrowser = "firefox"
-myAltBrowser = "chromium"
+myAltBrowser = "chromium --incognito"
 myMail = "~/bin/tmuxsess mail"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/screenshot_%Y%m%d_%H%M%S.png"
@@ -148,8 +148,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-s", namedScratchpadAction scratchpads "ncspot")
   -- scratchPad 3cx
   , ("M-S-v", namedScratchpadAction scratchpads "3cx")
-  -- scratchPad mattermost
-  , ("M-S-m", namedScratchpadAction scratchpads "mattermost")
+  -- scratchPad matterhorn
+  , ("M-S-m", namedScratchpadAction scratchpads "matterhorn")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -352,8 +352,8 @@ scratchpads = [
     NS "3cx" "gtk-launch 3cx" (resource =? "adf-klixa.3cx.ch__webclient")
         (defaultFloating),
 
-    NS "mattermost" "gtk-launch mm" (className =? "mattermost")
-        (customFloating $ W.RationalRect (3/4) (1/2) (1/4) (1/2))
+    NS "matterhorn" "st -n matterhorn -e mm" (resource =? "matterhorn")
+        (customFloating $ W.RationalRect (3/4) (1/3) (1/4) (2/3))
   ] 
 
 -- main function
