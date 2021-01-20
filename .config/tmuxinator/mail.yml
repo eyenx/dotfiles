@@ -42,8 +42,7 @@ root: ~/
 windows:
   - mail:
     #layout: tiled
-    #      layout: a962,273x80,0,0[273x40,0,0,0,273x39,0,41{176x39,0,41,5,96x39,177,41,6}]
-      layout: 571d,273x80,0,0[273x40,0,0,42,273x39,0,41{169x39,0,41,43,103x39,170,41[103x22,170,41,44,103x16,170,64,47]}]
+      layout: 2384,273x80,0,0[273x40,0,0,5,273x39,0,41{169x39,0,41,6,103x39,170,41,7}]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
@@ -51,4 +50,3 @@ windows:
         - mu
         - gomuks
         - vdirsyncer sync && khali
-        - newsboat

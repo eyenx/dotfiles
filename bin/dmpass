@@ -1,3 +1,21 @@
 #!/usr/bin/env bash
 PATH=$PATH:$HOME/bin
-gopass ls --flat | dmenu -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228' -sf '#bb9584' -fn 'Liberation Mono-8:Normal' | xargs --no-run-if-empty gopass show -c
+
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "-t" ]]; then
+  typeit=1
+  shift
+fi
+
+password=$(gopass ls --flat | dmenu -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228' -sf '#bb9584' -fn 'Liberation Mono-8:Normal')
+
+[[ -n $password ]] || exit
+
+if [[ $typeit -eq 0 ]]; then
+  gopass show -c "$password" 2>/dev/null
+else
+  gopass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
+    xdotool type --clearmodifiers --file -
+fi

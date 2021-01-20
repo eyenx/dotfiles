@@ -57,6 +57,7 @@ myNextMusic="playerctl next"
 myPrevMusic="playerctl previous"
 myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
+myDmenuPassType="~/bin/dmpass -t"
 myDmenuTOTP="~/bin/dmtotp"
 myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall xmobar; xmonad --restart; notify-send 'xmonad restarted'"
@@ -98,6 +99,8 @@ myKeys = \c -> mkKeymap c $
   -- launch dmpass
   , ("M-S-p", spawn myDmenuPass)
   -- launch dmpass
+  , ("M-S-i", spawn myDmenuPassType)
+  -- launch dmpass
   , ("M-S-o", spawn myDmenuTOTP)
   -- close focused window
   , ("M-c", kill)
@@ -137,11 +140,11 @@ myKeys = \c -> mkKeymap c $
   , ("M-o", sequence_ [prevScreen,swapNextScreen])
   , ("M-i", sequence_ [nextScreen,swapPrevScreen])
   -- scratchPad term
-  , ("M-S-\\", namedScratchpadAction scratchpads "term")
+  , ("M-\\", namedScratchpadAction scratchpads "term")
   -- scratchPad taskwarrior
   , ("M-S-t", namedScratchpadAction scratchpads "taskwarrior")
   -- scratchPad joplin-desktop
-  , ("M-\\", namedScratchpadAction scratchpads "joplin")
+  , ("M-S-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad pavucontrol
   , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
   -- scratchPad ncspot
@@ -352,7 +355,7 @@ scratchpads = [
     NS "3cx" "gtk-launch 3cx" (resource =? "adf-klixa.3cx.ch__webclient")
         (defaultFloating),
 
-    NS "matterhorn" "st -n matterhorn -e mm" (resource =? "matterhorn")
+    NS "matterhorn" "st -n matterhorn -e matterhorn" (resource =? "matterhorn")
         (customFloating $ W.RationalRect (3/4) (1/3) (1/4) (2/3))
   ] 
 
