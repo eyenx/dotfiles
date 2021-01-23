@@ -6,4 +6,5 @@ audio/*; mp %s
 text/html; htmldmp %s; copiousoutput
 text/plain; less %s
 application/pdf; mupdf %s
-
+text/calendar;      vkhal -s %s; copiousoutput
+application/ics;    vkhal -s %s; copiousoutput
