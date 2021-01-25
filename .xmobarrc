@@ -34,9 +34,10 @@ Config {
          Run Memory ["--high","#bb9584","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
          Run Date "<icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M" "date" 300,
          Run Com "/home/eye/.conky/spacer.sh" [] "spacer" 10,
+         Run Com "/home/eye/.conky/latency.sh" [] "latency" 10,
          Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title>","-x",""] 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% %eth0% %wlan0wi% %date% %spacer%"
+	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% %eth0% %wlan0wi% %latency% %date% %spacer%"
