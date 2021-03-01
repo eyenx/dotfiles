@@ -1,8 +1,8 @@
 # /home/eye/.mailcap
 
 image/*; gpicview %s
-video/*; mp %s
-audio/*; mp %s
+video/*; mplayer %s
+audio/*; mplayer %s
 text/html; htmldmp %s; copiousoutput
 text/plain; less %s
 application/pdf; mupdf %s

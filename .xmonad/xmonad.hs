@@ -356,7 +356,7 @@ scratchpads = [
         (defaultFloating),
 
     NS "matterhorn" "st -n matterhorn -e matterhorn" (resource =? "matterhorn")
-        (customFloating $ W.RationalRect (3/4) (1/3) (1/4) (2/3))
+        (customFloating $ W.RationalRect (3/4) (0) (1/4) (1))
   ] 
 
 -- main function

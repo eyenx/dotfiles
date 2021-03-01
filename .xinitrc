@@ -26,4 +26,5 @@ redshift-gtk &
 ~/bin/mytrayer.sh &
 ~/bin/gotify-send.py &
 xmodmap ~/.Xmodmap
+ldd ~/.xmonad/xmonad-x86_64-linux | grep "not found" &>/dev/null && mv ~/.xmonad/xmonad-x86_64-linux{,.old}
 xmonad
