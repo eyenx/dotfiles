@@ -1,4 +1,0 @@
-SURFRAW_text_browser=firefox
-SURFRAW_graphical=no
-SURFRAW_screen=tmux
-SURFRAW_new_screen=no
