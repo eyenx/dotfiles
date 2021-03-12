@@ -157,17 +157,17 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 # xrandr
 
 alias xr='xrandr'
-alias xrdock='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --off && feh --bg-scale --no-fehbg ~/.wp.jpg'
-alias xrhome='xrandr --output HDMI1 --auto && xrandr --output eDP-1 --auto --left-of HDMI1'
-alias xroffice='~/.screenlayout/office_inv_2mon.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias xrhome='~./screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg' 
+alias xroffice='~/.screenlayout/office.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrundock='~/.screenlayout/undocked.sh && mons -o && feh --bg-scale --no-fehbg ~/.wp.jpg'
-alias xrhome='~/.screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
 # dotfiles git alias
 
 alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias pit='git --git-dir=$HOME/.privdotfiles.git/ --work-tree=$HOME'
 alias gitgraph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" 
+alias ghpr='hub pull-request -p -c'
+alias ghprd='hub pull-request -p -d -c'
 
 # shutdown aliases
 alias reboot='sudo systemctl reboot'

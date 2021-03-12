@@ -8,7 +8,7 @@ Config {
 	, borderColor = "#3b3228"
 	, lowerOnStart = True
 	, commands = [
-         Run BatteryP ["BAT0","BAT1"] ["-t","<acstatus> <left>"
+         Run BatteryP ["BAT0","BAT1"] ["-t","<acstatus> <left> |"
          ,"-L","10"
          ,"-H","70"
          ,"-l","#bb9584"
@@ -24,20 +24,20 @@ Config {
          ,"--mediums","<icon=/home/eye/.xmobar/xbm/batt1half.xbm/>"
          ,"--highs","<icon=/home/eye/.xmobar/xbm/batt1full.xbm/>"
          ] 100,
-         Run Network "eth0" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev>","-x",""] 100,
-         Run Wireless "wlan0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid> <quality>%","-x","n/a"] 100,
-         Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>%","-L","3","-H","80","--high","#bb9584"] 100,
+         Run Network "eth0" ["-t","<icon=/home/eye/.xmobar/xbm/net_wired.xbm/> <dev> |","-x",""] 100,
+         Run Wireless "wlan0" ["-t","<icon=/home/eye/.xmobar/xbm/wireless8.xbm/> <essid> <quality>% |","-x","n/a"] 100,
+         Run MultiCpu ["-t","<icon=/home/eye/.xmobar/xbm/cpu.xbm/> <total>% |","-L","3","-H","80","--high","#bb9584"] 100,
          Run Mail [("<icon=/home/eye/.xmobar/xbm/mail.xbm/> a:", "~/.mail/work/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> e:","~/.mail/eyenx/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> p:","~/.mail/tauro/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> l:","~/.mail/lsvb/INBOX")] "mail",
-         Run Memory ["--high","#bb9584","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>%"] 100,
-         Run Date "<icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M" "date" 300,
+         Run Memory ["--high","#bb9584","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>% |"] 100,
+         Run Date "| <icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M |" "date" 300,
          Run Com "/home/eye/.conky/spacer.sh" [] "spacer" 10,
          Run Com "/home/eye/.conky/latency.sh" [] "latency" 10,
-         Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title>","-x",""] 100,
+         Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title> |","-x",""] 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% %eth0% %wlan0wi% %latency% %date% %spacer%"
+	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% | %eth0% %wlan0wi% %latency% %date% %spacer%"
