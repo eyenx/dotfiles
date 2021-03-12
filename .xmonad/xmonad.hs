@@ -247,7 +247,7 @@ myTabConfig = def { activeColor = "#3b3228"
                   , activeTextColor = "#bb9584"
                   , inactiveTextColor = "#b8afad"
                   , urgentTextColor = "#3b3228"
-                  , fontName = "xft:Liberation Mono:size=8"
+                  , fontName = "xft:Tamzen:size=8"
                   }
 --layouts
 myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| tc ||| full
@@ -325,7 +325,7 @@ myLogHook h = dynamicLogWithPP $ def {
         ppCurrent = xmobarColor "#bb9584" ""
         , ppHidden = xmobarColor "#b8afad" "" 
         , ppUrgent = xmobarColor "#bb9584" "#573d26" 
-        , ppSep = xmobarColor "#bb9584" "" " · "
+        , ppSep = xmobarColor "#bb9584" "" " | "
         , ppWsSep = xmobarColor "#999999" "" " "
         , ppTitle = xmobarColor "#b8afad" "" . shorten 50
         -- do not show NSP at end of workspace list

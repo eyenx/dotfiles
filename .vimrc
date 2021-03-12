@@ -62,7 +62,7 @@ nmap <c-p> :call setreg("\"",system("xclip -o"))<CR>p
 imap <c-p> <Esc><c-v>a
 
 " set font
-set guifont=Liberation\ Mono
+set guifont=Tamzen
 
 " set number line counting
 set number

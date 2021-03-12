@@ -1,5 +1,5 @@
 ! global options 
-*.font: Liberation Mono:size=8:antialias=true:autohint=true
+*.font: Tamzen:size=8:antialias=true:autohint=true
 *.alpha: 1.0
 
 ! Xcursor

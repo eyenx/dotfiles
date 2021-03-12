@@ -157,7 +157,7 @@ alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required 
 # xrandr
 
 alias xr='xrandr'
-alias xrhome='~./screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg' 
+alias xrhome='~/.screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg' 
 alias xroffice='~/.screenlayout/office.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
 alias xrundock='~/.screenlayout/undocked.sh && mons -o && feh --bg-scale --no-fehbg ~/.wp.jpg'
 
