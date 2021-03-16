@@ -145,8 +145,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-S-t", namedScratchpadAction scratchpads "taskwarrior")
   -- scratchPad joplin-desktop
   , ("M-S-\\", namedScratchpadAction scratchpads "joplin")
-  -- scratchPad pavucontrol
-  , ("M-v", namedScratchpadAction scratchpads "pavucontrol")
+  -- scratchPad ncpamixer
+  , ("M-v", namedScratchpadAction scratchpads "ncpamixer")
   -- scratchPad ncspot
   , ("M-s", namedScratchpadAction scratchpads "ncspot")
   -- scratchPad 3cx
@@ -346,8 +346,8 @@ scratchpads = [
     NS "term" "st -n scratchpad" (resource =? "scratchpad")
         (customFloating $ W.RationalRect (3/5) (4/6) (1/5) (1/6)),
 
-    NS "pavucontrol" "pavucontrol" (className =? "Pavucontrol")
-        (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
+    NS "ncpamixer" "st -n ncpamixer -e ncpamixer" (resource =? "ncpamixer")
+        (customFloating $ W.RationalRect (1/4) (2/3) (2/4) (1/4)),
 
     NS "ncspot" "st -n ncspot -e ncspot" (resource =? "ncspot")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
