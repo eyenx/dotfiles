@@ -15,7 +15,7 @@ grep -vE -- '\[-- .* --\]$' | fmt -s -w $w | tee $tmp1 > $tmp2
 # taken from z3bra
 grep -oE '[hH][tT]{2}[pP][sS]?://([^/?#><"]+)([^?#><"]*)(\?([^#><"]*))?(#(.*))?' $tmp1 | sort | uniq | while read url ; do
   if [ "$(echo $url | wc -c)" -gt $w ]; then
-    short=$(curl -sS -d "{\"longUrl\":\"$url\"}" https://s.uff.li | jq -r '.ShortUrl')
+    short=$(curl -sS -d "{\"longUrl\":\"$url\"}" http://sh.rt | jq -r '.ShortUrl')
     escape=$(printf '%s\n' "$url" | sed 's/[]\/$*.^[]/\\&/g')
     sed -i "s $escape $short g" $tmp2 
   fi
