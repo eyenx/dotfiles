@@ -5,8 +5,8 @@ root: ~/
 
 windows:
   - mail:
-    layout: 2384,273x80,0,0[273x40,0,0,5,273x39,0,41{169x39,0,41,6,103x39,170,41,7}]
-    panes:
-      - mu
-      - gomuks
-      - vdirsyncer sync && khali
+      layout: 2384,273x80,0,0[273x40,0,0,5,273x39,0,41{169x39,0,41,6,103x39,170,41,7}]
+      panes:
+        - mu
+        - gomuks
+        - vdirsyncer sync && khali
