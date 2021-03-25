@@ -16,15 +16,15 @@ pos 1920x0
 rate 59.95
 rotate left
 output DP-2-2
-crtc 0
+crtc 1
 gamma 0.769:0.714:0.625
 mode 1920x1200
 pos 0x720
-primary
 rate 59.95
 output eDP-1
-crtc 1
+crtc 0
 gamma 0.769:0.714:0.625
 mode 1920x1080
 pos 3120x840
+primary
 rate 60.02
