@@ -154,12 +154,12 @@ alias pacups='pacman -Qu'
 alias pacupg='pacman -Su'
 alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
 
-# xrandr
+# autorandr
 
-alias xr='xrandr'
-alias xrhome='~/.screenlayout/home.sh && feh --bg-scale --no-fehbg ~/.wp.jpg' 
-alias xroffice='~/.screenlayout/office.sh && feh --bg-scale --no-fehbg ~/.wp.jpg'
-alias xrundock='~/.screenlayout/undocked.sh && mons -o && feh --bg-scale --no-fehbg ~/.wp.jpg'
+alias ar='autorandr'
+alias arh='ar home'
+alias aro='ar office'
+alias arm='ar mobile'
 
 # dotfiles git alias
 
