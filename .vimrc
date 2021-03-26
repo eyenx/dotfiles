@@ -90,6 +90,9 @@ vnoremap <S-s> :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv 
 
+" fold
+set foldmethod=indent
+set nofoldenable
 " lint
 let g:vim_markdown_folding_disabled=1
 
