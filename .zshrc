@@ -18,3 +18,6 @@ plugins=(vi-mode tig git github extract archlinux python perl svn encode64 perl 
 source $ZSH/oh-my-zsh.sh
 #temporary fix
 unset GREP_OPTIONS
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault

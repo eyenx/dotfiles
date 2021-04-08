@@ -141,6 +141,12 @@ alias k=kubectl
 alias kc=kubectx
 alias kn=kubens
 alias vlt=vault
+alias vk='vault kv'
+alias vkl='vault kv list'
+alias vkg='vault kv get'
+alias vr='vault read'
+alias vw='vault write'
+
 
 # kill aliases
 alias ka='killall'

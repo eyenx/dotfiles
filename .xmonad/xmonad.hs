@@ -42,7 +42,7 @@ import qualified Data.Map as M
 myTerm    = "st"
 myTmux = "~/bin/tmuxsess default"
 myBrowser = "firefox"
-myAltBrowser = "chromium --incognito"
+myAltBrowser = "brave --incognito"
 myMail = "~/bin/tmuxsess mail"
 myLock = "xautolock -locknow"
 myScreenFull = "scrot -q100 /tmp/s%Y%m%dT%H%M%S.png"
@@ -295,7 +295,7 @@ myManageHook = composeAll . concat $
   myTFloats = []
   myRFloats = []
   myIgnores = []
-  my1Shifts = ["Firefox","Chromium"]
+  my1Shifts = ["Firefox","Brave-browser"]
   my2Shifts = [""]
   my3Shifts = ["mail","mumble"]
   my4Shifts = ["Gimp","MPlayer","code-oss"]
