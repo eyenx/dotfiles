@@ -58,8 +58,8 @@ set mat=5               " show mathine brackets for 0.5 seconds
 
 "copy/pasting for intend
 vmap <c-y> y:call system("xclip -i", getreg("\""))<CR>
-nmap <c-p> :call setreg("\"",system("xclip -o"))<CR>p
-imap <c-p> <Esc><c-v>a
+nmap <c-v> :call setreg("\"",system("xclip -o"))<CR>p
+imap <c-v> <Esc><c-v>a
 
 " set font
 set guifont=Tamzen
@@ -83,9 +83,6 @@ map <C-h> <C-w>h
 " implementet with standard vim tabs
 map <C-n> <esc>:tabnext<CR>
 map <C-m> <esc>:tabprevious<CR>
-noremap <silent> <C-s> :w<CR>
-inoremap <silent> <C-s> <esc><esc>:w<CR>
-vnoremap <silent> <C-s> <esc><esc>:w<CR>
 vnoremap <S-s> :sort<CR>
 vnoremap < <gv 
 vnoremap > >gv 
