@@ -56,11 +56,6 @@ set clipboard+=unnamed  " yank and copy to X clipboard
 set showmatch           " show matching brackets (),{},[]
 set mat=5               " show mathine brackets for 0.5 seconds
 
-"copy/pasting for intend
-vmap <c-y> y:call system("xclip -i", getreg("\""))<CR>
-nmap <c-v> :call setreg("\"",system("xclip -o"))<CR>p
-imap <c-v> <Esc><c-v>a
-
 " set font
 set guifont=Tamzen
 
