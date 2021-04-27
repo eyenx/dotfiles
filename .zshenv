@@ -4,7 +4,7 @@ export XDG_CONFIG_HOME="/home/eye/.config"
 stty -ixon
 export PATH
 export XDG_CONFIG_HOME
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=chromium
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"

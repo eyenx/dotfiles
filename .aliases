@@ -17,6 +17,7 @@ alias db='dropbox'
 alias .='source'
 alias la='ls -lA'
 alias l='ls -l'
+alias vim='nvim'
 alias vi='vim'
 alias md='mkdir'
 alias sudo='sudo '
@@ -166,6 +167,10 @@ alias ar='autorandr'
 alias arh='ar home'
 alias aro='ar office'
 alias arm='ar mobile'
+
+# nnn
+alias nnn='nnn -e'
+alias n='nnn'
 
 # dotfiles git alias
 
