@@ -9,8 +9,6 @@ set newtab about:blank
 set theme dark
 
 " Binds
-bind gnM tabopen https://0x0.st/-ZqT.png
-bind gwM winopen https://0x0.st/-ZqT.png
 bind ;x hint -F e => { const pos = tri.dom.getAbsoluteCentre(e); tri.excmds.exclaim_quiet("xdotool mousemove --sync " + pos.x + " " + pos.y + "; xdotool click 1")}
 bind ;X hint -F e => { const pos = tri.dom.getAbsoluteCentre(e); tri.excmds.exclaim_quiet("xdotool mousemove --sync " + pos.x + " " + pos.y + "; xdotool keydown ctrl+shift; xdotool click 1; xdotool keyup ctrl+shift")}
 bind <A-p> pin
@@ -156,10 +154,6 @@ bind zz zoom 1
 bind zI zoom 3
 bind zO zoom 0.3
 bind . repeat
-bind <AS-ArrowUp><AS-ArrowUp><AS-ArrowDown><AS-ArrowDown><AS-ArrowLeft><AS-ArrowRight><AS-ArrowLeft><AS-ArrowRight>ba open https://www.youtube.com/watch?v=M3iOROuTuMA
-bind goM open https://0x0.st/-ZqT.png
-bind gn1 tabopen https://www.myfitnesspal.com/food/diary/eyenx
-bind gw1 winopen https://www.myfitnesspal.com/food/diary/eyenx
 
 " Autocmds
 autocmd DocStart codimd.adfinis.com mode ignore

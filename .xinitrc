@@ -19,7 +19,6 @@ unclutter &
 dunst &
 #windowmanager
 xinput disable $(xinput list --id-only "Elan Touchpad")
-~/bin/emulatewheel.sh &
 # gnome keyring
 #eval $(/usr/bin/env gnome-keyring-daemon --start --components=secrets)
 redshift-gtk &
