@@ -137,8 +137,8 @@ myKeys = \c -> mkKeymap c $
   -- number of windows in master area -1
   , ("M-.", sendMessage (IncMasterN (-1)))
   -- dual monitor setup
-  , ("M-o", sequence_ [prevScreen,swapNextScreen])
-  , ("M-i", sequence_ [nextScreen,swapPrevScreen])
+  , ("M-o", sequence_ [prevScreen,swapNextScreen,nextScreen])
+  , ("M-i", sequence_ [nextScreen,swapPrevScreen,prevScreen])
   -- scratchPad term
   , ("M-\\", namedScratchpadAction scratchpads "term")
   -- scratchPad taskwarrior
