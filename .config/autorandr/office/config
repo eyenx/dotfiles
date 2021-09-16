@@ -22,6 +22,6 @@ output eDP1
 crtc 0
 gamma 0.769:0.714:0.625
 mode 1920x1080
-pos 1920x120
+pos 1920x0
 primary
 rate 60.02
