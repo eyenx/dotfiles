@@ -50,6 +50,7 @@ myScreenshot = "sleep 0.2; scrot -q100 -s -b /tmp/s%Y%m%dT%H%M%S.png"
 myVolUp="ponymix increase 5"
 myVolDown="ponymix decrease 5"
 myVolMute="ponymix toggle"
+myMicMute="ponymix --source toggle"
 myBrightUp="brightnessctl s +5%"
 myBrightDown="brightnessctl s 5%-"
 myPauseMusic="playerctl play-pause"
@@ -76,7 +77,7 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- border
-myBorderWidth   = 2
+myBorderWidth   = 3
 
 -- my metas
 myModMask   = mod4Mask
@@ -141,8 +142,6 @@ myKeys = \c -> mkKeymap c $
   , ("M-i", sequence_ [nextScreen,swapPrevScreen,prevScreen])
   -- scratchPad term
   , ("M-\\", namedScratchpadAction scratchpads "term")
-  -- scratchPad taskwarrior
-  , ("M-S-t", namedScratchpadAction scratchpads "taskwarrior")
   -- scratchPad joplin-desktop
   , ("M-S-\\", namedScratchpadAction scratchpads "joplin")
   -- scratchPad ncpamixer
@@ -180,6 +179,8 @@ myKeys = \c -> mkKeymap c $
   -- Mute 
   , ("<XF86AudioMute>", spawn myVolMute)
   , ("M-<Pause>", spawn myVolMute)
+  -- Microphone Mute 
+  , ("C-M1-m", spawn myMicMute)
   -- brightness up
   , ("<XF86MonBrightnessUp>", spawn myBrightUp)
   , ("M-S-<Page_Up>", spawn myBrightUp)
@@ -339,9 +340,6 @@ scratchpads = [
 -- run htop in xterm, find it by title, use default floating window placement
     NS "joplin" "st -n joplin -e joplin" (resource =? "joplin") 
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
-
-    NS "taskwarrior" "st -n taskwarrior -e vit" (resource =? "taskwarrior")
-        (customFloating $ W.RationalRect (2/6) (2/6) (2/6) (2/6)),
 
     NS "term" "st -n scratchpad" (resource =? "scratchpad")
         (customFloating $ W.RationalRect (3/5) (4/6) (1/5) (1/6)),
