@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-VOL=$(ponymix --source | grep PRO\ X\ Mono -A 1 | egrep -o "[0-9]+%")
+VOL=$(ponymix defaults | grep source\   -A 3 | egrep -o "[0-9]+%")
 ponymix --source is-muted && VOL=M 
 if [[ $VOL == "M" ]]
 then

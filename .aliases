@@ -125,6 +125,7 @@ alias pmu='ponymix increase 5'
 alias khali='khal interactive'
 alias sa='ssh-add'
 alias s='ssh'
+alias j='ssh jmp'
 #tmux
 alias txl='tmux list-sessions'
 alias txk='tmux kill-session -t $1'
