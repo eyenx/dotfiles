@@ -150,8 +150,6 @@ myKeys = \c -> mkKeymap c $
   , ("M-s", namedScratchpadAction scratchpads "ncspot")
   -- scratchPad 3cx
   , ("M-S-v", namedScratchpadAction scratchpads "3cx")
-  -- scratchPad matterhorn
-  , ("M-S-m", namedScratchpadAction scratchpads "matterhorn")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -351,10 +349,7 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "3cx" "gtk-launch 3cx" (resource =? "adf-klixa.3cx.ch__webclient")
-        (defaultFloating),
-
-    NS "matterhorn" "st -n matterhorn -e matterhorn" (resource =? "matterhorn")
-        (customFloating $ W.RationalRect (3/4) (0) (1/4) (1))
+        (defaultFloating)
   ] 
 
 -- main function

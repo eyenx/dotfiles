@@ -1,19 +1,32 @@
-output DP-1
+output DP1
 off
-output HDMI-1
+output DP2
 off
-output DP-2
+output HDMI1
 off
-output HDMI-2
+output VIRTUAL1
+off
+output eDP1
 crtc 0
 gamma 0.769:0.714:0.625
 mode 1920x1080
 pos 0x0
 primary
-rate 60.00
-output eDP-1
+rate 60.02
+x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
+x-prop-max_bpc 12
+x-prop-non_desktop 0
+x-prop-scaling_mode Full aspect
+output HDMI2
 crtc 1
 gamma 0.769:0.714:0.625
-mode 1920x1080
-pos 1920x183
-rate 60.02
+mode 1920x1200
+pos 1920x0
+rate 59.95
+x-prop-aspect_ratio Automatic
+x-prop-audio auto
+x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
+x-prop-max_bpc 12
+x-prop-non_desktop 0
