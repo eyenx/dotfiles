@@ -26,3 +26,5 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export JAVA_HOME=/usr/lib/jvm/java-10-openjdk
 export WHALEBREW_INSTALL_PATH=~/.whalebrew/bin
 export GOPATH=$HOME/.go
+
+export FZF_DEFAULT_OPTS='--height 30% --layout=reverse'

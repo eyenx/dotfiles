@@ -177,3 +177,31 @@ cmdfm(){
     curl -F "file=@$1" https://0x0.st
   fi
 }
+
+# some fzf functions
+# https://github.com/junegunn/fzf/wiki/examples
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# fd - fuzzy cd from anywhere
+# ex: fd word1 word2 ... (even part of a file name)
+# zsh autoload function
+fd() {
+  local file
+  file="$(find . -type d -print 2>/dev/null | grep -z -vE '~$' | fzf --query="$1" --multi --select-1 --exit-0)"
+  [[ -n $file ]] && cd -- $file
+}
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
