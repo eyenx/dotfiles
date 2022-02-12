@@ -185,7 +185,7 @@ cmdfm(){
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fe() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf --query="$1" +m --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
@@ -194,7 +194,7 @@ fe() {
 # zsh autoload function
 fd() {
   local file
-  file="$(find . -type d -print 2>/dev/null | grep -z -vE '~$' | fzf --query="$1" --multi --select-1 --exit-0)"
+  file="$(find . -type d -print 2>/dev/null | grep -z -vE '~$' | fzf --query="$1" +m --select-1 --exit-0)"
   [[ -n $file ]] && cd -- $file
 }
 
