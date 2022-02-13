@@ -181,21 +181,18 @@ cmdfm(){
 # some fzf functions
 # https://github.com/junegunn/fzf/wiki/examples
 
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
+# v [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
-fe() {
+v() {
   IFS=$'\n' files=($(fzf --query="$1" +m --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-# fd - fuzzy cd from anywhere
-# ex: fd word1 word2 ... (even part of a file name)
-# zsh autoload function
-fd() {
-  local file
-  file="$(find . -type d -print 2>/dev/null | grep -z -vE '~$' | fzf --query="$1" +m --select-1 --exit-0)"
-  [[ -n $file ]] && cd -- $file
+unalias z 2> /dev/null
+z() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
 }
 
 # using ripgrep combined with preview
@@ -205,3 +202,6 @@ fif() {
   rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
+fman() {
+    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}

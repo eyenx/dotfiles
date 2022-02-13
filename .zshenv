@@ -28,3 +28,6 @@ export WHALEBREW_INSTALL_PATH=~/.whalebrew/bin
 export GOPATH=$HOME/.go
 
 export FZF_DEFAULT_OPTS='--height 30% --layout=reverse'
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FORGIT_NO_ALIASES="true"
+source /usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh

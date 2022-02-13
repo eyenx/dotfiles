@@ -14,10 +14,13 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode tig git github extract archlinux python perl svn encode64 perl urltools systemd catimg docker docker-compose kubectl ansible oc fzf vault taskwarrior)
+plugins=(vi-mode tig git github extract archlinux python perl svn encode64 perl urltools systemd catimg docker docker-compose kubectl ansible oc fzf fzf-tab z vault taskwarrior)
 source $ZSH/oh-my-zsh.sh
 #temporary fix
 unset GREP_OPTIONS
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+
+unsetopt correct
+unsetopt correctall
