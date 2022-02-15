@@ -1,16 +1,4 @@
 #!/bin/zsh
-aurd(){
-	[[ -z $@ ]] && lcho -e "download package from aur, extract it to tmp and swicht to dir\nusage: aurd <pkgname>" && return 1
-	pkg=$1
-	url="https://aur.archlinux.org/"
-	build="/tmp/aurd/"
-	[[ -d $build ]] || mkdir -pv $build
-	cd $build
-	wget -qO- "${url}/cgit/aur.git/snapshot/$pkg.tar.gz" | tar xzf -
-	cd ${build}${pkg}
-}
-
-
 mymem() {
   ps axu | awk '$11!~/\[*\]/ {print $6/1024" Mb\t>\t"$2"\t"$11,$12,$13,$14}'|sort -g
 }
@@ -34,23 +22,12 @@ sshtun() {
 	eval $_cmd $lp:$lh:$rp $rh
 }
 
-calc() { 
-	par=$*
-	echo -e "$par ="
-    calc=$(ghc -e $par)
-  	echo $calc
-}
-
 pstop(){
         [[ -n $@ ]] && echo -e "find out the most ressources eating processes" && return 1
         echo -ne "CpuTop:\t"
         ps axu|awk '{print $3,$11}'|sort -n|tail -1
         echo -ne "MemTop:\t"
         ps axu|awk '{print $4,$11}'|sort -n|tail -1
-}
-
-qload() {
-	uptime|sed 's/.*rage:\ \(.*\)/load:\ \1/'|sed 's/,//g'
 }
 
 psg(){
@@ -96,16 +73,6 @@ tyurl() {
 secpwd(){
     [[ -z $@ ]] && echo -e "get a secpwd from /dev/urandom\nusage: secpwd <number of characters>" && return 1
     cat /dev/urandom | tr -dc "[A-Za-z0-9]^*#_+-=:.;,^!?$£€@"|fold -w $1|head -5
-}
-
-cdup() {
-	[[ -z $@ ]] && echo -e "cd out of directory quicker\nusage: cdup <#ofdirs>" && return 1
-	local x="";
-	for i in $(seq $1)
-	do
-	x="$x../"
-	done
-	cd $x
 }
 
 ## good gotbletu rtmp functions
@@ -157,9 +124,6 @@ cmdfm(){
   if [[ $1 == "rmt" ]]
     then
     curl -F "url=$2" https://0x0.st 
-  elif [[ $1 == "shrt" ]]
-    then
-    curl -F "shorten=$2" https://0x0.st 
   elif [[ $1 == "up" ]]
     then
     curl -F "file=@$2" https://0x0.st
