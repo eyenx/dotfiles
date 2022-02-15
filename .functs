@@ -34,16 +34,6 @@ sshtun() {
 	eval $_cmd $lp:$lh:$rp $rh
 }
 
-sshtuntrns(){
-    [[ -n $@ ]] && echo -e "create a ssh tunnel to roach:9091 (transmission web/rpc listening port)\nusage:sshtuntrns" && return 1
-    ssh -fNL 9091:192.168.1.10:9091 home
-}
-
-sshtrns(){
-    [[ -z $@ ]] && echo -e "transmission-remote over ssh\nusage: sshtrns <parameter>"
-    ssh rp "transmission-remote 192.168.1.10 $@"
-}
-
 calc() { 
 	par=$*
 	echo -e "$par ="
@@ -181,12 +171,21 @@ cmdfm(){
 # some fzf functions
 # https://github.com/junegunn/fzf/wiki/examples
 
-# v [FUZZY PATTERN] - Open the selected file with the default editor
+# e [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
-v() {
+e() {
   IFS=$'\n' files=($(fzf --query="$1" +m --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# v - open files in ~/.viminfo
+v() {
+  local files
+  files=$(grep '^>' ~/.viminfo | cut -c3- |
+          while read line; do
+            [ -f "${line/\~/$HOME}" ] && echo "$line"
+          done | fzf -d -m -q "$*" -1) && vim ${files//\~/$HOME}
 }
 
 unalias z 2> /dev/null
@@ -201,6 +200,8 @@ fif() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
   rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
+
+alias vfif="vi $(fif $1)"
 
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
