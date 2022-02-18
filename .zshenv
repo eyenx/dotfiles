@@ -31,4 +31,3 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
 export FORGIT_NO_ALIASES="true"
 source /usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh
-source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh

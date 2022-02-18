@@ -85,6 +85,20 @@ vnoremap > >gv
 " fold
 set foldmethod=indent
 set nofoldenable
+
 " lint
 let g:vim_markdown_folding_disabled=1
 
+" statusline
+set statusline=
+set statusline+=%#Debug#
+set statusline+=%{FugitiveStatusline()}
+set statusline+=%#String#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c

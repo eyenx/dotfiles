@@ -135,12 +135,18 @@ cmdfm(){
 # some fzf functions
 # https://github.com/junegunn/fzf/wiki/examples
 
-# e [FUZZY PATTERN] - Open the selected file with the default editor
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
-e() {
+fe() {
   IFS=$'\n' files=($(fzf --query="$1" +m --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# fcd - fuzzy search for all dirs and cd into them
+fcd() {
+  IFS=$'\n' files=($(fd --type directory --follow --hidden --exclude .git | fzf --query="$1" -m --select-1 --exit-0))
+  [[ -n "$files" ]] && cd "${files[@]}"
 }
 
 # v - open files in ~/.viminfo

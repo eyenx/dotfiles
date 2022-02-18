@@ -32,14 +32,16 @@ Config {
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> p:","~/.mail/tauro/INBOX")
                   ,("<icon=/home/eye/.xmobar/xbm/mail.xbm/> l:","~/.mail/lsvb/INBOX")] "mail",
          Run Memory ["--high","#bb9584","-t","<icon=/home/eye/.xmobar/xbm/mem1.xbm/> <usedratio>% |"] 100,
-         Run Date "| <icon=/home/eye/.xmobar/xbm/clock2.xbm/> %H%M |" "date" 300,
+         Run Date "| <icon=/home/eye/.xmobar/xbm/clock2.xbm/> %b %d %H%M |" "date" 300,
          Run Com "/home/eye/.xmobar/spacer.sh" [] "spacer" 10,
          Run Com "/home/eye/.xmobar/latency.sh" [] "latency" 10,
          Run Com "/home/eye/.xmobar/pubip.sh" [] "pubip" 10,
          Run Com "/home/eye/.xmobar/checkmic.sh" [] "checkmic" 10,
+         Run Com "/home/eye/.xmobar/doing.sh" [] "doing" 10,
+         Run Com "/home/eye/.xmobar/tw.sh" [] "tw" 10,
          Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title> |","-x",""] 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% | %eth0% %wlan0wi% %latency% | %pubip% | %checkmic% %date% %spacer%"
+	, template = "%StdinReader% }{ %tw% %doing% %mpris2% %multicpu% %memory% %battery% %mail% | %eth0% %wlan0wi% %latency% | %pubip% | %checkmic% %date% %spacer%"
