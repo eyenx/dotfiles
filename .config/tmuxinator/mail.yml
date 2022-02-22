@@ -10,5 +10,5 @@ windows:
         - mu
         - matterhorn
         - gomuks
-        - vdirsyncer sync && khali
+        - vdirsyncer sync && ikhal
         - vit
