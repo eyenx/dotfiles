@@ -22,7 +22,7 @@ e = e['Subject']
 # decode internationalized subject
 e = decode_header(e)
 # e = [(subject,encoding)]
-e = ' '.join([i[0].decode(i[1] or 'utf-8') for i in e])
+e = ' '.join([i[0].decode(i[1]) if i[1] else i[0] for i in e])
 
 # Add to taskwarrior
 tw = tasklib.TaskWarrior()
