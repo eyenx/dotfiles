@@ -340,7 +340,7 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
 
     NS "term" "st -n scratchpad" (resource =? "scratchpad")
-        (customFloating $ W.RationalRect (3/5) (4/6) (1/5) (1/6)),
+        (customFloating $ W.RationalRect (3/5) (2/5) (1/3) (2/5)),
 
     NS "ncpamixer" "st -n ncpamixer -e ncpamixer" (resource =? "ncpamixer")
         (customFloating $ W.RationalRect (1/4) (2/3) (2/4) (1/4)),
