@@ -35,6 +35,7 @@ Config {
          Run Date "| <icon=/home/eye/.xmobar/xbm/clock2.xbm/> %b %d %H%M |" "date" 300,
          Run Com "/home/eye/.xmobar/spacer.sh" [] "spacer" 10,
          Run Com "/home/eye/.xmobar/latency.sh" [] "latency" 10,
+         Run Com "/home/eye/.xmobar/wttrin.sh" [] "wttrin" 60,
          Run Com "/home/eye/.xmobar/pubip.sh" [] "pubip" 10,
          Run Com "/home/eye/.xmobar/checkmic.sh" [] "checkmic" 10,
          Run Com "/home/eye/.xmobar/volume.sh" [] "volume" 10,
@@ -45,4 +46,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %tw% %timetrace% %mpris2% %multicpu% %memory% %battery% %mail% | %eth0% %wlan0wi% %latency% | %pubip% | %volume% | %checkmic% %date% %spacer%"
+	, template = "%StdinReader% }{ %tw% %timetrace% %mpris2% %multicpu% %memory% %battery% %mail% | %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"
