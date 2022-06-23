@@ -56,6 +56,7 @@ set clipboard+=unnamed  " yank and copy to X clipboard
 set showmatch           " show matching brackets (),{},[]
 set mat=5               " show mathine brackets for 0.5 seconds
 
+
 " set font
 set guifont=Tamzen
 
@@ -102,3 +103,7 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
+
+" COC Stuff
+" use <c-space>for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
