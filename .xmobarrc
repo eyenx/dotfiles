@@ -3,7 +3,7 @@ Config {
 	, bgColor= "#3b3228"
 	, fgColor= "#d0c8c6"
 	, position = Top
-    , pickBroadest = False
+    , pickBroadest = True
 	, border = NoBorder
 	, borderColor = "#3b3228"
 	, lowerOnStart = True

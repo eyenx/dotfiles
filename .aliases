@@ -95,6 +95,7 @@ alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
 # tools
+alias docker=podman
 alias dkr=docker
 alias pdm=podman
 alias nctl=nerdctl

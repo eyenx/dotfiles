@@ -16,12 +16,21 @@ output DP2-3
 crtc 1
 gamma 0.769:0.714:0.625
 mode 3840x2160
-pos 1920x0
-rate 60.00
+pos 0x0
+rate 30.00
+x-prop-audio auto
+x-prop-broadcast_rgb Automatic
+x-prop-max_bpc 12
+x-prop-non_desktop 0
 output eDP1
 crtc 0
 gamma 0.769:0.714:0.625
 mode 1920x1080
-pos 0x270
+pos 3840x417
 primary
 rate 60.02
+x-prop-broadcast_rgb Automatic
+x-prop-colorspace Default
+x-prop-max_bpc 12
+x-prop-non_desktop 0
+x-prop-scaling_mode Full aspect
