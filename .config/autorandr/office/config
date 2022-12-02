@@ -1,5 +1,11 @@
 output DP1
 off
+output DP1-1
+off
+output DP1-2
+off
+output DP1-3
+off
 output DP2
 off
 output DP2-1
@@ -13,21 +19,21 @@ off
 output VIRTUAL1
 off
 output DP2-3
-crtc 1
+crtc 0
 gamma 0.769:0.714:0.625
 mode 3840x2160
 pos 0x0
+primary
 rate 30.00
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
 x-prop-max_bpc 12
 x-prop-non_desktop 0
 output eDP1
-crtc 0
+crtc 1
 gamma 0.769:0.714:0.625
 mode 1920x1080
-pos 3840x417
-primary
+pos 3840x250
 rate 60.02
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default

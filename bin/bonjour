@@ -2,7 +2,7 @@
 #autostart
 nextcloud &
 firefox &
-gtk-launch 3cx &
+gtk-launch linphone &
 /home/eye/bin/tmuxsess mail &
 blueman-applet &
 systemctl start --user fetchmail.service

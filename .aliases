@@ -109,6 +109,7 @@ alias kn=kubens
 alias ki=kubie
 alias kic='kubie ctx'
 alias kin='kubie ns'
+unalias ksd
 alias vlt=vault
 alias vk='vault kv'
 alias vkl='vault kv list'
@@ -130,6 +131,7 @@ alias jo='joplin'
 alias bl='bluetoothctl'
 alias blon='bl power on'
 alias bloff='bl power on'
+alias caltod='khal list --format "{start-time} -  {title} {location}"'
 
 
 # kill aliases

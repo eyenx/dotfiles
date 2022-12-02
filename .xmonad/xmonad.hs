@@ -59,6 +59,7 @@ myDmenu="~/bin/dm"
 myDmenuPass="~/bin/dmpass"
 myDmenuPassType="~/bin/dmpass -t"
 myDmenuTOTP="~/bin/dmtotp"
+myDmenuTOTPType="~/bin/dmtotp -t"
 myRecomp="xmonad --recompile; killall xmobar; xmonad --restart; notify-send 'xmonad recompiled'"
 myRest="killall xmobar; xmonad --restart; notify-send 'xmonad restarted'"
 
@@ -102,6 +103,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-S-i", spawn myDmenuPassType)
   -- launch dmpass
   , ("M-S-o", spawn myDmenuTOTP)
+  -- launch dmpass
+  , ("M-S-u", spawn myDmenuTOTPType)
   -- close focused window
   , ("M-c", kill)
    -- rotate through layouts
@@ -147,8 +150,8 @@ myKeys = \c -> mkKeymap c $
   , ("M-v", namedScratchpadAction scratchpads "ncpamixer")
   -- scratchPad ncspot
   , ("M-s", namedScratchpadAction scratchpads "ncspot")
-  -- scratchPad 3cx
-  , ("M-S-v", namedScratchpadAction scratchpads "3cx")
+  -- scratchPad linphone
+  , ("M-S-v", namedScratchpadAction scratchpads "linphone")
   -- togglestruts
   , ("M-b", sendMessage  ToggleStruts )
   -- quit xmonad
@@ -346,7 +349,7 @@ scratchpads = [
     NS "ncspot" "st -n ncspot -e ncspot" (resource =? "ncspot")
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
-    NS "3cx" "gtk-launch 3cx" (resource =? "adf-klixa.3cx.ch__webclient")
+    NS "linphone" "gtk-launch linphone" (className =? "linphone")
         (defaultFloating)
   ] 
 

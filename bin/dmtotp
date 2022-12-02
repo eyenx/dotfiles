@@ -1,3 +1,16 @@
 #!/usr/bin/env bash
-totpmenu -- -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228' -sf '#bb9584' -fn 'Tamzen-9:Regular'
+#!/usr/bin/env bash
+PATH=$PATH:$HOME/bin
 
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "-t" ]]; then
+  typeit=1
+  shift
+fi
+if [[ $typeit -eq 0 ]]; then
+  totpmenu -- -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228' -sf '#bb9584' -fn 'Tamzen-9:Regular'
+else
+  totpmenu -t -- -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228' -sf '#bb9584' -fn 'Tamzen-9:Regular'
+fi
