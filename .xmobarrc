@@ -38,6 +38,7 @@ Config {
          Run Com "/home/eye/.xmobar/wttrin.sh" [] "wttrin" 60,
          Run Com "/home/eye/.xmobar/pubip.sh" [] "pubip" 10,
          Run Com "/home/eye/.xmobar/checkmic.sh" [] "checkmic" 10,
+         Run Com "/home/eye/.xmobar/checkvpn.sh" [] "checkvpn" 10,
          Run Com "/home/eye/.xmobar/volume.sh" [] "volume" 10,
          Run Com "/home/eye/.xmobar/timetrace.sh" [] "timetrace" 10,
          Run Com "/home/eye/.xmobar/tw.sh" [] "tw" 10,
@@ -46,4 +47,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %tw% %timetrace% %mpris2% %multicpu% %memory% %battery% %mail% | %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"
+	, template = "%StdinReader% }{ %tw% %timetrace% %mpris2% %multicpu% %memory% %battery% %mail% |%checkvpn% %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"
