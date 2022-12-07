@@ -135,10 +135,10 @@ cmdfm(){
 # some fzf functions
 # https://github.com/junegunn/fzf/wiki/examples
 
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
+# v [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
-fe() {
+v() {
   IFS=$'\n' files=($(fzf --query="$1" +m --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
@@ -147,15 +147,6 @@ fe() {
 fcd() {
   IFS=$'\n' files=($(fd --type directory --follow --hidden --exclude .git | fzf --query="$1" -m --select-1 --exit-0))
   [[ -n "$files" ]] && cd "${files[@]}"
-}
-
-# v - open files in ~/.viminfo
-v() {
-  local files
-  files=$(grep '^>' ~/.viminfo | cut -c3- |
-          while read line; do
-            [ -f "${line/\~/$HOME}" ] && echo "$line"
-          done | fzf -d -m -q "$*" -1) && vim ${files//\~/$HOME}
 }
 
 # using ripgrep combined with preview
