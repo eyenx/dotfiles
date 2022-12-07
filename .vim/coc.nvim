@@ -163,4 +163,5 @@ hi incsearch ctermfg=0
 hi SignColumn ctermbg=0
 hi visual ctermbg=8
 hi cursorline ctermbg=8
+hi cocmenusel ctermbg=3 ctermfg=0
 hi folded ctermfg=3 ctermbg=8
