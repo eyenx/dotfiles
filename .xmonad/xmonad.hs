@@ -10,10 +10,11 @@ import XMonad.Util.Cursor
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
+import XMonad.Util.WorkspaceCompare
 
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.DynamicBars
+import XMonad.Hooks.StatusBar
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Actions.FloatSnap
@@ -92,7 +93,7 @@ myNormalBorderColor  = "#d0c8c6"
 myFocusedBorderColor = "#bb9584"
 
 --key bindings
-myKeys = \c -> mkKeymap c $ 
+myKeys c = mkKeymap c $ 
   -- launch a terminal
   [ ("M-S-<Return>", spawn $ XMonad.terminal c)
   -- launch dmenu
@@ -112,7 +113,7 @@ myKeys = \c -> mkKeymap c $
   -- reset to default layout
   , ("M-S-<Space>", setLayout $ XMonad.layoutHook c)
   -- go to full layout
-  , ("M-f", sendMessage $ ToggleLayout)
+  , ("M-f", sendMessage ToggleLayout)
   -- refresh
   , ("M-n", refresh)
   -- focus next window
@@ -153,9 +154,9 @@ myKeys = \c -> mkKeymap c $
   -- scratchPad linphone
   , ("M-S-v", namedScratchpadAction scratchpads "linphone")
   -- togglestruts
-  , ("M-b", sendMessage  ToggleStruts )
+  , ("M-b", sendMessage  ToggleStruts)
   -- quit xmonad
-  , ("M-S-q", io (exitWith ExitSuccess))
+  , ("M-S-q", io exitSuccess)
   -- restart xmonad
   , ("M1-r", spawn myRest)
   -- restart w/o recompile
@@ -226,15 +227,15 @@ myKeys = \c -> mkKeymap c $
      , (f, m) <- [(W.view, ""), (W.shift, "S-")]]
 
 -- Mouse bindings
-myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList
 -- mod-button1, Set the window to floating mode and move by dragging
-  [ ((modm, button1), (\w -> focus w >> Flex.mouseWindow Flex.position w
-                   >> windows W.shiftMaster))
+  [ ((modm, button1), \w -> focus w >> Flex.mouseWindow Flex.position w
+                   >> windows W.shiftMaster)
 -- mod-button2, Raise the window to the top of the stack
-  , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+  , ((modm, button2), \w -> focus w >> windows W.shiftMaster)
 -- mod-button3, Set the window to floating mode and resize by dragging
-  , ((modm, button3), (\w -> focus w >> Flex.mouseWindow Flex.resize w
-                  >> windows W.shiftMaster))
+  , ((modm, button3), \w -> focus w >> Flex.mouseWindow Flex.resize w
+                  >> windows W.shiftMaster)
   ]
 
 -- TabConfig
@@ -255,7 +256,7 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| tc ||
   where
   -- tiling profiles
   def = ResizableTall nmaster delta ratio []
-  rt =  renamed [Replace "r" ] $ def
+  rt =  renamed [Replace "r" ] def
   mt =  renamed [Replace "m" ] $ Mirror rt
   tab = renamed [Replace "t" ] $ tabbed shrinkText myTabConfig
   tp = renamed [Replace "2" ] $ TwoPane delta ratiotp
@@ -279,7 +280,7 @@ myManageHook = composeAll . concat $
   , [title =? t --> doCenterFloat | t <- myTFloats]
   , [resource =? r --> doCenterFloat | r <- myRFloats]
   , [(className =? i <||> title =? i <||> resource =? i) --> doIgnore | i <- myIgnores]
-  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 0) | x <- my1Shifts]
+  , [(className =? x <||> title =? x <||> resource =? x) --> doShift (head myWorkspaces) | x <- my1Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 1) | x <- my2Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 2) | x <- my3Shifts]
   , [(className =? x <||> title =? x <||> resource =? x) --> doShift (myWorkspaces !! 3) | x <- my4Shifts]
@@ -305,16 +306,11 @@ myManageHook = composeAll . concat $
   my8Shifts = []
   my9Shifts = []
 
--- event handling
-
-myEventHook = mconcat [ docksEventHook ]
-
 -- startup
 
 myStartupHook = do 
   setWMName "LG3D" 
   setDefaultCursor xC_left_ptr
-  docksStartupHook
 
 -- xmobar
 
@@ -329,7 +325,7 @@ myLogHook h = dynamicLogWithPP $ def {
         , ppWsSep = xmobarColor "#999999" "" " "
         , ppTitle = xmobarColor "#b8afad" "" . shorten 50
         -- do not show NSP at end of workspace list
-        , ppSort = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort def
+        , ppSort = fmap (. filterOutWs [scratchpadWorkspaceTag]) (ppSort def)
         , ppOutput = hPutStrLn h
 }
 
@@ -350,14 +346,14 @@ scratchpads = [
         (customFloating $ W.RationalRect (1/4) (1/4) (2/4) (2/4)),
 
     NS "linphone" "gtk-launch linphone" (className =? "linphone")
-        (defaultFloating)
+        defaultFloating
   ] 
 
 -- main function
 main = do 
   myBar <- spawnPipe myXmobar 
   -- my config
-  xmonad $ def {
+  xmonad $ docks $ def {
   --simple stuff
     terminal       = myTerm
     ,focusFollowsMouse  = myFocusFollowsMouse
@@ -372,7 +368,6 @@ main = do
     --hooks, layouts
     ,layoutHook     = myLayout
     ,manageHook     = (myManageHook <+> manageDocks ) <+> namedScratchpadManageHook scratchpads
-    ,handleEventHook  = myEventHook
     ,logHook      = myLogHook myBar
     ,startupHook    = myStartupHook
 }
