@@ -17,6 +17,7 @@ alias la='ls -lA'
 alias l='ls -l'
 alias vim='nvim'
 alias vi='vim'
+alias vimdiff='vim -d'
 alias md='mkdir'
 alias sudo='sudo '
 alias sim='sudo vim'
@@ -95,8 +96,7 @@ alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
 # tools
-alias docker=podman
-alias dkr=docker
+alias docker='echo use podman'
 alias pdm=podman
 alias nctl=nerdctl
 alias tf=terraform
