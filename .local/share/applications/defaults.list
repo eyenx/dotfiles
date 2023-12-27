@@ -404,3 +404,6 @@ video/x-msvideo=mplayer.desktop;
 video/x-sgi-movie=mplayer.desktop;
 video/x-theora=mplayer.desktop;
 application/vnd.bg-rcs-itsggmbh1=handler-application-vnd.bg_rcs_itsggmbh1-bomgar-acc.desktop
+x-scheme-handler/psiexam=psi-bridge-secure-browser.desktop
+x-scheme-handler/psi=psi-bridge-secure-browser.desktop
+x-scheme-handler/psibr=psi-bridge-secure-browser.desktop

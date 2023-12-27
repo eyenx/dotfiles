@@ -1,5 +1,5 @@
 Config {
-	font = "xft:tamzen-9"
+	font = "Tamzen Bold 9"
 	, bgColor= "#3b3228"
 	, fgColor= "#d0c8c6"
 	, position = Top
@@ -40,11 +40,11 @@ Config {
          Run Com "/home/eye/.xmobar/checkmic.sh" [] "checkmic" 10,
          Run Com "/home/eye/.xmobar/checkvpn.sh" [] "checkvpn" 10,
          Run Com "/home/eye/.xmobar/volume.sh" [] "volume" 10,
-         Run Com "/home/eye/.xmobar/timetrace.sh" [] "timetrace" 10,
+         Run Com "/home/eye/.xmobar/timedctl.sh" [] "timedctl" 60,
          Run Com "/home/eye/.xmobar/tw.sh" [] "tw" 10,
          Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title> |","-x",""] 100,
 		 Run StdinReader
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %tw% %timetrace% %mpris2% %multicpu% %memory% %battery% %mail% |%checkvpn% %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"
+	, template = "%StdinReader% }{ %timedctl% %mpris2% %multicpu% %memory% %battery% %mail% |%checkvpn% %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"

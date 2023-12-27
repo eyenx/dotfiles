@@ -6,6 +6,5 @@ gtk-launch linphone &
 /home/eye/bin/tmuxsess mail &
 blueman-applet &
 systemctl start --user fetchmail.service
-systemctl start --user taskwarrior.service
 systemctl start --user vdirsyncer.service
 systemctl start --user calendarnotify.service

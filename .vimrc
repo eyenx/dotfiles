@@ -1,3 +1,13 @@
+"vim-plug
+call plug#begin()
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+call plug#end()
+
 "disable formatting when pasting
 set pastetoggle=<F2>
 

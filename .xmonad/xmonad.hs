@@ -145,8 +145,8 @@ myKeys c = mkKeymap c $
   , ("M-i", sequence_ [nextScreen,swapPrevScreen,prevScreen])
   -- scratchPad term
   , ("M-\\", namedScratchpadAction scratchpads "term")
-  -- scratchPad joplin-desktop
-  , ("M-S-\\", namedScratchpadAction scratchpads "joplin")
+  -- scratchPad logseq
+  , ("M-S-\\", namedScratchpadAction scratchpads "logseq")
   -- scratchPad ncpamixer
   , ("M-v", namedScratchpadAction scratchpads "ncpamixer")
   -- scratchPad ncspot
@@ -249,7 +249,7 @@ myTabConfig = def { activeColor = "#3b3228"
                   , activeTextColor = "#bb9584"
                   , inactiveTextColor = "#b8afad"
                   , urgentTextColor = "#3b3228"
-                  , fontName = "xft:Tamzen:size=8"
+                  , fontName = "xft:Tamzen:size=9"
                   }
 --layouts
 myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| tc ||| full
@@ -333,8 +333,8 @@ myLogHook h = dynamicLogWithPP $ def {
 scratchpads :: [NamedScratchpad]
 scratchpads = [
 -- run htop in xterm, find it by title, use default floating window placement
-    NS "joplin" "st -n joplin -e joplin" (resource =? "joplin") 
-        (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3)) ,
+    NS "logseq" "gtk-launch logseq-desktop" (className =? "Logseq") 
+        (customFloating $ W.RationalRect (2/7) (1/10) (3/7) (4/5)) ,
 
     NS "term" "st -n scratchpad" (resource =? "scratchpad")
         (customFloating $ W.RationalRect (3/5) (2/5) (1/3) (2/5)),

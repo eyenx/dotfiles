@@ -31,3 +31,5 @@
 	gpgsign = true
 [pull]
 	rebase = false
+[core]
+	autocrlf = input
