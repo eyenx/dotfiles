@@ -99,6 +99,7 @@ alias txa='tmux attach-session -t $1'
 # tools
 alias docker='echo use podman'
 alias pdm=podman
+alias pdmc=podman-compose
 alias nctl=nerdctl
 alias tf=terraform
 alias azc='podman run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'

@@ -47,4 +47,4 @@ Config {
 	]
 	, sepChar = "%"
 	, alignSep = "}{"
-	, template = "%StdinReader% }{ %timedctl% %mpris2% %multicpu% %memory% %battery% %mail% |%checkvpn% %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"
+	, template = "%StdinReader% }{ %mpris2% %multicpu% %memory% %battery% %mail% |%checkvpn% %eth0% %wlan0wi% %latency% | %wttrin% | %pubip% | %volume% | %checkmic% %date% %spacer%"

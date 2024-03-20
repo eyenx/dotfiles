@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #autostart
 nextcloud &
-firefox &
-gtk-launch linphone &
+systemd-run --user --scope -p MemoryMax=8G -p CPUQuota=800% firefox &
+#gtk-launch linphone &
 /home/eye/bin/tmuxsess mail &
 blueman-applet &
 systemctl start --user fetchmail.service

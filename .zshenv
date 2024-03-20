@@ -23,7 +23,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export JAVA_HOME=/usr/lib/jvm/java-10-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export WHALEBREW_INSTALL_PATH=~/.whalebrew/bin
 export GOPATH=$HOME/.go
 
