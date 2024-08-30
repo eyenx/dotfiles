@@ -37,13 +37,15 @@ alias top='htop'
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 # misc
+alias clp=clippaste
+alias clc=clipcopy
 alias sncmail='systemctl start --user fetchmail.service'
 alias wifion='nmcli r wifi on'
 alias wifioff='nmcli r wifi off'
 alias incognito='chromium --incognito'
 alias pw='pass show -c $1'
 alias pass=gopass
-alias eo='mimeo'
+alias eo='xdg-open'
 alias tc='tmux show-buffer | xclip -i -se p,c'
 alias psa='ps axu'
 alias psu='psa'
@@ -82,6 +84,7 @@ alias clock='tty-clock -s -c -C 6 -B'
 alias :q='exit'
 alias witch='which'
 alias mu='neomutt'
+alias mh='matterhorn'
 alias wb='whalebrew'
 alias pm='ponymix'
 alias pmd='ponymix decrease 5'
@@ -101,7 +104,7 @@ alias docker='echo use podman'
 alias pdm=podman
 alias pdmc=podman-compose
 alias nctl=nerdctl
-alias tf=terraform
+alias tf=tofu
 alias azc='podman run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
 alias azcdev='podman run --rm -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
 alias ocic='podman run --rm -v /home/eye/.oci:/root/.oci -v $(pwd):/tmp eyenx/oci'
@@ -113,6 +116,7 @@ alias kic='kubie ctx'
 alias kin='kubie ns'
 alias he=helm
 unalias ksd
+alias vault=bao
 alias vlt=vault
 alias vk='vault kv'
 alias vkl='vault kv list'

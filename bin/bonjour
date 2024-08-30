@@ -6,5 +6,4 @@ systemd-run --user --scope -p MemoryMax=8G -p CPUQuota=800% firefox &
 /home/eye/bin/tmuxsess mail &
 blueman-applet &
 systemctl start --user fetchmail.service
-systemctl start --user vdirsyncer.service
 systemctl start --user calendarnotify.service

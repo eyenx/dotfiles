@@ -1,8 +1,7 @@
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "base16-mocha",
-    },
+  "AstroNvim/astroui",
+  ---@type AstroUIOpts
+  opts = {
+    colorscheme = "base16-mocha",
   },
 }

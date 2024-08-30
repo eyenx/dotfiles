@@ -37,9 +37,9 @@ myTerm = "st"
 
 myTmux = "~/bin/tmuxsess default"
 
-myBrowser = "firefox"
+myBrowser = "systemd-run --user --scope -p MemoryMax=8G -p CPUQuota=800% firefox"
 
-myAltBrowser = "brave --incognito"
+myAltBrowser = "systemd-run --user --scope -p MemoryMax=8G -p CPUQuota=800% brave --incognito"
 
 myMail = "~/bin/tmuxsess mail"
 

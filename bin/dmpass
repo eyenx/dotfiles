@@ -5,8 +5,8 @@ shopt -s nullglob globstar
 
 typeit=0
 if [[ $1 == "-t" ]]; then
-  typeit=1
-  shift
+	typeit=1
+	shift
 fi
 
 password=$(gopass ls --flat | dmenu -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228' -sf '#bb9584' -fn 'Tamzen-9:Regular')
@@ -14,8 +14,12 @@ password=$(gopass ls --flat | dmenu -i -nb '#3b3228' -nf '#d0c8c6' -sb '#3b3228'
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
-  gopass show -c "$password" 2>/dev/null
+	gopass show -c "$password" 2>/dev/null
 else
-  gopass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
-    xdotool type --clearmodifiers --file -
+	gopass show "$password" | {
+		IFS= read -r pass
+		printf %s "$pass"
+	} |
+		xdotool type --clearmodifiers --file -
+	xdotool key Return
 fi

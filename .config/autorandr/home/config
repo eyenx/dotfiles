@@ -2,26 +2,20 @@ output DP1
 off
 output DP2
 off
-output DP2-1
-off
-output DP2-2
-off
-output DP2-3
-off
 output HDMI1
 off
 output HDMI2
 off
 output VIRTUAL1
 off
-output DVI-I-1-1
-crtc 5
+output DVI-I-2-2
+crtc 4
 mode 1920x1200
 pos 0x0
 rate 59.95
 x-prop-non_desktop 0
-output DVI-I-2-2
-crtc 4
+output DVI-I-1-1
+crtc 5
 mode 1920x1200
 pos 1920x0
 rate 59.95
@@ -31,6 +25,7 @@ crtc 0
 gamma 0.769:0.714:0.625
 mode 1920x1080
 pos 3840x120
+primary
 rate 60.02
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default

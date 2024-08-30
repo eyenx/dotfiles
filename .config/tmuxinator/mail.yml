@@ -5,9 +5,8 @@ root: ~/
 
 windows:
   - mail:
-      layout: 13c8,319x88,0,0[319x52,0,0{164x52,0,0,164,154x52,165,0,166},319x35,0,53{164x35,0,53,165,154x35,165,53,167}]
+      layout: edad,318x86,0,0{145x86,0,0,20,172x86,146,0[172x42,146,0,21,172x43,146,43,22]}
       panes:
         - mu
         - matterhorn
-        - vdirsyncer sync && ikhal
         - gomuks
