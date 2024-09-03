@@ -4,8 +4,8 @@ return { -- override nvim-cmp plugin
   opts = function(_, opts)
     -- opts parameter is the default options table
     -- the function is lazy loaded so cmp is able to be required
-    local cmp = require("cmp")
+    local cmp = require "cmp"
     -- modify the mapping part of the table
-    opts.mapping["<C-y>"] = cmp.mapping.confirm({ select = true})
+    opts.mapping["<C-y>"] = cmp.mapping.confirm { select = true }
   end,
 }
