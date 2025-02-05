@@ -407,3 +407,5 @@ application/vnd.bg-rcs-itsggmbh1=handler-application-vnd.bg_rcs_itsggmbh1-bomgar
 x-scheme-handler/psiexam=psi-bridge-secure-browser.desktop
 x-scheme-handler/psi=psi-bridge-secure-browser.desktop
 x-scheme-handler/psibr=psi-bridge-secure-browser.desktop
+application/vnd.bg-rcs-hypothekarbankle=handler-application-vnd.bg_rcs_hypothekarbankle-bomgar-acc.desktop
+x-scheme-handler/brcs-hypothekarbankle=handler-x_scheme_handler-brcs_hypothekarbankle-bomgar-acc.desktop
