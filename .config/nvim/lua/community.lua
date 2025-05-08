@@ -11,5 +11,4 @@ return {
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.editing-support.chatgpt-nvim" },
   { import = "astrocommunity.keybinding.nvcheatsheet-nvim" },
-  { import = "astrocommunity.note-taking.neorg" },
 }

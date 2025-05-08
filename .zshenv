@@ -1,5 +1,6 @@
 umask 0022
 export PATH=$HOME/bin:$HOME/.cabal/bin:$HOME/bin/node_modules/.bin:$HOME/.gem/ruby/latest/bin:$PATH:~/.go/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export XDG_CONFIG_HOME="/home/eye/.config"
 stty -ixon
 export PATH
@@ -29,6 +30,6 @@ export GOPATH=$HOME/.go
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
-export FORGIT_NO_ALIASES="true"
+#export FORGIT_NO_ALIASES="true"
 export BROWSER=firefox
-source /usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh
+#source /usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh

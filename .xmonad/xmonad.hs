@@ -181,6 +181,8 @@ myKeys c =
       ("M-S-v", namedScratchpadAction scratchpads "linphone"),
       -- scratchPad brave
       ("M-S-b", namedScratchpadAction scratchpads "brave"),
+      -- scratchPad chrome
+      ("M-S-c", namedScratchpadAction scratchpads "chrome"),
       -- scratchPad teams
       ("M-S-t", namedScratchpadAction scratchpads "teams"),
       -- scratchPad slack
@@ -313,7 +315,7 @@ myLayout = avoidStruts $ toggleLayouts full $ rt ||| mt ||| tab ||| tp ||| tc ||
     -- default #windows in master
     nmaster = 1
     -- proportion size of master
-    ratio = 9 / 10
+    ratio = 7 / 10
     ratiotp = 5 / 10
     ratiotc = 4 / 10
     -- incrementation on resizing
@@ -412,6 +414,11 @@ scratchpads =
       "brave"
       "systemd-run --scope -p MemoryMax=8G -p CPUQuota=800% --user brave --incognito"
       (resource =? "brave-browser")
+      (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
+    NS
+      "chrome"
+      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=800% --user chromium"
+      (resource =? "chromium")
       (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
     NS
       "teams"

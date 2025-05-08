@@ -1,5 +1,5 @@
 ! global options 
-*.font: Tamzen:size=9:antialias=true:autohint=true
+*.font: Cozette:size=12:antialias=true:autohint=true
 *.alpha: 1.0
 
 ! Xcursor

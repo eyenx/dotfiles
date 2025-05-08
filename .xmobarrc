@@ -1,5 +1,5 @@
 Config {
-	font = "Tamzen Bold 9"
+	font = "Cozette 10"
 	, bgColor= "#3b3228"
 	, fgColor= "#d0c8c6"
 	, position = Top

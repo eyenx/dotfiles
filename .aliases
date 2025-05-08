@@ -38,6 +38,7 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 # misc
 alias ai=sgpt
+alias gpt=chatgpt
 alias clp=clippaste
 alias clc=clipcopy
 alias sncmail='systemctl start --user fetchmail.service'
