@@ -187,6 +187,8 @@ myKeys c =
       ("M-S-t", namedScratchpadAction scratchpads "teams"),
       -- scratchPad slack
       ("M-S-s", namedScratchpadAction scratchpads "slack"),
+      -- scratchPad zulip
+      ("M-S-z", namedScratchpadAction scratchpads "zulip"),
       -- togglestruts
       ("M-b", sendMessage ToggleStruts),
       -- quit xmonad
@@ -412,12 +414,12 @@ scratchpads =
       defaultFloating,
     NS
       "brave"
-      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=800% --user brave --incognito"
+      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=400% --user brave --incognito"
       (resource =? "brave-browser")
       (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
     NS
       "chrome"
-      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=800% --user chromium"
+      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=400% --user chromium"
       (resource =? "chromium")
       (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
     NS
@@ -427,8 +429,13 @@ scratchpads =
       (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
     NS
       "slack"
-      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=800% --user slack"
+      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=400% --user slack"
       (resource =? "slack")
+      (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
+    NS
+      "zulip"
+      "systemd-run --scope -p MemoryMax=8G -p CPUQuota=400% --user /home/eye/bin/zulip"
+      (resource =? "zulip")
       (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5))
   ]
 
