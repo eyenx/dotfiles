@@ -40,8 +40,6 @@ Config {
          Run Com "/home/eye/.xmobar/checkmic.sh" [] "checkmic" 10,
          Run Com "/home/eye/.xmobar/checkvpn.sh" [] "checkvpn" 10,
          Run Com "/home/eye/.xmobar/volume.sh" [] "volume" 10,
-         Run Com "/home/eye/.xmobar/timedctl.sh" [] "timedctl" 60,
-         Run Com "/home/eye/.xmobar/tw.sh" [] "tw" 10,
          Run Mpris2 "ncspot" ["-t","<icon=/home/eye/.xmobar/xbm/note1.xbm/> <artist> - <title> |","-x",""] 100,
 		 Run StdinReader
 	]

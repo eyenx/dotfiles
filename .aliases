@@ -37,8 +37,6 @@ alias top='htop'
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 # misc
-alias ai=sgpt
-alias gpt=chatgpt
 alias clp=clippaste
 alias clc=clipcopy
 alias sncmail='systemctl start --user fetchmail.service'
@@ -49,6 +47,8 @@ alias pw='pass show -c $1'
 alias pass=gopass
 alias eo='xdg-open'
 alias tc='tmux show-buffer | xclip -i -se p,c'
+alias xo='xclip -o -se c'
+alias xi='xclip -i -se c'
 alias psa='ps axu'
 alias psu='psa'
 alias psx='psa'
@@ -118,14 +118,13 @@ alias kic='kubie ctx'
 alias kin='kubie ns'
 alias he=helm
 unalias ksd
-alias vault=bao
-alias vlt=vault
-alias vk='vault kv'
-alias vkl='vault kv list'
-alias vkg='vault kv get'
-alias vf='vl search '
-alias vr='vault read'
-alias vw='vault write'
+alias vault='bao'
+alias bk='bao kv'
+alias bkl='bao kv list'
+alias bkg='bao kv get'
+alias bs='baoc search '
+alias br='bao read'
+alias bw='bao write'
 alias drep='doing view report'
 alias dtod='doing today'
 alias dyes='doing yesterday'
@@ -176,8 +175,14 @@ alias ghprd='gh pr create -d'
 alias pc=pre-commit
 
 # ai stuff
+alias gmn="NODE_NO_WARNINGS=1 gemini -p "
+alias ai="sgpt"
 alias aichangelog='ai "summarize this change as CHANGELOG $(git show HEAD)"'
 alias aicommit='ai "give me a conventional commit title for this change $(git diff --cached)"'
+alias translate='ai "translate this to english: $(xclip -o -se c)"'
+alias übersetze='ai "übersetze ins deutsche: $(xclip -o -se c)"'
+alias rephrase='ai "rephrase: $(xclip -o -se c )"'
+alias umschreibe='ai "umschreibe: $(xclip -o -se c )"'
 
 # shutdown aliases
 alias reboot='sudo systemctl reboot'
