@@ -391,7 +391,7 @@ scratchpads =
       "logseq"
       "gtk-launch logseq-desktop"
       (className =? "Logseq")
-      (customFloating $ W.RationalRect (2 / 7) (1 / 10) (3 / 7) (4 / 5)),
+      (customFloating $ W.RationalRect (4 / 7) (3 / 10) (2 / 7) (4 / 7)),
     NS
       "term"
       "st -n scratchpad"

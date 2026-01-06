@@ -9,11 +9,10 @@ export EDITOR=nvim
 export BROWSER=chromium
 export GTK2_RC_FILES="/etc/gtk-2.0/gtkrc:$HOME/.gtkrc-2.0"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh"
-if [[ -n $TMUX ]]
-    then
-        export TERM=screen-256color
-    else
-        export TERM=xterm-256color
+if [[ -n $TMUX ]]; then
+    export TERM=screen-256color
+else
+    export TERM=xterm-256color
 fi
 # colored man
 export LESS_TERMCAP_mb=$'\E[01;31m'

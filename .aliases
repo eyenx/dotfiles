@@ -76,12 +76,7 @@ alias du.='du -sh'
 alias pubip='curl "ipinfo.io/ip"'
 alias wttr='curl wttr.in'
 alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null && echo -ne "\033[32mCache purged.\n\007"'
-alias uzic='mplayer -nocache http://stream03.uzic.ch:9010/'
-alias redpill='mplayer -nocache https://radio.2f30.org:8443/red.mp3'
-alias bluepill='mplayer -nocache https://radio.2f30.org:8443/blue.mp3'
-alias gbfm='mplayer -nocache http://gbs03.de:7220/'
-alias radio32='mplayer -nocache http://rstreaming.solnet.ch:8000/radio32'
-alias radiox='mplayer -nocache https://mp3.radiox.ch/standard.mp3'
+alias uzic='cvlc https://uzic.ice.infomaniak.ch/uzic-128.aac'
 alias clock='tty-clock -s -c -C 6 -B'
 alias :q='exit'
 alias witch='which'
@@ -102,6 +97,10 @@ alias txn='tmux new-session'
 alias txa='tmux attach-session -t $1'
 
 # tools
+alias ladd='lsq -d /home/eye/.ncloud/logseq/work -a $1'
+alias ltodos='lsq -d /home/eye/.ncloud/logseq/work -r "^- TODO " | cut -d : -f2'
+alias lse='lsq -d /home/eye/.ncloud/logseq/work -r $1'
+alias ltoday='lsq -d /home/eye/.ncloud/logseq/work'
 alias docker='echo use podman'
 alias pdm=podman
 alias pdmc=podman-compose
@@ -179,6 +178,9 @@ alias gmn="NODE_NO_WARNINGS=1 gemini -p "
 alias ai="sgpt"
 alias aichangelog='ai "summarize this change as CHANGELOG $(git show HEAD)"'
 alias aicommit='ai "give me a conventional commit title for this change $(git diff --cached)"'
+alias aifix="ai 'fix the following: $(xclip -o -se c)'"
+alias aireph="ai 'please rephrase this: $(xclip -o -se c)'"
+alias aicorr="ai 'correct the following text: $(xclip -o -se c)'"
 alias translate='ai "translate this to english: $(xclip -o -se c)"'
 alias übersetze='ai "übersetze ins deutsche: $(xclip -o -se c)"'
 alias rephrase='ai "rephrase: $(xclip -o -se c )"'
