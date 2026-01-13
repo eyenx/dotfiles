@@ -1,3 +1,0 @@
-#!/usr/bin/bash 
-
-feh --bg-scale --no-fehbg ~/.wp.png
