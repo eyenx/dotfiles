@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=gruvbox-dark-compact
+Comment=A Material Design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=gruvbox-dark-compact
+MetacityTheme=gruvbox-dark-compact
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24
