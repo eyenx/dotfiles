@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 TERM=alacritty
 if [[ $1 == "default" ]]; then
-  txnr=$(tmux list-sessions | grep -v attached | grep -v mail | cut -d\: -f1)
+  txnr=$(tmux list-sessions | grep -v attached | grep -v mail | cut -d\: -f1 | head -1)
   [[ -z $txnr ]] && com="tmux new-session" || com="tmux attach-session -t $txnr"
   $TERM -T tmux -e $com
 elif [[ $1 == "mail" ]]; then
