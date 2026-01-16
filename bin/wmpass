@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+PATH=$PATH:$HOME/bin
+
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "-t" ]]; then
+	typeit=1
+	shift
+fi
+
+password=$(gopass ls --flat | wmenu -i -M '282828' -N '282828' -n '665c54' -S '282828' -s 'd4be98' -f 'Cozette 10')
+
+[[ -n $password ]] || exit
+
+if [[ $typeit -eq 0 ]]; then
+	gopass show -c "$password" 2>/dev/null
+else
+	gopass show "$password" | {
+		IFS= read -r pass
+		printf %s "$pass"
+	} |
+		ydotool type --file -
+	ydotool key 28:1 28:0
+fi
