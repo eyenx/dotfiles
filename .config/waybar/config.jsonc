@@ -1,0 +1,163 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "niri/workspaces",
+    "wlr/taskbar"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "battery",
+    "network",
+    "group/pulseaudio",
+    "tray",
+    "clock"
+  ],
+  "reload_style_on_change": true,
+  "tray": {
+    "format": "{value:.10}"
+  },
+  "memory": {
+    "interval": 10,
+    "format": "󰘚 {percentage}%",
+    "format-warning": "󰀧 {percentage}%",
+    "format-critical": "󰀧 {percentage}%",
+    "states": {
+      "warning": 75,
+     "critical": 90
+    },
+		"min-length": 8,
+		"max-length": 8,
+		"tooltip-format": "Memory Used: {used:0.0f}/{total:0.0f} GB"
+  },
+  "temperature": {
+		"thermal-zone": 1,
+		"critical-threshold": 90,
+		"interval": 10,
+		"format-critical": "󰀦 {temperatureC}°C",
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": [
+			"󱃃", "󰔏", "󱃂"
+		],
+		"min-length": 8,
+		"max-length": 8,
+		"tooltip-format": "Fahrenheit: {temperatureF}°F"
+	},
+  "cpu": {
+    "interval": 10,
+    "format": "󰍛 {usage}%",
+    "format-warning": "󰀨 {usage}%",
+    "format-critical": "󰀨 {usage}%",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+		"min-length": 8,
+		"max-length": 8,
+    "tooltip": true,
+    "tooltip-format": "<b>CPU Usage</b>: {usage}%\n<b>",
+  },
+  "network": {
+    "interval": 10,
+    "format": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-wifi": "{icon}  {essid}",
+    "format-disconnected": "󰤯",
+    "format-disabled": "󰤮",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+		"min-length": 8,
+		"max-length": 15,
+    "tooltip-format": "<b>Gateway</b>: {gwaddr}",
+    "tooltip-format-ethernet": "<b>Interface</b>: {ifname}",
+    "tooltip-format-wifi": "<b>Network</b>: {essid}\n<b>IP Addr</b>: {ipaddr}/{cidr}\n<b>Strength</b>: {signalStrength}%\n<b>Frequency</b>: {frequency} GHz",
+    "tooltip-format-disconnected": "Wi-Fi Disconnected",
+    "tooltip-format-disabled": "Wi-Fi Disabled"
+  },
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-time": "{H}h {M}min",
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-charging": "󰉁 {capacity}%",
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip-format": "<b>Discharging</b>: {time}",
+    "tooltip-format-charging": "<b>Charging</b>: {time}",
+    "events": {
+      "on-discharging-warning": "notify-send 'Battery Low (20%)' -u critical -i 'battery-020' -h string:x-canonical-private-synchronous:battery",
+      "on-discharging-critical": "notify-send 'Battery Critical (10%)' -u critical -i 'battery-010' -h string:x-canonical-private-synchronous:battery",
+      "on-charging-100": "notify-send 'Battery Full (100%)' -i 'battery-100-charged' -h string:x-canonical-private-synchronous:battery"
+    }
+  },
+  "group/pulseaudio": {
+		"orientation": "horizontal",
+		"modules": [
+			"pulseaudio#output",
+			"pulseaudio#input"
+		]
+	},
+
+	/*-------------------
+	    output device
+	-------------------*/
+
+	"pulseaudio#output": {
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"format-icons": {
+			"default": [ "󰕿", "󰖀", "󰕾" ],
+			"default-muted": "󰝟",
+			"headphone": "󰋋",
+			"headphone-muted": "󰟎",
+			"headset": "󰋎",
+			"headset-muted": "󰋐"
+		},
+		"min-length": 8,
+		"max-length": 8,
+		"tooltip-format": "<b>Output Device</b>: {desc}"
+	},
+
+	/*----------------
+	    microphone
+	----------------*/
+
+	"pulseaudio#input": {
+		"format": "{format_source}",
+		"format-source-muted": "󰍭 {volume}%",
+		"min-length": 8,
+		"max-length": 8,
+		"tooltip-format": "<b>Input Device</b>: {desc}"
+	},
+  "wlr/taskbar": {
+    "format": "{icon}  {title:.25}",
+    "markup": true,
+    "icon-size": 8
+  },
+  "clock": {
+    "format": " {:%b %d %H%M}",
+    "interval": 59,
+    "align": 1,
+    "justify": "right"
+  }
+}
