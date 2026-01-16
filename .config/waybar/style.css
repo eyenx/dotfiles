@@ -1,0 +1,55 @@
+* {
+  font-family: "Cozette";
+  font-weight: 100;
+  border: none;
+  text-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 12px;
+  background-color: #282828;
+}
+
+window#waybar {
+  color: #665c54;
+  min-height: 0;
+
+  transition-property: background-color;
+  transition-duration: 0s;
+}
+
+.modules-right {
+  padding: 2px 5px;
+  color: #d4be98;
+}
+
+#clock {
+}
+
+#workspaces {
+  border-top: 1px solid #665c54;
+}
+#workspaces button {
+   min-width: 0;
+}
+
+#taskbar button {
+  color: #665c54;
+  min-width: 20px;
+
+  border-radius: 0px;
+  border-top: 1px solid #665c54;
+  padding: 2px 5px;
+
+  transition-property: border-color;
+  transition-duration: 150ms;
+}
+
+#taskbar button.active {
+  border-top: 1px solid #d4be98;
+  color: #d4be98;
+}
+
+#workspaces button.active {
+  border-top: 1px solid #d4be98;
+  color: #d4be98;
+}
