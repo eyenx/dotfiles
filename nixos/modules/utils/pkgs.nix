@@ -58,6 +58,7 @@
       keyd
       kitty
       gcolor3
+      geoipWithDatabase
       gammastep
       gimp
       gh
