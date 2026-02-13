@@ -1,0 +1,7 @@
+keys:
+  - &eyenx 32A63525D40A109B684936BC0796132F0077A5F8
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+      - pgp:
+          - *eyenx

@@ -58,7 +58,6 @@ alias mnt='sudo mount'
 alias mntall='mnt -a'
 alias mntnas='mnt /mnt/nas'
 alias setwp='feh --bg-scale --no-fehbg $1'
-#alias ddwn='wget $(xclip -o) -P /tmp/dwn/'
 alias sandstorm="mp -nocache http://a.tumblr.com/tumblr_m3eat8besa1r3sgeio1.mp3" 
 alias mp='mplayer'
 alias cam='mplayer tv://'
