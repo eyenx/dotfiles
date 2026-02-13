@@ -1,8 +1,6 @@
 {
-  lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -85,7 +83,6 @@
       logseq
       nixd
       msmtp
-      #      matterhorn
       notmuch
       notmuch-mutt
       oama
@@ -97,7 +94,6 @@
       ripgrep
       offlineimap
       slack
-      #      webdump
       ncpamixer
       neomutt
       neovim
