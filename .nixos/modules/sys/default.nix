@@ -35,12 +35,12 @@
       packages = with pkgs; [
         material-design-icons
         adwaita-fonts
-        cozette
         font-awesome
-        nerd-fonts.zed-mono
         noto-fonts-emoji-blob-bin
         nerd-fonts.symbols-only
-        nerd-fonts._0xproto
+        nerd-fonts.terminess-ttf
+        nerd-fonts.gohufont
+        nerd-fonts.departure-mono
       ];
     };
 

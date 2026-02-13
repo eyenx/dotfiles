@@ -89,8 +89,8 @@ in
                 };
 
                 font = {
-                  name = "Cozette";
-                  size = 10;
+                  name = "DepartureMono Nerd Font";
+                  size = 8;
                 };
               };
               qt = {
