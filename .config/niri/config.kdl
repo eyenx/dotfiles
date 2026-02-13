@@ -67,7 +67,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock-plugin -u --command-each 'windowtolayer -- alacritty -e pipes-rs'";}
+    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -u -c 282828";}
     
     Mod+F1 { spawn "firefox"; } 
     Mod+F2 { spawn "~/bin/tmuxsess" "mail"; }
@@ -95,7 +95,6 @@ binds {
     Ctrl+Alt+M { spawn-sh "ponymix --source toggle";}
     Mod+Pause { spawn-sh "ponymix toggle";}
 
-    //  TODO install brightnessctl
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
