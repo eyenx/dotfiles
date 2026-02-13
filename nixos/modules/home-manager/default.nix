@@ -54,6 +54,15 @@ in
                 };
               };
 
+              xdg.desktopEntries = {
+                  wfica = {
+                    name = "Citrix Receiver Engine";
+                    type = "Application";
+                    exec = "/home/eye/bin/wfica";
+                    categories=["Application" "Network" "X-Red-Hat_Base" "X-SuSE-Core-Internet"];
+                    mimeType = ["application/x-ica"];
+                  };
+              };
               dconf = {
                 settings = {
                   "org/gnome/desktop/interface" = {
