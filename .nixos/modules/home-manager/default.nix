@@ -89,8 +89,8 @@ in
                 };
 
                 font = {
-                  name = "DepartureMono Nerd Font";
-                  size = 8;
+                  name = "CozetteVector";
+                  size = 10;
                 };
               };
               qt = {
@@ -116,22 +116,17 @@ in
                 enableZshIntegration = true;
                 nix-direnv.enable = true;
               };
-              fonts.fontconfig.defaultFonts.monospace = [
-                "Cozette"
-                "Noto Color Emoji"
-              ];
-              fonts.fontconfig.defaultFonts.sansSerif = [
-                "Cozette"
-                "Noto Color Emoji"
-              ];
-              fonts.fontconfig.defaultFonts.serif = [
-                "Cozette"
-                "Noto Color Emoji"
-              ];
-              fonts.fontconfig.defaultFonts.emoji = [
-                "Cozette"
-                "Noto Color Emoji"
-              ];
+              fonts.fontconfig = {
+                enable = true;
+                defaultFonts = {
+                  monospace = ["Cozette" "Noto Color Emoji"];
+                  sansSerif = ["Cozette" "Noto Color Emoji"];
+                  serif = ["Cozette" "Noto Color Emoji"];
+                  emoji = ["Cozette" "Noto Color Emoji"];
+                };
+                antialiasing = false;
+                hinting = "full";
+              };
               services.swayidle =
                 let
                   lock = "${pkgs.swaylock}/bin/swaylock -u  -c 282828";

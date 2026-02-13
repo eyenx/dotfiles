@@ -55,6 +55,7 @@
       kanshi
       keyd
       kitty
+      killall
       gcolor3
       geoipWithDatabase
       gammastep

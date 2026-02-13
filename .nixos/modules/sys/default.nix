@@ -33,14 +33,12 @@
     # fonts
     fonts = {
       packages = with pkgs; [
-        material-design-icons
         adwaita-fonts
+        cozette
         font-awesome
+        material-design-icons
         noto-fonts-emoji-blob-bin
         nerd-fonts.symbols-only
-        nerd-fonts.terminess-ttf
-        nerd-fonts.gohufont
-        nerd-fonts.departure-mono
       ];
     };
 

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 PATH=$PATH:$HOME/bin
-wmenu-run -i -M '282828' -N '282828' -n '665c54' -S '282828' -s 'd4be98' -f 'DepartureMono Nerd Font 8'
+wmenu-run -i -M '282828' -N '282828' -n '665c54' -S '282828' -s 'd4be98' -f 'Cozette 10'
