@@ -65,7 +65,10 @@ in
   };
 
   # cups
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplipWithPlugin ];
+  };
 
   # pipewire
   services.pipewire = {

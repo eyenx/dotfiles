@@ -49,9 +49,6 @@ in
                 stateVersion = config.eyenx.stateVersion;
                 username = config.eyenx.user.name;
                 homeDirectory = config.eyenx.user.homeDirectory;
-                sessionVariables = {
-                  SOPS_AGE_KEY_FILE = config.eyenx.user.homeDirectory + "/.config/sops/age/keys.txt";
-                };
               };
 
               xdg.desktopEntries = {
@@ -124,8 +121,6 @@ in
                   serif = ["Cozette" "Noto Color Emoji"];
                   emoji = ["Cozette" "Noto Color Emoji"];
                 };
-                antialiasing = false;
-                hinting = "full";
               };
               services.swayidle =
                 let
