@@ -87,6 +87,7 @@ alias pmu='ponymix increase 5'
 alias sa='ssh-add'
 alias s='ssh'
 alias j='ssh jmp'
+alias nsp='nix-shell -p $1 --run zsh'
 
 #tmux
 alias txl='tmux list-sessions'
