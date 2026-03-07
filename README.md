@@ -70,7 +70,7 @@ dotfiles/
 | Containers | Podman |
 | Email | Neomutt (mu), Matterhorn, Gomuks |
 | Passwords | pass / gopass, TOTP via wmtotp |
-| Media | mplayer, ffmpeg, imv |
+| Media | mplayer, imv |
 | AI | sgpt (ShellGPT), Copilot (Neovim) |
 | System | NixOS, home-manager, SOPS secrets |
 
