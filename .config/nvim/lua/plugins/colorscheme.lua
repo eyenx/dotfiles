@@ -2,6 +2,6 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    colorscheme = "base16-mocha",
+    colorscheme = "base16-gruvbox-dark",
   },
 }

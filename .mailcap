@@ -1,10 +1,10 @@
 # /home/eye/.mailcap
 
-image/*; gpicview %s
+image/*; imv %s
 video/*; mplayer %s
 audio/*; mplayer %s
 text/html; htmldmp %s; copiousoutput
 text/plain; less %s
-application/pdf; mupdf %s
+application/pdf; firefox %s
 text/calendar;      vkhal -s %s; copiousoutput
 application/ics;    vkhal -s %s; copiousoutput

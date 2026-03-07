@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-if [[ $1 == "default" ]]
-then
-  txnr=$(tmux list-sessions|grep -v attached|grep -v mail|cut -d\: -f1)
-  [[ -z $txnr ]] && com="tmux new-session" || com="tmux attach-session -t $txnr" 
-  st -n tmux -e zsh -c "$com"
-elif [[ $1 == "mail" ]]
-then
-  txnr=$(tmux list-sessions|grep attached|grep mail|cut -d\: -f1)
-  [[ -n $txnr ]] && exit 1 || st -n mail -e zsh -c "tmuxinator start mail"
+TERM=alacritty
+if [[ $1 == "default" ]]; then
+  txnr=$(tmux list-sessions | grep -v attached | grep -v mail | cut -d\: -f1 | head -1)
+  [[ -z $txnr ]] && com="tmux new-session" || com="tmux attach-session -t $txnr"
+  $TERM -e $com
+elif [[ $1 == "mail" ]]; then
+  txnr=$(tmux list-sessions | grep attached | grep mail | cut -d\: -f1)
+  [[ -n $txnr ]] && exit 1 || $TERM -e tmuxinator start mail
 fi

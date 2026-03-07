@@ -7,7 +7,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto' 
 alias igrep='grep -i --color=auto'
 alias grp='grep'
-alias diff='colordiff'
+alias diff='difft'
 alias cl='tr -s " " | cut -d " " -f $1'
 alias ll='ls -alh' 
 alias ltr='ls -lhatr'
@@ -46,9 +46,8 @@ alias incognito='chromium --incognito'
 alias pw='pass show -c $1'
 alias pass=gopass
 alias eo='xdg-open'
-alias tc='tmux show-buffer | xclip -i -se p,c'
-alias xo='xclip -o -se c'
-alias xi='xclip -i -se c'
+alias clpp='clippaste'
+alias clpc='clipcopy'
 alias psa='ps axu'
 alias psu='psa'
 alias psx='psa'
@@ -59,7 +58,6 @@ alias mnt='sudo mount'
 alias mntall='mnt -a'
 alias mntnas='mnt /mnt/nas'
 alias setwp='feh --bg-scale --no-fehbg $1'
-alias ddwn='wget $(xclip -o) -P /tmp/dwn/'
 alias sandstorm="mp -nocache http://a.tumblr.com/tumblr_m3eat8besa1r3sgeio1.mp3" 
 alias mp='mplayer'
 alias cam='mplayer tv://'
@@ -89,6 +87,7 @@ alias pmu='ponymix increase 5'
 alias sa='ssh-add'
 alias s='ssh'
 alias j='ssh jmp'
+alias nsp='nix-shell -p $1 --run zsh'
 
 #tmux
 alias txl='tmux list-sessions'
@@ -178,13 +177,13 @@ alias gmn="NODE_NO_WARNINGS=1 gemini -p "
 alias ai="sgpt"
 alias aichangelog='ai "summarize this change as CHANGELOG $(git show HEAD)"'
 alias aicommit='ai "give me a conventional commit title for this change $(git diff --cached)"'
-alias aifix="ai 'fix the following: $(xclip -o -se c)'"
-alias aireph="ai 'please rephrase this: $(xclip -o -se c)'"
-alias aicorr="ai 'correct the following text: $(xclip -o -se c)'"
-alias translate='ai "translate this to english: $(xclip -o -se c)"'
-alias übersetze='ai "übersetze ins deutsche: $(xclip -o -se c)"'
-alias rephrase='ai "rephrase: $(xclip -o -se c )"'
-alias umschreibe='ai "umschreibe: $(xclip -o -se c )"'
+#alias aifix="ai 'fix the following: $(xclip -o -se c)'"
+#alias aireph="ai 'please rephrase this: $(xclip -o -se c)'"
+#alias aicorr="ai 'correct the following text: $(xclip -o -se c)'"
+#alias translate='ai "translate this to english: $(xclip -o -se c)"'
+#alias übersetze='ai "übersetze ins deutsche: $(xclip -o -se c)"'
+#alias rephrase='ai "rephrase: $(xclip -o -se c )"'
+#alias umschreibe='ai "umschreibe: $(xclip -o -se c )"'
 
 # shutdown aliases
 alias reboot='sudo systemctl reboot'
