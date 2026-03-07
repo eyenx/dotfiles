@@ -65,9 +65,9 @@ dotfiles/
 | Window Manager | Niri, Kanshi, Waybar, Dunst |
 | Browser | Firefox + Tridactyl |
 | Version Control | Git (GPG-signed commits) |
-| DevOps | kubectl, kubectx, kubie, Helm, Terraform/OpenTofu, Ansible |
-| Cloud | Azure CLI, OCI CLI, HashiCorp Vault |
-| Containers | Podman, Nerdctl |
+| DevOps | kubectl, kubectx, Helm, OpenTofu, Ansible |
+| Cloud | Azure CLI, OpenBao |
+| Containers | Podman |
 | Email | Neomutt (mu), Matterhorn, Gomuks |
 | Passwords | pass / gopass, TOTP via wmtotp |
 | Media | mplayer, ffmpeg, imv |
