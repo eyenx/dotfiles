@@ -82,6 +82,7 @@
       libnotify
       libreoffice
       logseq
+      mplayer
       nixd
       msmtp
       notmuch
