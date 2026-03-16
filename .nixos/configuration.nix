@@ -71,6 +71,19 @@
     };
   };
 
+  # user system timers
+  systemd.user.timers = {
+    fetchmail = {
+      enable = true;
+      description = "Fetch my mail with offlineimap";
+      after = [ "network.target" ];
+      timerConfig = {
+        OnCalendar = "*:0/15"; # every 15 minutes
+        Persistent = true;
+      };
+    };
+  };
+
   # persistence
   environment.persistence."/persist" = {
     hideMounts = true;
