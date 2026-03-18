@@ -63,19 +63,9 @@
       gh
       gopass
       gomuks
-      kubernetes-helm
-      helm-docs
       imv
       jq
       jwt-cli
-      kind
-      kubectl
-      kubectl-neat
-      kubectx
-      kubelogin
-      kubelogin-oidc
-      kustomize
-      krew
       lazygit
       lsof
       lbdb

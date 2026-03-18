@@ -63,6 +63,8 @@
             kubelogin-oidc
             kubernetes-helm
             kustomize
+            krew
+            stern
           ])
           # Cloud CLI Tools
           (lib.optionals config.eyenx.devpkgs.tools.cloud [

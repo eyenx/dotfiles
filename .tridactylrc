@@ -157,6 +157,7 @@ bind . repeat
 
 " Autocmds
 autocmd DocStart codimd.adfinis.com mode ignore
+autocmd DocStart client.wvd.microsoft.com mode ignore
 
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " vim: set filetype=tridactyl

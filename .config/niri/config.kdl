@@ -46,6 +46,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "dunst"
 spawn-at-startup "kanshi"
 spawn-sh-at-startup "swaybg -i ~/.wp.png"
+//spawn-sh-at-startup "clipse -listen"
 spawn-sh-at-startup "gammastep -m wayland -O 5500"
 
 hotkey-overlay {
