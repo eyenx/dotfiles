@@ -49,6 +49,12 @@ spawn-sh-at-startup "swaybg -i ~/.wp.png"
 //spawn-sh-at-startup "clipse -listen"
 spawn-sh-at-startup "gammastep -m wayland -O 5500"
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 hotkey-overlay {
     skip-at-startup
 }
