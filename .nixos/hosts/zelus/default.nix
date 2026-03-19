@@ -23,6 +23,7 @@ in
       enable = true;
       tools = {
         c = true;
+        nix = true;
         go = true;
         k8s = true;
         iac = true;

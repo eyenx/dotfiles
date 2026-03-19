@@ -9,6 +9,7 @@
     eyenx.devpkgs = {
       enable = lib.mkEnableOption "shared development packages";
       tools = {
+        nix = lib.mkEnableOption "Nix development tools";
         c = lib.mkEnableOption "C development";
         go = lib.mkEnableOption "Go development";
         python = lib.mkEnableOption "Python development";
@@ -29,6 +30,10 @@
       home.packages =
         with pkgs;
         lib.flatten [
+          # Nix Tools
+          (lib.optionals config.eyenx.devpkgs.tools.nix [
+            nixfmt
+          ])
           # C Tools
           (lib.optionals config.eyenx.devpkgs.tools.c [
             gcc
