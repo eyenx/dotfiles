@@ -15,6 +15,7 @@
   # TODO matterhorn binary
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    # matterhorn
     gmp
     libtinfo
   ];

@@ -63,6 +63,7 @@
             kind
             kubectl
             kubectl-neat
+            kubectl-view-secret
             kubectx
             kubelogin
             kubelogin-oidc

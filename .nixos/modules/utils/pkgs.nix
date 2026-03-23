@@ -93,6 +93,7 @@
       niri
       nodejs_24
       pavucontrol
+      playerctl
       podman
       podman-compose
       python3
