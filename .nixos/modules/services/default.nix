@@ -99,4 +99,7 @@ in
     };
   };
   services.blueman.enable = true;
+
+  # netbird
+  services.netbird.enable = true;
 }
