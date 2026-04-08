@@ -48,6 +48,7 @@
       dunst
       dust
       dyff
+      fahrplan
       fd
       firefox
       fluxcd
@@ -83,6 +84,7 @@
       openssl
       ponymix
       pipes-rs
+      restic
       ripgrep
       offlineimap
       slack
