@@ -73,14 +73,10 @@ alias re='reset'
 alias du.='du -sh'
 alias pubip='curl "ipinfo.io/ip"'
 alias wttr='curl wttr.in'
-alias flushc='sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches > /dev/null && echo -ne "\033[32mCache purged.\n\007"'
-alias uzic='cvlc https://uzic.ice.infomaniak.ch/uzic-128.aac'
-alias clock='tty-clock -s -c -C 6 -B'
 alias :q='exit'
 alias witch='which'
 alias mu='neomutt'
 alias mh='matterhorn'
-alias wb='whalebrew'
 alias pm='ponymix'
 alias pmd='ponymix decrease 5'
 alias pmu='ponymix increase 5'
@@ -103,17 +99,11 @@ alias ltoday='lsq -d /home/eye/.ncloud/logseq/work'
 alias docker='echo use podman'
 alias pdm=podman
 alias pdmc=podman-compose
-alias nctl=nerdctl
 alias tf=tofu
-alias azc='podman run --rm -v /home/eye/.azure:/root/.azure microsoft/azure-cli az'
-alias azcdev='podman run --rm -v /home/eye/.azure:/root/.azure azuresdk/azure-cli-python:dev az'
-alias ocic='podman run --rm -v /home/eye/.oci:/root/.oci -v $(pwd):/tmp eyenx/oci'
+alias nb=netbird
 alias k=kubectl
 alias kc=kubectx
 alias kn=kubens
-alias ki=kubie
-alias kic='kubie ctx'
-alias kin='kubie ns'
 alias he=helm
 unalias ksd
 alias vault='bao'
@@ -124,17 +114,6 @@ alias bs='baoc search '
 alias br='bao read'
 alias bw='bao write'
 alias drep='doing view report'
-alias dtod='doing today'
-alias dyes='doing yesterday'
-alias dwee='doing view week'
-alias dnow='doing view now'
-alias ddone='doing view done'
-alias ti='timedctl'
-alias ttst='tt status'
-alias ttrep='tt report -s "$(date +%F)"'
-alias tttod='tt list records today'
-alias tts='tt stop; tt start $@'
-alias jo='joplin'
 alias bl='bluetoothctl'
 alias blon='bl power on'
 alias bloff='bl power on'
@@ -146,25 +125,7 @@ alias ka='killall'
 alias killf='killall firefox'
 alias killp='killall pulseaudio'
 
-#archlinux/pacman specific
-alias pacman='yay'
-alias pacups='pacman -Qu'
-alias pacupg='pacman -Su'
-alias paclocpretty="pacman -Qi | sed '/^Depends On/,/^Required By/{ s/^Required By.*$//; H; d }; /^Name/!d; /^Name/{ n;x;}'| sed '/^$/s//==================================================================================/'"
-
-# autorandr
-alias ar='autorandr'
-alias arb='ar --force basement'
-alias arh='ar --force home'
-alias aro='ar --force office'
-alias arm='ar --force mobile'
-
-# nnn
-alias nnn='nnn -e'
-alias n='nnn'
-
 # dotfiles git alias
-
 alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias pit='git --git-dir=$HOME/.privdotfiles.git/ --work-tree=$HOME'
 alias gitgraph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" 
