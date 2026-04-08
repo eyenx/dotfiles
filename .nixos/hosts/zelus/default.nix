@@ -22,6 +22,7 @@ in
     devpkgs = {
       enable = true;
       tools = {
+        ai = true;
         c = true;
         nix = true;
         go = true;

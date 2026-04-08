@@ -30,9 +30,7 @@
       bc
       awscli2
       alacritty
-      azure-cli
       bat
-      bats
       brightnessctl
       buildah
       chart-testing
@@ -47,11 +45,9 @@
       dive
       dunst
       dust
-      dyff
       fahrplan
       fd
       firefox
-      fluxcd
       fzf
       kanshi
       keyd
@@ -61,13 +57,9 @@
       geoipWithDatabase
       gammastep
       gimp
-      gh
       gopass
       gomuks
       imv
-      jq
-      jwt-cli
-      lazygit
       lsof
       lbdb
       libnotify
@@ -79,8 +71,6 @@
       notmuch
       notmuch-mutt
       oama
-      openshift
-      opencode
       openssl
       ponymix
       pipes-rs
@@ -91,26 +81,21 @@
       ncpamixer
       neomutt
       neovim
+      netbird
       networkmanagerapplet
       niri
       nodejs_24
       pavucontrol
       playerctl
-      podman
-      podman-compose
       python3
       ruby
-      openbao
-      opentofu
       swaybg
       swaylock
-      shell-gpt
       tmux
       unstable.tmuxinator
       wayneko
       wmenu
       windowtolayer
-      yq-go
       zoxide
       zulip
     ];

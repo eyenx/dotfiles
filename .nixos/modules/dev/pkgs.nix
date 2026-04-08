@@ -21,6 +21,7 @@
         security = lib.mkEnableOption "Security tools";
         networking = lib.mkEnableOption "Networking tools";
         database = lib.mkEnableOption "Database tools";
+        ai = lib.mkEnableOption "AI tools";
       };
     };
   };
@@ -60,6 +61,7 @@
           (lib.optionals config.eyenx.devpkgs.tools.k8s [
             dive
             helm-docs
+            fluxcd
             kind
             kubectl
             kubectl-neat
@@ -70,6 +72,9 @@
             kubernetes-helm
             kustomize
             krew
+            podman
+            podman-compose
+            openshift
             stern
           ])
           # Cloud CLI Tools
@@ -80,6 +85,11 @@
           # Dev Tools
           (lib.optionals config.eyenx.devpkgs.tools.dev [
             bats
+            dyff
+            gh
+            jq
+            jwt-cli
+            lazygit
             pre-commit
             yq-go
           ])
@@ -89,6 +99,11 @@
           ])
           # Database Tools
           (lib.optionals config.eyenx.devpkgs.tools.database [ postgresql ])
+          # Security Tools
+          (lib.optionals config.eyenx.devpkgs.tools.ai [
+            opencode
+            shell-gpt
+          ])
         ];
     };
   };
