@@ -27,10 +27,10 @@
     ];
     home-manager.users.${config.eyenx.user.name}.home.packages = with pkgs; [
       age
-      bc
       awscli2
       alacritty
       bat
+      bc
       brightnessctl
       buildah
       chart-testing
@@ -38,6 +38,7 @@
       cilium-cli
       claude-code
       clipse
+      comma
       cosign
       difftastic
       deadnix
@@ -68,6 +69,7 @@
       mplayer
       nixd
       msmtp
+      nix-index
       notmuch
       notmuch-mutt
       oama
