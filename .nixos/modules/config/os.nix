@@ -42,7 +42,7 @@
   };
 
   config = {
-    eyenx.font = "EnvyCodeR Nerd Font";
+    eyenx.font = "Mononoki Nerd Font";
     eyenx.persistence.enable = true;
   };
 }

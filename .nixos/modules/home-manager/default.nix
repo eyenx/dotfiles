@@ -91,7 +91,7 @@ in
                 };
 
                 font = {
-                  name = "EnvyCodeR Nerd Font";
+                  name = "Mononoki Nerd Font";
                   size = 10;
                 };
               };
@@ -122,19 +122,19 @@ in
                 enable = true;
                 defaultFonts = {
                   monospace = [
-                    "EnvyCodeR Nerd Font"
+                    "Mononoki Nerd Font"
                     "Noto Color Emoji"
                   ];
                   sansSerif = [
-                    "EnvyCodeR Nerd Font"
+                    "Mononoki Nerd Font"
                     "Noto Color Emoji"
                   ];
                   serif = [
-                    "EnvyCodeR Nerd Font"
+                    "Mononoki Nerd Font"
                     "Noto Color Emoji"
                   ];
                   emoji = [
-                    "EnvyCodeR Nerd Font"
+                    "Mononoki Nerd Font"
                     "Noto Color Emoji"
                   ];
                 };
