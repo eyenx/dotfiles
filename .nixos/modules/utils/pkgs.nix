@@ -96,6 +96,7 @@
       tmux
       unstable.tmuxinator
       wayneko
+      unstable.webdump
       wmenu
       windowtolayer
       zoxide
