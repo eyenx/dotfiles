@@ -39,6 +39,7 @@
         material-design-icons
         noto-fonts-emoji-blob-bin
         nerd-fonts.symbols-only
+        nerd-fonts.envy-code-r
       ];
     };
 

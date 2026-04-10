@@ -9,7 +9,7 @@ if [[ $1 == "-t" ]]; then
 	shift
 fi
 
-password=$(gopass ls --flat | wmenu -i -M '282828' -N '282828' -n '665c54' -S '282828' -s 'd4be98' -f 'Cozette 10')
+password=$(gopass ls --flat | wmenu -i -M '282828' -N '282828' -n '665c54' -S '282828' -s 'd4be98' -f '0xProto Nerd Font 9')
 
 [[ -n $password ]] || exit
 

@@ -42,7 +42,7 @@
   };
 
   config = {
-    eyenx.font = "Cozette";
+    eyenx.font = "EnvyCodeR Nerd Font";
     eyenx.persistence.enable = true;
   };
 }

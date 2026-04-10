@@ -52,13 +52,18 @@ in
               };
 
               xdg.desktopEntries = {
-                  wfica = {
-                    name = "Citrix Receiver Engine";
-                    type = "Application";
-                    exec = "/home/eye/bin/wfica";
-                    categories=["Application" "Network" "X-Red-Hat_Base" "X-SuSE-Core-Internet"];
-                    mimeType = ["application/x-ica"];
-                  };
+                wfica = {
+                  name = "Citrix Receiver Engine";
+                  type = "Application";
+                  exec = "/home/eye/bin/wfica";
+                  categories = [
+                    "Application"
+                    "Network"
+                    "X-Red-Hat_Base"
+                    "X-SuSE-Core-Internet"
+                  ];
+                  mimeType = [ "application/x-ica" ];
+                };
               };
               dconf = {
                 settings = {
@@ -86,7 +91,7 @@ in
                 };
 
                 font = {
-                  name = "CozetteVector";
+                  name = "EnvyCodeR Nerd Font";
                   size = 10;
                 };
               };
@@ -116,10 +121,22 @@ in
               fonts.fontconfig = {
                 enable = true;
                 defaultFonts = {
-                  monospace = ["Cozette" "Noto Color Emoji"];
-                  sansSerif = ["Cozette" "Noto Color Emoji"];
-                  serif = ["Cozette" "Noto Color Emoji"];
-                  emoji = ["Cozette" "Noto Color Emoji"];
+                  monospace = [
+                    "EnvyCodeR Nerd Font"
+                    "Noto Color Emoji"
+                  ];
+                  sansSerif = [
+                    "EnvyCodeR Nerd Font"
+                    "Noto Color Emoji"
+                  ];
+                  serif = [
+                    "EnvyCodeR Nerd Font"
+                    "Noto Color Emoji"
+                  ];
+                  emoji = [
+                    "EnvyCodeR Nerd Font"
+                    "Noto Color Emoji"
+                  ];
                 };
               };
               services.swayidle =
