@@ -26,5 +26,5 @@ alias dit='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 To rebuild the NixOS system:
 
 ```sh
-nixos-rebuild switch --flake ~/.nixos#
+nixos-rebuild switch --flake "/home/eye/.nixos#host" --impure --sudo
 ```
