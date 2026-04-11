@@ -73,7 +73,6 @@
         home-manager.nixosModules.home-manager
 
         ./modules
-        ./configuration.nix
       ];
     in
     {

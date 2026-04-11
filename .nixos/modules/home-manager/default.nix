@@ -10,23 +10,6 @@ in
 {
   config = lib.mkMerge [
     {
-      #eyenx.core.zfs = lib.mkMerge [
-      #  (lib.mkIf config.eyenx.persistence.enable {
-      #    homeCacheLinks = [
-      #      #   ".config"
-      #      ".cache"
-      #      # ".local"
-      #      ".claude"
-      #    ];
-      # homeCacheFileLinks = [".claude.json"];
-      #  })
-      #];
-    }
-    {
-      # environment.pathsToLink = [
-      #  "/share/applications"
-      #  "/share/xdg-desktop-portal"
-      #];
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
@@ -36,15 +19,6 @@ in
           "${user}" =
             { ... }:
             {
-              # Common config
-              imports = [
-                #   inputs.catppuccin.homeModules.catppuccin
-                #inputs.nix-colors.homeManagerModules.default
-                #inputs.zen-browser.homeModules.twilight-official
-              ];
-
-              #colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
-
               home = {
                 stateVersion = config.eyenx.stateVersion;
                 username = config.eyenx.user.name;
@@ -80,7 +54,6 @@ in
                 theme = {
                   name = "gruvbox";
                 };
-                # TODO to fix
                 cursorTheme = {
                   package = pkgs.openzone-cursors;
                   name = "Openzone";

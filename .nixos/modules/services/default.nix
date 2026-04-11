@@ -102,4 +102,53 @@ in
 
   # netbird
   services.netbird.enable = true;
+
+  # user services & timers
+  # TODO make this conifgurable through user.nix
+  systemd.user.services = {
+    fetchmail = {
+      enable = true;
+      description = "Fetch my mail with offlineimap";
+      after = [ "network.target" ];
+      path = [
+        pkgs.bash
+        pkgs.offlineimap
+        pkgs.bc
+        pkgs.notmuch
+        pkgs.lbdb
+        pkgs.oama
+        pkgs.gopass
+        pkgs.procps
+        pkgs.gawk
+      ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "/home/eye/bin/fetchmail.sh";
+        TimeoutStartSec = 300;
+      };
+    };
+    ydotoold = {
+      enable = true;
+      description = "An auto-input utility for wayland";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "/run/current-system/sw/bin/ydotoold --socket-path /run/user/1000/.ydotool_socket";
+      };
+
+      wantedBy = [ "default.target" ];
+    };
+  };
+
+  # user system timers
+  systemd.user.timers = {
+    fetchmail = {
+      enable = true;
+      description = "Fetch my mail with offlineimap";
+      after = [ "network.target" ];
+      timerConfig = {
+        OnCalendar = "*:0/15"; # every 15 minutes
+        Persistent = true;
+      };
+    };
+  };
 }

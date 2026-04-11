@@ -30,15 +30,6 @@
         description = "Prefix for persistent data storage";
       };
     };
-
-    # Stub for core namespace so that shared modules referencing
-    # `eyenx.core.*` options are accepted when running on platforms
-    # that do not import the Linux-specific ZFS module.
-    #eyenx.core = lib.mkOption {
-    #  type = lib.types.submodule { };
-    #  default = { };
-    #  description = "Namespace for Linux-only core settings. Empty on Darwin.";
-    #};
   };
 
   config = {

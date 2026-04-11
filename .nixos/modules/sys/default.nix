@@ -3,6 +3,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -10,19 +11,73 @@
     # Allow unfree because we're not free :(
     nixpkgs.config = {
       allowUnfree = true;
+      # TODO gomuks workaround
+      permittedInsecurePackages = [
+        "olm-3.2.16"
+      ];
+      allowUnfreePredicate =
+        pkg:
+        builtins.elem (lib.getName pkg) [
+          "claude-code"
+          "slack"
+        ];
     };
 
     # timezone
     time.timeZone = config.eyenx.timeZone;
 
+    # impersistence
+    # TODO make this optionals depending on config/os.nix
+    environment.persistence."/persist" = {
+      hideMounts = true;
+      directories = [
+        "/var/log"
+        "/var/lib/bluetooth"
+        "/var/lib/nixos"
+        "/var/lib/systemd/coredump"
+        "/var/lib/systemd/timers"
+        "/etc/NetworkManager/system-connections"
+        {
+          directory = "/var/lib/colord";
+          user = "colord";
+          group = "colord";
+          mode = "u=rwx,g=rx,o=";
+        }
+      ];
+      files = [
+        "/etc/machine-id"
+        "/etc/ssh/ssh_host_rsa_key"
+        "/etc/ssh/ssh_host_rsa_key.pub"
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_ed25519_key.pub"
+      ];
+    };
+
+    # locale
+    i18n.defaultLocale = config.eyenx.user.locale;
+
+    # polkit
+    security = {
+      polkit.enable = true;
+      pam.services.swaylock-plugin = { };
+    };
+
     # zsh everywhere
     programs.zsh.enable = true;
-    programs.nix-ld.enable = true;
     programs.gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
     };
     programs.niri.enable = true;
+
+    # nix-ld
+    # TODO matterhorn binary
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+      # matterhorn
+      gmp
+      libtinfo
+    ];
 
     environment.shells = with pkgs; [ zsh ];
     users.defaultUserShell = pkgs.zsh;
@@ -34,12 +89,10 @@
     fonts = {
       packages = with pkgs; [
         adwaita-fonts
-        cozette
         font-awesome
         material-design-icons
         noto-fonts-emoji-blob-bin
         nerd-fonts.symbols-only
-        nerd-fonts.envy-code-r
         nerd-fonts.mononoki
       ];
     };
