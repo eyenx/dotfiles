@@ -36,6 +36,7 @@
           settings = {
             editor = "nvim";
             git_protocol = "ssh";
+            telemetry = "disabled";
           };
         };
       };
