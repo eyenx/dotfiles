@@ -14,6 +14,7 @@
       # TODO gomuks workaround
       permittedInsecurePackages = [
         "olm-3.2.16"
+        "electron-39.8.10"
       ];
       allowUnfreePredicate =
         pkg:
@@ -34,6 +35,7 @@
         "/var/log"
         "/var/lib/bluetooth"
         "/var/lib/nixos"
+        "/var/lib/libvirt"
         "/var/lib/systemd/coredump"
         "/var/lib/systemd/timers"
         "/etc/NetworkManager/system-connections"

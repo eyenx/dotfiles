@@ -10,7 +10,7 @@ in
   # resolved
   services.resolved = {
     enable = true;
-    domains = [ "~." ];
+    settings.Resolve.Domains = [ "~." ];
   };
 
   # keyd

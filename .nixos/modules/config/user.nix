@@ -36,6 +36,12 @@
       description = "User home directory";
     };
 
+    configHome = lib.mkOption {
+      type = lib.types.str;
+      default = "/home/${config.eyenx.user.name}/.config";
+      description = "User XDG Config directory";
+    };
+
     devDir = lib.mkOption {
       type = lib.types.str;
       description = "Projects / Code directory";
@@ -82,6 +88,7 @@
           "dialout"
           "seat"
           "uinput"
+          "libvirtd"
         ];
       };
       groups.${config.eyenx.user.name} = { };

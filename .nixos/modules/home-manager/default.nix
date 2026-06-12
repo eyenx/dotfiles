@@ -25,18 +25,20 @@ in
                 homeDirectory = config.eyenx.user.homeDirectory;
               };
 
-              xdg.desktopEntries = {
-                wfica = {
-                  name = "Citrix Receiver Engine";
-                  type = "Application";
-                  exec = "/home/eye/bin/wfica";
-                  categories = [
-                    "Application"
-                    "Network"
-                    "X-Red-Hat_Base"
-                    "X-SuSE-Core-Internet"
-                  ];
-                  mimeType = [ "application/x-ica" ];
+              xdg = {
+                desktopEntries = {
+                  wfica = {
+                    name = "Citrix Receiver Engine";
+                    type = "Application";
+                    exec = "/home/eye/bin/wfica";
+                    categories = [
+                      "Application"
+                      "Network"
+                      "X-Red-Hat_Base"
+                      "X-SuSE-Core-Internet"
+                    ];
+                    mimeType = [ "application/x-ica" ];
+                  };
                 };
               };
               dconf = {
@@ -50,6 +52,7 @@ in
               };
 
               gtk = {
+                gtk4.theme = null;
                 enable = true;
                 theme = {
                   name = "gruvbox";
@@ -85,6 +88,7 @@ in
               programs.waybar.enable = true;
               programs.firefox = {
                 enable = true;
+                configPath = "${config.eyenx.user.configHome}/mozilla/firefox";
               };
               programs.direnv = {
                 enable = true;
@@ -129,12 +133,10 @@ in
                       command = lock;
                     }
                   ];
-                  events = [
-                    {
-                      event = "before-sleep";
-                      command = lock;
-                    }
-                  ];
+                  events = {
+                    "before-sleep" = "${pkgs.swaylock}/bin/swaylock -u -c 282828";
+                    "lock" = "lock";
+                  };
                 };
 
             };

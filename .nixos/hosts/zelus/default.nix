@@ -35,6 +35,11 @@ in
         dev = true;
       };
     };
+    virtualisation = {
+      hypervisor = {
+        enable = true;
+      };
+    };
     # dev = {};
     #graphical = {
     #  enable = true;
