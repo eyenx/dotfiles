@@ -27,3 +27,9 @@ profile {
   output DP-10 enable scale 1 mode 2560x1440 position 1920,0
   output DP-11 enable scale 1 mode 2560x1440 position 4480,0
 }
+
+profile {
+  output eDP-1 enable scale 1 mode 1920x1200 position 0,0
+  output DP-9 enable scale 1 mode 2560x1440 position 1920,0
+  output DP-11 enable scale 1 mode 2560x1440 position 4480,0
+}

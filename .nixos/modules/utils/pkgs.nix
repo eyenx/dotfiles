@@ -36,7 +36,6 @@
       chart-testing
       chromium
       cilium-cli
-      claude-code
       clipse
       comma
       cosign

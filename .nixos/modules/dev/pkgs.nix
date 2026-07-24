@@ -101,8 +101,9 @@
           (lib.optionals config.eyenx.devpkgs.tools.database [ postgresql ])
           # Security Tools
           (lib.optionals config.eyenx.devpkgs.tools.ai [
-            opencode
+            claude-code
             shell-gpt
+            pi-coding-agent
           ])
         ];
     };
