@@ -45,7 +45,6 @@
       home-manager,
       impermanence,
       sops-nix,
-      niri-scratchpad,
       ...
     }@inputs:
     let
@@ -73,9 +72,10 @@
           {
             nixpkgs = {
               overlays = [
-                (import ./overlays { inherit inputs; }).additions
-                (import ./overlays { inherit inputs; }).unstable-packages
-                (import ./overlays { inherit inputs; }).force-latest
+                (import ./overlays { inherit inputs pkgs; }).additions
+                (import ./overlays { inherit inputs pkgs; }).unstable-packages
+                (import ./overlays { inherit inputs pkgs; }).force-latest
+                (import ./overlays { inherit inputs pkgs; }).niri-scratchpad
               ];
             };
           }
@@ -83,7 +83,6 @@
         sops-nix.nixosModules.sops
         impermanence.nixosModule
         home-manager.nixosModules.home-manager
-
         ./modules
       ];
     in

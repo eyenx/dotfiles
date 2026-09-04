@@ -1,8 +1,11 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   additions = final: prev: import ../pkgs { pkgs = final; };
   unstable-packages = final: prev: {
     unstable = import inputs.nixpkgs-unstable { system = prev.stdenv.hostPlatform.system; };
+  };
+  niri-scratchpad = final: prev: {
+    niri-scratchpad = inputs.niri-scratchpad.packages.${pkgs.system}.default;
   };
 
   force-latest =

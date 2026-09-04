@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   pkgs,
   ...
 }:
@@ -17,6 +16,7 @@
       gtk4
       gtk-engine-murrine
       htop
+      niri-scratchpad
       vim
       unzip
       wget
@@ -25,7 +25,6 @@
       xwayland-satellite
       wl-clipboard
       zip
-      inputs.niri-scratchpad.packages.${pkgs.system}.default
     ];
     home-manager.users.${config.eyenx.user.name}.home.packages = with pkgs; [
       age
