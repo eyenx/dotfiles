@@ -16,6 +16,9 @@ input {
     }
 }
 
+// used for scratchpad
+workspace "stash" {}
+
 layout {
     gaps 0
     center-focused-column "never"
@@ -69,7 +72,6 @@ window-rule {
     open-floating true
 }
 
-
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
@@ -88,6 +90,8 @@ binds {
     Mod+Shift+U { spawn-sh "~/bin/wmtotp -t"; }
     Mod+Ctrl+V { spawn-sh "sleep .5 ; wl-paste --no-newline | ydotool type --file -"; }
 
+    // scratchpads
+    Mod+T { spawn "niri-scratchpad" "target" "appid" "Logseq"; }
 
     // Mediakeys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

@@ -24,6 +24,17 @@
     nixos-hw = {
       url = "github:NixOS/nixos-hardware/master";
     };
+
+    niri-scratchpad = {
+      url = "github:argosnothing/niri-scratchpad-rs";
+    };
+
+    #    nixos-private = {
+    #      url = "git+ssh://git@github.com/eyenx/nixos-private.git";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
+
+    # wazuh-agent.url = "git+https://github.com/nealfennimore/wazuh-agent-nixos";
   };
   outputs =
     {
@@ -34,6 +45,7 @@
       home-manager,
       impermanence,
       sops-nix,
+      niri-scratchpad,
       ...
     }@inputs:
     let
