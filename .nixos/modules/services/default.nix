@@ -67,7 +67,17 @@ in
   # cups
   services.printing = {
     enable = true;
-    drivers = [ pkgs.hplipWithPlugin ];
+    drivers = [
+      pkgs.hplipWithPlugin
+      pkgs.epson-escpr
+    ];
+  };
+
+  # avahi
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
   };
 
   # pipewire

@@ -16,7 +16,7 @@
       gtk4
       gtk-engine-murrine
       htop
-      niri-scratchpad
+      #niri-scratchpad
       vim
       unzip
       wget

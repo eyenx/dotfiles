@@ -29,12 +29,11 @@
       url = "github:argosnothing/niri-scratchpad-rs";
     };
 
-    #    nixos-private = {
-    #      url = "git+ssh://git@github.com/eyenx/nixos-private.git";
-    #      inputs.nixpkgs.follows = "nixpkgs";
-    #    };
+    nixos-private = {
+      url = "git+ssh://git@github.com/eyenx/nixos-private.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # wazuh-agent.url = "git+https://github.com/nealfennimore/wazuh-agent-nixos";
   };
   outputs =
     {
@@ -45,6 +44,7 @@
       home-manager,
       impermanence,
       sops-nix,
+      nixos-private,
       ...
     }@inputs:
     let
@@ -83,6 +83,7 @@
         sops-nix.nixosModules.sops
         impermanence.nixosModule
         home-manager.nixosModules.home-manager
+        nixos-private.nixosModules.default
         ./modules
       ];
     in
