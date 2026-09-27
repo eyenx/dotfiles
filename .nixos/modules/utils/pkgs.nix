@@ -48,7 +48,6 @@
       dust
       fahrplan
       fd
-      firefox
       fzf
       kanshi
       keyd
