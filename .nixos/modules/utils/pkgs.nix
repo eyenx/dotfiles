@@ -16,6 +16,7 @@
       gtk4
       gtk-engine-murrine
       htop
+      niri-scratchpad
       vim
       unzip
       wget
@@ -47,7 +48,6 @@
       dust
       fahrplan
       fd
-      firefox
       fzf
       kanshi
       keyd

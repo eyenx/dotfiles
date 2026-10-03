@@ -24,6 +24,16 @@
     nixos-hw = {
       url = "github:NixOS/nixos-hardware/master";
     };
+
+    niri-scratchpad = {
+      url = "github:argosnothing/niri-scratchpad-rs";
+    };
+
+    nixos-private = {
+      url = "git+ssh://git@github.com/eyenx/nixos-private.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   outputs =
     {
@@ -34,6 +44,7 @@
       home-manager,
       impermanence,
       sops-nix,
+      nixos-private,
       ...
     }@inputs:
     let
@@ -46,8 +57,6 @@
           lib = nixpkgs.lib;
         }) nixpkgs.lib;
 
-      # TODO
-      privModules = [ ];
       modules = [
         (
           {
@@ -61,9 +70,10 @@
           {
             nixpkgs = {
               overlays = [
-                (import ./overlays { inherit inputs; }).additions
-                (import ./overlays { inherit inputs; }).unstable-packages
-                (import ./overlays { inherit inputs; }).force-latest
+                (import ./overlays { inherit inputs pkgs; }).additions
+                (import ./overlays { inherit inputs pkgs; }).unstable-packages
+                (import ./overlays { inherit inputs pkgs; }).force-latest
+                (import ./overlays { inherit inputs pkgs; }).niri-scratchpad
               ];
             };
           }
@@ -71,7 +81,7 @@
         sops-nix.nixosModules.sops
         impermanence.nixosModule
         home-manager.nixosModules.home-manager
-
+        nixos-private.nixosModules.default
         ./modules
       ];
     in
@@ -103,7 +113,7 @@
             inherit inputs outputs;
             lib = lib "x86_64-linux";
           };
-          modules = privModules ++ modules ++ [ ./hosts/zelus/default.nix ];
+          modules = modules ++ [ ./hosts/zelus/default.nix ];
         };
       };
     };
