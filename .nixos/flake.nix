@@ -57,8 +57,6 @@
           lib = nixpkgs.lib;
         }) nixpkgs.lib;
 
-      # TODO
-      privModules = [ ];
       modules = [
         (
           {
@@ -115,7 +113,7 @@
             inherit inputs outputs;
             lib = lib "x86_64-linux";
           };
-          modules = privModules ++ modules ++ [ ./hosts/zelus/default.nix ];
+          modules = modules ++ [ ./hosts/zelus/default.nix ];
         };
       };
     };
