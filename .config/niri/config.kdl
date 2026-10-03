@@ -17,10 +17,7 @@ input {
 }
 
 // used for scratchpad
-//workspace "s"
-//workspace "3"
-//workspace "2"
-//workspace "1"
+workspace "stash" {}
 
 layout {
     gaps 0
