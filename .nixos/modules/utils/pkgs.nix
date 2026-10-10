@@ -36,7 +36,7 @@
       chart-testing
       chromium
       cilium-cli
-      clipse
+      unstable.clipse
       comma
       cosign
       difftastic
