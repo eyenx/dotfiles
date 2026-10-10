@@ -16,9 +16,6 @@ input {
     }
 }
 
-// used for scratchpad
-workspace "stash" {}
-
 layout {
     gaps 0
     center-focused-column "never"

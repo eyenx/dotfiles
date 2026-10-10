@@ -102,6 +102,8 @@
           # Security Tools
           (lib.optionals config.eyenx.devpkgs.tools.ai [
             claude-code
+            codex
+            gemini-cli
             shell-gpt
             pi-coding-agent
           ])
