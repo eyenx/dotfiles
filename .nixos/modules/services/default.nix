@@ -120,6 +120,7 @@ in
       enable = true;
       description = "Fetch my mail with offlineimap";
       after = [ "network.target" ];
+      unitConfig.ConditionUser = "eye";
       path = [
         pkgs.bash
         pkgs.offlineimap
@@ -131,6 +132,7 @@ in
         pkgs.procps
         pkgs.gawk
       ];
+      wantedBy = [ "default.target" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "/home/eye/bin/fetchmail.sh";
@@ -155,6 +157,7 @@ in
       enable = true;
       description = "Fetch my mail with offlineimap";
       after = [ "network.target" ];
+      wantedBy = [ "default.target" ];
       timerConfig = {
         OnCalendar = "*:0/15"; # every 15 minutes
         Persistent = true;
