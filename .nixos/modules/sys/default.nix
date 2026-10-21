@@ -59,10 +59,14 @@
     # locale
     i18n.defaultLocale = config.eyenx.user.locale;
 
-    # polkit
+    # security
     security = {
       polkit.enable = true;
       pam.services.swaylock-plugin = { };
+      pki.caCertificateBlacklist = [
+        "Comodo AAA Services root"
+        "emSign ECC Root CA - G3"
+      ];
     };
 
     # zsh everywhere
